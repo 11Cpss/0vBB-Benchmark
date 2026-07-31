@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local data and generated artifacts
+data/raw/
+data/processed/
+outputs/
+tmp/
+
+# Personal/non-project files
+resume_jaden_wu_ds_ml.tex
+
+# Large scientific data files
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.root
+*.tar
+*.tar.gz
+*.zip
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
