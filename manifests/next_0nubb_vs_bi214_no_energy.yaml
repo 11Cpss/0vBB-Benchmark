@@ -1,0 +1,58 @@
+schema_version: 1
+task_id: next-0nubb-vs-bi214-inclusive-only
+# Template only: pass a run-specific --model-id when evaluating.
+model_id: next-simple-cnn-template
+
+dataset:
+  experiment: NEXT
+  dataset_id: zeronu-benchmark-next
+  dataset_version: zenodo-18927784-v1.0-tarset-0b57f1a2c33c
+  archive_checksum_manifest: manifests/next_archives.sha256
+  archive_checksum_manifest_sha256: 0b57f1a2c33cdbe8525413d8d8cbfd3725d1d525644d056bc65f87654e8c96e3
+  extracted_inventory_sha256: 992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517
+  split: test
+  selection_split: validation
+  energy_condition_kind: not_applicable
+  energy_target_kind: not_applicable
+  energy_unit: not_applicable
+
+columns:
+  event_id: event_id
+  label: label
+  score: score
+  energy_condition: null
+  energy_true: null
+  energy_pred: null
+  category: category
+  sample_weight: sample_weight
+  group_id: group_id
+  split: split
+
+classification:
+  enabled: true
+  positive_label: "1"
+  signal_categories: [0nubb]
+  background_categories: [Bi214]
+  pair_mode: pooled
+  score_direction: higher
+  score_space: logit
+  energy_bins: 6
+  matching_target: overlap
+  min_per_class: 20
+  min_valid_bins: 2
+  min_coverage: 0.5
+  support_trim_quantile: 0.005
+  target_tpr: 0.90
+  bootstrap: 0
+  confidence: 0.95
+
+regression:
+  enabled: false
+  bootstrap: 0
+
+dependence:
+  enabled: false
+
+runtime:
+  seed: 42
+  make_plots: true

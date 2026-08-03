@@ -1,0 +1,4 @@
+# RTX 50-series / Blackwell build for the local NVIDIA 575 driver.
+# Install this file with Python 3.9+; this project uses Python 3.11.
+--index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0

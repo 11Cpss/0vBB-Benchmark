@@ -1,0 +1,2020 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "CNN-001 Energy Regression Diagnosis",
+    "description": "Technical diagnosis of the 50-epoch CNN-001 energy regression run and the paired CNN-002 remediation.",
+    "generatedAt": "2026-08-02T19:29:53Z",
+    "cards": [
+      {
+        "id": "cnn_r2",
+        "description": "Best validation R-squared from the 50-epoch CNN-001 regression run.",
+        "dataset": "summary",
+        "sourceId": "checkpoint_replay",
+        "metrics": [
+          {
+            "label": "CNN-001 validation R²",
+            "field": "cnn_validation_r2_display"
+          },
+          {
+            "label": "Selected epoch",
+            "field": "best_epoch",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "cnn_rmse",
+        "description": "Physical validation RMSE and relative improvement over the training-mean baseline.",
+        "dataset": "summary",
+        "sourceId": "checkpoint_replay",
+        "metrics": [
+          {
+            "label": "CNN-001 RMSE (MeV)",
+            "field": "cnn_validation_rmse_display"
+          },
+          {
+            "label": "RMSE improvement vs constant",
+            "field": "rmse_improvement_fraction",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "direct_sum",
+        "description": "Validation R-squared from summing raw projection pixels instead of using the CNN.",
+        "dataset": "summary",
+        "sourceId": "checkpoint_replay",
+        "metrics": [
+          {
+            "label": "Direct-sum R²",
+            "field": "direct_sum_r2_display"
+          },
+          {
+            "label": "Direct-sum RMSE (MeV)",
+            "field": "direct_sum_rmse_display"
+          }
+        ]
+      },
+      {
+        "id": "classification_auc",
+        "description": "Classification control showing that CNN-001 learns morphology successfully.",
+        "dataset": "summary",
+        "sourceId": "classification_run_log",
+        "metrics": [
+          {
+            "label": "Classification validation AUC",
+            "field": "classification_auc_display"
+          }
+        ]
+      },
+      {
+        "id": "cnn002_best_rmse",
+        "description": "Best validation RMSE from the partial 37-of-50-epoch CNN-002 full-data run; selected at epoch 25.",
+        "dataset": "summary",
+        "sourceId": "cnn002_checkpoint_audit",
+        "metrics": [
+          {
+            "label": "CNN-002 best RMSE",
+            "field": "cnn002_best_rmse_display"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "epoch_r2",
+        "title": "Train and validation R² by epoch",
+        "subtitle": "Both series stay close to zero; the lowest validation loss occurs at epoch 23.",
+        "type": "line",
+        "dataset": "epoch_metrics",
+        "sourceId": "regression_run_log",
+        "encodings": {
+          "x": {
+            "field": "epoch",
+            "type": "quantitative",
+            "label": "Epoch"
+          },
+          "y": {
+            "field": "r2",
+            "type": "quantitative",
+            "label": "R²"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "Split"
+          },
+          "tooltip": [
+            {
+              "field": "epoch",
+              "type": "quantitative",
+              "label": "Epoch"
+            },
+            {
+              "field": "series",
+              "type": "nominal",
+              "label": "Split"
+            },
+            {
+              "field": "r2",
+              "type": "quantitative",
+              "label": "R²"
+            },
+            {
+              "field": "loss",
+              "type": "quantitative",
+              "label": "Loss"
+            },
+            {
+              "field": "rmse_mev",
+              "type": "quantitative",
+              "label": "RMSE (MeV)"
+            }
+          ]
+        },
+        "xAxisTitle": "Epoch",
+        "yAxisTitle": "R²",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 100
+      },
+      {
+        "id": "predictor_r2",
+        "title": "Validation R² by predictor",
+        "subtitle": "The deterministic pixel sum contains the target signal that CNN-001 fails to preserve.",
+        "type": "bar",
+        "dataset": "predictor_benchmarks",
+        "sourceId": "checkpoint_replay",
+        "encodings": {
+          "x": {
+            "field": "predictor",
+            "type": "nominal",
+            "label": "Predictor"
+          },
+          "y": {
+            "field": "r2",
+            "type": "quantitative",
+            "label": "R²"
+          },
+          "color": {
+            "field": "kind",
+            "type": "nominal",
+            "label": "Predictor type"
+          },
+          "tooltip": [
+            {
+              "field": "predictor",
+              "type": "nominal",
+              "label": "Predictor"
+            },
+            {
+              "field": "r2",
+              "type": "quantitative",
+              "label": "R²"
+            },
+            {
+              "field": "rmse_mev",
+              "type": "quantitative",
+              "label": "RMSE (MeV)"
+            },
+            {
+              "field": "mae_mev",
+              "type": "quantitative",
+              "label": "MAE (MeV)"
+            }
+          ]
+        },
+        "xAxisTitle": "Predictor",
+        "yAxisTitle": "Validation R²",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 3
+      },
+      {
+        "id": "cnn002_validation_rmse",
+        "title": "CNN-002 validation RMSE by epoch",
+        "subtitle": "Partial 37/50-epoch full-data run; scale is 10⁻⁶ MeV and the minimum occurs at epoch 25.",
+        "type": "line",
+        "dataset": "cnn002_epoch_metrics",
+        "sourceId": "cnn002_partial_run_log",
+        "question": "Does continued residual training materially improve the already analytical energy-sum baseline?",
+        "rationale": "A line chart exposes micro-scale validation jitter across 37 ordered epochs that terminal rounding hides.",
+        "encodings": {
+          "x": {
+            "field": "epoch",
+            "type": "quantitative",
+            "label": "Epoch"
+          },
+          "y": {
+            "field": "validation_rmse_x1e6_mev",
+            "type": "quantitative",
+            "label": "RMSE (10⁻⁶ MeV)"
+          },
+          "tooltip": [
+            {
+              "field": "epoch",
+              "type": "quantitative",
+              "label": "Epoch"
+            },
+            {
+              "field": "validation_rmse_x1e6_mev",
+              "type": "quantitative",
+              "label": "RMSE (10⁻⁶ MeV)"
+            },
+            {
+              "field": "validation_mae_x1e6_mev",
+              "type": "quantitative",
+              "label": "MAE (10⁻⁶ MeV)"
+            },
+            {
+              "field": "validation_energy_r2",
+              "type": "quantitative",
+              "label": "R²"
+            },
+            {
+              "field": "checkpoint_improved",
+              "type": "quantitative",
+              "label": "New best flag"
+            }
+          ]
+        },
+        "xAxisTitle": "Epoch",
+        "yAxisTitle": "Validation RMSE (10⁻⁶ MeV)",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 37
+      }
+    ],
+    "tables": [
+      {
+        "id": "predictor_comparison",
+        "title": "Validation predictor comparison",
+        "subtitle": "All metrics use the same 16,786 validation events.",
+        "dataset": "predictor_benchmarks",
+        "sourceId": "checkpoint_replay",
+        "density": "comfortable",
+        "layout": "full",
+        "defaultSort": {
+          "field": "r2_display",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "predictor",
+            "label": "Predictor",
+            "type": "text"
+          },
+          {
+            "field": "kind",
+            "label": "Type",
+            "type": "text"
+          },
+          {
+            "field": "mae_display",
+            "label": "MAE (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "rmse_display",
+            "label": "RMSE (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "bias_display",
+            "label": "Bias (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "r2_display",
+            "label": "R²",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "prediction_std_display",
+            "label": "Prediction σ (MeV)",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "class_diagnostics",
+        "title": "Within-class energy sensitivity",
+        "subtitle": "Near-zero correlations show that aggregate correlation is largely class-related.",
+        "dataset": "class_diagnostics",
+        "sourceId": "checkpoint_replay",
+        "density": "comfortable",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "class_label",
+            "label": "Class",
+            "type": "text"
+          },
+          {
+            "field": "events",
+            "label": "Events",
+            "type": "number",
+            "format": "number",
+            "align": "right"
+          },
+          {
+            "field": "within_class_pearson_display",
+            "label": "Within-class Pearson",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "target_std_display",
+            "label": "Target σ (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "prediction_std_display",
+            "label": "Prediction σ (MeV)",
+            "type": "text",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "architecture_comparison",
+        "title": "Paired architecture definition",
+        "subtitle": "CNN-002 adds three parameters while preserving the CNN-001 topology branch.",
+        "dataset": "architecture",
+        "sourceId": "paired_model_source",
+        "density": "comfortable",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "architecture",
+            "label": "Architecture",
+            "type": "text"
+          },
+          {
+            "field": "convolution_branch",
+            "label": "Convolution branch",
+            "type": "text"
+          },
+          {
+            "field": "global_energy_path",
+            "label": "Global energy path",
+            "type": "text"
+          },
+          {
+            "field": "scalar_head_inputs",
+            "label": "Head inputs",
+            "type": "number",
+            "format": "number",
+            "align": "right"
+          },
+          {
+            "field": "trainable_parameters",
+            "label": "Parameters",
+            "type": "number",
+            "format": "number",
+            "align": "right"
+          },
+          {
+            "field": "role",
+            "label": "Role",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "cnn002_checkpoint_table",
+        "title": "CNN-002 checkpoint comparison",
+        "subtitle": "Exact validation metrics on 16,786 events; all projection coverage is 1.0.",
+        "dataset": "cnn002_checkpoint_comparison",
+        "sourceId": "cnn002_checkpoint_audit",
+        "density": "comfortable",
+        "layout": "full",
+        "defaultSort": {
+          "field": "epoch",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "checkpoint_state",
+            "label": "State",
+            "type": "text"
+          },
+          {
+            "field": "epoch",
+            "label": "Epoch",
+            "type": "number",
+            "format": "number",
+            "align": "right"
+          },
+          {
+            "field": "mae_display",
+            "label": "MAE (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "rmse_display",
+            "label": "RMSE (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "bias_display",
+            "label": "Bias (MeV)",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "r2_display",
+            "label": "R²",
+            "type": "text",
+            "align": "right"
+          },
+          {
+            "field": "interpretation",
+            "label": "Interpretation",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "regression_run_log",
+        "label": "CNN-001 50-epoch regression validation log",
+        "path": "03_training_runs/logs/cnn_001_two_conv_baseline_energy_regression_run2_validation_metrics_20260801_204218.csv",
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT epoch, series, r2, loss, mae_mev, rmse_mev, bias_mev, learning_rate, checkpoint_improved FROM snapshot.epoch_metrics ORDER BY epoch, series",
+          "description": "Reviewed train and validation epoch metrics from the saved CNN-001 regression run.",
+          "executed_at": "2026-08-02T04:21:33Z",
+          "tables_used": [
+            "snapshot.epoch_metrics"
+          ]
+        }
+      },
+      {
+        "id": "checkpoint_replay",
+        "label": "Executed CNN-001 regression diagnostic notebook",
+        "path": "05_reports/cnn_001_regression_diagnosis_20260801/analysis.ipynb",
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT predictor, kind, mae_mev, rmse_mev, bias_mev, r2, prediction_std_mev FROM snapshot.predictor_benchmarks ORDER BY r2 DESC",
+          "description": "Checkpoint replay and independent baseline metrics computed in the executed diagnostic notebook.",
+          "executed_at": "2026-08-02T04:21:33Z",
+          "tables_used": [
+            "snapshot.predictor_benchmarks",
+            "snapshot.summary",
+            "snapshot.class_diagnostics"
+          ]
+        }
+      },
+      {
+        "id": "classification_run_log",
+        "label": "CNN-001 50-epoch classification validation log",
+        "path": "03_training_runs/logs/cnn_001_two_conv_baseline_classification_run2_validation_metrics_20260801_204055.csv",
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT classification_auc FROM snapshot.summary",
+          "description": "Best validation AUC from the paired CNN-001 classification control run.",
+          "executed_at": "2026-08-02T04:21:33Z",
+          "tables_used": [
+            "snapshot.summary"
+          ]
+        }
+      },
+      {
+        "id": "paired_model_source",
+        "label": "Paired CNN model implementation",
+        "path": "src/next_cnn/model.py",
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT architecture, convolution_branch, global_energy_path, scalar_head_inputs, trainable_parameters, role FROM snapshot.architecture",
+          "description": "Reviewed parameter and topology definitions for CNN-001 and CNN-002.",
+          "executed_at": "2026-08-02T04:21:33Z",
+          "tables_used": [
+            "snapshot.architecture"
+          ]
+        }
+      },
+      {
+        "id": "cnn002_partial_run_log",
+        "label": "CNN-002 full-data regression log (partial 37/50 epochs)",
+        "path": "03_training_runs/logs/cnn_002_global_energy_skip_energy_regression_validation_metrics_20260802_120602.csv",
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT epoch, validation_loss, validation_mae_mev, validation_rmse_mev, validation_bias_mev, validation_r2, train_energy_rmse_mev, checkpoint_improved FROM snapshot.cnn002_epoch_metrics ORDER BY epoch",
+          "description": "Reviewed epoch metrics from the interrupted CNN-002 full-data regression run.",
+          "executed_at": "2026-08-02T19:29:53Z",
+          "tables_used": [
+            "snapshot.cnn002_epoch_metrics"
+          ],
+          "filters": {
+            "run_id": "20260802_120602",
+            "epochs_observed": "1-37 of 50",
+            "validation_events_per_epoch": 16786
+          },
+          "metric_definitions": {
+            "validation_rmse_mev": "Square root of mean squared physical-energy error over 16,786 validation events, in MeV.",
+            "validation_r2": "1 minus residual sum of squares divided by validation-target total sum of squares."
+          }
+        }
+      },
+      {
+        "id": "cnn002_checkpoint_audit",
+        "label": "CNN-002 epoch-0, best, and last checkpoint audit",
+        "path": "02_models/checkpoints/NEXTCNN_cnn_002_global_energy_skip_energy_regression_best.pt",
+        "relatedPaths": [
+          "02_models/checkpoints/NEXTCNN_cnn_002_global_energy_skip_energy_regression_last.pt"
+        ],
+        "query": {
+          "engine": "snapshot",
+          "sql": "SELECT checkpoint_state, epoch, loss, mae_mev, rmse_mev, bias_mev, r2, events, projection_coverage FROM snapshot.cnn002_checkpoint_comparison ORDER BY epoch",
+          "description": "Exact saved metrics for the analytical epoch-0 baseline, selected epoch-25 checkpoint, and epoch-37 last checkpoint.",
+          "executed_at": "2026-08-02T19:29:53Z",
+          "tables_used": [
+            "snapshot.cnn002_checkpoint_comparison"
+          ],
+          "filters": {
+            "validation_events": 16786,
+            "projection_coverage": 1.0,
+            "amp_skipped_steps": 0
+          }
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# CNN-001 Energy Regression Diagnosis"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## Technical Summary\n\n**Verdict: the dominant failure is architectural, not the Smooth-L1 loss.** The best CNN-001 checkpoint is epoch 23 with validation R² **0.0530**, RMSE **0.010301 MeV**, and MAE **0.008332 MeV**. A training-mean constant has RMSE **0.010587 MeV**, so the 50-epoch CNN improves RMSE by only **2.70%**. In contrast, summing the same raw projection pixels gives R² **0.999999988** and RMSE **1.18×10⁻⁶ MeV**.\n\n**CNN-002 full-data confirmation (partial 37/50 epochs):** the best saved state is epoch 25 with RMSE **5.875×10⁻⁷ MeV** and R² **0.9999999969**. The console values `0.0000` and `1.0000` are formatting round-off, not mathematically zero error. This confirms the global-sum data-flow solution rather than demonstrating independent learned energy reconstruction."
+      },
+      {
+        "id": "metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "cnn_r2",
+          "cnn_rmse",
+          "direct_sum",
+          "cnn002_best_rmse",
+          "classification_auc"
+        ]
+      },
+      {
+        "id": "key_findings",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Key Findings\n\n1. **Severe underfitting:** train and validation R² are both low, so the main problem is not a large generalization gap.\n2. **Prediction collapse:** CNN prediction σ is **0.002237 MeV**, only **21.1%** of target σ; calibration slope is **0.051**.\n3. **The signal is present:** all **16,786** validation events have projection coverage 1.0, and each view sum divided by 40 reconstructs event energy.\n4. **Loss compatibility:** the direct-sum predictor has essentially zero standardized Smooth-L1 loss. The objective can represent the correct solution.\n5. **Weak amplitude response:** a +0.5% global input scaling produces only about **0.74%** of the ideal energy response."
+      },
+      {
+        "id": "r2_chart",
+        "type": "chart",
+        "chartId": "epoch_r2",
+        "layout": "full"
+      },
+      {
+        "id": "predictor_chart",
+        "type": "chart",
+        "chartId": "predictor_r2",
+        "layout": "full"
+      },
+      {
+        "id": "predictor_table",
+        "type": "table",
+        "tableId": "predictor_comparison",
+        "layout": "full"
+      },
+      {
+        "id": "classification_control",
+        "type": "markdown",
+        "sourceId": "classification_run_log",
+        "body": "### Classification control\n\nThe paired CNN-001 classification run reaches validation AUC **0.898918** after 50 epochs. This is strong evidence that the small network can learn normalized event morphology even though it cannot preserve total energy amplitude."
+      },
+      {
+        "id": "class_table",
+        "type": "table",
+        "tableId": "class_diagnostics",
+        "layout": "full"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Scope, Data, and Metric Definitions\n\nThe analysis covers the saved 50-epoch CNN-001 regression run dated **2026-08-01**. The replay population contains 16,786 file-level validation events from 200 HDF5 files. Regression inputs are three raw-energy XY/XZ/YZ projections of shape 128×128, each multiplied by 40. The target is the float64 sum of voxel-deposited energy per event in MeV. Targets are standardized with training-only mean **2.453058454 MeV** and population σ **0.010500112 MeV**. R², MAE, RMSE, and bias are computed after converting predictions back to MeV."
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Methodology\n\nThe executed notebook reads the complete epoch CSV, loads the saved epoch-23 checkpoint, reconstructs the checkpoint's exact validation file selection, and replays inference in BF16 autocast. It independently recomputes three predictors on the same events: the training-mean constant, CNN-001, and the mean of the three raw view sums divided by the saved input scale. It also checks coverage, calibration, prediction variance, within-class correlations, standardized loss behavior, and a controlled global-scaling probe."
+      },
+      {
+        "id": "loss_assessment",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Loss-Function Assessment\n\nSmooth-L1 is not the primary blocker. About **32.2%** of CNN errors exceed one target standard deviation, so MSE could put more weight on large residuals and may change optimization modestly. However, changing loss cannot recover additive amplitude that pooling discarded. Checkpoint selection is also consistent: validation loss, MAE, RMSE, and R² all favor epoch 23. BF16 versus FP32 replay changes R² only at the fourth decimal scale, ruling out mixed precision as the main cause."
+      },
+      {
+        "id": "architecture_recommendation",
+        "type": "markdown",
+        "sourceId": "paired_model_source",
+        "body": "## Recommended Architecture\n\nCNN-002 keeps the CNN-001 Conv/ReLU/MaxPool topology branch and adds three FP32 global view sums. These standardized sums are concatenated with the 16 topology features, and their mean is added as a physical skip around a zero-initialized residual correction head. For base width C, the parameter count is `18C² + 32C + 4`; at C=8 this is **1,412 parameters**, only three more than CNN-001. Both classification and regression programs instantiate this exact topology."
+      },
+      {
+        "id": "architecture_table",
+        "type": "table",
+        "tableId": "architecture_comparison",
+        "layout": "full"
+      },
+      {
+        "id": "cnn002_partial_summary",
+        "type": "markdown",
+        "body": "## CNN-002 Confirms the Conservation Baseline — Partial Run\n\nThe planned 50-epoch run stopped after **epoch 37**; no training process remains, so this must not be reported as a completed 50-epoch experiment. Exact logs show the best checkpoint at **epoch 25**: validation loss **1.5403×10⁻⁹**, MAE **4.636×10⁻⁷ MeV**, RMSE **5.875×10⁻⁷ MeV**, and R² **0.9999999969**. Epoch 37 remains near-exact but is worse (RMSE **1.365×10⁻⁶ MeV**), demonstrating that continued residual training mostly jitters at numerical-error scale. Use `best.pt`, not `last.pt`."
+      },
+      {
+        "id": "cnn002_rmse_chart",
+        "type": "chart",
+        "chartId": "cnn002_validation_rmse",
+        "layout": "full"
+      },
+      {
+        "id": "cnn002_checkpoint_table_block",
+        "type": "table",
+        "tableId": "cnn002_checkpoint_table",
+        "layout": "full"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Limitations and Robustness\n\nThe most important limitation is conceptual: `energy_target` is the sum of the same voxel energies used as raw projection weights. With coverage 1.0, a global image sum is therefore an almost tautological answer. CNN-002 is a valid conservation and data-flow baseline, but its near-perfect score is not independent evidence of detector energy reconstruction. The replay verifies the saved validation split and full event population; smoke metrics for CNN-002 are workflow checks, not a replacement for a controlled full classification run."
+      },
+      {
+        "id": "validation_assessment",
+        "type": "markdown",
+        "sourceId": "checkpoint_replay",
+        "body": "## Validation Assessment\n\n**Ready to share with the stated scientific caveat.** Headline metrics were independently replayed from the best checkpoint, reconciled to the saved epoch log, and compared on one fixed validation population. The architecture conclusion is robust to loss selection and precision checks. Interpretation of CNN-002 must remain limited to energy conservation unless the input/target contract changes."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## Recommended Next Steps\n\n1. Use CNN-002 as the paired classification/regression energy-conservation baseline; keep CNN-001 unchanged for reproducibility.\n2. Run a full CNN-002 classification experiment with the same data inventory, split, optimizer, and 50-epoch budget before comparing AUC.\n3. Do not spend a long regression run solely to prove the explicit sum path; epoch-0 validation already captures its deterministic baseline, while later training tests only the residual correction.\n4. For meaningful architecture exploration, redefine the regression input as noisy or detector-level response and retain deposited/true energy as an independent target."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Further Questions\n\n- Is the intended scientific target calorimetric energy conservation, or inference of hidden true energy from detector response?\n- Should incomplete projection coverage be simulated so the residual CNN has a non-trivial correction task?\n- Which detector effects—noise, thresholds, saturation, diffusion, or calibration drift—should enter the next benchmark?\n- Should future architecture comparisons report both the deterministic sum baseline and residual error beyond that baseline?"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-02T19:29:53Z",
+    "status": "ready",
+    "datasets": {
+      "summary": [
+        {
+          "best_epoch": 23,
+          "cnn_validation_loss": 0.4177521194183655,
+          "cnn_validation_r2": 0.0530010426501,
+          "cnn_validation_r2_display": "0.053001",
+          "cnn_validation_rmse_mev": 0.0103009947385,
+          "cnn_validation_rmse_display": "0.010301 MeV",
+          "cnn_validation_mae_mev": 0.00833224798637,
+          "constant_rmse_mev": 0.0105865943996,
+          "rmse_improvement_fraction": 0.026977482117458984,
+          "direct_sum_r2": 0.999999987548,
+          "direct_sum_r2_display": "0.999999988",
+          "direct_sum_rmse_mev": 0.00000118117852386,
+          "direct_sum_rmse_display": "1.18 × 10⁻⁶ MeV",
+          "prediction_target_std_ratio": 0.211343,
+          "classification_auc": 0.8989175681895105,
+          "classification_auc_display": "0.898918",
+          "validation_events": 16786,
+          "cnn001_parameters": 1409,
+          "cnn002_parameters": 1412,
+          "cnn002_run_status": "Partial: 37/50 epochs",
+          "cnn002_best_epoch": 25,
+          "cnn002_best_rmse_mev": 5.875216692409215e-07,
+          "cnn002_best_rmse_display": "5.88 × 10⁻⁷ MeV",
+          "cnn002_best_r2": 0.9999999969193739,
+          "cnn002_best_r2_display": "0.9999999969",
+          "cnn002_last_epoch": 37,
+          "cnn002_last_rmse_mev": 1.3652643344823237e-06,
+          "cnn002_last_r2": 0.9999999833649273
+        }
+      ],
+      "epoch_metrics": [
+        {
+          "epoch": 1,
+          "series": "Train",
+          "r2": 0.016087496836379667,
+          "loss": 0.4271536292382994,
+          "mae_mev": 0.00847776779822528,
+          "rmse_mev": 0.010415307929154351,
+          "bias_mev": -0.0004821922465645947,
+          "learning_rate": 0.001,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 1,
+          "series": "Validation",
+          "r2": -0.14500931229927594,
+          "loss": 0.4783796878866909,
+          "mae_mev": 0.00905092789733934,
+          "rmse_mev": 0.011326843574902183,
+          "bias_mev": -0.004036601601319647,
+          "learning_rate": 0.001,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 2,
+          "series": "Train",
+          "r2": 0.009554371878975676,
+          "loss": 0.42975931726888256,
+          "mae_mev": 0.008512564169879604,
+          "rmse_mev": 0.010449829255215043,
+          "bias_mev": -0.0005206005629349591,
+          "learning_rate": 0.000999062696003429,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 2,
+          "series": "Validation",
+          "r2": -0.10790014693335959,
+          "loss": 0.46763293899442165,
+          "mae_mev": 0.008927739363922261,
+          "rmse_mev": 0.011141783197550888,
+          "bias_mev": -0.003489897388334171,
+          "learning_rate": 0.000999062696003429,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 3,
+          "series": "Train",
+          "r2": 0.015176331447929847,
+          "loss": 0.42746139484118834,
+          "mae_mev": 0.008479130537181226,
+          "rmse_mev": 0.01042012943105623,
+          "bias_mev": -0.0005560323972965885,
+          "learning_rate": 0.000996254483124377,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 3,
+          "series": "Validation",
+          "r2": -0.11760686957945854,
+          "loss": 0.4702592524558387,
+          "mae_mev": 0.008956878102608323,
+          "rmse_mev": 0.011190485395889207,
+          "bias_mev": -0.003652327764904941,
+          "learning_rate": 0.000996254483124377,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 4,
+          "series": "Train",
+          "r2": 0.017707544059154423,
+          "loss": 0.4262697163319742,
+          "mae_mev": 0.008459369423929157,
+          "rmse_mev": 0.010406729807637318,
+          "bias_mev": -0.0005149560782912077,
+          "learning_rate": 0.0009915864440961269,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 4,
+          "series": "Validation",
+          "r2": -0.10430677295252444,
+          "loss": 0.4658944222045913,
+          "mae_mev": 0.008904433457797152,
+          "rmse_mev": 0.011123699839373261,
+          "bias_mev": -0.003555700262808962,
+          "learning_rate": 0.0009915864440961269,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 5,
+          "series": "Train",
+          "r2": 0.02799304791080115,
+          "loss": 0.422589498522779,
+          "mae_mev": 0.008418587854641776,
+          "rmse_mev": 0.010352102423887663,
+          "bias_mev": -0.0004644964294867519,
+          "learning_rate": 0.0009850770015360994,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 5,
+          "series": "Validation",
+          "r2": -0.038859472515651694,
+          "loss": 0.44630622050623836,
+          "mae_mev": 0.008677309053412612,
+          "rmse_mev": 0.010789039809307805,
+          "bias_mev": -0.0025793834677416364,
+          "learning_rate": 0.0009850770015360994,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 6,
+          "series": "Train",
+          "r2": 0.03667398499233987,
+          "loss": 0.4191281547711086,
+          "mae_mev": 0.008373908405020322,
+          "rmse_mev": 0.010305771737925448,
+          "bias_mev": -0.00044542925710523853,
+          "learning_rate": 0.0009767518452401976,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 6,
+          "series": "Validation",
+          "r2": -0.07228152069919336,
+          "loss": 0.454623565619287,
+          "mae_mev": 0.008764517842750364,
+          "rmse_mev": 0.010961217724311568,
+          "bias_mev": -0.0033999993095775193,
+          "learning_rate": 0.0009767518452401976,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 7,
+          "series": "Train",
+          "r2": 0.04570593509392551,
+          "loss": 0.41492298446713527,
+          "mae_mev": 0.00832063611194035,
+          "rmse_mev": 0.010257345545162538,
+          "bias_mev": -0.00045023583724562456,
+          "learning_rate": 0.000966643830796919,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 7,
+          "series": "Validation",
+          "r2": -0.018623743702274487,
+          "loss": 0.4384648172247187,
+          "mae_mev": 0.008575322644213138,
+          "rmse_mev": 0.010683444324825415,
+          "bias_mev": -0.002542929073830519,
+          "learning_rate": 0.000966643830796919,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 8,
+          "series": "Train",
+          "r2": 0.052285520859506995,
+          "loss": 0.4121243822146623,
+          "mae_mev": 0.008285964310073874,
+          "rmse_mev": 0.010221923645615126,
+          "bias_mev": -0.0004364650631849288,
+          "learning_rate": 0.000954792849921359,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 8,
+          "series": "Validation",
+          "r2": -0.04755626160073745,
+          "loss": 0.4460961906898296,
+          "mae_mev": 0.008658119212682008,
+          "rmse_mev": 0.010834105792664557,
+          "bias_mev": -0.0031963237403161504,
+          "learning_rate": 0.000954792849921359,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 9,
+          "series": "Train",
+          "r2": 0.05449097642193268,
+          "loss": 0.4113711663735083,
+          "mae_mev": 0.008276359314135702,
+          "rmse_mev": 0.010210022841179346,
+          "bias_mev": -0.00044934071171826836,
+          "learning_rate": 0.0009412456730208348,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 9,
+          "series": "Validation",
+          "r2": -0.04850446260543717,
+          "loss": 0.44606196111580565,
+          "mae_mev": 0.008655254511047457,
+          "rmse_mev": 0.01083900795724564,
+          "bias_mev": -0.0032683485215885995,
+          "learning_rate": 0.0009412456730208348,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 10,
+          "series": "Train",
+          "r2": 0.05574689163959379,
+          "loss": 0.4104853078693821,
+          "mae_mev": 0.008263289670652105,
+          "rmse_mev": 0.010203239625088002,
+          "bias_mev": -0.0004593715247359842,
+          "learning_rate": 0.0009260557646134568,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 10,
+          "series": "Validation",
+          "r2": -0.06931252557371215,
+          "loss": 0.45210250994097584,
+          "mae_mev": 0.008723406020157332,
+          "rmse_mev": 0.010946032178400246,
+          "bias_mev": -0.003644953108680386,
+          "learning_rate": 0.0009260557646134568,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 11,
+          "series": "Train",
+          "r2": 0.05603709779918964,
+          "loss": 0.4103048763005215,
+          "mae_mev": 0.008251375648900367,
+          "rmse_mev": 0.010201671575956335,
+          "bias_mev": -0.0005041995992931161,
+          "learning_rate": 0.0009092830723280997,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 11,
+          "series": "Validation",
+          "r2": 0.023043037737885075,
+          "loss": 0.42573978896151277,
+          "mae_mev": 0.008422479177279764,
+          "rmse_mev": 0.010462659930723144,
+          "bias_mev": -0.0017790330204849488,
+          "learning_rate": 0.0009092830723280997,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 12,
+          "series": "Train",
+          "r2": 0.05950105635000147,
+          "loss": 0.4089658421195721,
+          "mae_mev": 0.008233125617036718,
+          "rmse_mev": 0.01018293638721766,
+          "bias_mev": -0.0004291659713999144,
+          "learning_rate": 0.0008909937903184995,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 12,
+          "series": "Validation",
+          "r2": -0.03271922485693124,
+          "loss": 0.44106790927969686,
+          "mae_mev": 0.008594550834173072,
+          "rmse_mev": 0.010757107888569156,
+          "bias_mev": -0.003077340668608176,
+          "learning_rate": 0.0008909937903184995,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 13,
+          "series": "Train",
+          "r2": 0.05820630969658902,
+          "loss": 0.40929461452476334,
+          "mae_mev": 0.008241635588180314,
+          "rmse_mev": 0.010189943193784875,
+          "bias_mev": -0.0005069962680124405,
+          "learning_rate": 0.0008712600980251701,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 13,
+          "series": "Validation",
+          "r2": -0.005955362408804454,
+          "loss": 0.43325795802629197,
+          "mae_mev": 0.008504215858270396,
+          "rmse_mev": 0.010616802746807886,
+          "bias_mev": -0.0025720217508311267,
+          "learning_rate": 0.0008712600980251701,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 14,
+          "series": "Train",
+          "r2": 0.06364721798929118,
+          "loss": 0.4070007448085811,
+          "mae_mev": 0.00821083122692767,
+          "rmse_mev": 0.010160466008663013,
+          "bias_mev": -0.00046240221910958637,
+          "learning_rate": 0.0008501598753161268,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 14,
+          "series": "Validation",
+          "r2": -0.07380518115571144,
+          "loss": 0.4530727984679977,
+          "mae_mev": 0.008730884304521593,
+          "rmse_mev": 0.01096900264133185,
+          "bias_mev": -0.003771060387738538,
+          "learning_rate": 0.0008501598753161268,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 15,
+          "series": "Train",
+          "r2": 0.05833749822393919,
+          "loss": 0.4089069751506945,
+          "mae_mev": 0.008234795408725203,
+          "rmse_mev": 0.010189233457559529,
+          "bias_mev": -0.0004847070900875073,
+          "learning_rate": 0.0008277763951306273,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 15,
+          "series": "Validation",
+          "r2": -0.0463947843006971,
+          "loss": 0.4447435367331805,
+          "mae_mev": 0.008634283092952834,
+          "rmse_mev": 0.010828097973158134,
+          "bias_mev": -0.0033624589933224716,
+          "learning_rate": 0.0008277763951306273,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 16,
+          "series": "Train",
+          "r2": 0.059292927057422395,
+          "loss": 0.40852176934574247,
+          "mae_mev": 0.008229721651179536,
+          "rmse_mev": 0.010184063049890538,
+          "bias_mev": -0.0004710069842033176,
+          "learning_rate": 0.0008041979948389245,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 16,
+          "series": "Validation",
+          "r2": 0.023989184099884486,
+          "loss": 0.42470751656801925,
+          "mae_mev": 0.008405380903516951,
+          "rmse_mev": 0.010457592355626514,
+          "bias_mev": -0.001864011759526764,
+          "learning_rate": 0.0008041979948389245,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 17,
+          "series": "Train",
+          "r2": 0.0619469275960276,
+          "loss": 0.4076215738251958,
+          "mae_mev": 0.008220162434885587,
+          "rmse_mev": 0.010169686842725244,
+          "bias_mev": -0.0004788001599671455,
+          "learning_rate": 0.0007795177276150231,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 17,
+          "series": "Validation",
+          "r2": -0.07802453396682174,
+          "loss": 0.45410764547606186,
+          "mae_mev": 0.008741039095228312,
+          "rmse_mev": 0.010990532019960943,
+          "bias_mev": -0.0038554009387905884,
+          "learning_rate": 0.0007795177276150231,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 18,
+          "series": "Train",
+          "r2": 0.06126756697829194,
+          "loss": 0.4080488621266901,
+          "mae_mev": 0.008229407578242377,
+          "rmse_mev": 0.010173368742234165,
+          "bias_mev": -0.0004640887208625924,
+          "learning_rate": 0.0007538329951983146,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 18,
+          "series": "Validation",
+          "r2": 0.006594183903358308,
+          "loss": 0.4290731742713557,
+          "mae_mev": 0.008452242326639867,
+          "rmse_mev": 0.010550371266122419,
+          "bias_mev": -0.0023429090383296275,
+          "learning_rate": 0.0007538329951983146,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 19,
+          "series": "Train",
+          "r2": 0.06302441370135892,
+          "loss": 0.4072260656986935,
+          "mae_mev": 0.00821224254230956,
+          "rmse_mev": 0.010163844505540929,
+          "bias_mev": -0.0004426930864470725,
+          "learning_rate": 0.0007272451634934093,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 19,
+          "series": "Validation",
+          "r2": -0.004027584336258938,
+          "loss": 0.43216974311216955,
+          "mae_mev": 0.008488545851842107,
+          "rmse_mev": 0.01060662503157636,
+          "bias_mev": -0.0025855976620831733,
+          "learning_rate": 0.0007272451634934093,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 20,
+          "series": "Train",
+          "r2": 0.06442318309730144,
+          "loss": 0.40669102594675743,
+          "mae_mev": 0.008207371396061878,
+          "rmse_mev": 0.010156255095129697,
+          "bias_mev": -0.00048008597330061404,
+          "learning_rate": 0.0006998591625252218,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 20,
+          "series": "Validation",
+          "r2": -0.02841201343131461,
+          "loss": 0.4391471380189223,
+          "mae_mev": 0.00856796436452985,
+          "rmse_mev": 0.010734651857512554,
+          "bias_mev": -0.003071340803848352,
+          "learning_rate": 0.0006998591625252218,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 21,
+          "series": "Train",
+          "r2": 0.06691592552593806,
+          "loss": 0.40567492380039943,
+          "mae_mev": 0.008194107023119693,
+          "rmse_mev": 0.010142715953508382,
+          "bias_mev": -0.0004553701352279286,
+          "learning_rate": 0.0006717830723280998,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 21,
+          "series": "Validation",
+          "r2": -0.06839634077017287,
+          "loss": 0.45103535639519604,
+          "mae_mev": 0.008704101813502807,
+          "rmse_mev": 0.010941341904443713,
+          "bias_mev": -0.0037312020310113644,
+          "learning_rate": 0.0006717830723280998,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 22,
+          "series": "Train",
+          "r2": 0.06096438861014164,
+          "loss": 0.40769737361766933,
+          "mae_mev": 0.008221204349077796,
+          "rmse_mev": 0.010175011434140372,
+          "bias_mev": -0.0005162846202342966,
+          "learning_rate": 0.0006431276964033057,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 22,
+          "series": "Validation",
+          "r2": 0.015836723885062742,
+          "loss": 0.4265696806794311,
+          "mae_mev": 0.008425368436624506,
+          "rmse_mev": 0.010501176818721564,
+          "bias_mev": -0.0021395482736308227,
+          "learning_rate": 0.0006431276964033057,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 23,
+          "series": "Train",
+          "r2": 0.06266178376522047,
+          "loss": 0.407090094217482,
+          "mae_mev": 0.008214975082801553,
+          "rmse_mev": 0.010165811129748615,
+          "bias_mev": -0.0005022658083603997,
+          "learning_rate": 0.0006140061244282191,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 23,
+          "series": "Validation",
+          "r2": 0.05300104143350415,
+          "loss": 0.4177521194183655,
+          "mae_mev": 0.008332247105142463,
+          "rmse_mev": 0.010300994236998057,
+          "bias_mev": -0.0007045534616372845,
+          "learning_rate": 0.0006140061244282191,
+          "checkpoint_improved": 1
+        },
+        {
+          "epoch": 24,
+          "series": "Train",
+          "r2": 0.06663464320350054,
+          "loss": 0.40563939245251857,
+          "mae_mev": 0.008191148324687656,
+          "rmse_mev": 0.010144244621610116,
+          "bias_mev": -0.0004166816745552168,
+          "learning_rate": 0.0005845332859430445,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 24,
+          "series": "Validation",
+          "r2": -0.04554269332274985,
+          "loss": 0.4441650205277493,
+          "mae_mev": 0.008625220942806888,
+          "rmse_mev": 0.010823688354622942,
+          "bias_mev": -0.003387473201376739,
+          "learning_rate": 0.0005845332859430445,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 25,
+          "series": "Train",
+          "r2": 0.06447874967118583,
+          "loss": 0.40617123405100986,
+          "mae_mev": 0.0081917974040494,
+          "rmse_mev": 0.010155953486181748,
+          "bias_mev": -0.00048676707520149595,
+          "learning_rate": 0.0005548254967764237,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 25,
+          "series": "Validation",
+          "r2": -0.011504673881090444,
+          "loss": 0.4340449155449342,
+          "mae_mev": 0.008509122869418174,
+          "rmse_mev": 0.010646046050722459,
+          "bias_mev": -0.0027750146612001234,
+          "learning_rate": 0.0005548254967764237,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 26,
+          "series": "Train",
+          "r2": 0.06536012508246525,
+          "loss": 0.4061218534920536,
+          "mae_mev": 0.008200724872553177,
+          "rmse_mev": 0.010151168283838975,
+          "bias_mev": -0.0005023069267017567,
+          "learning_rate": 0.0005249999999999999,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 26,
+          "series": "Validation",
+          "r2": 0.03158253791058696,
+          "loss": 0.4221061218179737,
+          "mae_mev": 0.008374329717170918,
+          "rmse_mev": 0.01041683294499974,
+          "bias_mev": -0.0017227577847831086,
+          "learning_rate": 0.0005249999999999999,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 27,
+          "series": "Train",
+          "r2": 0.06804042099775909,
+          "loss": 0.40520634901517233,
+          "mae_mev": 0.008193586835844821,
+          "rmse_mev": 0.010136602422676113,
+          "bias_mev": -0.0004344379614438976,
+          "learning_rate": 0.000495174503223576,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 27,
+          "series": "Validation",
+          "r2": -0.06172790356591418,
+          "loss": 0.4487551814976032,
+          "mae_mev": 0.008675578452116767,
+          "rmse_mev": 0.010907143052593469,
+          "bias_mev": -0.003651787963993541,
+          "learning_rate": 0.000495174503223576,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 28,
+          "series": "Train",
+          "r2": 0.064552120883829,
+          "loss": 0.4062846104015607,
+          "mae_mev": 0.008201195635892491,
+          "rmse_mev": 0.010155555221987633,
+          "bias_mev": -0.0004886596489167339,
+          "learning_rate": 0.0004654667140569554,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 28,
+          "series": "Validation",
+          "r2": 0.0010881141254611704,
+          "loss": 0.4302727830547777,
+          "mae_mev": 0.008465181967363615,
+          "rmse_mev": 0.01057956920696371,
+          "bias_mev": -0.0025266949218319124,
+          "learning_rate": 0.0004654667140569554,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 29,
+          "series": "Train",
+          "r2": 0.06642250860953847,
+          "loss": 0.40585448344430836,
+          "mae_mev": 0.008202076777511245,
+          "rmse_mev": 0.01014539734435633,
+          "bias_mev": -0.0004711195758553123,
+          "learning_rate": 0.0004359938755717807,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 29,
+          "series": "Validation",
+          "r2": -0.0164504050626042,
+          "loss": 0.4352603326831801,
+          "mae_mev": 0.008521733587381597,
+          "rmse_mev": 0.010672041124858896,
+          "bias_mev": -0.002889138828738006,
+          "learning_rate": 0.0004359938755717807,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 30,
+          "series": "Train",
+          "r2": 0.06651993807567291,
+          "loss": 0.4057733469844479,
+          "mae_mev": 0.008196365678611966,
+          "rmse_mev": 0.010144867936542448,
+          "bias_mev": -0.0004668244960162727,
+          "learning_rate": 0.00040687230359669386,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 30,
+          "series": "Validation",
+          "r2": -0.0028113462348895446,
+          "loss": 0.43133878648941554,
+          "mae_mev": 0.008477349155184681,
+          "rmse_mev": 0.010600198868217805,
+          "bias_mev": -0.0026201096391217666,
+          "learning_rate": 0.00040687230359669386,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 31,
+          "series": "Train",
+          "r2": 0.06897878671475366,
+          "loss": 0.4052716728684546,
+          "mae_mev": 0.00819708286949622,
+          "rmse_mev": 0.0101314979975881,
+          "bias_mev": -0.00044508124140810575,
+          "learning_rate": 0.0003782169276719001,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 31,
+          "series": "Validation",
+          "r2": -0.04922194444238426,
+          "loss": 0.44483055405333827,
+          "mae_mev": 0.008629258520112025,
+          "rmse_mev": 0.010842715839126778,
+          "bias_mev": -0.003464817262215707,
+          "learning_rate": 0.0003782169276719001,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 32,
+          "series": "Train",
+          "r2": 0.06813312197383004,
+          "loss": 0.4049776530186707,
+          "mae_mev": 0.008184263453225656,
+          "rmse_mev": 0.010136098271891028,
+          "bias_mev": -0.0004886074847000965,
+          "learning_rate": 0.0003501408374747781,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 32,
+          "series": "Validation",
+          "r2": 0.017629084125433514,
+          "loss": 0.42550253465081034,
+          "mae_mev": 0.008410172099992145,
+          "rmse_mev": 0.010491610078276318,
+          "bias_mev": -0.0021516482082663737,
+          "learning_rate": 0.0003501408374747781,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 33,
+          "series": "Train",
+          "r2": 0.06687440209961637,
+          "loss": 0.40544304903370415,
+          "mae_mev": 0.00819089993374545,
+          "rmse_mev": 0.010142941632868194,
+          "bias_mev": -0.000473654674857959,
+          "learning_rate": 0.00032275483650659047,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 33,
+          "series": "Validation",
+          "r2": 0.02914003344808036,
+          "loss": 0.4223802267802027,
+          "mae_mev": 0.008375157421370676,
+          "rmse_mev": 0.01042996113568877,
+          "bias_mev": -0.0018318233764968413,
+          "learning_rate": 0.00032275483650659047,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 34,
+          "series": "Train",
+          "r2": 0.06798126155058315,
+          "loss": 0.4052308650369631,
+          "mae_mev": 0.008185413100014747,
+          "rmse_mev": 0.010136924146006577,
+          "bias_mev": -0.0004397852244666137,
+          "learning_rate": 0.00029616700480168516,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 34,
+          "series": "Validation",
+          "r2": 0.013117382009039225,
+          "loss": 0.42665363888866664,
+          "mae_mev": 0.008422219055877544,
+          "rmse_mev": 0.010515674713428257,
+          "bias_mev": -0.0022642175560129364,
+          "learning_rate": 0.00029616700480168516,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 35,
+          "series": "Train",
+          "r2": 0.06978580037211835,
+          "loss": 0.4044251941456544,
+          "mae_mev": 0.008178698083604214,
+          "rmse_mev": 0.010127106030085105,
+          "bias_mev": -0.0004775186124320589,
+          "learning_rate": 0.00027048227238497645,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 35,
+          "series": "Validation",
+          "r2": 0.002695491004692241,
+          "loss": 0.42954365516907694,
+          "mae_mev": 0.008455058750855714,
+          "rmse_mev": 0.010571053840577093,
+          "bias_mev": -0.0025068045259019154,
+          "learning_rate": 0.00027048227238497645,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 36,
+          "series": "Train",
+          "r2": 0.06885593892466302,
+          "loss": 0.4049333285661068,
+          "mae_mev": 0.00818484846086071,
+          "rmse_mev": 0.010132166398622959,
+          "bias_mev": -0.00045776861568107177,
+          "learning_rate": 0.0002458020051610753,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 36,
+          "series": "Validation",
+          "r2": 0.023048799705100986,
+          "loss": 0.4238889047219758,
+          "mae_mev": 0.00839098629303233,
+          "rmse_mev": 0.010462629076962573,
+          "bias_mev": -0.002014577410068555,
+          "learning_rate": 0.0002458020051610753,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 37,
+          "series": "Train",
+          "r2": 0.06775717033130735,
+          "loss": 0.40529154483596397,
+          "mae_mev": 0.008185670771187209,
+          "rmse_mev": 0.010138142715478802,
+          "bias_mev": -0.0004880193412794774,
+          "learning_rate": 0.00022222360486937233,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 37,
+          "series": "Validation",
+          "r2": 0.016177559271406183,
+          "loss": 0.4257023039604702,
+          "mae_mev": 0.008410868933895952,
+          "rmse_mev": 0.010499358277691155,
+          "bias_mev": -0.0021934947310763234,
+          "learning_rate": 0.00022222360486937233,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 38,
+          "series": "Train",
+          "r2": 0.06955322725991175,
+          "loss": 0.40449944109746905,
+          "mae_mev": 0.008182581556274876,
+          "rmse_mev": 0.010128371945703377,
+          "bias_mev": -0.0005082199447661669,
+          "learning_rate": 0.00019984012468387283,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 38,
+          "series": "Validation",
+          "r2": 0.028235384628934712,
+          "loss": 0.42243696910596695,
+          "mae_mev": 0.008374690299350571,
+          "rmse_mev": 0.010434819331196558,
+          "bias_mev": -0.0018690198848092144,
+          "learning_rate": 0.00019984012468387283,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 39,
+          "series": "Train",
+          "r2": 0.07071595688725285,
+          "loss": 0.40415337497878395,
+          "mae_mev": 0.008173603265444683,
+          "rmse_mev": 0.010122041524706906,
+          "bias_mev": -0.00041696700279135945,
+          "learning_rate": 0.0001787399019748296,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 39,
+          "series": "Validation",
+          "r2": 0.013567081875435316,
+          "loss": 0.42637060325378373,
+          "mae_mev": 0.008418122676420763,
+          "rmse_mev": 0.010513278564046914,
+          "bias_mev": -0.002261345227142774,
+          "learning_rate": 0.0001787399019748296,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 40,
+          "series": "Train",
+          "r2": 0.06888929952527956,
+          "loss": 0.40511011119822243,
+          "mae_mev": 0.008188746736699268,
+          "rmse_mev": 0.01013198489170134,
+          "bias_mev": -0.0004681947495574472,
+          "learning_rate": 0.00015900620968150014,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 40,
+          "series": "Validation",
+          "r2": 0.02217247799853561,
+          "loss": 0.42399171326408425,
+          "mae_mev": 0.008391239383742507,
+          "rmse_mev": 0.01046732049544384,
+          "bias_mev": -0.0020389175096882494,
+          "learning_rate": 0.00015900620968150014,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 41,
+          "series": "Train",
+          "r2": 0.07009927691515683,
+          "loss": 0.4046550403204043,
+          "mae_mev": 0.008185041438799431,
+          "rmse_mev": 0.010125399499647419,
+          "bias_mev": -0.00043115526008707656,
+          "learning_rate": 0.0001407169276719,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 41,
+          "series": "Validation",
+          "r2": 0.00014951119090289566,
+          "loss": 0.43009886242530065,
+          "mae_mev": 0.008460010673212065,
+          "rmse_mev": 0.01058453845566135,
+          "bias_mev": -0.0025643204585965875,
+          "learning_rate": 0.0001407169276719,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 42,
+          "series": "Train",
+          "r2": 0.06847200936948261,
+          "loss": 0.4052722644142732,
+          "mae_mev": 0.008191795468902452,
+          "rmse_mev": 0.01013425503205698,
+          "bias_mev": -0.00045973986653865206,
+          "learning_rate": 0.00012394423538654296,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 42,
+          "series": "Validation",
+          "r2": 0.01612346306188539,
+          "loss": 0.42559911530293115,
+          "mae_mev": 0.008408908066783093,
+          "rmse_mev": 0.01049964693123995,
+          "bias_mev": -0.0021954735797167137,
+          "learning_rate": 0.00012394423538654296,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 43,
+          "series": "Train",
+          "r2": 0.06981995452282164,
+          "loss": 0.4047727683626706,
+          "mae_mev": 0.008187205681720894,
+          "rmse_mev": 0.010126920112755186,
+          "bias_mev": -0.0004461934282723334,
+          "learning_rate": 0.00010875432697916482,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 43,
+          "series": "Validation",
+          "r2": 0.009328607498174879,
+          "loss": 0.42745634059463994,
+          "mae_mev": 0.008429573969350701,
+          "rmse_mev": 0.010535840918399082,
+          "bias_mev": -0.0023594696701006172,
+          "learning_rate": 0.00010875432697916482,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 44,
+          "series": "Train",
+          "r2": 0.07136573522580503,
+          "loss": 0.40405814858245387,
+          "mae_mev": 0.008177811828677465,
+          "rmse_mev": 0.010118502115260294,
+          "bias_mev": -0.0004627818186649377,
+          "learning_rate": 0.00009520715007864082,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 44,
+          "series": "Validation",
+          "r2": 0.0018605169777823338,
+          "loss": 0.42953296427034754,
+          "mae_mev": 0.008452713439820507,
+          "rmse_mev": 0.010575478120534405,
+          "bias_mev": -0.0025293728627196147,
+          "learning_rate": 0.00009520715007864082,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 45,
+          "series": "Train",
+          "r2": 0.07014854455548258,
+          "loss": 0.40431043055252597,
+          "mae_mev": 0.008181697307120879,
+          "rmse_mev": 0.010125131266095157,
+          "bias_mev": -0.000500352385908699,
+          "learning_rate": 0.00008335616920308062,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 45,
+          "series": "Validation",
+          "r2": 0.008167928795319246,
+          "loss": 0.427758972778034,
+          "mae_mev": 0.008432844079152969,
+          "rmse_mev": 0.01054201105036262,
+          "bias_mev": -0.0023881841242760792,
+          "learning_rate": 0.00008335616920308062,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 46,
+          "series": "Train",
+          "r2": 0.06921811564080271,
+          "loss": 0.404982594961987,
+          "mae_mev": 0.008191116345324953,
+          "rmse_mev": 0.01013019570911814,
+          "bias_mev": -0.0004768366638225178,
+          "learning_rate": 0.00007324815475980207,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 46,
+          "series": "Validation",
+          "r2": 0.017584607880159475,
+          "loss": 0.42512803154467227,
+          "mae_mev": 0.008403043773650668,
+          "rmse_mev": 0.010491847576218374,
+          "bias_mev": -0.002159004357436921,
+          "learning_rate": 0.00007324815475980207,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 47,
+          "series": "Train",
+          "r2": 0.06849908980219477,
+          "loss": 0.4048345999537193,
+          "mae_mev": 0.008188126585665624,
+          "rmse_mev": 0.010134107724617574,
+          "bias_mev": -0.0004963064456453566,
+          "learning_rate": 0.00006492299846390029,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 47,
+          "series": "Validation",
+          "r2": 0.02118093420880407,
+          "loss": 0.424143395747159,
+          "mae_mev": 0.008391793416479014,
+          "rmse_mev": 0.010472626225050439,
+          "bias_mev": -0.002064574976352604,
+          "learning_rate": 0.00006492299846390029,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 48,
+          "series": "Train",
+          "r2": 0.06923390457350909,
+          "loss": 0.4052193526323602,
+          "mae_mev": 0.008191351938872013,
+          "rmse_mev": 0.010130109789065691,
+          "bias_mev": -0.00044816698153102714,
+          "learning_rate": 0.00005841355590387286,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 48,
+          "series": "Validation",
+          "r2": 0.02164489797672109,
+          "loss": 0.4239867501139257,
+          "mae_mev": 0.008390033144242401,
+          "rmse_mev": 0.01047014389955434,
+          "bias_mev": -0.002052558188527613,
+          "learning_rate": 0.00005841355590387286,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 49,
+          "series": "Train",
+          "r2": 0.0700419456741882,
+          "loss": 0.4046675889096813,
+          "mae_mev": 0.008183304877478658,
+          "rmse_mev": 0.010125711625854579,
+          "bias_mev": -0.00045860591280254834,
+          "learning_rate": 0.000053745516875623067,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 49,
+          "series": "Validation",
+          "r2": 0.009578289296123699,
+          "loss": 0.42731178931054803,
+          "mae_mev": 0.008427290627829412,
+          "rmse_mev": 0.010534513145388705,
+          "bias_mev": -0.0023519366315589195,
+          "learning_rate": 0.000053745516875623067,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 50,
+          "series": "Train",
+          "r2": 0.06799411186850746,
+          "loss": 0.4053315103011671,
+          "mae_mev": 0.008191775623052365,
+          "rmse_mev": 0.01013685426374902,
+          "bias_mev": -0.00047863507921982876,
+          "learning_rate": 0.00005093730399657101,
+          "checkpoint_improved": 0
+        },
+        {
+          "epoch": 50,
+          "series": "Validation",
+          "r2": 0.025056887638646108,
+          "loss": 0.423053844223911,
+          "mae_mev": 0.008379590847943034,
+          "rmse_mev": 0.010451870767556581,
+          "bias_mev": -0.0019563221042323536,
+          "learning_rate": 0.00005093730399657101,
+          "checkpoint_improved": 0
+        }
+      ],
+      "predictor_benchmarks": [
+        {
+          "predictor": "Training-mean constant",
+          "kind": "Null baseline",
+          "mae_mev": 0.0086539636245,
+          "mae_display": "0.008654",
+          "rmse_mev": 0.0105865943996,
+          "rmse_display": "0.010587",
+          "bias_mev": -0.000163594002493,
+          "bias_display": "-0.000164",
+          "r2": -0.000238850374264,
+          "r2_display": "-0.000239",
+          "prediction_std_mev": 0,
+          "prediction_std_display": "0"
+        },
+        {
+          "predictor": "CNN-001 best checkpoint",
+          "kind": "Learned model",
+          "mae_mev": 0.00833224798637,
+          "mae_display": "0.008332",
+          "rmse_mev": 0.0103009947385,
+          "rmse_display": "0.010301",
+          "bias_mev": -0.00070455260597,
+          "bias_display": "-0.000705",
+          "r2": 0.0530010426501,
+          "r2_display": "0.053001",
+          "prediction_std_mev": 0.00223713218003,
+          "prediction_std_display": "0.002237"
+        },
+        {
+          "predictor": "Direct mean of view sums",
+          "kind": "Data-flow baseline",
+          "mae_mev": 0.00000100680040344,
+          "mae_display": "1.01 × 10⁻⁶",
+          "rmse_mev": 0.00000118117852386,
+          "rmse_display": "1.18 × 10⁻⁶",
+          "bias_mev": -0.0000010064471289,
+          "bias_display": "-1.01 × 10⁻⁶",
+          "r2": 0.999999987548,
+          "r2_display": "0.999999988",
+          "prediction_std_mev": 0.0105852707442,
+          "prediction_std_display": "0.010585"
+        }
+      ],
+      "class_diagnostics": [
+        {
+          "class_label": "Bi-214 (0)",
+          "events": 10246,
+          "within_class_pearson": 0.044499,
+          "within_class_pearson_display": "0.044499",
+          "target_std_mev": 0.0099,
+          "target_std_display": "0.009900",
+          "prediction_std_mev": 0.001967,
+          "prediction_std_display": "0.001967"
+        },
+        {
+          "class_label": "0nubb (1)",
+          "events": 6540,
+          "within_class_pearson": 0.042923,
+          "within_class_pearson_display": "0.042923",
+          "target_std_mev": 0.00991,
+          "target_std_display": "0.009910",
+          "prediction_std_mev": 0.001516,
+          "prediction_std_display": "0.001516"
+        }
+      ],
+      "architecture": [
+        {
+          "architecture": "CNN-001 two-convolution baseline",
+          "convolution_branch": "2 Conv + ReLU + MaxPool; AdaptiveAvgPool",
+          "global_energy_path": "None",
+          "scalar_head_inputs": 16,
+          "trainable_parameters": 1409,
+          "role": "Morphology baseline"
+        },
+        {
+          "architecture": "CNN-002 global energy skip",
+          "convolution_branch": "Same CNN-001 topology branch",
+          "global_energy_path": "3 FP32 standardized view sums + mean skip",
+          "scalar_head_inputs": 19,
+          "trainable_parameters": 1412,
+          "role": "Energy-conservation baseline"
+        }
+      ],
+      "cnn002_epoch_metrics": [{"run_id":"20260802_120602","epoch":1,"train_loss":4.7441883773706034e-8,"train_energy_rmse_mev":0.000003235080001453788,"train_rmse_x1e6_mev":3.235080001453788,"train_energy_r2":0.9999999050746295,"validation_loss":8.061051496948587e-9,"validation_energy_mae_mev":0.0000010601005295128869,"validation_mae_x1e6_mev":1.060100529512887,"validation_energy_rmse_mev":0.0000013355853412615024,"validation_rmse_x1e6_mev":1.3355853412615024,"validation_energy_bias_mev":7.732198872697463e-7,"validation_bias_x1e6_mev":0.7732198872697463,"validation_energy_r2":0.9999999840803139,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":2,"train_loss":1.268210461342448e-8,"train_energy_rmse_mev":0.0000016737307482570024,"train_rmse_x1e6_mev":1.6737307482570023,"train_energy_r2":0.9999999745912418,"validation_loss":1.7984142226445086e-9,"validation_energy_mae_mev":4.819787956173253e-7,"validation_mae_x1e6_mev":0.4819787956173253,"validation_energy_rmse_mev":6.335335750549733e-7,"validation_rmse_x1e6_mev":0.6335335750549733,"validation_energy_bias_mev":-1.0618475499602533e-7,"validation_bias_x1e6_mev":-0.10618475499602532,"validation_energy_r2":0.9999999964179596,"checkpoint_improved":1,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":3,"train_loss":3.341566513473155e-8,"train_energy_rmse_mev":0.0000027155881641692937,"train_rmse_x1e6_mev":2.7155881641692936,"train_energy_r2":0.9999999331132545,"validation_loss":7.985254624311182e-9,"validation_energy_mae_mev":0.0000010712076026010212,"validation_mae_x1e6_mev":1.071207602601021,"validation_energy_rmse_mev":0.0000013291372461969838,"validation_rmse_x1e6_mev":1.3291372461969837,"validation_energy_bias_mev":-7.841707227568965e-8,"validation_bias_x1e6_mev":-0.07841707227568966,"validation_energy_r2":0.9999999842336607,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":4,"train_loss":4.327915777536117e-8,"train_energy_rmse_mev":0.0000030906954932859634,"train_rmse_x1e6_mev":3.0906954932859634,"train_energy_r2":0.9999999133587542,"validation_loss":5.142731281069543e-8,"validation_energy_mae_mev":0.000003157434085121914,"validation_mae_x1e6_mev":3.157434085121914,"validation_energy_rmse_mev":0.0000033693853633434204,"validation_rmse_x1e6_mev":3.3693853633434205,"validation_energy_bias_mev":0.000003153002618621277,"validation_bias_x1e6_mev":3.153002618621277,"validation_energy_r2":0.9999998986806061,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":5,"train_loss":1.3543701751130091e-8,"train_energy_rmse_mev":0.000001730354972447045,"train_rmse_x1e6_mev":1.730354972447045,"train_energy_r2":0.9999999728429456,"validation_loss":2.3463271769517935e-9,"validation_energy_mae_mev":5.477264187950408e-7,"validation_mae_x1e6_mev":0.5477264187950408,"validation_energy_rmse_mev":7.22020086887892e-7,"validation_rmse_x1e6_mev":0.722020086887892,"validation_energy_bias_mev":-3.6430347523984136e-7,"validation_bias_x1e6_mev":-0.36430347523984136,"validation_energy_r2":0.9999999953474636,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":6,"train_loss":5.4406306539231023e-8,"train_energy_rmse_mev":0.000003463360693184988,"train_rmse_x1e6_mev":3.463360693184988,"train_energy_r2":0.9999998912053103,"validation_loss":9.561695709082856e-9,"validation_energy_mae_mev":0.0000011915531656135043,"validation_mae_x1e6_mev":1.1915531656135043,"validation_energy_rmse_mev":0.000001453730274387149,"validation_rmse_x1e6_mev":1.453730274387149,"validation_energy_bias_mev":-6.483860440835415e-7,"validation_bias_x1e6_mev":-0.6483860440835415,"validation_energy_r2":0.9999999811392533,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":7,"train_loss":8.389711522121864e-8,"train_energy_rmse_mev":0.0000043019849120477786,"train_rmse_x1e6_mev":4.301984912047779,"train_energy_r2":0.9999998321389186,"validation_loss":3.906613076745456e-9,"validation_energy_mae_mev":7.339758425862233e-7,"validation_mae_x1e6_mev":0.7339758425862233,"validation_energy_rmse_mev":9.300562992765999e-7,"validation_rmse_x1e6_mev":0.9300562992765998,"validation_energy_bias_mev":-6.631007854125788e-7,"validation_bias_x1e6_mev":-0.6631007854125788,"validation_energy_r2":0.9999999922801353,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":8,"train_loss":6.083766623035215e-9,"train_energy_rmse_mev":0.000001161374634727651,"train_rmse_x1e6_mev":1.161374634727651,"train_energy_r2":0.9999999877663255,"validation_loss":1.9285333645526733e-9,"validation_energy_mae_mev":5.197456848006361e-7,"validation_mae_x1e6_mev":0.5197456848006361,"validation_energy_rmse_mev":6.561386695308437e-7,"validation_rmse_x1e6_mev":0.6561386695308438,"validation_energy_bias_mev":1.1443694101163404e-7,"validation_bias_x1e6_mev":0.11443694101163404,"validation_energy_r2":0.9999999961577778,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":9,"train_loss":1.4683599314124715e-8,"train_energy_rmse_mev":0.0000018010429677966937,"train_rmse_x1e6_mev":1.8010429677966937,"train_energy_r2":0.9999999705787989,"validation_loss":1.9717449057577912e-9,"validation_energy_mae_mev":5.463060769679136e-7,"validation_mae_x1e6_mev":0.5463060769679137,"validation_energy_rmse_mev":6.634166618482995e-7,"validation_rmse_x1e6_mev":0.6634166618482995,"validation_energy_bias_mev":2.9286028133534596e-7,"validation_bias_x1e6_mev":0.292860281335346,"validation_energy_r2":0.999999996072068,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":10,"train_loss":2.8554823639805185e-8,"train_energy_rmse_mev":0.0000025103170967582653,"train_rmse_x1e6_mev":2.510317096758265,"train_energy_r2":0.999999942843001,"validation_loss":1.7758613754384162e-9,"validation_energy_mae_mev":5.102862082319692e-7,"validation_mae_x1e6_mev":0.5102862082319692,"validation_energy_rmse_mev":6.302780059440041e-7,"validation_rmse_x1e6_mev":0.6302780059440041,"validation_energy_bias_mev":2.3096178450914498e-7,"validation_bias_x1e6_mev":0.23096178450914498,"validation_energy_r2":0.9999999964546794,"checkpoint_improved":1,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":11,"train_loss":3.233739331938551e-8,"train_energy_rmse_mev":0.0000026710902241114524,"train_rmse_x1e6_mev":2.6710902241114525,"train_energy_r2":0.9999999352873229,"validation_loss":2.8376906455909215e-9,"validation_energy_mae_mev":6.252628791379116e-7,"validation_mae_x1e6_mev":0.6252628791379116,"validation_energy_rmse_mev":7.942062129756575e-7,"validation_rmse_x1e6_mev":0.7942062129756575,"validation_energy_bias_mev":1.2419468936399752e-7,"validation_bias_x1e6_mev":0.12419468936399752,"validation_energy_r2":0.9999999943706562,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":12,"train_loss":2.905906101333308e-8,"train_energy_rmse_mev":0.0000025330944637575844,"train_rmse_x1e6_mev":2.5330944637575845,"train_energy_r2":0.9999999418010671,"validation_loss":2.247258337597082e-9,"validation_energy_mae_mev":5.363210739232099e-7,"validation_mae_x1e6_mev":0.5363210739232098,"validation_energy_rmse_mev":7.064330801585961e-7,"validation_rmse_x1e6_mev":0.7064330801585961,"validation_energy_bias_mev":-4.1209797772266973e-7,"validation_bias_x1e6_mev":-0.4120979777226697,"validation_energy_r2":0.9999999955461738,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":13,"train_loss":1.7187920742990056e-8,"train_energy_rmse_mev":0.0000019486544609507153,"train_rmse_x1e6_mev":1.9486544609507153,"train_energy_r2":0.9999999655585107,"validation_loss":1.8124790234399943e-9,"validation_energy_mae_mev":4.80189164915145e-7,"validation_mae_x1e6_mev":0.480189164915145,"validation_energy_rmse_mev":6.361100638452972e-7,"validation_rmse_x1e6_mev":0.6361100638452972,"validation_energy_bias_mev":-2.1049465878024285e-7,"validation_bias_x1e6_mev":-0.21049465878024284,"validation_energy_r2":0.999999996388765,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":14,"train_loss":4.5166097632617856e-8,"train_energy_rmse_mev":0.00000315633754514687,"train_rmse_x1e6_mev":3.15633754514687,"train_energy_r2":0.9999999096393943,"validation_loss":1.6863623973417133e-9,"validation_energy_mae_mev":4.979576411725057e-7,"validation_mae_x1e6_mev":0.4979576411725057,"validation_energy_rmse_mev":6.130980455439508e-7,"validation_rmse_x1e6_mev":0.6130980455439508,"validation_energy_bias_mev":2.0468546070729282e-7,"validation_bias_x1e6_mev":0.20468546070729282,"validation_energy_r2":0.9999999966453201,"checkpoint_improved":1,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":15,"train_loss":1.4290144965732982e-8,"train_energy_rmse_mev":0.000001776918185261546,"train_rmse_x1e6_mev":1.776918185261546,"train_energy_r2":0.9999999713617079,"validation_loss":1.3578391888237991e-8,"validation_energy_mae_mev":0.0000016157666591215684,"validation_mae_x1e6_mev":1.6157666591215685,"validation_energy_rmse_mev":0.0000017340142874115715,"validation_rmse_x1e6_mev":1.7340142874115716,"validation_energy_bias_mev":0.000001611249972111304,"validation_bias_x1e6_mev":1.611249972111304,"validation_energy_r2":0.9999999731653116,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":16,"train_loss":2.248107252825298e-8,"train_energy_rmse_mev":0.0000022281322524609392,"train_rmse_x1e6_mev":2.2281322524609393,"train_energy_r2":0.9999999549708052,"validation_loss":3.616652542721014e-9,"validation_energy_mae_mev":7.051571069138135e-7,"validation_mae_x1e6_mev":0.7051571069138135,"validation_energy_rmse_mev":8.957986863022622e-7,"validation_rmse_x1e6_mev":0.8957986863022622,"validation_energy_bias_mev":-1.5642224542151243e-7,"validation_bias_x1e6_mev":-0.15642224542151242,"validation_energy_r2":0.9999999928383672,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":17,"train_loss":2.274121799252042e-8,"train_energy_rmse_mev":0.0000022416286391292416,"train_rmse_x1e6_mev":2.2416286391292415,"train_energy_r2":0.9999999544236455,"validation_loss":3.0191609951491367e-9,"validation_energy_mae_mev":6.45062444208064e-7,"validation_mae_x1e6_mev":0.645062444208064,"validation_energy_rmse_mev":8.191873724600123e-7,"validation_rmse_x1e6_mev":0.8191873724600124,"validation_energy_bias_mev":2.8560233459872626e-7,"validation_bias_x1e6_mev":0.28560233459872625,"validation_energy_r2":0.9999999940109532,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":18,"train_loss":2.1999230275812573e-8,"train_energy_rmse_mev":0.0000022039784179904364,"train_rmse_x1e6_mev":2.2039784179904363,"train_energy_r2":0.9999999559417821,"validation_loss":2.659117649823791e-9,"validation_energy_mae_mev":6.423353878999799e-7,"validation_mae_x1e6_mev":0.6423353878999799,"validation_energy_rmse_mev":7.696550997849689e-7,"validation_rmse_x1e6_mev":0.7696550997849689,"validation_energy_bias_mev":4.5368558642095257e-7,"validation_bias_x1e6_mev":0.4536855864209526,"validation_energy_r2":0.999999994713314,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":19,"train_loss":1.8678804581673964e-8,"train_energy_rmse_mev":0.0000020310275533551503,"train_rmse_x1e6_mev":2.0310275533551505,"train_energy_r2":0.999999962585161,"validation_loss":7.109032642595386e-9,"validation_energy_mae_mev":0.0000010030311948989182,"validation_mae_x1e6_mev":1.0030311948989181,"validation_energy_rmse_mev":0.0000012540151172943118,"validation_rmse_x1e6_mev":1.254015117294312,"validation_energy_bias_mev":-2.0158911552415565e-7,"validation_bias_x1e6_mev":-0.20158911552415565,"validation_energy_r2":0.9999999859655061,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":20,"train_loss":1.492886458031193e-8,"train_energy_rmse_mev":0.0000018165298895032502,"train_rmse_x1e6_mev":1.8165298895032502,"train_energy_r2":0.9999999700706457,"validation_loss":2.6841161264170274e-9,"validation_energy_mae_mev":5.893424343298662e-7,"validation_mae_x1e6_mev":0.5893424343298662,"validation_energy_rmse_mev":7.730026971485989e-7,"validation_rmse_x1e6_mev":0.7730026971485989,"validation_energy_bias_mev":-3.3234578412948057e-7,"validation_bias_x1e6_mev":-0.33234578412948057,"validation_energy_r2":0.9999999946672253,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":21,"train_loss":3.1415794094891085e-8,"train_energy_rmse_mev":0.0000026322322558348304,"train_rmse_x1e6_mev":2.6322322558348303,"train_energy_r2":0.9999999371564566,"validation_loss":1.7701741147210413e-9,"validation_energy_mae_mev":4.866091099737598e-7,"validation_mae_x1e6_mev":0.48660910997375983,"validation_energy_rmse_mev":6.291783086109039e-7,"validation_rmse_x1e6_mev":0.629178308610904,"validation_energy_bias_mev":-1.371482068273971e-7,"validation_bias_x1e6_mev":-0.1371482068273971,"validation_energy_r2":0.9999999964670402,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":22,"train_loss":1.2401711838696627e-8,"train_energy_rmse_mev":0.00000165533978997852,"train_rmse_x1e6_mev":1.65533978997852,"train_energy_r2":0.999999975146557,"validation_loss":3.1920129728711015e-9,"validation_energy_mae_mev":6.621775632249461e-7,"validation_mae_x1e6_mev":0.6621775632249461,"validation_energy_rmse_mev":8.416544652314437e-7,"validation_rmse_x1e6_mev":0.8416544652314437,"validation_energy_bias_mev":1.5557004032523616e-7,"validation_bias_x1e6_mev":0.15557004032523616,"validation_energy_r2":0.9999999936779361,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":23,"train_loss":1.0672911934310862e-8,"train_energy_rmse_mev":0.0000015355703884495213,"train_rmse_x1e6_mev":1.5355703884495213,"train_energy_r2":0.9999999786129095,"validation_loss":4.891459094581112e-9,"validation_energy_mae_mev":8.210854068439311e-7,"validation_mae_x1e6_mev":0.821085406843931,"validation_energy_rmse_mev":0.0000010402602715700485,"validation_rmse_x1e6_mev":1.0402602715700484,"validation_energy_bias_mev":-2.620388636866869e-7,"validation_bias_x1e6_mev":-0.2620388636866869,"validation_energy_r2":0.999999990342266,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":24,"train_loss":1.3016183524637423e-8,"train_energy_rmse_mev":0.000001695557458838792,"train_rmse_x1e6_mev":1.6955574588387918,"train_energy_r2":0.999999973924222,"validation_loss":2.1223407110676925e-9,"validation_energy_mae_mev":5.188508694495459e-7,"validation_mae_x1e6_mev":0.518850869449546,"validation_energy_rmse_mev":6.874543343206737e-7,"validation_rmse_x1e6_mev":0.6874543343206737,"validation_energy_bias_mev":-3.4883595274242673e-7,"validation_bias_x1e6_mev":-0.34883595274242674,"validation_energy_r2":0.9999999957822686,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":25,"train_loss":1.9203245956953298e-8,"train_energy_rmse_mev":0.0000020589875989509827,"train_rmse_x1e6_mev":2.0589875989509827,"train_energy_r2":0.999999961547931,"validation_loss":1.5402988718746869e-9,"validation_energy_mae_mev":4.635569621194862e-7,"validation_mae_x1e6_mev":0.4635569621194862,"validation_energy_rmse_mev":5.875216692409215e-7,"validation_rmse_x1e6_mev":0.5875216692409215,"validation_energy_bias_mev":5.995262852303678e-8,"validation_bias_x1e6_mev":0.05995262852303678,"validation_energy_r2":0.9999999969193739,"checkpoint_improved":1,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":26,"train_loss":6.352017957458815e-9,"train_energy_rmse_mev":0.00000118589561664686,"train_rmse_x1e6_mev":1.18589561664686,"train_energy_r2":0.9999999872442741,"validation_loss":1.964479585656957e-8,"validation_energy_mae_mev":0.0000019602279590364438,"validation_mae_x1e6_mev":1.9602279590364438,"validation_energy_rmse_mev":0.000002082860601361288,"validation_rmse_x1e6_mev":2.082860601361288,"validation_energy_bias_mev":-0.0000019590916855747417,"validation_bias_x1e6_mev":-1.9590916855747418,"validation_energy_r2":0.9999999612821152,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":27,"train_loss":1.0425925423626055e-8,"train_energy_rmse_mev":0.0000015179583678716528,"train_rmse_x1e6_mev":1.5179583678716528,"train_energy_r2":0.9999999791006888,"validation_loss":1.8334477691439968e-9,"validation_energy_mae_mev":4.852881920745315e-7,"validation_mae_x1e6_mev":0.48528819207453144,"validation_energy_rmse_mev":6.388272523776284e-7,"validation_rmse_x1e6_mev":0.6388272523776284,"validation_energy_bias_mev":-1.9542483199442384e-7,"validation_bias_x1e6_mev":-0.19542483199442384,"validation_energy_r2":0.9999999963578479,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":28,"train_loss":4.520393271344784e-9,"train_energy_rmse_mev":0.0000010004200185641032,"train_rmse_x1e6_mev":1.0004200185641032,"train_energy_r2":0.9999999909222755,"validation_loss":2.65700549750517e-9,"validation_energy_mae_mev":6.252628791379116e-7,"validation_mae_x1e6_mev":0.6252628791379116,"validation_energy_rmse_mev":7.699982107759857e-7,"validation_rmse_x1e6_mev":0.7699982107759857,"validation_energy_bias_mev":4.618667553452049e-7,"validation_bias_x1e6_mev":0.46186675534520494,"validation_energy_r2":0.9999999947085993,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":29,"train_loss":6.754976261793117e-9,"train_energy_rmse_mev":0.0000012223905531830502,"train_rmse_x1e6_mev":1.2223905531830503,"train_energy_r2":0.9999999864471004,"validation_loss":3.818315275330538e-9,"validation_energy_mae_mev":7.516590983339562e-7,"validation_mae_x1e6_mev":0.7516590983339562,"validation_energy_rmse_mev":9.202337377701458e-7,"validation_rmse_x1e6_mev":0.9202337377701458,"validation_energy_bias_mev":-7.207808670122121e-7,"validation_bias_x1e6_mev":-0.7207808670122121,"validation_energy_r2":0.9999999924423372,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":30,"train_loss":9.781528047707246e-9,"train_energy_rmse_mev":0.0000014705355014963739,"train_rmse_x1e6_mev":1.470535501496374,"train_energy_r2":0.9999999803861307,"validation_loss":1.5947512422049784e-9,"validation_energy_mae_mev":4.662556115910278e-7,"validation_mae_x1e6_mev":0.4662556115910278,"validation_energy_rmse_mev":5.956386701615954e-7,"validation_rmse_x1e6_mev":0.5956386701615954,"validation_energy_bias_mev":2.043871889235961e-8,"validation_bias_x1e6_mev":0.02043871889235961,"validation_energy_r2":0.9999999968336641,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":31,"train_loss":5.714558983647804e-9,"train_energy_rmse_mev":0.0000011246395241973733,"train_rmse_x1e6_mev":1.1246395241973732,"train_energy_r2":0.9999999885280054,"validation_loss":2.328607953283466e-9,"validation_energy_mae_mev":5.646000797013112e-7,"validation_mae_x1e6_mev":0.5646000797013112,"validation_energy_rmse_mev":7.195112053807078e-7,"validation_rmse_x1e6_mev":0.7195112053807078,"validation_energy_bias_mev":-2.9121268481587846e-7,"validation_bias_x1e6_mev":-0.2912126848158785,"validation_energy_r2":0.9999999953797408,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":32,"train_loss":4.1875225775616795e-9,"train_energy_rmse_mev":9.641645841404487e-7,"train_rmse_x1e6_mev":0.9641645841404487,"train_energy_r2":0.9999999915683105,"validation_loss":2.7849722368852438e-9,"validation_energy_mae_mev":6.276490534074852e-7,"validation_mae_x1e6_mev":0.6276490534074852,"validation_energy_rmse_mev":7.87079225131759e-7,"validation_rmse_x1e6_mev":0.787079225131759,"validation_energy_bias_mev":6.951152901960245e-8,"validation_bias_x1e6_mev":0.06951152901960245,"validation_energy_r2":0.9999999944712352,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":33,"train_loss":6.175248645182394e-9,"train_energy_rmse_mev":0.00000116958670159383,"train_rmse_x1e6_mev":1.16958670159383,"train_energy_r2":0.9999999875927054,"validation_loss":2.4306625039496574e-8,"validation_energy_mae_mev":0.000001908328668673218,"validation_mae_x1e6_mev":1.9083286686732177,"validation_energy_rmse_mev":0.0000023170212843752527,"validation_rmse_x1e6_mev":2.3170212843752527,"validation_energy_bias_mev":5.672419154997677e-7,"validation_bias_x1e6_mev":0.5672419154997677,"validation_energy_r2":0.9999999520872322,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":34,"train_loss":7.623059883551705e-9,"train_energy_rmse_mev":0.0000012990228973768716,"train_rmse_x1e6_mev":1.2990228973768716,"train_energy_r2":0.9999999846945584,"validation_loss":3.1161555639111947e-9,"validation_energy_mae_mev":6.5239140803604e-7,"validation_mae_x1e6_mev":0.65239140803604,"validation_energy_rmse_mev":8.31480013676365e-7,"validation_rmse_x1e6_mev":0.831480013676365,"validation_energy_bias_mev":-5.756361356980891e-7,"validation_bias_x1e6_mev":-0.5756361356980891,"validation_energy_r2":0.9999999938298625,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":35,"train_loss":3.1990651790156003e-9,"train_energy_rmse_mev":8.421225550685225e-7,"train_rmse_x1e6_mev":0.8421225550685224,"train_energy_r2":0.9999999935677509,"validation_loss":1.8660316967040303e-9,"validation_energy_mae_mev":4.897764722482533e-7,"validation_mae_x1e6_mev":0.4897764722482533,"validation_energy_rmse_mev":6.457340926753201e-7,"validation_rmse_x1e6_mev":0.6457340926753201,"validation_energy_bias_mev":-3.279143176288439e-7,"validation_bias_x1e6_mev":-0.3279143176288439,"validation_energy_r2":0.9999999962786661,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":36,"train_loss":4.483761790629746e-9,"train_energy_rmse_mev":9.979241699233327e-7,"train_rmse_x1e6_mev":0.9979241699233328,"train_energy_r2":0.9999999909675132,"validation_loss":2.5312342858647447e-9,"validation_energy_mae_mev":6.291404123259688e-7,"validation_mae_x1e6_mev":0.6291404123259687,"validation_energy_rmse_mev":7.51910589027517e-7,"validation_rmse_x1e6_mev":0.751910589027517,"validation_energy_bias_mev":4.839814775935745e-7,"validation_bias_x1e6_mev":0.4839814775935745,"validation_energy_r2":0.9999999949542746,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"},{"run_id":"20260802_120602","epoch":37,"train_loss":3.1476346945615675e-9,"train_energy_rmse_mev":8.366319388731569e-7,"train_rmse_x1e6_mev":0.8366319388731569,"train_energy_r2":0.9999999936513537,"validation_loss":8.42517516422442e-9,"validation_energy_mae_mev":0.0000010808517236072146,"validation_mae_x1e6_mev":1.0808517236072146,"validation_energy_rmse_mev":0.0000013652643344823237,"validation_rmse_x1e6_mev":1.3652643344823236,"validation_energy_bias_mev":4.7391125403924307e-7,"validation_bias_x1e6_mev":0.47391125403924306,"validation_energy_r2":0.9999999833649273,"checkpoint_improved":0,"validation_events":16786,"projection_coverage":1,"run_status":"Partial: 37/50 epochs"}],
+      "cnn002_checkpoint_comparison": [{"checkpoint_state":"Epoch-0 analytical baseline","epoch":0,"loss":6.4205794651576405e-9,"mae_mev":0.0000010124480612127713,"mae_display":"1.012 × 10⁻⁶","rmse_mev":0.0000011916212487186227,"rmse_display":"1.192 × 10⁻⁶","bias_mev":-0.000001011709483462665,"bias_display":"−1.012 × 10⁻⁶","r2":0.9999999873273427,"r2_display":"0.9999999873","events":16786,"projection_coverage":1,"interpretation":"Explicit FP32 view-sum skip; residual head is zero."},{"checkpoint_state":"Best checkpoint","epoch":25,"loss":1.5402988718746869e-9,"mae_mev":4.635569621194862e-7,"mae_display":"4.636 × 10⁻⁷","rmse_mev":5.875216692409215e-7,"rmse_display":"5.875 × 10⁻⁷","bias_mev":5.995262852303678e-8,"bias_display":"+5.995 × 10⁻⁸","r2":0.9999999969193739,"r2_display":"0.9999999969","events":16786,"projection_coverage":1,"interpretation":"Selected by minimum validation Smooth-L1 loss."},{"checkpoint_state":"Last checkpoint (interrupted run)","epoch":37,"loss":8.42517516422442e-9,"mae_mev":0.0000010808517236072146,"mae_display":"1.081 × 10⁻⁶","rmse_mev":0.0000013652643344823237,"rmse_display":"1.365 × 10⁻⁶","bias_mev":4.7391125403924307e-7,"bias_display":"+4.739 × 10⁻⁷","r2":0.9999999833649273,"r2_display":"0.9999999834","events":16786,"projection_coverage":1,"interpretation":"Worse than both the best checkpoint and epoch-0 baseline."}]
+    }
+  },
+  "sources": [
+    {
+      "id": "regression_run_log",
+      "label": "CNN-001 50-epoch regression validation log",
+      "path": "03_training_runs/logs/cnn_001_two_conv_baseline_energy_regression_run2_validation_metrics_20260801_204218.csv",
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT epoch, series, r2, loss, mae_mev, rmse_mev, bias_mev, learning_rate, checkpoint_improved FROM snapshot.epoch_metrics ORDER BY epoch, series",
+        "description": "Reviewed train and validation epoch metrics from the saved CNN-001 regression run.",
+        "executed_at": "2026-08-02T04:21:33Z",
+        "tables_used": [
+          "snapshot.epoch_metrics"
+        ]
+      }
+    },
+    {
+      "id": "checkpoint_replay",
+      "label": "Executed CNN-001 regression diagnostic notebook",
+      "path": "05_reports/cnn_001_regression_diagnosis_20260801/analysis.ipynb",
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT predictor, kind, mae_mev, rmse_mev, bias_mev, r2, prediction_std_mev FROM snapshot.predictor_benchmarks ORDER BY r2 DESC",
+        "description": "Checkpoint replay and independent baseline metrics computed in the executed diagnostic notebook.",
+        "executed_at": "2026-08-02T04:21:33Z",
+        "tables_used": [
+          "snapshot.predictor_benchmarks",
+          "snapshot.summary",
+          "snapshot.class_diagnostics"
+        ]
+      }
+    },
+    {
+      "id": "classification_run_log",
+      "label": "CNN-001 50-epoch classification validation log",
+      "path": "03_training_runs/logs/cnn_001_two_conv_baseline_classification_run2_validation_metrics_20260801_204055.csv",
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT classification_auc FROM snapshot.summary",
+        "description": "Best validation AUC from the paired CNN-001 classification control run.",
+        "executed_at": "2026-08-02T04:21:33Z",
+        "tables_used": [
+          "snapshot.summary"
+        ]
+      }
+    },
+    {
+      "id": "paired_model_source",
+      "label": "Paired CNN model implementation",
+      "path": "src/next_cnn/model.py",
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT architecture, convolution_branch, global_energy_path, scalar_head_inputs, trainable_parameters, role FROM snapshot.architecture",
+        "description": "Reviewed parameter and topology definitions for CNN-001 and CNN-002.",
+        "executed_at": "2026-08-02T04:21:33Z",
+        "tables_used": [
+          "snapshot.architecture"
+        ]
+      }
+    },
+    {
+      "id": "cnn002_partial_run_log",
+      "label": "CNN-002 full-data regression log (partial 37/50 epochs)",
+      "path": "03_training_runs/logs/cnn_002_global_energy_skip_energy_regression_validation_metrics_20260802_120602.csv",
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT epoch, validation_loss, validation_mae_mev, validation_rmse_mev, validation_bias_mev, validation_r2, train_energy_rmse_mev, checkpoint_improved FROM snapshot.cnn002_epoch_metrics ORDER BY epoch",
+        "description": "Reviewed epoch metrics from the interrupted CNN-002 full-data regression run.",
+        "executed_at": "2026-08-02T19:29:53Z",
+        "tables_used": [
+          "snapshot.cnn002_epoch_metrics"
+        ],
+        "filters": {
+          "run_id": "20260802_120602",
+          "epochs_observed": "1-37 of 50",
+          "validation_events_per_epoch": 16786
+        },
+        "metric_definitions": {
+          "validation_rmse_mev": "Square root of mean squared physical-energy error over 16,786 validation events, in MeV.",
+          "validation_r2": "1 minus residual sum of squares divided by validation-target total sum of squares."
+        }
+      }
+    },
+    {
+      "id": "cnn002_checkpoint_audit",
+      "label": "CNN-002 epoch-0, best, and last checkpoint audit",
+      "path": "02_models/checkpoints/NEXTCNN_cnn_002_global_energy_skip_energy_regression_best.pt",
+      "relatedPaths": [
+        "02_models/checkpoints/NEXTCNN_cnn_002_global_energy_skip_energy_regression_last.pt"
+      ],
+      "query": {
+        "engine": "snapshot",
+        "sql": "SELECT checkpoint_state, epoch, loss, mae_mev, rmse_mev, bias_mev, r2, events, projection_coverage FROM snapshot.cnn002_checkpoint_comparison ORDER BY epoch",
+        "description": "Exact saved metrics for the analytical epoch-0 baseline, selected epoch-25 checkpoint, and epoch-37 last checkpoint.",
+        "executed_at": "2026-08-02T19:29:53Z",
+        "tables_used": [
+          "snapshot.cnn002_checkpoint_comparison"
+        ],
+        "filters": {
+          "validation_events": 16786,
+          "projection_coverage": 1.0,
+          "amp_skipped_steps": 0
+        }
+      }
+    }
+  ],
+  "package_info": {
+    "root": "05_reports/cnn_001_regression_diagnosis_20260801",
+    "manifestPath": "05_reports/cnn_001_regression_diagnosis_20260801/artifact.json",
+    "snapshotPath": "05_reports/cnn_001_regression_diagnosis_20260801/artifact.json"
+  }
+}

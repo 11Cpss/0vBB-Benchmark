@@ -1,33 +1,18 @@
-# Python
+.venv/
+envs/
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
+*.egg-info/
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.venv/
-venv/
 
-# Local data and generated artifacts
-data/raw/
-data/processed/
-outputs/
-tmp/
+synthetic_predictions.npz
+example_output/
+evaluation_*/
+comparison_*/
 
-# Personal/non-project files
-resume_jaden_wu_ds_ml.tex
-
-# Large scientific data files
-*.h5
-*.hdf5
-*.npy
-*.npz
-*.root
-*.tar
-*.tar.gz
-*.zip
-
-# OS/editor
-.DS_Store
-.vscode/
-.idea/
+# NEXT CNN 运行产物；原始 NEXT 数据保存在 zeronu_benchmark，不放进本项目。
+02_models/checkpoints/
+03_training_runs/logs/
+03_training_runs/history_plots/
+04_evaluations/
+08_cache/

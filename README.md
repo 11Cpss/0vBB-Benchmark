@@ -1,43 +1,92 @@
-# 0vBB-Benchmark
+# EnergyBench / NEXT CNN
 
-This project studies how machine learning models should be evaluated on rare-event detector data.
+本项目用于 NEXT 逐事件预测、分类评测与能量回归评测。当前正式评分包括：
 
-The main question is:
+- energy-matched ROC/AUC：在信号与背景具有相同能谱后比较分类能力；
+- ERS-v1：同时评价逐事件能量误差与总体能谱相似性；
+- class-conditional energy dependence：诊断分类分数是否随能量变化。
 
-> Can one unified model handle very different rare-event detector datasets as well as specialized models designed for each detector?
+评分定义、表格字段、全部产物和图像解释见
+[评测与数据标准](docs/EVALUATION_STANDARD.md)（[English](docs/EVALUATION_STANDARD_EN.md)）。调用、目录结构和修改位置见
+[调用与维护指南](docs/USAGE_GUIDE.md)（[English](docs/USAGE_GUIDE_EN.md)）。
 
-We are comparing a unified tokenized transformer with specialized models such as waveform CNNs, point-cloud models, boosted trees, and physics-feature baselines.
+## 快速开始
 
-## Datasets
+所有命令都在同一个项目环境中运行：
 
-The current scope contains five datasets:
+```bash
+cd /home/wenyu/summer
+source .venv/bin/activate
 
-- **CUORE** — 1D detector waveforms. The task is to distinguish clean pulses from pile-up pulses.
-- **NEXT** — sparse 3D energy-deposition hits. The task is to distinguish 0νββ-like two-electron topologies from radioactive backgrounds.
-- **SuperNEMO** — reconstructed event-level features. The task is to classify different double-beta-decay and background processes.
-- **MJD** — germanium-detector waveforms and pulse-shape information, including physics-inspired features such as AvsE-related quantities.
-- **EXO-200** — raw detector waveforms and reconstructed event quantities from a public AI/ML data release.
+python --version
+energybench --version
+```
 
-These datasets deliberately cover different input structures: time series, sparse 3D events, tabular physics features, and mixed raw/reconstructed detector data.
+评测已有 NEXT checkpoint：
 
-## Benchmark design
+```bash
+energybench next --dry-run
+energybench next 02_models/checkpoints/NEXTCNN_next_cnn_v1_run2_best.pt
+```
 
-We use one benchmark evaluation suite rather than separate benchmarks for every model. Each model sees the same event-level splits and is evaluated using the same primary metrics.
+评测已经导出的逐事件预测表：
 
-For classification, the standard metric is **energy-matched AUC**. Signal and background events are matched or reweighted in energy so that a model cannot obtain most of its performance simply from different energy spectra. Regular ROC-AUC can be reported as a secondary metric.
+```bash
+energybench inspect predictions_test.npz
 
-For energy regression, the standard metric is **binned energy regression**. The true-energy range is divided into bins, and the regression error is calculated within each bin. This prevents the densest part of the spectrum from dominating the result. Overall RMSE or MAE can be reported as secondary metrics.
+energybench evaluate predictions_test.npz \
+  --manifest manifests/next_0nubb_vs_bi214.yaml \
+  --model-id my-model \
+  --output-dir 04_evaluations/my-model \
+  --strict
+```
 
-The benchmark also includes controlled tests for likely shortcuts, such as hit count, occupancy, total charge, detector position, waveform amplitude, baseline noise, and reconstruction artifacts. A model is more convincing if its performance remains strong after these effects are controlled.
+训练当前可复现的 CNN-001、CNN-002，或深层残差空间模型 CNN-003：
 
-## Model comparison
+```bash
+python 01_code/architectures/cnn_001_two_conv_baseline/train_classification.py --smoke
+python 01_code/architectures/cnn_001_two_conv_baseline/train_energy_regression.py --smoke
 
-The unified model will be tested using approximately eight selected combinations of tokenization and positional encoding. These may include waveform-patch tokens, detector-hit tokens, feature tokens, learned position embeddings, sinusoidal encodings, and physics-aware time or coordinate encodings.
+python 01_code/architectures/cnn_002_global_energy_skip/train_classification.py --smoke
+python 01_code/architectures/cnn_002_global_energy_skip/train_energy_regression.py --smoke
 
-The eight combinations are model variants, not separate benchmarks. They will be compared against specialized models using the same splits and evaluation protocol.
+python 01_code/architectures/cnn_003_residual_spatial/train_classification.py --smoke
+python 01_code/architectures/cnn_003_residual_spatial/train_energy_regression.py --smoke
+```
 
-## Scientific goal
+网络结构、两种任务的差异和精确参数量见
+[`cnn_001_two_conv_baseline/README.md`](01_code/architectures/cnn_001_two_conv_baseline/README.md)
+、
+[`cnn_002_global_energy_skip/README.md`](01_code/architectures/cnn_002_global_energy_skip/README.md)
+和
+[`cnn_003_residual_spatial/README.md`](01_code/architectures/cnn_003_residual_spatial/README.md)。
 
-The goal is not only to produce a leaderboard. We want to understand when a general-purpose representation can transfer across detector types, when specialized models are still better, and whether strong performance reflects meaningful physics rather than detector-specific shortcuts.
+## 当前边界
 
-The project documentation contains the current dataset descriptions, metric definitions, model experiment plans, and the physics-aware evaluation ideas motivated by the KLZNet dependence study.
+- 当前源码可分别训练 CNN-001、CNN-002、CNN-003 的分类和能量回归模型；EnergyBench adapter 仍只对其明确支持的 checkpoint 类型做正式推理和评分。
+- 仓库中的部分 v2 图表与评测目录是历史产物；对应 v2 训练源码和 checkpoint 已不在当前项目中，因此不能从本目录完整复现训练。
+- `.venv` 是唯一项目环境；`envs/python-builds/` 只是它依赖的 Python 3.11 解释器，不是第二个虚拟环境。
+- `results.csv` 是面向汇总的单行结果；完整审计信息位于评测目录的 `.energybench/metrics.json`。
+
+## 主要目录
+
+```text
+01_code/architectures/  按英文结构 ID 组织的分类/回归训练入口
+01_code/src/            共享输出路径工具
+02_models/            checkpoint
+03_training_runs/     训练日志与训练图
+04_evaluations/       预测表与评分结果
+src/energybench/      通用评分器
+src/next_cnn/         NEXT 模型、数据读取与 adapter
+manifests/            冻结的任务/评分配置
+examples/             通用 prediction-table 示例
+docs/                 两份项目文档
+```
+
+完整命令以本机帮助为准：
+
+```bash
+energybench --help
+energybench next --help
+energybench evaluate --help
+```
