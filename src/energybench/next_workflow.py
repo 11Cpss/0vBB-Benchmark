@@ -7,6 +7,7 @@ then composes the existing adapter and evaluator APIs.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Callable, Dict, Mapping, Optional
 
@@ -44,29 +45,37 @@ def find_project_root(start: Optional[Any] = None) -> Optional[Path]:
 def checkpoint_defaults(checkpoint: Any) -> Dict[str, Any]:
     """Read only the small set of workflow defaults stored in a checkpoint.
 
-    NEXT checkpoints are PyTorch pickle containers and must therefore be
-    trusted.  The model adapter has the same trust boundary when it later loads
-    the state dict for inference.
+    Neural NEXT checkpoints are trusted PyTorch pickle containers.  The
+    classical topology model uses the campaign's JSON checkpoint format.
     """
 
     source = Path(checkpoint).expanduser().resolve()
     if not source.is_file():
         raise FileNotFoundError("checkpoint does not exist: %s" % source)
-    try:
-        import torch
-    except ImportError as exc:
-        raise RuntimeError(
-            "NEXT evaluation requires PyTorch in the active environment"
-        ) from exc
-    try:
-        payload = torch.load(
-            str(source), map_location="cpu", weights_only=False
-        )
-    except TypeError:
-        # ``weights_only`` was added after older supported PyTorch releases.
-        payload = torch.load(str(source), map_location="cpu")
-    except Exception as exc:
-        raise ValueError("could not read NEXT checkpoint %s: %s" % (source, exc))
+    if source.suffix.lower() == ".json":
+        try:
+            with source.open("r", encoding="utf-8") as handle:
+                payload = json.load(handle)
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ValueError(
+                "could not read NEXT JSON checkpoint %s: %s" % (source, exc)
+            )
+    else:
+        try:
+            import torch
+        except ImportError as exc:
+            raise RuntimeError(
+                "NEXT evaluation requires PyTorch in the active environment"
+            ) from exc
+        try:
+            payload = torch.load(
+                str(source), map_location="cpu", weights_only=False
+            )
+        except TypeError:
+            # ``weights_only`` was added after older supported PyTorch releases.
+            payload = torch.load(str(source), map_location="cpu")
+        except Exception as exc:
+            raise ValueError("could not read NEXT checkpoint %s: %s" % (source, exc))
     if not isinstance(payload, Mapping):
         raise ValueError("NEXT checkpoint root must be a mapping: %s" % source)
 
@@ -84,6 +93,14 @@ def checkpoint_defaults(checkpoint: Any) -> Dict[str, Any]:
         task = "regression"
     else:
         task = "classification"
+    architecture_id = str(payload.get("architecture_id") or "")
+    adapter = "next_cnn.adapter:predict"
+    if source.suffix.lower() == ".json":
+        if architecture_id != "classic_001_topology_xgboost":
+            raise ValueError(
+                "unsupported NEXT JSON checkpoint architecture %r" % architecture_id
+            )
+        adapter = "next_alt.classic_adapter:predict"
     return {
         "checkpoint": source,
         "data_root": (
@@ -94,6 +111,8 @@ def checkpoint_defaults(checkpoint: Any) -> Dict[str, Any]:
         "epoch": payload.get("epoch"),
         "task": task,
         "multitask": task == "multitask",
+        "architecture_id": architecture_id,
+        "adapter": adapter,
     }
 
 
@@ -290,7 +309,7 @@ def run_next_evaluation(
     print_fn("")
     print_fn("[1/3] 正在运行模型推理并导出逐事件预测…")
     bundle = run_adapter(
-        "next_cnn.adapter:predict",
+        str(defaults.get("adapter") or "next_cnn.adapter:predict"),
         str(checkpoint_path),
         str(data_path),
         {

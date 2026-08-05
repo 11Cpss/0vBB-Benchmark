@@ -18,12 +18,12 @@ dataset:
 
 columns:
   event_id: event_id
-  label: label
+  label: null
   score: null
   energy_condition: energy_condition
   energy_true: energy_target
   energy_pred: energy_pred
-  category: category
+  category: null
   sample_weight: sample_weight
   group_id: group_id
   split: split

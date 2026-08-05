@@ -388,6 +388,7 @@ class NextIterableDataset(_IterableDatasetBase):
         balance_classes: bool = False,
         seed: int = 42,
         event_shuffle_buffer_size: int = 0,
+        include_classification_metadata: bool = True,
     ) -> None:
         self.files = list(files)
         if not self.files:
@@ -404,6 +405,9 @@ class NextIterableDataset(_IterableDatasetBase):
         self.balance_classes = bool(balance_classes)
         self.seed = int(seed)
         self.event_shuffle_buffer_size = int(event_shuffle_buffer_size)
+        self.include_classification_metadata = bool(
+            include_classification_metadata
+        )
         self.epoch = 0
 
     def set_epoch(self, epoch: int) -> None:
@@ -455,11 +459,9 @@ class NextIterableDataset(_IterableDatasetBase):
             image, coverage = project_event(
                 event.coordinates, event.energies, self.projection
             )
-            return {
+            row = {
                 "image": image,
-                "label": np.float32(event.label),
                 "event_id": event.event_id,
-                "category": event.category,
                 "energy_condition": np.float64(event.energy_sum),
                 "energy_target": np.float64(event.energy_sum),
                 "projection_coverage": np.float32(coverage),
@@ -467,6 +469,10 @@ class NextIterableDataset(_IterableDatasetBase):
                 "split": event.split,
                 "group_id": event.group_id,
             }
+            if self.include_classification_metadata:
+                row["label"] = np.float32(event.label)
+                row["category"] = event.category
+            return row
 
         # Regression keeps every selected event.  Shuffle the complete file
         # stream before applying a bounded event buffer so a larger class can

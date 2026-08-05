@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -14,6 +15,7 @@ import torch
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+from next_cnn import adapter as adapter_module
 from next_cnn import data as data_module
 from next_cnn.data import (
     EventRecord,
@@ -207,19 +209,43 @@ class DatasetShuffleTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             NextIterableDataset(self.files, event_shuffle_buffer_size=1.5)
 
+    def test_regression_rows_exclude_classification_metadata(self):
+        dataset = NextIterableDataset(
+            self.files,
+            projection=ProjectionConfig(
+                normalize_energy=False,
+                input_scale=100.0,
+                representation="energy",
+            ),
+            include_classification_metadata=False,
+        )
+        with mock.patch.object(
+            data_module, "iter_file_events", self._iter_file_events
+        ):
+            row = next(iter(dataset))
+        self.assertNotIn("label", row)
+        self.assertNotIn("category", row)
+        self.assertIn("energy_target", row)
+
 
 class TrainingContractTests(unittest.TestCase):
-    def test_compact_model_zero_initialization_predicts_standardized_zero(self):
+    def test_compact_regressor_zero_residual_preserves_projection_energy(self):
         model = training.EnergyRegressor(
             base_channels=4,
             pooled_size=1,
             head_features=32,
+            input_scale=100.0,
+            energy_mean=2.0,
+            energy_std=0.5,
         )
         training.initialize_regression_output(model)
         self.assertEqual(sum(p.numel() for p in model.parameters()), 45861)
+        images = torch.zeros(2, 3, 128, 128)
+        images[0, :, 0, 0] = 200.0
+        images[1, :, 0, 0] = 250.0
         with torch.inference_mode():
-            output = model(torch.rand(2, 3, 128, 128))
-        torch.testing.assert_close(output, torch.zeros_like(output))
+            output = model(images)
+        torch.testing.assert_close(output, torch.tensor([0.0, 1.0]))
 
     def test_selection_uses_rmse_then_mae(self):
         incumbent = {"energy_rmse_mev": 0.01, "energy_mae_mev": 0.008}
@@ -300,12 +326,15 @@ class TrainingContractTests(unittest.TestCase):
             base_channels=4,
             pooled_size=1,
             head_features=32,
+            input_scale=100.0,
+            energy_mean=2.45,
+            energy_std=0.01,
         )
         optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
         projection = ProjectionConfig(
             normalize_energy=False,
-            input_scale=1.0,
-            representation="binary_occupancy",
+            input_scale=100.0,
+            representation="energy",
         )
         baselines = {
             "constant_train_mean": {"validation": {}},
@@ -341,6 +370,18 @@ class TrainingContractTests(unittest.TestCase):
             20,
         )
         self.assertEqual(payload["format_version"], 2)
+        self.assertEqual(
+            payload["model_name"], "ResidualSpatialEnergyRegressor"
+        )
+        self.assertTrue(
+            payload["input_feature_config"][
+                "uses_deposited_energy_amplitude"
+            ]
+        )
+        self.assertIs(
+            training.validate_checkpoint(payload, Path("regression.pt")),
+            payload,
+        )
         self.assertEqual(payload["objective"]["name"], "mse")
         self.assertEqual(
             payload["selection"]["metric"],
@@ -376,6 +417,50 @@ class TrainingContractTests(unittest.TestCase):
         self.assertTrue(training.validation_acceptance(passing, baselines)["passed"])
         self.assertFalse(
             training.validation_acceptance(failing, baselines)["passed"]
+        )
+
+    def test_adapter_accepts_dedicated_regression_checkpoint(self):
+        payload = {
+            "format_version": 2,
+            "task": "energy_regression",
+            "model_name": "ResidualSpatialEnergyRegressor",
+            "model_config": {
+                "base_channels": 4,
+                "pooled_size": 1,
+                "head_features": 32,
+                "input_scale": 100.0,
+                "energy_mean": 2.45,
+                "energy_std": 0.01,
+            },
+            "model_state_dict": {},
+            "projection_config": {
+                "normalize_energy": False,
+                "input_scale": 100.0,
+                "representation": "energy",
+            },
+            "split_config": {},
+            "data_selection": {},
+            "energy_target_config": {
+                "kind": "summed_voxel_deposited_energy",
+                "unit": "MeV",
+                "source": "test",
+                "derivation": "test sum",
+                "normalizer": {
+                    "transform": "standardize",
+                    "mean": 2.45,
+                    "std": 0.01,
+                    "fit_split": "train",
+                },
+            },
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "checkpoint.pt"
+            torch.save(payload, path)
+            loaded = adapter_module._load_checkpoint(
+                path, torch.device("cpu"), torch
+            )
+        self.assertEqual(
+            loaded["model_name"], "ResidualSpatialEnergyRegressor"
         )
 
 

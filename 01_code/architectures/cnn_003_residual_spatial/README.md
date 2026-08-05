@@ -3,10 +3,8 @@
 ## Purpose
 
 CNN-003 replaces the shallow two-convolution backbone used by CNN-001 and
-CNN-002. The earlier topology-only energy-regression experiment showed that
-increasing only the channel width from 8 to 64 barely changed validation
-performance. CNN-003 therefore changes the spatial architecture rather than
-only increasing its parameter count.
+CNN-002. Classification and energy regression are separate tasks that share
+only the residual convolutional core.
 
 The directory contains two independent training programs:
 
@@ -17,9 +15,9 @@ cnn_003_residual_spatial/
 └── README.md
 ```
 
-Both programs use `ResidualSpatialNextCNN` from `src/next_cnn/model.py`. They
-share the same scalar-output backbone but retain separate data inputs, losses,
-checkpoints, logs, and validation metrics.
+Classification uses `ResidualSpatialNextCNN`; regression uses the distinct
+`ResidualSpatialEnergyRegressor`. They have separate inputs, output heads,
+losses, batch contracts, checkpoint identities, logs, and validation metrics.
 
 ## What Changes from CNN-002
 
@@ -37,16 +35,15 @@ CNN-003 makes four structural changes:
 4. the output head also receives 15 explicit global geometry features: the
    log mass, x/y centroid, and x/y variance of each of the three views.
 
-This addresses the spatial bottleneck diagnosed in CNN-002. It does not make
-energy information appear in an input from which that information was
-removed; the topology-only regression caveat remains important.
+This addresses the spatial bottleneck diagnosed in CNN-002. The dedicated
+regressor additionally receives energy-preserving projections and uses their
+per-view sum as a physical baseline for the learned CNN residual.
 
 ## Architecture
 
 The classification defaults remain `C = 16`, pooled size `P = 4`, and head
-width `H = 256`.  Energy regression now uses the deliberately compact defaults
-`C = 4`, `P = 1`, and `H = 32` to limit memorization on the weak topology-only
-target.  The network shape is:
+width `H = 256`. Energy regression uses `C = 4`, `P = 1`, and `H = 32`. The
+shared convolutional shape is:
 
 | Stage | Output shape |
 |---|---:|
@@ -67,7 +64,7 @@ BatchNorm so behavior does not depend on the batch composition.
 
 The classification defaults have **1,228,817 trainable parameters**.  The
 compact energy-regression defaults have **45,861 trainable parameters**,
-compared with 1,409 parameters in the original CNN-002 topology-only regressor
+compared with 1,409 parameters in the original CNN-002 regressor
 and 75,777 in its width-only large variant.
 
 Architecture dimensions can be overridden with:
@@ -98,10 +95,12 @@ energy information.
 
 ## Energy-Regression Task
 
-Regression also keeps the CNN-002 task protocol unchanged:
+Regression has a task-specific protocol:
 
-- input: binary XY/XZ/YZ voxel occupancy without deposited-energy amplitudes;
+- model: `ResidualSpatialEnergyRegressor`, never the classification model;
+- input: unnormalised energy-weighted XY/XZ/YZ projections scaled by 100;
 - target: float64 sum of voxel-deposited energy in MeV;
+- batch contract: no classification label or category is exposed;
 - target transform: mean and population standard deviation fitted on train;
 - objective: MSE in standardized target space;
 - metrics: objective loss, Smooth-L1, physical-unit MAE/RMSE/bias/R-squared,
@@ -115,13 +114,14 @@ Regression also keeps the CNN-002 task protocol unchanged:
 - training order: every selected event is retained and mixed through a
   deterministic 512-event shuffle buffer.
 
-The scalar regression output is initialized to zero in standardized space, so
-epoch 0 exactly predicts the train-target mean.  The best checkpoint can
-therefore never silently fall back to a random untrained network.
+The learned regression residual is initialized to zero. Epoch 0 therefore
+predicts the energy-preserving mean of the three projection sums; the CNN can
+learn corrections when projection coverage or detector response is imperfect.
 
-Because the input remains topology-only, CNN-003 tests whether better global
-geometry modeling helps. It must not be interpreted as proof that total
-deposited energy is recoverable from binary topology.
+In the current Monte Carlo data, the regression target is derived from the same
+voxel energies used to construct the input and projection coverage is complete.
+Near-perfect performance is consequently a data-flow reconstruction baseline,
+not independent evidence of experimental energy resolution.
 
 ## Running
 

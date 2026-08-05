@@ -2,9 +2,10 @@
 """
 train_energy_regression.py — CNN-003 residual-spatial energy regression
 
-This program predicts summed voxel-deposited energy from binary XY/XZ/YZ voxel
-occupancy only. Deposited-energy amplitudes are excluded from the model input;
-they are used solely as the supervised regression target.
+This program predicts summed voxel-deposited energy from unnormalised,
+energy-weighted XY/XZ/YZ projections.  It uses a dedicated regression model,
+objective, data contract, checkpoint identity, and evaluation path; only the
+residual CNN core is shared with CNN-003 classification.
 
 Run
 ---
@@ -91,7 +92,10 @@ from next_cnn.data import (
     discover_source_files,
     iter_file_events,
 )
-from next_cnn.model import ResidualSpatialNextCNN as EnergyRegressor
+from next_cnn.model import (
+    ResidualSpatialEnergyRegressor as EnergyRegressor,
+    ResidualSpatialNextCNN as LegacyEnergyRegressor,
+)
 
 
 # =============================================================================
@@ -172,17 +176,18 @@ BALANCE_TRAINING_CLASSES = False
 GRID_SIZE = 128
 BIN_SIZE = 30.0
 GRID_ORIGIN = (-1920.0, -1920.0, -120.0)
-# Binary occupancy depends only on voxel coordinates.  It deliberately removes
-# deposited-energy amplitudes, including the event-total shortcut.
+# Regression uses unnormalised, energy-weighted projections.  Unlike the
+# classification input, this preserves the physical amplitude needed to infer
+# the summed deposited-energy target.
 NORMALIZE_EVENT_ENERGY = False
-INPUT_SCALE = 1.0
-INPUT_REPRESENTATION = "binary_occupancy"
+INPUT_SCALE = 100.0
+INPUT_REPRESENTATION = "energy"
 
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Train the CNN-003 topology-only NEXT energy regressor on CUDA"
+            "Train the dedicated CNN-003 NEXT energy regressor on CUDA"
         )
     )
     parser.add_argument(
@@ -324,6 +329,7 @@ def load_data(
         balance_classes=BALANCE_TRAINING_CLASSES,
         seed=dataset_seed,
         event_shuffle_buffer_size=event_shuffle_buffer_size,
+        include_classification_metadata=False,
     )
     validation_dataset = NEXTDataset(
         validation_files,
@@ -331,6 +337,7 @@ def load_data(
         shuffle_files=False,
         balance_classes=False,
         seed=dataset_seed,
+        include_classification_metadata=False,
     )
     loader_options = {
         "batch_size": int(batch_size),
@@ -523,11 +530,16 @@ def complete_regression_metrics(
 
 
 def initialize_regression_output(model: EnergyRegressor) -> None:
-    """Make an untrained regression model predict the train target mean."""
+    """Zero the learned residual while retaining the physical-energy skip."""
 
-    output = model.head[-1]
+    head = getattr(model, "regressor", None)
+    if head is None:
+        head = getattr(model, "head", None)
+    if not isinstance(head, nn.Sequential):
+        raise TypeError("energy regressor must provide a sequential output head")
+    output = head[-1]
     if not isinstance(output, nn.Linear) or output.out_features != 1:
-        raise TypeError("ResidualSpatialNextCNN must end in a scalar Linear layer")
+        raise TypeError("energy regressor must end in a scalar Linear layer")
     nn.init.zeros_(output.weight)
     if output.bias is not None:
         nn.init.zeros_(output.bias)
@@ -587,12 +599,9 @@ def validation_acceptance(
         "bias_limit_mev": float(bias_limit_mev),
         "checks": checks,
         "conclusion": (
-            "compact residual-spatial CNN beats both topology baselines"
+            "dedicated energy regressor meets all validation gates"
             if all(checks.values())
-            else (
-                "pure-topology deep model has no demonstrated advantage "
-                "over the geometry-linear baseline"
-            )
+            else "validation acceptance failed"
         ),
     }
 
@@ -1177,7 +1186,7 @@ def checkpoint_payload(
     return {
         "format_version": 2,
         "task": "energy_regression",
-        "model_name": "ResidualSpatialNextCNN",
+        "model_name": "ResidualSpatialEnergyRegressor",
         "model_suffix": model_suffix,
         "model_config": model.config_dict(),
         "model_state_dict": model.state_dict(),
@@ -1185,10 +1194,11 @@ def checkpoint_payload(
         "energy_target_config": energy_target_config,
         "projection_config": projection.to_dict(),
         "input_feature_config": {
-            "kind": "binary_voxel_occupancy",
-            "source": "voxel coordinates only",
-            "uses_deposited_energy_amplitude": False,
-            "pixel_values": [0.0, 1.0],
+            "kind": "unnormalized_energy_weighted_projection",
+            "source": "voxel coordinates and deposited-energy amplitudes",
+            "uses_deposited_energy_amplitude": True,
+            "preserves_projection_energy_sum": True,
+            "input_scale": float(projection.input_scale),
         },
         "split_config": {
             "seed": SPLIT_SEED,
@@ -1222,6 +1232,7 @@ def checkpoint_payload(
                 "root": BASE_DATA,
                 "max_files_per_class": max_files_per_class,
                 "balance_training_classes": BALANCE_TRAINING_CLASSES,
+                "include_classification_metadata": False,
                 "event_shuffle_buffer_size": int(
                     event_shuffle_buffer_size
                 ),
@@ -1268,9 +1279,15 @@ def validate_checkpoint(
         raise ValueError(
             "checkpoint is not an energy-regression run: %s" % checkpoint_path
         )
-    if loaded.get("model_name") != "ResidualSpatialNextCNN":
+    model_name = loaded.get("model_name")
+    supported_models = {
+        "ResidualSpatialEnergyRegressor",
+        # Backward compatibility for topology-only v2 checkpoints.
+        "ResidualSpatialNextCNN",
+    }
+    if model_name not in supported_models:
         raise ValueError(
-            "checkpoint model is not CNN-003 topology-only regression: %s"
+            "checkpoint model is not a supported CNN-003 regression: %s"
             % checkpoint_path
         )
     model_config = loaded.get("model_config")
@@ -1283,6 +1300,16 @@ def validate_checkpoint(
         model_config
     ):
         raise ValueError("checkpoint model configuration is incomplete")
+    if model_name == "ResidualSpatialEnergyRegressor":
+        required_regression_config = {
+            "input_scale",
+            "energy_mean",
+            "energy_std",
+        }
+        if not required_regression_config.issubset(model_config):
+            raise ValueError(
+                "energy regressor model configuration is incomplete"
+            )
     normalizer = loaded.get("energy_target_config", {}).get("normalizer", {})
     required = {"mean", "std", "fit_split", "transform"}
     if not isinstance(normalizer, Mapping) or not required.issubset(normalizer):
@@ -1294,8 +1321,28 @@ def validate_checkpoint(
     if not float(normalizer["std"]) > 0.0:
         raise ValueError("checkpoint energy standard deviation must be positive")
     projection = ProjectionConfig.from_dict(loaded.get("projection_config", {}))
-    if projection.representation != "binary_occupancy":
-        raise ValueError("checkpoint input is not binary occupancy")
+    if model_name == "ResidualSpatialEnergyRegressor":
+        if projection.representation != "energy" or projection.normalize_energy:
+            raise ValueError(
+                "energy regressor requires unnormalised energy projections"
+            )
+        if not np.isclose(
+            projection.input_scale,
+            float(model_config["input_scale"]),
+        ):
+            raise ValueError("checkpoint projection/model input scales differ")
+        if not np.isclose(
+            float(normalizer["mean"]),
+            float(model_config["energy_mean"]),
+        ) or not np.isclose(
+            float(normalizer["std"]),
+            float(model_config["energy_std"]),
+        ):
+            raise ValueError(
+                "checkpoint target and model normalizers differ"
+            )
+    elif projection.representation != "binary_occupancy":
+        raise ValueError("legacy checkpoint input is not binary occupancy")
     objective = loaded.get("objective")
     if objective is not None:
         if not isinstance(objective, Mapping) or "name" not in objective:
@@ -1367,6 +1414,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     validation_checkpoint: Optional[Dict[str, Any]] = None
     split_seed = SPLIT_SEED
     split_fractions: Sequence[float] = SPLIT_FRACTIONS
+    checkpoint_model_name = "ResidualSpatialEnergyRegressor"
     model_configuration: Optional[Dict[str, Any]] = None
     energy_mean: Optional[float] = None
     energy_std: Optional[float] = None
@@ -1382,6 +1430,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             weights_only=False,
         )
         validation_checkpoint = validate_checkpoint(loaded, best_checkpoint)
+        checkpoint_model_name = str(validation_checkpoint["model_name"])
         projection = ProjectionConfig.from_dict(
             validation_checkpoint["projection_config"]
         )
@@ -1554,12 +1603,28 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "base_channels": BASE_CHANNELS,
             "pooled_size": POOLED_SIZE,
             "head_features": HEAD_FEATURES,
+            "input_scale": projection.input_scale,
+            "energy_mean": energy_mean,
+            "energy_std": energy_std,
         }
-    if projection.representation != "binary_occupancy":
-        raise ValueError("CNN-003 topology-only regression requires binary occupancy")
-    if projection.normalize_energy or not np.isclose(projection.input_scale, 1.0):
-        raise ValueError("binary occupancy must be unnormalized with input_scale=1")
-    model = EnergyRegressor(**model_configuration).to(device)
+    if checkpoint_model_name == "ResidualSpatialEnergyRegressor":
+        if projection.representation != "energy" or projection.normalize_energy:
+            raise ValueError(
+                "CNN-003 energy regression requires unnormalised energy input"
+            )
+        if not np.isclose(
+            projection.input_scale,
+            float(model_configuration["input_scale"]),
+        ):
+            raise ValueError("projection and model input scales differ")
+        model_class = EnergyRegressor
+    else:
+        if projection.representation != "binary_occupancy":
+            raise ValueError(
+                "legacy CNN-003 regression requires binary occupancy"
+            )
+        model_class = LegacyEnergyRegressor
+    model = model_class(**model_configuration).to(device)
     if not args.full_validation:
         initialize_regression_output(model)
     parameter_count = sum(parameter.numel() for parameter in model.parameters())
@@ -1673,8 +1738,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         )
     )
 
-    # The zero-initialized scalar output makes this an exact train-mean
-    # baseline instead of a random-network checkpoint.
+    # The zero-initialized residual head retains the deterministic projection
+    # energy sum instead of saving a random-network checkpoint.
     initial_validation_metrics, _, _ = run_epoch(
         validation_loader,
         model,

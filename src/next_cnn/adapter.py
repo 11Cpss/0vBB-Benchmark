@@ -1,4 +1,4 @@
-"""EnergyBench adapter for NEXT CNN format-version-2 checkpoints."""
+"""EnergyBench adapter for legacy v2 CNNs and v3 alternative dispatch."""
 
 from __future__ import annotations
 
@@ -20,14 +20,31 @@ from .data import (
 )
 
 
-def _load_checkpoint(path: Path, device: Any, torch: Any) -> Dict[str, Any]:
+def _read_checkpoint(path: Path, device: Any, torch: Any) -> Dict[str, Any]:
     if not path.is_file():
         raise FileNotFoundError("NEXT CNN checkpoint does not exist: %s" % path)
     try:
         payload = torch.load(str(path), map_location=device, weights_only=False)
     except TypeError:  # PyTorch versions before the weights_only argument.
         payload = torch.load(str(path), map_location=device)
-    if not isinstance(payload, dict) or payload.get("format_version") != 2:
+    if not isinstance(payload, dict):
+        raise ValueError("NEXT checkpoint root must be a mapping: %s" % path)
+    return payload
+
+
+def _load_checkpoint(
+    path: Path,
+    device: Any,
+    torch: Any,
+    payload: Optional[Mapping[str, Any]] = None,
+) -> Dict[str, Any]:
+    if payload is None:
+        checkpoint = _read_checkpoint(path, device, torch)
+    elif isinstance(payload, Mapping):
+        checkpoint = dict(payload)
+    else:
+        raise ValueError("NEXT checkpoint root must be a mapping: %s" % path)
+    if checkpoint.get("format_version") != 2:
         raise ValueError("unsupported NEXT CNN checkpoint format: %s" % path)
     required = {
         "model_config",
@@ -36,22 +53,23 @@ def _load_checkpoint(path: Path, device: Any, torch: Any) -> Dict[str, Any]:
         "split_config",
         "data_selection",
     }
-    missing = sorted(required.difference(payload))
+    missing = sorted(required.difference(checkpoint))
     if missing:
         raise ValueError("checkpoint is missing fields: %s" % ", ".join(missing))
-    model_name = str(payload.get("model_name", "SimpleNextCNN"))
+    model_name = str(checkpoint.get("model_name", "SimpleNextCNN"))
     supported_models = {
         "SimpleNextCNN",
         "SimpleNextEnergyRegressor",
         "GlobalEnergySkipCNN",
         "MultiTaskNextCNN",
+        "ResidualSpatialEnergyRegressor",
         "ResidualSpatialNextCNN",
     }
     if model_name not in supported_models:
         raise ValueError(
             "unsupported NEXT CNN model_name %r in %s" % (model_name, path)
         )
-    task = str(payload.get("task", "")).strip().lower()
+    task = str(checkpoint.get("task", "")).strip().lower()
     if model_name == "SimpleNextEnergyRegressor" and task != "energy_regression":
         raise ValueError("SimpleNextEnergyRegressor requires task=energy_regression")
     if model_name == "GlobalEnergySkipCNN" and task not in {
@@ -70,13 +88,20 @@ def _load_checkpoint(path: Path, device: Any, torch: Any) -> Dict[str, Any]:
             "ResidualSpatialNextCNN requires task=binary_classification or "
             "task=energy_regression"
         )
+    if (
+        model_name == "ResidualSpatialEnergyRegressor"
+        and task != "energy_regression"
+    ):
+        raise ValueError(
+            "ResidualSpatialEnergyRegressor requires task=energy_regression"
+        )
     if model_name in {"SimpleNextEnergyRegressor", "MultiTaskNextCNN"} or (
         model_name == "GlobalEnergySkipCNN" and task == "energy_regression"
-    ) or (
+    ) or model_name == "ResidualSpatialEnergyRegressor" or (
         model_name == "ResidualSpatialNextCNN" and task == "energy_regression"
     ):
-        _energy_target_config(payload)
-    return payload
+        _energy_target_config(checkpoint)
+    return checkpoint
 
 
 def _energy_target_config(checkpoint: Mapping[str, Any]) -> Dict[str, Any]:
@@ -138,7 +163,7 @@ def _energy_target_config(checkpoint: Mapping[str, Any]) -> Dict[str, Any]:
     if not isinstance(model_config, Mapping):
         raise ValueError("energy regression model_config must be a mapping")
     model_normalizer_keys = None
-    if model_name == "MultiTaskNextCNN":
+    if model_name in {"MultiTaskNextCNN", "ResidualSpatialEnergyRegressor"}:
         model_normalizer_keys = ("energy_mean", "energy_std")
     elif model_name == "GlobalEnergySkipCNN":
         model_normalizer_keys = ("global_center", "global_scale")
@@ -207,6 +232,15 @@ def _build_model(checkpoint: Mapping[str, Any], model_module: Any) -> tuple:
             if str(checkpoint.get("task", "")).lower() == "energy_regression"
             else "classification"
         )
+    elif model_name == "ResidualSpatialEnergyRegressor":
+        try:
+            model_class = model_module.ResidualSpatialEnergyRegressor
+        except AttributeError as exc:
+            raise RuntimeError(
+                "ResidualSpatialEnergyRegressor checkpoint requires a "
+                "next_cnn.model version that provides the regression model"
+            ) from exc
+        task = "regression"
     else:  # Guarded by _load_checkpoint; retained for direct helper use.
         raise ValueError("unsupported NEXT CNN model_name %r" % model_name)
     return model_class(**checkpoint["model_config"]), model_name, task
@@ -392,14 +426,39 @@ def predict(
             "NEXT CNN inference requires PyTorch; "
             "install `requirements/next-cnn-cu128.txt` in the GPU environment"
         ) from exc
-    from . import model as model_module
-
     if int(batch_size) != batch_size or batch_size < 1:
         raise ValueError("batch_size must be a positive integer")
     if int(num_workers) != num_workers or num_workers < 0:
         raise ValueError("num_workers must be a non-negative integer")
+    raw_checkpoint = _read_checkpoint(checkpoint_path, "cpu", torch)
+    if raw_checkpoint.get("format_version") == 3:
+        from next_alt.adapter import predict as alternative_predict
+
+        return alternative_predict(
+            model_path=model_path,
+            data_path=data_path,
+            batch_size=batch_size,
+            device=device,
+            num_workers=num_workers,
+            split=split,
+            max_files_per_class=max_files_per_class,
+            include_energy_condition=include_energy_condition,
+            show_progress=show_progress,
+            progress_interval_seconds=progress_interval_seconds,
+            split_seed=split_seed,
+            split_fractions=split_fractions,
+            _checkpoint_payload=raw_checkpoint,
+        )
+
+    from . import model as model_module
+
     selected_device = _device(device, torch)
-    checkpoint = _load_checkpoint(checkpoint_path, selected_device, torch)
+    checkpoint = _load_checkpoint(
+        checkpoint_path,
+        selected_device,
+        torch,
+        payload=raw_checkpoint,
+    )
     checkpoint_split = checkpoint["split_config"]
     checkpoint_seed = int(checkpoint_split["seed"])
     checkpoint_fractions = np.asarray(checkpoint_split["fractions"], dtype=float)
@@ -452,16 +511,21 @@ def predict(
             % ", ".join(overlap[:5])
         )
     projection = ProjectionConfig.from_dict(checkpoint["projection_config"])
-    dataset = NextIterableDataset(files, projection=projection, shuffle_files=False)
+    model, model_name, model_task = _build_model(checkpoint, model_module)
+    classification = model_task in {"classification", "multitask"}
+    regression = model_task in {"regression", "multitask"}
+    dataset = NextIterableDataset(
+        files,
+        projection=projection,
+        shuffle_files=False,
+        include_classification_metadata=classification,
+    )
     loader = torch.utils.data.DataLoader(
         dataset,
         batch_size=int(batch_size),
         num_workers=int(num_workers),
         pin_memory=selected_device.type == "cuda",
     )
-    model, model_name, model_task = _build_model(checkpoint, model_module)
-    classification = model_task in {"classification", "multitask"}
-    regression = model_task in {"regression", "multitask"}
     model.load_state_dict(checkpoint["model_state_dict"], strict=True)
     model.to(selected_device).eval()
     checkpoint_digest = _file_sha256(checkpoint_path)
@@ -577,10 +641,7 @@ def predict(
                     score = None
                     if logits is not None:
                         score = logits.detach().cpu().numpy().astype(np.float32)
-                    label = (
-                        batch["label"].detach().cpu().numpy().astype(np.int8)
-                    )
-                    size = len(label)
+                    size = len(batch["event_id"])
                     if score is not None and len(score) != size:
                         raise ValueError(
                             "NEXT CNN logits are not aligned with the input batch"
@@ -591,8 +652,6 @@ def predict(
                         )
                     columns: Dict[str, Any] = {
                         "event_id": np.asarray(batch["event_id"], dtype=str),
-                        "label": label,
-                        "category": np.asarray(batch["category"], dtype=str),
                         "sample_weight": np.ones(size, dtype=np.float32),
                         "split": np.asarray(batch["split"], dtype=str),
                         "group_id": np.asarray(batch["group_id"], dtype=str),
@@ -605,6 +664,21 @@ def predict(
                         ),
                         "__metadata__": metadata,
                     }
+                    if classification:
+                        if "label" not in batch or "category" not in batch:
+                            raise KeyError(
+                                "classification inference requires label/category"
+                            )
+                        columns["label"] = (
+                            batch["label"]
+                            .detach()
+                            .cpu()
+                            .numpy()
+                            .astype(np.int8)
+                        )
+                        columns["category"] = np.asarray(
+                            batch["category"], dtype=str
+                        )
                     if score is not None:
                         columns["score"] = score
                     if include_energy_condition:

@@ -68,6 +68,14 @@ energybench next \
   02_models/checkpoints/NEXTCNN_next_cnn_v1_run2_best.pt
 ```
 
+替代架构的 v3 checkpoint 使用完全相同的命令，例如：
+
+```bash
+energybench next \
+  02_models/checkpoints/NEXTALT_gnn_002_particlenet_edgeconv_classification_best.pt \
+  --device cuda:0
+```
+
 程序从 checkpoint 读取数据根目录、任务类型与预处理设置，自动选择分类、独立能量回归
 或多任务 manifest，并输出到一个新的 `04_evaluations/<model-id>/` 目录。常用覆盖参数：
 
@@ -80,6 +88,9 @@ energybench next CHECKPOINT.pt \
 ```
 
 用 `--max-files-per-class 1` 做小规模流程检查；用 `--no-plots` 只写表格和审计数据。
+10 个非 Transformer 架构、各自配置和正式 tmux 训练方式见
+[ALTERNATIVE_ARCHITECTURES.md](ALTERNATIVE_ARCHITECTURES.md) 与
+[TMUX_TRAINING.md](TMUX_TRAINING.md)。
 
 ### 2.2 评测已有 prediction table
 
@@ -235,7 +246,8 @@ summer/
 | 改 ERS-v1 | `src/energybench/regression.py` | 分数组件、范围、bootstrap 和标准文档同步更新 |
 | 改结果表 | `src/energybench/reporting.py` | CSV header、字段解释和 schema 版本同步更新 |
 | 改评测图 | `src/energybench/plotting.py` | 坐标、单位、抽样/权重说明不被误导 |
-| 改 NEXT 网络 | `src/next_cnn/model.py` | adapter 的 checkpoint 识别和 state dict 仍一致 |
+| 改旧 NEXT CNN 网络 | `src/next_cnn/model.py` | v2 adapter 的 checkpoint 识别和 state dict 仍一致 |
+| 改替代分类架构 | `src/next_alt/models/` 与 `src/next_alt/registry.py` | v3 model config、batch key、严格 state dict 重建一致 |
 | 改投影或数据 split | `src/next_cnn/data.py` | 训练与推理使用同一实现，旧 checkpoint provenance 不被伪装成新协议 |
 | 改训练超参数/循环 | `01_code/architectures/` 下对应任务程序 | 新 model suffix、validation 选择规则和日志字段明确 |
 | 接入新模型框架 | 新 adapter + manifest | 每事件对齐、稳定 event ID、可信 split、单位和 score 方向 |

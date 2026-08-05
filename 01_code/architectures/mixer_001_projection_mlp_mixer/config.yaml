@@ -1,0 +1,44 @@
+architecture_id: mixer_001_projection_mlp_mixer
+
+data:
+  root: /home/klz/Data/zeronu_benchmark/NEXT
+  max_files_per_class: 100
+  split_seed: 42
+  split_fractions: [0.8, 0.1, 0.1]
+  num_workers: 0
+  balance_training_classes: true
+  event_shuffle_buffer_size: 512
+
+representation:
+  projection_grid_size: 128
+  projection_bin_size: 30.0
+  projection_origin: [-1920.0, -1920.0, -1920.0]
+  projection_input_scale: 100.0
+  center_projection: true
+
+model:
+  input_channels: 3
+  grid_size: 128
+  patch_size: 16
+  embedding_dim: 128
+  depth: 6
+  token_mlp_dim: 32
+  channel_mlp_dim: 256
+  classifier_dim: 128
+  dropout: 0.10
+
+training:
+  batch_size: 16
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping_patience: 12
+  early_stopping_min_delta: 0.0
+  seed: 42
+  deterministic: false
+  use_amp: true
+  amp_precision: auto
+
+output:
+  allow_overwrite: false

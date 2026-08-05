@@ -359,6 +359,83 @@ class ResidualSpatialNextCNN(nn.Module):
         }
 
 
+class ResidualSpatialEnergyRegressor(ResidualSpatialNextCNN):
+    """Regress deposited energy with a residual CNN and physical-energy skip.
+
+    The convolutional core intentionally matches :class:`ResidualSpatialNextCNN`,
+    but the task contract is regression-only.  Inputs are unnormalised,
+    energy-weighted projections.  Their mean per-view sum is an
+    energy-preserving baseline; the CNN head learns only a standardized
+    residual for projection loss and detector-dependent spatial effects.
+    """
+
+    def __init__(
+        self,
+        base_channels: int = 4,
+        pooled_size: int = 1,
+        head_features: int = 32,
+        input_scale: float = 100.0,
+        energy_mean: float = 0.0,
+        energy_std: float = 1.0,
+    ) -> None:
+        values = (float(input_scale), float(energy_mean), float(energy_std))
+        if not all(math.isfinite(value) for value in values):
+            raise ValueError("energy-regression configuration must be finite")
+        if input_scale <= 0.0:
+            raise ValueError("input_scale must be positive")
+        if energy_std <= 0.0:
+            raise ValueError("energy_std must be positive")
+        super().__init__(
+            base_channels=base_channels,
+            pooled_size=pooled_size,
+            head_features=head_features,
+        )
+        # Keep regression checkpoint keys and semantics distinct from the
+        # classification model even though both use the same CNN core.
+        self.regressor = self.head
+        del self.head
+        self.input_scale = float(input_scale)
+        self.register_buffer(
+            "energy_mean", torch.tensor(float(energy_mean), dtype=torch.float32)
+        )
+        self.register_buffer(
+            "energy_std", torch.tensor(float(energy_std), dtype=torch.float32)
+        )
+
+    def observed_energy(self, images: "torch.Tensor") -> "torch.Tensor":
+        """Return the energy-preserving mean of the three projection sums."""
+
+        if images.ndim != 4 or images.shape[1] != 3:
+            raise ValueError("images must have shape (batch, 3, height, width)")
+        per_view = images.float().sum(dim=(-2, -1)) / self.input_scale
+        return per_view.mean(dim=1)
+
+    def forward(self, images: "torch.Tensor") -> "torch.Tensor":
+        if images.ndim != 4 or images.shape[1] != 3:
+            raise ValueError("images must have shape (batch, 3, height, width)")
+        if images.shape[-2:] != (self.INPUT_SIZE, self.INPUT_SIZE):
+            raise ValueError(
+                "ResidualSpatialEnergyRegressor requires 128x128 input images"
+            )
+        spatial = self.features(self.stem(images))
+        spatial = self.spatial_pool(spatial).flatten(start_dim=1).float()
+        global_geometry = self.global_geometry_features(images)
+        fused = torch.cat((spatial, global_geometry), dim=1)
+        residual = self.regressor(fused).squeeze(1)
+        baseline = (self.observed_energy(images) - self.energy_mean) / self.energy_std
+        return baseline + residual
+
+    def config_dict(self) -> Dict[str, Any]:
+        return {
+            "base_channels": self.base_channels,
+            "pooled_size": self.pooled_size,
+            "head_features": self.head_features,
+            "input_scale": self.input_scale,
+            "energy_mean": float(self.energy_mean.detach().cpu()),
+            "energy_std": float(self.energy_std.detach().cpu()),
+        }
+
+
 class MultiTaskNextCNN(nn.Module):
     """Joint NEXT classifier and summed-deposited-energy regressor."""
 
@@ -428,6 +505,7 @@ class MultiTaskNextCNN(nn.Module):
 __all__ = [
     "GlobalEnergySkipCNN",
     "MultiTaskNextCNN",
+    "ResidualSpatialEnergyRegressor",
     "ResidualSpatialNextCNN",
     "SimpleNextCNN",
     "SimpleNextEnergyRegressor",

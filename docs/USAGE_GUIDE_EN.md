@@ -72,6 +72,14 @@ energybench next \
   02_models/checkpoints/NEXTCNN_next_cnn_v1_run2_best.pt
 ```
 
+Format-version-3 alternative checkpoints use the same command, for example:
+
+```bash
+energybench next \
+  02_models/checkpoints/NEXTALT_gnn_002_particlenet_edgeconv_classification_best.pt \
+  --device cuda:0
+```
+
 The program reads the data root and preprocessing settings from the checkpoint and writes the
 outputs to a new `04_evaluations/<model-id>/` directory. Common overrides are:
 
@@ -85,6 +93,9 @@ energybench next CHECKPOINT.pt \
 
 Use `--max-files-per-class 1` for a small-scale workflow check. Use `--no-plots` to write only
 the tables and audit data.
+
+See [ALTERNATIVE_ARCHITECTURES.md](ALTERNATIVE_ARCHITECTURES.md) and
+[TMUX_TRAINING.md](TMUX_TRAINING.md) for the ten non-Transformer models and the formal queue.
 
 ### 2.2 Evaluate an Existing Prediction Table
 
@@ -249,7 +260,8 @@ summer/
 | Change ERS-v1 | `src/energybench/regression.py` | Update score components, range, bootstrap procedure, and standards documentation together |
 | Change result tables | `src/energybench/reporting.py` | Update the CSV header, field definitions, and schema version together |
 | Change evaluation figures | `src/energybench/plotting.py` | Ensure axes, units, and sampling/weight descriptions remain unambiguous |
-| Change the NEXT network | `src/next_cnn/model.py` | Checkpoint detection in the adapter and the state dict remain consistent |
+| Change a legacy NEXT CNN | `src/next_cnn/model.py` | v2 checkpoint detection and the state dict remain consistent |
+| Change an alternative classifier | `src/next_alt/models/` and `src/next_alt/registry.py` | v3 model config, batch keys, and strict state-dict reconstruction remain consistent |
 | Change projections or data split | `src/next_cnn/data.py` | Training and inference use the same implementation; old-checkpoint provenance is not presented as a new protocol |
 | Change training hyperparameters or loop | The applicable program under `01_code/architectures/` | New model suffix, validation selection rule, and log fields are explicit |
 | Integrate a new model framework | New adapter + manifest | Per-event alignment, stable event IDs, trustworthy split, units, and score direction |
