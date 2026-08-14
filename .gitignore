@@ -1,23 +1,26 @@
 # Python
 __pycache__/
 *.py[cod]
-.ipynb_checkpoints/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+
+# Virtual environments and local configuration
 .venv/
 venv/
+.env
 
-# Local data and generated artifacts
-data/raw/
-data/processed/
+# Jupyter and operating-system files
+.ipynb_checkpoints/
+*.executed.ipynb
+*_executed.ipynb
+.DS_Store
+
+# NEXT data are stored externally
+data/
 outputs/
 tmp/
-
-# Personal/non-project files
-resume_jaden_wu_ds_ml.tex
-
-# Large scientific data files
 *.h5
 *.hdf5
 *.npy
@@ -27,7 +30,19 @@ resume_jaden_wu_ds_ml.tex
 *.tar.gz
 *.zip
 
-# OS/editor
-.DS_Store
+# Generated experiments and model artifacts
+next_detector/results/
+*.pt
+*.pth
+*.ckpt
+
+# Personal/non-project files
+resume_jaden_wu_ds_ml.tex
+
+# Editors
 .vscode/
 .idea/
+
+# Optional profiling output
+profiles/
+*.prof

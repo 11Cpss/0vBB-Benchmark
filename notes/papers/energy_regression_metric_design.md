@@ -1,5 +1,21 @@
 # Energy Regression Metric Design
 
+## Current Scope Decision
+
+This document remains the benchmark-wide design reference for datasets where
+energy regression is scientifically meaningful. It is not currently being
+applied to NEXT.
+
+For NEXT, event energy is computed by summing the same per-hit energy values
+available to the input pipeline. An energy-preserving model could therefore
+solve regression largely by transporting or summing an exposed quantity. A
+topology-only formulation was considered, but the current NEXT milestone has
+been narrowed to binary signal/background classification. NEXT will report
+energy-matched AUC and EnergyBench energy-independence scores instead.
+
+Regression remains a possible task for another dataset or for a future NEXT
+study with a separately justified target and explicit leakage controls.
+
 ## Problem
 
 Some benchmark tasks are not naturally classification tasks. For energy regression, ordinary MSE is not enough because rare-event physics cares about the **energy spectrum**, not only average pointwise error.

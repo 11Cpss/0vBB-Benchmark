@@ -1,0 +1,10 @@
+# Install a PyTorch build compatible with the machine's CUDA driver first.
+# The bound below accepts CPU builds and supported CUDA builds.
+torch>=2.5,<3
+numpy>=1.24,<3
+pandas>=2.0,<4
+h5py>=3.8,<4
+matplotlib>=3.7,<4
+jupyterlab>=4,<5
+ipykernel>=6.25,<8
+nbconvert>=7,<8

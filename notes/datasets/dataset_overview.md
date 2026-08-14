@@ -64,15 +64,43 @@ Current working scope for the first benchmark pass:
 
 - Experiment: NEXT high-pressure gaseous xenon TPC
 - Physics area: neutrinoless double beta decay signal/background discrimination
-- Events: approximately 650k signal and 500k background simulated events
+- Complete selected inventory: 1,165,489 simulated events across 14,973 HDF5
+  files
+- Class totals: 648,793 `0nubb` signal events and 516,696 `Bi214` background
+  events
 - Input: Pandas-style dataframe with `event_id`, `x`, `y`, `z`, `energy`
-- Labels: binary classification, `signal` or `background`
+- Labels: binary classification, `0nubb -> 1` and `Bi214 -> 0`
 - Format: HDF5
-- First exploration:
-  - Start with the recommended 10% subset
-  - Inspect event sizes and voxel distributions
-  - Plot 3D/2D projections of energy depositions
-  - Try simple baselines: event-level engineered features, point-cloud model, voxelized CNN
+- One event is a simulated physical interaction represented by hundreds or
+  thousands of hit rows. Each hit stores a 3D position and deposited energy.
+- Shared split: class-stratified 80/10/10 by cumulative event count, seed 42;
+  932,391 train, 116,549 validation, and 116,549 test events. The manifest may
+  slice only the few HDF5 files that cross partition boundaries, so no event
+  appears in multiple splits.
+- Current transformer inputs:
+  - sampled hits: deterministically retain at most 512 original hits;
+  - voxels: group hits into occupied 15 mm cubes and retain at most 512 by
+    occupancy;
+  - center coordinates per event and divide them by 1000;
+  - content features are energy fraction and an occupancy/count feature.
+- Planned general tokenization comparison across MJD, NEXT, and SuperNEMO:
+  - fixed-size patch tokens;
+  - entity/object tokens, with deterministic sampling only when a token cap is
+    needed;
+  - summary-feature tokens.
+- Current positional encodings: coordinate MLP and Fourier XYZ.
+- Current task: classification only. Direct NEXT energy regression is paused
+  because total deposited energy is already the sum of input hit energies.
+- Current primary evaluation: EnergyBench energy-matched AUC plus
+  energy-independence diagnostics; inclusive AUC is supporting context.
+- Specialized models and transformers use copied instances of the same
+  collaborator-provided EnergyBench workflow so splits, training policy,
+  checkpoints, test inference, and metrics are comparable.
+- Current shared workflow: events are streamed from raw HDF5 files and
+  tokenized during loading. A dense token cache was evaluated but is not the
+  collaborator default because it consumed substantial storage without an
+  observed training-speed improvement. The uncached workflow is simpler to
+  distribute and remains the standardized path for new experiments.
 
 ## SuperNEMO
 
