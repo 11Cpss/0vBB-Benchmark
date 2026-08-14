@@ -28,6 +28,7 @@ import numpy as np
 TokenizationName = Literal[
     "voxel",
     "sampled_hits",
+    "summary_features",
 ]
 
 VoxelTruncation = Literal[
@@ -58,6 +59,10 @@ class TokenizationConfig:
     # How to choose voxels if there are more than max_tokens.
     voxel_truncation: VoxelTruncation = "occupancy"
 
+    # Number of bits per spatial dimension in the Morton code.
+    # Only used for summary-feature tokenization.
+    summary_morton_bits: int = 10
+
     # Combined with event_id for deterministic hit sampling.
     seed: int = 42
 
@@ -67,10 +72,11 @@ class TokenizationConfig:
         if self.tokenization not in {
             "voxel",
             "sampled_hits",
+            "summary_features",
         }:
             raise ValueError(
-                "tokenization must be "
-                "'voxel' or 'sampled_hits'"
+                "tokenization must be 'voxel', "
+                "'sampled_hits', or 'summary_features'"
             )
 
         if (
@@ -108,6 +114,16 @@ class TokenizationConfig:
             )
 
         if (
+            isinstance(self.summary_morton_bits, bool)
+            or not isinstance(self.summary_morton_bits, int)
+            or not 1 <= self.summary_morton_bits <= 21
+        ):
+            raise ValueError(
+                "summary_morton_bits must be "
+                "an integer in [1, 21]"
+            )
+
+        if (
             isinstance(self.seed, bool)
             or not isinstance(self.seed, int)
             or self.seed < 0
@@ -126,16 +142,7 @@ def stable_event_seed(
     event_id: str,
     base_seed: int = 42,
 ) -> int:
-    """Convert an event ID into a reproducible random seed.
-
-    Python's normal ``hash()`` can change after restarting Python.
-    A cryptographic digest gives us the same result every time.
-
-    Therefore:
-
-        same base seed + same event ID
-        -> same sampled hits
-    """
+    """Convert an event ID into a reproducible random seed."""
 
     text = f"{base_seed}::{event_id}"
 
@@ -154,7 +161,7 @@ def validate_event(
     coordinates: np.ndarray,
     energies: np.ndarray,
 ) -> tuple[np.ndarray, np.ndarray, float]:
-    """Validate and standardize one raw event."""
+    """Validate and standardize one raw detector event."""
 
     coords = np.asarray(
         coordinates,
@@ -223,10 +230,7 @@ def pad_tokens(
 ) -> dict[str, np.ndarray]:
     """Pad one variable-length event to a fixed sequence length.
 
-    Transformer batches require every event to have the same tensor
-    dimensions. Real tokens are placed first, followed by zero padding.
-
-    The mask distinguishes the real tokens from padding:
+    The returned mask uses:
 
         True  = real token
         False = padding
@@ -264,12 +268,33 @@ def pad_tokens(
             "an event must produce at least one token"
         )
 
+    if (
+        isinstance(max_tokens, bool)
+        or not isinstance(max_tokens, int)
+        or max_tokens <= 0
+    ):
+        raise ValueError(
+            "max_tokens must be a positive integer"
+        )
+
+    if not np.isfinite(coords).all():
+        raise ValueError(
+            "token coordinates contain non-finite values"
+        )
+
+    if not np.isfinite(token_features).all():
+        raise ValueError(
+            "token features contain non-finite values"
+        )
+
     number_of_tokens = min(
         len(coords),
         max_tokens,
     )
 
-    feature_dimension = token_features.shape[1]
+    feature_dimension = (
+        token_features.shape[1]
+    )
 
     padded_coords = np.zeros(
         (max_tokens, 3),
@@ -303,6 +328,102 @@ def pad_tokens(
     }
 
 
+def _morton_spatial_order(
+    coordinates: np.ndarray,
+    *,
+    bits: int,
+) -> np.ndarray:
+    """Return a deterministic locality-preserving ordering of 3D hits.
+
+    XYZ coordinates are quantized into a cube, and their binary bits are
+    interleaved to produce Morton codes. Nearby points will generally be
+    close in the resulting one-dimensional ordering.
+
+    The Morton codes are used only to form spatial groups. They are not
+    passed to the Transformer.
+    """
+
+    coords = np.asarray(
+        coordinates,
+        dtype=np.float32,
+    )
+
+    if coords.ndim != 2 or coords.shape[1] != 3:
+        raise ValueError(
+            "coordinates must have shape "
+            "[number_of_hits, 3]"
+        )
+
+    if len(coords) == 0:
+        raise ValueError(
+            "Morton ordering requires at least one coordinate"
+        )
+
+    coordinate_minimum = coords.min(
+        axis=0,
+        keepdims=True,
+    )
+
+    coordinate_extent = np.ptp(
+        coords,
+        axis=0,
+        keepdims=True,
+    )
+
+    # Use one scale for all three axes so the event's physical
+    # aspect ratio is not distorted.
+    spatial_scale = float(
+        coordinate_extent.max()
+    )
+
+    normalized = np.zeros_like(
+        coords,
+        dtype=np.float32,
+    )
+
+    if spatial_scale > 0.0:
+        normalized = (
+            coords - coordinate_minimum
+        ) / np.float32(spatial_scale)
+
+    maximum_integer = (1 << bits) - 1
+
+    quantized = np.floor(
+        np.clip(
+            normalized,
+            0.0,
+            1.0,
+        )
+        * maximum_integer
+    ).astype(np.uint64)
+
+    morton_codes = np.zeros(
+        len(coords),
+        dtype=np.uint64,
+    )
+
+    for bit in range(bits):
+        for dimension in range(3):
+            source_bit = (
+                quantized[:, dimension]
+                >> np.uint64(bit)
+            ) & np.uint64(1)
+
+            destination_bit = np.uint64(
+                3 * bit + dimension
+            )
+
+            morton_codes |= (
+                source_bit
+                << destination_bit
+            )
+
+    return np.argsort(
+        morton_codes,
+        kind="stable",
+    )
+
+
 class NEXTTokenBuilder:
     """Convert a complete NEXT event into Transformer inputs.
 
@@ -329,6 +450,18 @@ class NEXTTokenBuilder:
 
         self.config = config
 
+    @property
+    def feature_dim(self) -> int:
+        """Return the number of content features per token."""
+
+        if (
+            self.config.tokenization
+            == "summary_features"
+        ):
+            return 4
+
+        return 2
+
     def __call__(
         self,
         coordinates: np.ndarray,
@@ -347,8 +480,8 @@ class NEXTTokenBuilder:
             energies,
         )
 
-        # Event centering removes absolute detector position while
-        # preserving relative distances and event shape.
+        # Remove absolute detector location while preserving
+        # relative distances and event shape.
         if self.config.center_coordinates:
             event_center = coords.mean(
                 axis=0,
@@ -356,7 +489,9 @@ class NEXTTokenBuilder:
                 dtype=np.float64,
             ).astype(np.float32)
 
-            coords = coords - event_center
+            coords = (
+                coords - event_center
+            )
 
         if self.config.tokenization == "voxel":
             (
@@ -369,7 +504,10 @@ class NEXTTokenBuilder:
                 total_energy=total_energy,
             )
 
-        else:
+        elif (
+            self.config.tokenization
+            == "sampled_hits"
+        ):
             (
                 token_coords,
                 token_features,
@@ -381,8 +519,27 @@ class NEXTTokenBuilder:
                 event_id=event_id,
             )
 
-        # Fixed physical scaling places coordinates closer to
-        # order-one values without changing the event geometry.
+        elif (
+            self.config.tokenization
+            == "summary_features"
+        ):
+            (
+                token_coords,
+                token_features,
+                retained_energy,
+            ) = self._summary_feature_tokenize(
+                coords=coords,
+                hit_energy=hit_energy,
+                total_energy=total_energy,
+            )
+
+        else:
+            raise RuntimeError(
+                "Unsupported tokenization: "
+                f"{self.config.tokenization}"
+            )
+
+        # Place coordinates closer to order-one values.
         token_coords = (
             token_coords
             / np.float32(
@@ -396,8 +553,6 @@ class NEXTTokenBuilder:
             max_tokens=self.config.max_tokens,
         )
 
-        # Coverage measures how much of the original event energy
-        # remains after sampling or truncation.
         coverage = (
             retained_energy
             / total_energy
@@ -420,9 +575,8 @@ class NEXTTokenBuilder:
         hit_energy: np.ndarray,
         total_energy: float,
     ) -> tuple[np.ndarray, np.ndarray, float]:
-        """Combine hits occupying the same 3D voxel."""
+        """Combine hits occupying the same fixed 3D voxel."""
 
-        # Convert continuous coordinates into integer voxel IDs.
         voxel_indices = np.floor(
             coords / self.config.voxel_size
         ).astype(np.int32)
@@ -440,13 +594,11 @@ class NEXTTokenBuilder:
             int(inverse.max()) + 1
         )
 
-        # Number of raw hits assigned to each voxel.
         hit_counts = np.bincount(
             inverse,
             minlength=number_of_voxels,
         ).astype(np.float32)
 
-        # Sum XYZ separately for every voxel.
         coordinate_sums = np.stack(
             [
                 np.bincount(
@@ -459,21 +611,17 @@ class NEXTTokenBuilder:
             axis=1,
         ).astype(np.float32)
 
-        # Mean raw-hit coordinate inside each voxel.
         voxel_centroids = (
             coordinate_sums
             / hit_counts[:, None]
         )
 
-        # Total deposited energy inside each voxel.
         voxel_energy = np.bincount(
             inverse,
             weights=hit_energy,
             minlength=number_of_voxels,
         ).astype(np.float32)
 
-        # If an event produces too many voxels, retain only
-        # max_tokens according to the selected rule.
         if (
             number_of_voxels
             > self.config.max_tokens
@@ -504,8 +652,6 @@ class NEXTTokenBuilder:
                 voxel_energy[selected]
             )
 
-        # Produce a deterministic spatial order.
-        # np.lexsort uses its last key as the primary key.
         spatial_order = np.lexsort(
             (
                 voxel_centroids[:, 2],
@@ -526,14 +672,11 @@ class NEXTTokenBuilder:
             voxel_energy[spatial_order]
         )
 
-        # Feature 1: fraction of total event energy deposited
-        # inside this voxel.
         energy_fraction = (
             voxel_energy
             / np.float32(total_energy)
         )
 
-        # Feature 2: compressed measure of local occupancy.
         log_occupancy = np.log1p(
             hit_counts
         )
@@ -588,7 +731,7 @@ class NEXTTokenBuilder:
                 )
             )
 
-            # Restore the original hit order after sampling.
+            # Restore original hit ordering after sampling.
             selected_indices.sort()
 
             selected_coords = (
@@ -603,15 +746,11 @@ class NEXTTokenBuilder:
             selected_coords = coords
             selected_energy = hit_energy
 
-        # Feature 1: fraction of the complete event energy
-        # deposited by this hit.
         energy_fraction = (
             selected_energy
             / np.float32(total_energy)
         )
 
-        # Feature 2: global event-size information repeated
-        # for every selected hit.
         log_total_hit_count = np.float32(
             np.log1p(number_of_hits)
         )
@@ -633,6 +772,172 @@ class NEXTTokenBuilder:
 
         return (
             selected_coords.astype(np.float32),
+            token_features,
+            retained_energy,
+        )
+
+    def _summary_feature_tokenize(
+        self,
+        *,
+        coords: np.ndarray,
+        hit_energy: np.ndarray,
+        total_energy: float,
+    ) -> tuple[np.ndarray, np.ndarray, float]:
+        """Create balanced spatial groups and summarize each group.
+
+        All hits are sorted using a locality-preserving Morton order.
+        Consecutive spatially ordered hits are assigned to balanced
+        groups. Each group becomes one Transformer token.
+        """
+
+        number_of_hits = len(coords)
+
+        number_of_tokens = min(
+            number_of_hits,
+            self.config.max_tokens,
+        )
+
+        spatial_order = (
+            _morton_spatial_order(
+                coords,
+                bits=(
+                    self.config
+                    .summary_morton_bits
+                ),
+            )
+        )
+
+        # The integer formula distributes hits as evenly as possible
+        # across number_of_tokens groups.
+        ordered_group_ids = (
+            np.arange(
+                number_of_hits,
+                dtype=np.int64,
+            )
+            * number_of_tokens
+            // number_of_hits
+        ).astype(np.int32)
+
+        # Convert the ordered group IDs back into original-hit order.
+        group_ids = np.empty(
+            number_of_hits,
+            dtype=np.int32,
+        )
+
+        group_ids[spatial_order] = (
+            ordered_group_ids
+        )
+
+        hit_counts = np.bincount(
+            group_ids,
+            minlength=number_of_tokens,
+        ).astype(np.float32)
+
+        coordinate_sums = np.stack(
+            [
+                np.bincount(
+                    group_ids,
+                    weights=coords[:, dimension],
+                    minlength=number_of_tokens,
+                )
+                for dimension in range(3)
+            ],
+            axis=1,
+        ).astype(np.float32)
+
+        group_centroids = (
+            coordinate_sums
+            / hit_counts[:, None]
+        )
+
+        group_energy = np.bincount(
+            group_ids,
+            weights=hit_energy,
+            minlength=number_of_tokens,
+        ).astype(np.float32)
+
+        maximum_hit_energy = np.zeros(
+            number_of_tokens,
+            dtype=np.float32,
+        )
+
+        np.maximum.at(
+            maximum_hit_energy,
+            group_ids,
+            hit_energy,
+        )
+
+        offsets = (
+            coords
+            - group_centroids[group_ids]
+        )
+
+        squared_distances = np.sum(
+            offsets**2,
+            axis=1,
+        )
+
+        mean_squared_distance = (
+            np.bincount(
+                group_ids,
+                weights=squared_distances,
+                minlength=number_of_tokens,
+            )
+            / hit_counts
+        )
+
+        rms_distance = np.sqrt(
+            np.maximum(
+                mean_squared_distance,
+                0.0,
+            )
+        ).astype(np.float32)
+
+        # Summary feature 1:
+        # fraction of total event energy in the spatial group.
+        energy_fraction = (
+            group_energy
+            / np.float32(total_energy)
+        )
+
+        # Summary feature 2:
+        # compressed number of raw hits in the group.
+        log_occupancy = np.log1p(
+            hit_counts
+        )
+
+        # Summary feature 3:
+        # largest individual hit energy relative to total energy.
+        maximum_energy_fraction = (
+            maximum_hit_energy
+            / np.float32(total_energy)
+        )
+
+        # Summary feature 4:
+        # spatial spread of the hits in the group.
+        normalized_rms_distance = (
+            rms_distance
+            / np.float32(
+                self.config.coordinate_scale
+            )
+        )
+
+        token_features = np.column_stack(
+            [
+                energy_fraction,
+                log_occupancy,
+                maximum_energy_fraction,
+                normalized_rms_distance,
+            ]
+        ).astype(np.float32)
+
+        # Summary tokenization represents every original hit.
+        retained_energy = float(
+            group_energy.sum(dtype=np.float64)
+        )
+
+        return (
+            group_centroids.astype(np.float32),
             token_features,
             retained_energy,
         )
