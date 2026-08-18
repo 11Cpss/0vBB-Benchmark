@@ -127,7 +127,8 @@ Open:
 next_detector/notebooks/next_energybench_train.ipynb
 ```
 
-Run all cells. The default run executes the complete 2 × 2 matrix:
+Run all cells. The complete design is a 3-tokenization × 2-position-encoding
+matrix:
 
 | ID | Tokenization | Positional encoding |
 |---|---|---|
@@ -135,6 +136,13 @@ Run all cells. The default run executes the complete 2 × 2 matrix:
 | `transformer_002` | voxels | coordinate MLP |
 | `transformer_003` | voxels | Fourier XYZ |
 | `transformer_004` | sampled hits | Fourier XYZ |
+| `transformer_005` | summary features | coordinate MLP |
+| `transformer_006` | summary features | Fourier XYZ |
+
+Each experiment also has a `completed_official_run` field in the training
+notebook. Set it to `True` only when that official result is already safely
+stored elsewhere. Set all fields to `False` when reproducing the full matrix
+from scratch.
 
 To assign one or more models to a collaborator, set a comma-separated list
 before starting Jupyter:
@@ -156,7 +164,7 @@ Useful environment variables:
 | `SIMPLE_ENERGYBENCH_DATA` | `data/NEXT` | Raw NEXT dataset directory |
 | `NEXT_OUTPUT_ROOT` | `next_detector/results` | Generated result root |
 | `NEXT_NUM_WORKERS` | `8` | DataLoader worker processes |
-| `NEXT_RUN_MODEL_IDS` | all four | Models assigned to this run |
+| `NEXT_RUN_MODEL_IDS` | all six | Models assigned to this run |
 | `NEXT_OFFICIAL_RUN` | `1` | Enforce official counts and exact split |
 | `NEXT_REQUIRE_CUDA` | official-run value | Fail early when CUDA is unavailable |
 | `NEXT_TRANSFORMER_PROJECT_ROOT` | auto-detected | Repository root override |
@@ -181,10 +189,15 @@ The official split contains:
 ```python
 {
     "coords": float32[max_tokens, 3],
-    "features": float32[max_tokens, 2],
+    "features": float32[max_tokens, feature_dim],
     "mask": bool[max_tokens],
 }
 ```
+
+`feature_dim` is 2 for sampled-hit and voxel tokens and 4 for spatial-summary
+tokens. Summary tokens use Morton-ordered, balanced spatial groups and retain
+all hits through group-level energy, occupancy, maximum-energy, and spatial-
+spread features.
 
 EnergyBench retains labels, total energy, event IDs, group IDs, split names,
 weights, and representation coverage for standardized evaluation. The model
@@ -215,6 +228,14 @@ completed evaluation. On restart, completed CSV rows are skipped. A partial
 run directory is never overwritten silently; archive or remove only that
 specific partial directory after checking it.
 
+The summary records both `best_epoch` and `epochs_completed`. `best_epoch` is
+the validation-selected checkpoint, whereas `epochs_completed` is the total
+number of epochs executed before the epoch limit or early stopping.
+`minutes_per_epoch` is `training_seconds / epochs_completed / 60`; it includes
+training, validation, scheduler, and checkpoint overhead inside `train_model`
+but excludes final held-out-test evaluation. Runtime values are meaningful
+only when hardware and system load are reasonably comparable.
+
 ## Inspect final results
 
 After training finishes, run:
@@ -224,9 +245,35 @@ next_detector/notebooks/next_energybench_results.ipynb
 ```
 
 It verifies the summary against each `metrics.json`, checks required
-artifacts, ranks models by energy-matched test AUC, builds the 2 × 2 comparison
+artifacts, ranks models by energy-matched test AUC, builds the 3 × 2 comparison
 tables, and displays the saved EnergyBench figures. It does not load the raw
 dataset or use the GPU.
+
+## Reference six-model result
+
+The completed single-seed (`seed=42`) benchmark produced:
+
+| Rank | Representation | Energy-matched AUC | Energy independence | Worst-group independence |
+| ---: | --- | ---: | ---: | ---: |
+| 1 | voxel + coordinate MLP | **0.987718** | 0.973246 | 0.966642 |
+| 2 | summary features + coordinate MLP | **0.987424** | 0.970741 | 0.961919 |
+| 3 | summary features + Fourier XYZ | **0.983448** | 0.972612 | 0.965932 |
+| 4 | voxel + Fourier XYZ | **0.978698** | 0.972763 | 0.967611 |
+| 5 | sampled hits + coordinate MLP | **0.975494** | **0.975270** | 0.971484 |
+| 6 | sampled hits + Fourier XYZ | **0.962730** | 0.974274 | **0.973252** |
+
+All models used the same 116,549-event test split. Voxel + coordinate MLP was
+the numerical AUC leader, but its 0.000294 advantage over summary + coordinate
+MLP has no uncertainty estimate and should be described as near-parity. The
+summary representation also uses four content features per token rather than
+two, so the table compares complete representation strategies rather than
+isolating token grouping alone.
+
+The authoritative values are in
+[`next_detector/results/complete_results.csv`](next_detector/results/complete_results.csv).
+The full analysis, runtime context, metric definitions, and claim boundaries
+are in
+[`notes/next_transformer_final_results_2026-08-17.md`](notes/next_transformer_final_results_2026-08-17.md).
 
 ## Tests
 
@@ -256,8 +303,21 @@ or GPU is needed for tests.
 - Runtime measurements on a shared machine are descriptive and should not be
   treated as controlled architecture benchmarks.
 
+## License
+
+The original software in this repository is available under the
+[MIT License](LICENSE). This permissive license allows reuse, modification,
+and distribution with preservation of the copyright and license notice.
+
+The license does not grant rights to the NEXT detector dataset, model
+checkpoints, generated predictions, or other third-party material. Those
+items are not distributed by this repository and remain subject to their
+respective owners' terms. Confirm that any collaborator-contributed code may
+be released under MIT before publishing it.
+
 ## Publishing
 
 Dataset files, checkpoints, predictions, generated results, executed
-notebooks, and local environments are ignored by Git. Choose and add an
-explicit software license before making the repository public.
+notebooks, and local environments are ignored by Git. Review `git status` and
+the staged diff before making the repository public so local research
+artifacts are not published accidentally.
