@@ -118,17 +118,36 @@ class TransformerWorkflowTests(unittest.TestCase):
                 self.assertEqual(tuple(batch["inputs"]["features"].shape[1:]), (8, 2))
                 self.assertEqual(tuple(batch["inputs"]["mask"].shape[1:]), (8,))
 
-                for position_encoding in ("coordinate_mlp", "fourier_xyz"):
-                    model = NEXTTransformerClassifier(
-                        position_encoding=position_encoding,
-                        feature_dim=2,
-                        d_model=16,
-                        nhead=4,
-                        num_layers=1,
-                        dim_feedforward=32,
-                        dropout=0.0,
-                        num_frequencies=2,
-                    )
+                for position_encoding in (
+                    "coordinate_mlp",
+                    "fourier_xyz",
+                    "rope",
+                ):
+                    # RoPE needs head_dim = d_model // nhead >= 6, so it
+                    # cannot share the other encodings' d_model=16
+                    # (head_dim=4) tiny config.
+                    if position_encoding == "rope":
+                        model = NEXTTransformerClassifier(
+                            position_encoding=position_encoding,
+                            feature_dim=2,
+                            d_model=24,
+                            nhead=4,
+                            num_layers=1,
+                            dim_feedforward=32,
+                            dropout=0.0,
+                            rope_base=10.0,
+                        )
+                    else:
+                        model = NEXTTransformerClassifier(
+                            position_encoding=position_encoding,
+                            feature_dim=2,
+                            d_model=16,
+                            nhead=4,
+                            num_layers=1,
+                            dim_feedforward=32,
+                            dropout=0.0,
+                            num_frequencies=2,
+                        )
                     logits = model(batch["inputs"])
                     self.assertEqual(tuple(logits.shape), (len(batch["label"]),))
                     self.assertTrue(torch.isfinite(logits).all())
@@ -173,6 +192,50 @@ class TransformerWorkflowTests(unittest.TestCase):
             self.assertTrue((root / "training" / "best_model.pt").is_file())
             self.assertTrue((root / "training" / "last_model.pt").is_file())
             self.assertTrue((root / "training" / "history.json").is_file())
+
+            # Rotary attention replaces the built-in TransformerEncoder
+            # with a hand-rolled one, so its own optimizer/backward pass
+            # needs a dedicated training smoke check.
+            rope_model = NEXTTransformerClassifier(
+                position_encoding="rope",
+                feature_dim=2,
+                d_model=24,
+                nhead=4,
+                num_layers=1,
+                dim_feedforward=32,
+                dropout=0.0,
+                rope_base=10.0,
+            )
+            rope_history = train_model(
+                rope_model,
+                training_data.train_loader,
+                training_data.validation_loader,
+                config=TrainingConfig(
+                    batch_size=8,
+                    epochs=1,
+                    learning_rate=5.0e-4,
+                    early_stopping_patience=1,
+                    seed=42,
+                    deterministic=True,
+                    use_amp=False,
+                    device="cpu",
+                    num_workers=0,
+                ),
+                task="classification",
+                output_dir=root / "training_rope",
+            )
+            self.assertEqual(rope_history["epochs_completed"], 1)
+            self.assertEqual(rope_history["best_epoch"], 1)
+            self.assertTrue(np.isfinite(rope_history["best_metric"]))
+            self.assertTrue(
+                (root / "training_rope" / "best_model.pt").is_file()
+            )
+            self.assertTrue(
+                (root / "training_rope" / "last_model.pt").is_file()
+            )
+            self.assertTrue(
+                (root / "training_rope" / "history.json").is_file()
+            )
 
 
 if __name__ == "__main__":

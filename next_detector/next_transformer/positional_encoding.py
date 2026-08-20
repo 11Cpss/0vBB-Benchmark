@@ -23,6 +23,7 @@ from torch import nn
 PositionEncodingName = Literal[
     "coordinate_mlp",
     "fourier_xyz",
+    "rope",
 ]
 
 
@@ -289,9 +290,18 @@ def build_position_encoder(
             num_frequencies=num_frequencies,
         )
 
+    if name == "rope":
+        raise ValueError(
+            "build_position_encoder does not support 'rope'; "
+            "rotary attention rotates Q/K inside every "
+            "self-attention layer rather than producing an "
+            "additive position embedding, so it is constructed "
+            "directly inside NEXTTransformerClassifier"
+        )
+
     raise ValueError(
         "position encoding must be "
-        "'coordinate_mlp' or 'fourier_xyz'"
+        "'coordinate_mlp', 'fourier_xyz', or 'rope'"
     )
 
 

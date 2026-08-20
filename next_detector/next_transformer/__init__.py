@@ -15,6 +15,13 @@ from .positional_encoding import (
     build_position_encoder,
 )
 
+from .rotary_attention import (
+    RotaryPositionAngles,
+    RotarySelfAttention,
+    RotaryTransformerEncoder,
+    RotaryTransformerEncoderLayer,
+)
+
 from .tokenization import (
     NEXTTokenBuilder,
     TokenizationConfig,
@@ -29,6 +36,10 @@ __all__ = [
     "NEXTTokenBuilder",
     "NEXTTransformerClassifier",
     "PositionEncodingName",
+    "RotaryPositionAngles",
+    "RotarySelfAttention",
+    "RotaryTransformerEncoder",
+    "RotaryTransformerEncoderLayer",
     "TokenizationConfig",
     "build_position_encoder",
     "pad_tokens",
