@@ -90,8 +90,13 @@ class TransformerWorkflowTests(unittest.TestCase):
             _make_dataset(data_root)
             manifest_path = root / "event_split.json"
 
+            expected_feature_dims = {
+                "sampled_hits": 2,
+                "voxel": 2,
+                "summary_features": 4,
+            }
             prepared_by_tokenization = {}
-            for tokenization in ("sampled_hits", "voxel"):
+            for tokenization, feature_dim in expected_feature_dims.items():
                 builder = NEXTTokenBuilder(
                     TokenizationConfig(
                         tokenization=tokenization,
@@ -115,13 +120,27 @@ class TransformerWorkflowTests(unittest.TestCase):
                 prepared_by_tokenization[tokenization] = prepared
                 batch = next(iter(prepared.train_loader))
                 self.assertEqual(tuple(batch["inputs"]["coords"].shape[1:]), (8, 3))
-                self.assertEqual(tuple(batch["inputs"]["features"].shape[1:]), (8, 2))
+                self.assertEqual(
+                    tuple(batch["inputs"]["features"].shape[1:]),
+                    (8, feature_dim),
+                )
                 self.assertEqual(tuple(batch["inputs"]["mask"].shape[1:]), (8,))
+                self.assertEqual(builder.feature_dim, feature_dim)
+
+                if tokenization == "summary_features":
+                    self.assertTrue(
+                        torch.allclose(
+                            batch["projection_coverage"],
+                            torch.ones_like(batch["projection_coverage"]),
+                            rtol=1.0e-6,
+                            atol=1.0e-6,
+                        )
+                    )
 
                 for position_encoding in ("coordinate_mlp", "fourier_xyz"):
                     model = NEXTTransformerClassifier(
                         position_encoding=position_encoding,
-                        feature_dim=2,
+                        feature_dim=feature_dim,
                         d_model=16,
                         nhead=4,
                         num_layers=1,
@@ -136,6 +155,10 @@ class TransformerWorkflowTests(unittest.TestCase):
             self.assertEqual(
                 prepared_by_tokenization["sampled_hits"].counts,
                 prepared_by_tokenization["voxel"].counts,
+            )
+            self.assertEqual(
+                prepared_by_tokenization["sampled_hits"].counts,
+                prepared_by_tokenization["summary_features"].counts,
             )
 
             training_data = prepared_by_tokenization["sampled_hits"]

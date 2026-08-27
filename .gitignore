@@ -17,7 +17,7 @@ venv/
 *_executed.ipynb
 .DS_Store
 
-# NEXT data are stored externally
+# Detector data are stored externally
 data/
 outputs/
 tmp/
@@ -32,6 +32,8 @@ tmp/
 
 # Generated experiments and model artifacts
 next_detector/results/
+next_detector/token_cache/
+mjd_detector/results/
 *.pt
 *.pth
 *.ckpt
@@ -46,3 +48,6 @@ resume_jaden_wu_ds_ml.tex
 # Optional profiling output
 profiles/
 *.prof
+
+# Temporary remote comparison snapshots
+mjd_remote_snapshot/

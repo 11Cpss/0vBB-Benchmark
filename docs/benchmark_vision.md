@@ -51,11 +51,10 @@ representations for SuperNEMO. The interface is shared, not the raw tokens.
 The six combinations are model variants, not separate benchmarks. Every
 variant uses the same data splits and evaluation protocol.
 
-For the current NEXT milestone, the transformer ablation is deliberately
-smaller: sampled-hit/entity and voxel/patch tokenization crossed with
-coordinate-MLP and Fourier-XYZ positional encoding, for four initial runs. The
-third summary-feature strategy will add two more runs. Specialized models and
-the transformer both use copies of the same collaborator-provided Simple
+For the completed NEXT milestone, sampled-hit/entity, voxel/patch, and
+adaptive summary-feature tokenization were each crossed with coordinate-MLP
+and Fourier-XYZ positional encoding, producing six full-data runs. Specialized
+models and the transformer both use copies of the same collaborator-provided Simple
 EnergyBench workflow. Shared data, training, checkpoint, metric, evaluation,
 and plotting code is held fixed; only architecture-specific representation
 and model code differs.
@@ -64,6 +63,23 @@ The collaborator-facing implementation streams raw HDF5 events and tokenizes
 them during loading. Precomputed token caches are not required by the standard
 workflow, which keeps setup and storage requirements manageable across
 multiple experiment owners.
+
+## Completed NEXT result
+
+On the shared 116,549-event test split, voxel tokens with coordinate-MLP
+positions achieved the highest energy-matched AUC, 0.987718. Adaptive summary
+features with coordinate-MLP positions reached 0.987424, only 0.000294 lower.
+Summary features had the highest descriptive mean AUC across the two tested
+positional encodings, while sampled-hit models had the strongest energy-
+independence scores. Coordinate MLP exceeded Fourier XYZ in matched AUC for
+all three tokenizations.
+
+These are single-seed results without confidence intervals. The voxel-summary
+difference must be described as near-parity, not a significant improvement.
+Summary tokens also use four engineered content features versus two for the
+other representations, so this is a comparison of complete representation
+strategies rather than a grouping-only ablation. The public reference table
+and interpretation boundaries are recorded in `next_detector/README.md`.
 
 ## Scientific goal
 
