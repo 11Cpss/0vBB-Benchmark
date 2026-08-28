@@ -23,6 +23,7 @@ from .positional_encoding import (
     PositionEncodingName,
     build_position_encoder,
 )
+from .rotary_attention import RotaryTransformerEncoder
 
 
 class NEXTTransformerClassifier(nn.Module):
@@ -39,10 +40,12 @@ class NEXTTransformerClassifier(nn.Module):
         dim_feedforward: int = 256,
         dropout: float = 0.1,
         num_frequencies: int = 6,
+        rope_base: float = 10.0,
     ) -> None:
         super().__init__()
 
         self._validate_configuration(
+            position_encoding=position_encoding,
             feature_dim=feature_dim,
             d_model=d_model,
             nhead=nhead,
@@ -50,6 +53,7 @@ class NEXTTransformerClassifier(nn.Module):
             dim_feedforward=dim_feedforward,
             dropout=dropout,
             num_frequencies=num_frequencies,
+            rope_base=rope_base,
         )
 
         # Save constructor settings for checkpoints and reproducibility.
@@ -67,6 +71,7 @@ class NEXTTransformerClassifier(nn.Module):
         self.num_frequencies = (
             num_frequencies
         )
+        self.rope_base = rope_base
 
         # Convert each token's content features from feature_dim
         # values into the Transformer's d_model dimensions.
@@ -82,42 +87,61 @@ class NEXTTransformerClassifier(nn.Module):
             ),
         )
 
-        # Convert each token's XYZ coordinates into a d_model
-        # position embedding.
-        self.position_encoder = (
-            build_position_encoder(
-                position_encoding,
-                d_model=d_model,
-                num_frequencies=num_frequencies,
-            )
-        )
-
         # Normalize after combining content and position.
         self.input_norm = nn.LayerNorm(
             d_model
         )
 
-        encoder_layer = (
-            nn.TransformerEncoderLayer(
+        self._uses_rotary_attention = (
+            position_encoding == "rope"
+        )
+
+        if self._uses_rotary_attention:
+            # Rotary attention has no additive position embedding:
+            # position enters by rotating Q/K inside every
+            # self-attention layer instead.
+            self.position_encoder = None
+
+            self.transformer = RotaryTransformerEncoder(
                 d_model=d_model,
                 nhead=nhead,
+                num_layers=num_layers,
                 dim_feedforward=dim_feedforward,
                 dropout=dropout,
-                activation="gelu",
-                batch_first=True,
-                norm_first=True,
+                rope_base=rope_base,
             )
-        )
-
-        self.transformer = (
-            nn.TransformerEncoder(
-                encoder_layer,
-                num_layers=num_layers,
-
-                # Avoid nested-tensor warnings with norm_first=True.
-                enable_nested_tensor=False,
+        else:
+            # Convert each token's XYZ coordinates into a d_model
+            # position embedding.
+            self.position_encoder = (
+                build_position_encoder(
+                    position_encoding,
+                    d_model=d_model,
+                    num_frequencies=num_frequencies,
+                )
             )
-        )
+
+            encoder_layer = (
+                nn.TransformerEncoderLayer(
+                    d_model=d_model,
+                    nhead=nhead,
+                    dim_feedforward=dim_feedforward,
+                    dropout=dropout,
+                    activation="gelu",
+                    batch_first=True,
+                    norm_first=True,
+                )
+            )
+
+            self.transformer = (
+                nn.TransformerEncoder(
+                    encoder_layer,
+                    num_layers=num_layers,
+
+                    # Avoid nested-tensor warnings with norm_first=True.
+                    enable_nested_tensor=False,
+                )
+            )
 
         # Normalize the pooled event representation.
         self.output_norm = nn.LayerNorm(
@@ -159,23 +183,6 @@ class NEXTTransformerClassifier(nn.Module):
             )
         )
 
-        # Position tells the model where each token is located.
-        position_embedding = (
-            self.position_encoder(
-                coords
-            )
-        )
-
-        # Both tensors have shape:
-        #
-        #     [batch, tokens, d_model]
-        #
-        # Adding them creates one complete representation per token.
-        token_embeddings = self.input_norm(
-            content_embedding
-            + position_embedding
-        )
-
         # Our mask:
         #     True  = real token
         #     False = padding
@@ -187,12 +194,45 @@ class NEXTTransformerClassifier(nn.Module):
         # Therefore, it must be inverted.
         padding_mask = ~valid_mask
 
-        transformed_tokens = (
-            self.transformer(
-                token_embeddings,
-                src_key_padding_mask=padding_mask,
+        if self._uses_rotary_attention:
+            # Position is not added here. It enters by rotating Q/K
+            # inside every self-attention layer instead.
+            token_embeddings = self.input_norm(
+                content_embedding
             )
-        )
+
+            transformed_tokens = (
+                self.transformer(
+                    token_embeddings,
+                    coords,
+                    key_padding_mask=padding_mask,
+                )
+            )
+        else:
+            # Position tells the model where each token is located.
+            position_embedding = (
+                self.position_encoder(
+                    coords
+                )
+            )
+
+            # Both tensors have shape:
+            #
+            #     [batch, tokens, d_model]
+            #
+            # Adding them creates one complete representation
+            # per token.
+            token_embeddings = self.input_norm(
+                content_embedding
+                + position_embedding
+            )
+
+            transformed_tokens = (
+                self.transformer(
+                    token_embeddings,
+                    src_key_padding_mask=padding_mask,
+                )
+            )
 
         # Convert the Boolean mask into numeric zeros and ones.
         numeric_mask = (
@@ -372,11 +412,13 @@ class NEXTTransformerClassifier(nn.Module):
             "num_frequencies": (
                 self.num_frequencies
             ),
+            "rope_base": self.rope_base,
         }
 
     @staticmethod
     def _validate_configuration(
         *,
+        position_encoding: str,
         feature_dim: int,
         d_model: int,
         nhead: int,
@@ -384,6 +426,7 @@ class NEXTTransformerClassifier(nn.Module):
         dim_feedforward: int,
         dropout: float,
         num_frequencies: int,
+        rope_base: float,
     ) -> None:
         """Validate model hyperparameters before creating layers."""
 
@@ -427,6 +470,30 @@ class NEXTTransformerClassifier(nn.Module):
                 "dropout must be finite "
                 "and in [0, 1)"
             )
+
+        if (
+            isinstance(rope_base, bool)
+            or not isinstance(rope_base, (int, float))
+            or not math.isfinite(rope_base)
+            or rope_base <= 1.0
+        ):
+            raise ValueError(
+                "rope_base must be finite "
+                "and greater than 1.0"
+            )
+
+        if position_encoding == "rope":
+            head_dim = d_model // nhead
+
+            if head_dim % 2 != 0 or head_dim < 6:
+                raise ValueError(
+                    "position_encoding='rope' requires "
+                    "d_model // nhead (head_dim) to be even "
+                    "and at least 6, so channels can be split "
+                    "across x, y, z rotation groups; got "
+                    f"head_dim={head_dim} for d_model={d_model}, "
+                    f"nhead={nhead}"
+                )
 
 
 __all__ = [

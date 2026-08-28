@@ -197,6 +197,50 @@ class TransformerWorkflowTests(unittest.TestCase):
             self.assertTrue((root / "training" / "last_model.pt").is_file())
             self.assertTrue((root / "training" / "history.json").is_file())
 
+            # Rotary attention replaces the built-in TransformerEncoder
+            # with a hand-rolled one, so its own optimizer/backward pass
+            # needs a dedicated training smoke check.
+            rope_model = NEXTTransformerClassifier(
+                position_encoding="rope",
+                feature_dim=2,
+                d_model=24,
+                nhead=4,
+                num_layers=1,
+                dim_feedforward=32,
+                dropout=0.0,
+                rope_base=10.0,
+            )
+            rope_history = train_model(
+                rope_model,
+                training_data.train_loader,
+                training_data.validation_loader,
+                config=TrainingConfig(
+                    batch_size=8,
+                    epochs=1,
+                    learning_rate=5.0e-4,
+                    early_stopping_patience=1,
+                    seed=42,
+                    deterministic=True,
+                    use_amp=False,
+                    device="cpu",
+                    num_workers=0,
+                ),
+                task="classification",
+                output_dir=root / "training_rope",
+            )
+            self.assertEqual(rope_history["epochs_completed"], 1)
+            self.assertEqual(rope_history["best_epoch"], 1)
+            self.assertTrue(np.isfinite(rope_history["best_metric"]))
+            self.assertTrue(
+                (root / "training_rope" / "best_model.pt").is_file()
+            )
+            self.assertTrue(
+                (root / "training_rope" / "last_model.pt").is_file()
+            )
+            self.assertTrue(
+                (root / "training_rope" / "history.json").is_file()
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
