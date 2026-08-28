@@ -19,7 +19,7 @@ next_detector/notebooks/next_energybench_train.*.py
 next_detector/notebooks/next_energybench_train.*.txt
 .DS_Store
 
-# NEXT data are stored externally
+# Detector data are stored externally
 data/
 outputs/
 tmp/
@@ -34,6 +34,8 @@ tmp/
 
 # Generated experiments and model artifacts
 next_detector/results/
+next_detector/token_cache/
+mjd_detector/results/
 *.pt
 *.pth
 *.ckpt
@@ -49,5 +51,5 @@ resume_jaden_wu_ds_ml.tex
 profiles/
 *.prof
 
-# SLURM job logs
-next_detector/scripts/logs/
+# Temporary remote comparison snapshots
+mjd_remote_snapshot/

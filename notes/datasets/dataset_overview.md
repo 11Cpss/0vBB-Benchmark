@@ -81,9 +81,13 @@ Current working scope for the first benchmark pass:
   - sampled hits: deterministically retain at most 512 original hits;
   - voxels: group hits into occupied 15 mm cubes and retain at most 512 by
     occupancy;
+  - summary features: Morton-order hits spatially, divide them into up to 512
+    balanced groups, and summarize each group using energy fraction,
+    occupancy fraction, maximum-energy fraction, and spatial spread;
   - center coordinates per event and divide them by 1000;
-  - content features are energy fraction and an occupancy/count feature.
-- Planned general tokenization comparison across MJD, NEXT, and SuperNEMO:
+  - sampled-hit and voxel tokens have two content features; summary tokens
+    have four.
+- General tokenization comparison across MJD, NEXT, and SuperNEMO:
   - fixed-size patch tokens;
   - entity/object tokens, with deterministic sampling only when a token cap is
     needed;
@@ -101,6 +105,11 @@ Current working scope for the first benchmark pass:
   collaborator default because it consumed substantial storage without an
   observed training-speed improvement. The uncached workflow is simpler to
   distribute and remains the standardized path for new experiments.
+- Completed Transformer benchmark: six full-data runs crossing all three
+  tokenizations with coordinate MLP and Fourier XYZ. Voxel + coordinate MLP
+  led energy-matched AUC at 0.987718; summary + coordinate MLP reached
+  0.987424; sampled-hit models produced the strongest average energy
+  independence. Results are single-seed and do not establish significance.
 
 ## SuperNEMO
 
