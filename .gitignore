@@ -36,6 +36,16 @@ tmp/
 next_detector/results/
 next_detector/token_cache/
 mjd_detector/results/
+exo200_detector/results/
+exo200_detector/transformer_results.csv
+exo200_detector/energybench_transformer_results.csv
+exo200_detector/energybench_transformer_summary.json
+exo200_detector/energybench_transformer_plots/
+supernemo_detector/analysis/
+supernemo_detector/data/
+supernemo_detector/outputs/
+supernemo_detector/results/
+supernemo_detector/**/*.json
 *.pt
 *.pth
 *.ckpt
@@ -53,3 +63,6 @@ profiles/
 
 # Temporary remote comparison snapshots
 mjd_remote_snapshot/
+
+# Upstream exploratory notebook; not part of the reproducible EXO workflow
+exo200_detector/load_h5.ipynb

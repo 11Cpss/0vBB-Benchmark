@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rare-event-transformer-benchmark"
 version = "0.1.0"
-description = "Standardized NEXT and MJD Transformer representation benchmarks"
+description = "Standardized rare-event Transformer representation benchmarks"
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
 dependencies = [
@@ -24,11 +24,21 @@ notebooks = [
 ]
 
 [tool.setuptools.packages.find]
-where = ["evalutaions_workflow", "next_detector", "mjd_detector"]
+where = [
+    "evalutaions_workflow",
+    "next_detector",
+    "mjd_detector",
+    "exo200_detector",
+    "supernemo_detector",
+]
 include = [
     "energybench*",
     "simple_energybench*",
     "next_transformer*",
     "mjdbench*",
     "mjd_transformer*",
+    "exobench*",
+    "exo_transformer*",
+    "supernemobench*",
+    "supernemo_transformer*",
 ]

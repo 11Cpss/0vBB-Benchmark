@@ -15,6 +15,8 @@ distributed.
 |---|---|---|---|
 | [NEXT](next_detector/README.md) | Variable-length 3D detector-hit events | `0nubb` signal vs `Bi214` background classification | 3 tokenizations × 2 positional encodings |
 | [MJD](mjd_detector/README.md) | 10,000-sample 1D waveforms | Clean/non-clean classification and clean-event energy regression | 3 tokenizations × 2 positional encodings × 2 tasks |
+| [EXO-200 v1](exo200_detector/README.md) | 226-channel × 300-sample detector waveforms | Single- vs multi-charge-cluster classification | 3 tokenizations × 2 positional encodings |
+| [SuperNEMO](supernemo_detector/README.md) | Variable-length 3D tracker-hit events | `2nubb` vs `Bi214` classification | 3 tokenizations × 2 positional encodings |
 
 ## Repository layout
 
@@ -26,9 +28,21 @@ distributed.
 │   ├── manifests/
 │   ├── notebooks/
 │   └── tests/
-└── mjd_detector/               # MJD waveform benchmark
-    ├── mjdbench/               # Shared MJD data/training/evaluation workflow
-    ├── mjd_transformer/
+├── mjd_detector/               # MJD waveform benchmark
+│   ├── mjdbench/               # Shared MJD data/training/evaluation workflow
+│   ├── mjd_transformer/
+│   ├── notebooks/
+│   └── README.md
+├── exo200_detector/            # EXO-200 v1 waveform benchmark
+│   ├── exobench/               # Shared EXO data/training/evaluation workflow
+│   ├── frozen_energybench/     # Fingerprinted evaluation snapshot
+│   ├── manifests/              # Frozen run-level split contract
+│   ├── exo_transformer/
+│   ├── notebooks/
+│   └── README.md
+└── supernemo_detector/         # SuperNEMO tracker benchmark
+    ├── supernemobench/         # Shared data/training/evaluation workflow
+    ├── supernemo_transformer/
     ├── notebooks/
     └── README.md
 ```
@@ -62,6 +76,8 @@ The tests use synthetic data and do not require detector datasets or a GPU:
 python -m unittest discover -s evalutaions_workflow/tests -v
 python -m unittest discover -s next_detector/tests -v
 python -m unittest discover -s mjd_detector/mjd_transformer/tests -v
+python -m unittest discover -s exo200_detector/exo_transformer/tests -v
+python -m unittest discover -s supernemo_detector/supernemo_transformer/tests -v
 ```
 
 See each detector README for dataset layout, experiment assignment, metrics,
@@ -81,3 +97,5 @@ Original software in this repository is available under the
 [MIT License](LICENSE). The license does not grant rights to detector data,
 generated checkpoints, predictions, or third-party material. Confirm release
 permission and attribution for collaborator-contributed code before public use.
+The EXO-200 collaborator snapshots included here are published with permission;
+their provenance is recorded in [the EXO notice](exo200_detector/NOTICE.md).

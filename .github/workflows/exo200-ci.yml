@@ -1,0 +1,39 @@
+name: EXO-200 benchmark checks
+
+on:
+  push:
+    paths:
+      - "exo200_detector/**"
+      - "scripts/validate_notebooks.py"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - ".github/workflows/exo200-ci.yml"
+  pull_request:
+    paths:
+      - "exo200_detector/**"
+      - "scripts/validate_notebooks.py"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - ".github/workflows/exo200-ci.yml"
+
+jobs:
+  synthetic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy pandas h5py matplotlib
+          python -m pip install -e . --no-deps
+      - name: Compile EXO workflow
+        run: python -m compileall -q exo200_detector
+      - name: Run synthetic EXO tests
+        run: python -m unittest discover -s exo200_detector/exo_transformer/tests -v
+      - name: Validate clean notebooks
+        run: python scripts/validate_notebooks.py exo200_detector/notebooks
