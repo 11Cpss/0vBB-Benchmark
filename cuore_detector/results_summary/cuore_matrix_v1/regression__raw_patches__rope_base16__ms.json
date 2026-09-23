@@ -1,0 +1,56 @@
+{
+  "clean_ms": {
+    "bias_ms": 67.98154292021982,
+    "mae_ms": 69.57164636025063,
+    "median_abs_error_ms": 49.83781278133392,
+    "n_events": 507,
+    "r2": NaN,
+    "rmse_ms": 191.9780403761417,
+    "weight_sum": 507.0
+  },
+  "degenerate_metrics": {
+    "clean_ms.r2": "NaN by construction: ss_tot == 0 when every true value is 0",
+    "ers": "0.0 by construction: ~51% of targets are exactly 0",
+    "fractional_resolution_68": "diverges: |pred - true| / true with true == 0"
+  },
+  "dt_scale": 3000.0,
+  "energybench_degenerate_values": {
+    "ers": 0.0,
+    "fractional_resolution_68": 9490.252689146393
+  },
+  "n_events": 1000,
+  "overall_ms": {
+    "bias_ms": -62.34249485047096,
+    "frac_within_100ms": 0.608,
+    "frac_within_250ms": 0.837,
+    "mae_ms": 210.02178738527832,
+    "median_abs_error_ms": 69.20050084590912,
+    "n_events": 1000,
+    "r2": 0.9246545249183336,
+    "rmse_ms": 584.9062729525334,
+    "weight_sum": 1000.0
+  },
+  "overall_ms_unweighted": {
+    "bias_ms": -62.34249485047096,
+    "mae_ms": 210.02178738527832,
+    "median_abs_error_ms": 69.20050084590912,
+    "n_events": 1000,
+    "r2": 0.9246545249183336,
+    "rmse_ms": 584.9062729525334,
+    "weight_sum": 1000.0
+  },
+  "pileup_ms": {
+    "bias_ms": -196.3674180750962,
+    "mae_ms": 354.46037054894776,
+    "median_abs_error_ms": 161.15536489123502,
+    "n_events": 493,
+    "r2": 0.8280976743059189,
+    "rmse_ms": 809.9652850723185,
+    "weight_sum": 493.0
+  },
+  "scaled_rmse": 0.19496875765084445,
+  "selection_metrics": {
+    "primary": "pileup_ms.rmse_ms",
+    "secondary": "overall_ms.r2"
+  }
+}
