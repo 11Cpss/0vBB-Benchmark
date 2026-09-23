@@ -21,6 +21,15 @@ from .positional_encoding import (
     PositionEncodingName,
     build_position_encoder,
 )
+from .rotary_attention import (
+    RotaryPositionAngles,
+    RotarySelfAttention,
+    RotaryTransformerEncoder,
+    RotaryTransformerEncoderLayer,
+    apply_rotary_embedding,
+    axis_pair_counts,
+    rotate_half,
+)
 from .tokenization import (
     PulseEntityTokenizer,
     RawSensorPatchTokenizer,
@@ -41,12 +50,18 @@ __all__ = [
     "PositionEncodingName",
     "PulseEntityTokenizer",
     "RawSensorPatchTokenizer",
+    "RotaryPositionAngles",
+    "RotarySelfAttention",
+    "RotaryTransformerEncoder",
+    "RotaryTransformerEncoderLayer",
     "RUN_IDS",
     "SENSOR_BLOCKS",
     "SensorRegionSummaryTokenizer",
     "TokenizationConfig",
     "TokenizationName",
     "build_position_encoder",
+    "apply_rotary_embedding",
+    "axis_pair_counts",
     "build_evaluation_config",
     "build_test_metadata",
     "build_tokenizer",
@@ -54,5 +69,6 @@ __all__ = [
     "load_energybench_runtime",
     "load_split_manifest",
     "save_comparison_plots",
+    "rotate_half",
     "validate_split_manifest",
 ]

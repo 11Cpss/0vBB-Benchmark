@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import tempfile
 import unittest
 from pathlib import Path
@@ -46,16 +47,29 @@ def _small_model(tokenization: str, encoding: str) -> EXOTransformerClassifier:
             entity_context_size=3,
         ),
         position_encoding=encoding,
-        d_model=8,
+        # RoPE needs at least one channel pair for each of six coordinates.
+        d_model=24,
         nhead=2,
         num_layers=1,
-        dim_feedforward=16,
+        dim_feedforward=32,
         dropout=0.0,
         num_frequencies=2,
     )
 
 
 class EXOTransformerTests(unittest.TestCase):
+    def test_official_rope_configuration_is_frozen(self) -> None:
+        model = EXOTransformerClassifier(
+            tokenization_config=TokenizationConfig(
+                tokenization="segment_summary"
+            ),
+            position_encoding="rope",
+        )
+        config = model.config_dict()
+        self.assertEqual(config["rotary_pair_counts"], [2, 2, 1, 1, 1, 1])
+        self.assertAlmostEqual(config["rope_base"], math.pi / 2.0)
+        self.assertIsNone(model.position_encoder)
+
     def test_official_tokenizer_shapes(self) -> None:
         waveform = torch.randn(2, 226, 300)
         expected_features = {
@@ -172,10 +186,10 @@ class EXOTransformerTests(unittest.TestCase):
                 locations = block[:, :2]
                 self.assertEqual(torch.unique(locations, dim=0).shape[0], 84)
 
-    def test_all_six_model_combinations(self) -> None:
+    def test_all_nine_model_combinations(self) -> None:
         waveform = torch.randn(1, 226, 300)
         for tokenization in ("raw_patches", "segment_summary", "pulse_entities"):
-            for encoding in ("coordinate_mlp", "fourier_coordinates"):
+            for encoding in ("coordinate_mlp", "fourier_coordinates", "rope"):
                 model = _small_model(tokenization, encoding)
                 output = model(waveform)
                 self.assertEqual(tuple(output.shape), (1,))
@@ -203,7 +217,9 @@ class EXOTransformerTests(unittest.TestCase):
         train_loader = DataLoader(data, batch_size=4, shuffle=True)
         validation_loader = DataLoader(data, batch_size=4, shuffle=False)
         test_loader = DataLoader(data, batch_size=4, shuffle=False)
-        model = _small_model("segment_summary", "coordinate_mlp")
+        # Exercise the complete EXOBench checkpoint/evaluation contract on
+        # the new attention-internal positional-encoding path.
+        model = _small_model("segment_summary", "rope")
         config = TrainingConfig(
             batch_size=4,
             epochs=1,

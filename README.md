@@ -13,9 +13,9 @@ distributed.
 
 | Detector | Input | Tasks | Transformer matrix |
 |---|---|---|---|
-| [NEXT](next_detector/README.md) | Variable-length 3D detector-hit events | `0nubb` signal vs `Bi214` background classification | 3 tokenizations × 2 positional encodings |
+| [NEXT](next_detector/README.md) | Variable-length 3D detector-hit events | `0nubb` signal vs `Bi214` background classification | 3 tokenizations × 3 positional encodings |
 | [MJD](mjd_detector/README.md) | 10,000-sample 1D waveforms | Clean/non-clean classification and clean-event energy regression | 3 tokenizations × 2 positional encodings × 2 tasks |
-| [EXO-200 v1](exo200_detector/README.md) | 226-channel × 300-sample detector waveforms | Single- vs multi-charge-cluster classification | 3 tokenizations × 2 positional encodings |
+| [EXO-200 v1](exo200_detector/README.md) | 226-channel × 300-sample detector waveforms | Single- vs multi-charge-cluster classification | 3 tokenizations × 3 positional encodings |
 | [SuperNEMO](supernemo_detector/README.md) | Variable-length 3D tracker-hit events | `2nubb` vs `Bi214` classification | 3 tokenizations × 2 positional encodings |
 
 ## Repository layout

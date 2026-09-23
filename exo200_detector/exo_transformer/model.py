@@ -9,6 +9,7 @@ import torch
 from torch import Tensor, nn
 
 from .positional_encoding import PositionEncodingName, build_position_encoder
+from .rotary_attention import RotaryTransformerEncoder, axis_pair_counts
 from .tokenization import TokenizationConfig, build_tokenizer
 
 
@@ -26,6 +27,7 @@ class EXOTransformerClassifier(nn.Module):
         dim_feedforward: int = 256,
         dropout: float = 0.1,
         num_frequencies: int = 6,
+        rope_base: float = math.pi / 2.0,
     ) -> None:
         super().__init__()
         self._validate_configuration(
@@ -35,6 +37,7 @@ class EXOTransformerClassifier(nn.Module):
             dim_feedforward=dim_feedforward,
             dropout=dropout,
             num_frequencies=num_frequencies,
+            rope_base=rope_base,
         )
         selected_tokens = tokenization_config or TokenizationConfig()
         self.position_encoding_name = position_encoding
@@ -45,6 +48,7 @@ class EXOTransformerClassifier(nn.Module):
         self.dim_feedforward = dim_feedforward
         self.dropout = float(dropout)
         self.num_frequencies = num_frequencies
+        self.rope_base = float(rope_base)
 
         self.tokenizer = build_tokenizer(selected_tokens)
         self.feature_dim = int(self.tokenizer.feature_dim)
@@ -54,27 +58,40 @@ class EXOTransformerClassifier(nn.Module):
             nn.GELU(),
             nn.Linear(d_model, d_model),
         )
-        self.position_encoder = build_position_encoder(
-            position_encoding,
-            coordinate_dim=self.coordinate_dim,
-            d_model=d_model,
-            num_frequencies=num_frequencies,
-        )
         self.input_norm = nn.LayerNorm(d_model)
-        layer = nn.TransformerEncoderLayer(
-            d_model=d_model,
-            nhead=nhead,
-            dim_feedforward=dim_feedforward,
-            dropout=dropout,
-            activation="gelu",
-            batch_first=True,
-            norm_first=True,
-        )
-        self.transformer = nn.TransformerEncoder(
-            layer,
-            num_layers=num_layers,
-            enable_nested_tensor=False,
-        )
+        self.uses_rotary_attention = position_encoding == "rope"
+        if self.uses_rotary_attention:
+            self.position_encoder = None
+            self.transformer = RotaryTransformerEncoder(
+                d_model=d_model,
+                nhead=nhead,
+                coordinate_dim=self.coordinate_dim,
+                num_layers=num_layers,
+                dim_feedforward=dim_feedforward,
+                dropout=dropout,
+                rope_base=self.rope_base,
+            )
+        else:
+            self.position_encoder = build_position_encoder(
+                position_encoding,
+                coordinate_dim=self.coordinate_dim,
+                d_model=d_model,
+                num_frequencies=num_frequencies,
+            )
+            layer = nn.TransformerEncoderLayer(
+                d_model=d_model,
+                nhead=nhead,
+                dim_feedforward=dim_feedforward,
+                dropout=dropout,
+                activation="gelu",
+                batch_first=True,
+                norm_first=True,
+            )
+            self.transformer = nn.TransformerEncoder(
+                layer,
+                num_layers=num_layers,
+                enable_nested_tensor=False,
+            )
         self.output_norm = nn.LayerNorm(d_model)
         hidden = max(1, d_model // 2)
         self.classification_head = nn.Sequential(
@@ -92,12 +109,22 @@ class EXOTransformerClassifier(nn.Module):
         self._validate_token_batch(coordinates, features, valid_mask)
 
         content = self.content_projection(features)
-        position = self.position_encoder(coordinates)
-        token_embeddings = self.input_norm(content + position)
-        transformed = self.transformer(
-            token_embeddings,
-            src_key_padding_mask=~valid_mask,
-        )
+        if self.uses_rotary_attention:
+            token_embeddings = self.input_norm(content)
+            transformed = self.transformer(
+                token_embeddings,
+                coordinates,
+                key_padding_mask=~valid_mask,
+            )
+        else:
+            if self.position_encoder is None:
+                raise RuntimeError("additive position encoder was not initialized")
+            position = self.position_encoder(coordinates)
+            token_embeddings = self.input_norm(content + position)
+            transformed = self.transformer(
+                token_embeddings,
+                src_key_padding_mask=~valid_mask,
+            )
         numeric_mask = valid_mask.unsqueeze(-1).to(transformed.dtype)
         pooled = (transformed * numeric_mask).sum(dim=1)
         pooled = pooled / numeric_mask.sum(dim=1).clamp_min(1.0)
@@ -117,6 +144,17 @@ class EXOTransformerClassifier(nn.Module):
             "dim_feedforward": self.dim_feedforward,
             "dropout": self.dropout,
             "num_frequencies": self.num_frequencies,
+            "rope_base": self.rope_base if self.uses_rotary_attention else None,
+            "rotary_pair_counts": (
+                list(
+                    axis_pair_counts(
+                        self.d_model // self.nhead // 2,
+                        self.coordinate_dim,
+                    )
+                )
+                if self.uses_rotary_attention
+                else None
+            ),
             "pooling": "masked_mean",
             "positive_class": "background",
         }
@@ -149,6 +187,7 @@ class EXOTransformerClassifier(nn.Module):
         dim_feedforward: int,
         dropout: float,
         num_frequencies: int,
+        rope_base: float,
     ) -> None:
         for name, value in {
             "d_model": d_model,
@@ -163,6 +202,13 @@ class EXOTransformerClassifier(nn.Module):
             raise ValueError("d_model must be divisible by nhead")
         if not math.isfinite(float(dropout)) or not 0.0 <= float(dropout) < 1.0:
             raise ValueError("dropout must be finite and in [0, 1)")
+        if (
+            isinstance(rope_base, bool)
+            or not isinstance(rope_base, (int, float))
+            or not math.isfinite(float(rope_base))
+            or float(rope_base) <= 1.0
+        ):
+            raise ValueError("rope_base must be a finite number greater than 1")
 
 
 __all__ = ["EXOTransformerClassifier"]

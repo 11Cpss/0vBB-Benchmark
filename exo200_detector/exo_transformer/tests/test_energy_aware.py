@@ -257,7 +257,10 @@ class EnergyAwareTests(unittest.TestCase):
             self.assertEqual(results.shape[0], 1)
             self.assertEqual(results.iloc[0]["energy_matched_auc"], 0.89)
             self.assertEqual(results.iloc[0]["energy_independence_score"], 0.87)
-            self.assertEqual(statuses["status"].value_counts()["incomplete"], 5)
+            self.assertEqual(
+                statuses["status"].value_counts()["incomplete"],
+                len(energy_aware.RUN_IDS) - 1,
+            )
             self.assertIn(run_id, reports)
             self.assertTrue((run_dir / "energybench_predictions.npz").is_file())
             self.assertTrue((root / "energybench_transformer_results.csv").is_file())

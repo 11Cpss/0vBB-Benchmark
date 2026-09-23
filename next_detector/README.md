@@ -127,7 +127,7 @@ Open:
 next_detector/notebooks/next_energybench_train.ipynb
 ```
 
-Run all cells. The complete design is a 3-tokenization × 2-position-encoding
+Run all cells. The complete design is a 3-tokenization × 3-position-encoding
 matrix:
 
 | ID | Tokenization | Positional encoding |
@@ -138,6 +138,9 @@ matrix:
 | `transformer_004` | sampled hits | Fourier XYZ |
 | `transformer_005` | summary features | coordinate MLP |
 | `transformer_006` | summary features | Fourier XYZ |
+| `transformer_007` | sampled hits | RoPE |
+| `transformer_008` | voxels | RoPE |
+| `transformer_009` | summary features | RoPE |
 
 Each experiment also has a `completed_official_run` field in the training
 notebook. Set it to `True` only when that official result is already safely
@@ -164,7 +167,7 @@ Useful environment variables:
 | `SIMPLE_ENERGYBENCH_DATA` | `data/NEXT` | Raw NEXT dataset directory |
 | `NEXT_OUTPUT_ROOT` | `next_detector/results` | Generated result root |
 | `NEXT_NUM_WORKERS` | `8` | DataLoader worker processes |
-| `NEXT_RUN_MODEL_IDS` | all six | Models assigned to this run |
+| `NEXT_RUN_MODEL_IDS` | all nine | Models assigned to this run |
 | `NEXT_OFFICIAL_RUN` | `1` | Enforce official counts and exact split |
 | `NEXT_REQUIRE_CUDA` | official-run value | Fail early when CUDA is unavailable |
 | `NEXT_TRANSFORMER_PROJECT_ROOT` | auto-detected | Repository root override |
@@ -245,13 +248,15 @@ next_detector/notebooks/next_energybench_results.ipynb
 ```
 
 It verifies the summary against each `metrics.json`, checks required
-artifacts, ranks models by energy-matched test AUC, builds the 3 × 2 comparison
+artifacts, ranks models by energy-matched test AUC, builds the 3 × 3 comparison
 tables, and displays the saved EnergyBench figures. It does not load the raw
 dataset or use the GPU.
 
-## Reference six-model result
+## Reference MLP/Fourier subset
 
-The completed single-seed (`seed=42`) benchmark produced:
+The completed single-seed (`seed=42`) MLP/Fourier subset produced the six
+results below. The three RoPE experiments complete the official 3 × 3 design
+but are intentionally not mixed into this historical subset table.
 
 | Rank | Representation | Energy-matched AUC | Energy independence | Worst-group independence |
 | ---: | --- | ---: | ---: | ---: |

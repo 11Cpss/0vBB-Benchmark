@@ -28,7 +28,7 @@ ENERGY_FIELD = "Rotated_energy"
 EXPECTED_TEST_EVENTS = 140_383
 EXPECTED_TEST_RUNS = (8967, 8970, 8971, 9010)
 TOKENIZATIONS = ("raw_patches", "segment_summary", "pulse_entities")
-POSITION_ENCODINGS = ("coordinate_mlp", "fourier_coordinates")
+POSITION_ENCODINGS = ("coordinate_mlp", "fourier_coordinates", "rope")
 DEFAULT_FROZEN_ENERGYBENCH_ROOT = (
     Path(__file__).resolve().parents[1] / "frozen_energybench"
 )
@@ -582,7 +582,7 @@ def save_comparison_plots(
     reports: dict[str, Any],
     output_dir: str | Path,
 ) -> list[Path]:
-    """Write compact six-model comparison plots from completed reports."""
+    """Write compact nine-model comparison plots from completed reports."""
 
     if results.empty:
         return []

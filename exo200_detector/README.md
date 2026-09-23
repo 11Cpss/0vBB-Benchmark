@@ -61,10 +61,21 @@ Pulse entities allocate 84 tokens to every sensor block: 42 fixed uniform-grid
 points and 42 points ranked by absolute amplitude plus absolute temporal
 change. Selection never uses labels, reconstructed energy, or cluster fields.
 
-The benchmark compares `coordinate_mlp` and `fourier_coordinates`. Content and
-coordinates are projected independently to 64 dimensions, added, normalized,
-processed by a two-layer four-head Transformer, and mean-pooled into one
-background-classification logit.
+The benchmark compares `coordinate_mlp`, `fourier_coordinates`, and `rope`.
+The first two project content and coordinates independently to 64 dimensions
+and add them before the Transformer. Pure RoPE instead rotates Query and Key
+vectors inside every attention layer using all six coordinates; it does not
+add an absolute coordinate embedding. Every representation uses the same
+two-layer, four-head Transformer and masked-mean classification head.
+
+For the official 64-dimensional, four-head model, each attention head has
+eight rotary pairs. They are assigned to time, within-block channel position,
+side, U, V, and APD as `[2, 2, 1, 1, 1, 1]`. `rope_base=π/2` is frozen from
+the known `[-1, 1]` coordinate support and is not selected using model AUC.
+Pure RoPE emphasizes relative token relationships and does not directly expose
+absolute coordinates. This is an intentional research comparison: an
+underperforming RoPE result must be retained rather than repaired afterward
+with extra absolute-coordinate content features.
 
 ## Run the benchmark
 
@@ -78,11 +89,17 @@ jupyter lab
 ```
 
 Open `exo200_detector/notebooks/exo_transformer_train.ipynb`. The default run
-executes all six combinations. Assign specific runs with a comma-separated
+executes all nine combinations. Assign specific runs with a comma-separated
 variable:
 
 ```bash
 export EXO200_RUN_IDS=classification__raw_patches__coordinate_mlp
+```
+
+To run only the three RoPE experiments:
+
+```bash
+export EXO200_RUN_IDS="classification__raw_patches__rope,classification__segment_summary__rope,classification__pulse_entities__rope"
 ```
 
 Other supported variables are `EXO200_OUTPUT_ROOT` and

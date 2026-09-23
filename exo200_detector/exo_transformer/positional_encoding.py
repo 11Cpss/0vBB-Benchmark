@@ -9,7 +9,7 @@ import torch
 from torch import Tensor, nn
 
 
-PositionEncodingName = Literal["coordinate_mlp", "fourier_coordinates"]
+PositionEncodingName = Literal["coordinate_mlp", "fourier_coordinates", "rope"]
 
 
 def _positive_integer(value: int, name: str) -> int:
@@ -106,8 +106,15 @@ def build_position_encoder(
             d_model,
             num_frequencies,
         )
+    if name == "rope":
+        raise ValueError(
+            "RoPE is applied inside self-attention and cannot be built as "
+            "an additive position encoder; construct it through "
+            "EXOTransformerClassifier"
+        )
     raise ValueError(
-        "position encoding must be 'coordinate_mlp' or 'fourier_coordinates'"
+        "position encoding must be 'coordinate_mlp', "
+        "'fourier_coordinates', or 'rope'"
     )
 
 
