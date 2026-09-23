@@ -1,0 +1,85 @@
+{
+  "cache_path": "/vast/pvenkata/vis224/mjd_rope_cache/mjd_classification_50000_5000_50000_seed42_f6ed6dd6cebd03fa.pt",
+  "classification_target": "clean_vs_non_clean (all four PSD cuts: low_avse, high_avse, dcr, lq)",
+  "counts": {
+    "test": 50000,
+    "train": 50000,
+    "validation": 5000
+  },
+  "data_config": {
+    "baseline_samples": 200,
+    "classification_amplitude_normalization": true,
+    "data_root": "/vast/pvenkata/vis224/MJD",
+    "regression_waveform_scale": 1.0,
+    "seed": 42,
+    "validation_fraction": 0.1
+  },
+  "model": {
+    "attention": "rotary",
+    "coordinate_dim": 3,
+    "d_model": 64,
+    "dim_feedforward": 256,
+    "dropout": 0.1,
+    "feature_dim": 20,
+    "nhead": 4,
+    "num_frequencies": 6,
+    "num_layers": 2,
+    "pooling": "masked_mean",
+    "position_encoding": "rope",
+    "rope_base": 2.0,
+    "rope_thetas_per_axis": {
+      "amplitude": [
+        2.0,
+        1.5874010519681996,
+        1.2599210498948732
+      ],
+      "first_difference": [
+        2.0,
+        1.4142135623730951
+      ],
+      "time": [
+        2.0,
+        1.5874010519681996,
+        1.2599210498948732
+      ]
+    },
+    "rope_time_axis_only": false,
+    "task": "classification",
+    "tokenization": {
+      "entity_context_size": 9,
+      "patch_size": 20,
+      "token_count": 500,
+      "tokenization": "raw_patches",
+      "uniform_entity_fraction": 0.5
+    }
+  },
+  "parameter_count": 107841,
+  "position_encoding": "rope",
+  "rope_base": 2.0,
+  "rope_time_axis_only": false,
+  "run_id": "classification__raw_patches__rope",
+  "sizes": {
+    "n_test": 50000,
+    "n_train": 50000,
+    "n_val": 5000,
+    "seed": 42
+  },
+  "task": "classification",
+  "token_count": 190,
+  "tokenization": "raw_patches",
+  "training_config": {
+    "amp_precision": "auto",
+    "batch_size": 64,
+    "deterministic": false,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "early_stopping_patience": 5,
+    "epochs": 50,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0005,
+    "num_workers": 0,
+    "seed": 42,
+    "use_amp": false,
+    "weight_decay": 0.0001
+  }
+}
