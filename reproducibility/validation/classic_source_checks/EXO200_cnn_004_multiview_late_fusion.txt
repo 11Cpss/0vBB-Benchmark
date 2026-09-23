@@ -1,0 +1,32 @@
+usage: train_classification.py [-h] [--data-root DATA_ROOT]
+                               [--output-dir OUTPUT_DIR]
+                               [--batch-size BATCH_SIZE] [--epochs EPOCHS]
+                               [--learning-rate LEARNING_RATE]
+                               [--weight-decay WEIGHT_DECAY]
+                               [--gradient-clip-norm GRADIENT_CLIP_NORM]
+                               [--early-stopping-patience EARLY_STOPPING_PATIENCE]
+                               [--num-workers NUM_WORKERS] [--device DEVICE]
+                               [--seed SEED] [--no-amp]
+                               [--resume-from RESUME_FROM]
+                               [--baseline-samples BASELINE_SAMPLES]
+                               [--no-classification-amplitude-normalization]
+
+Train cnn_004_multiview_late_fusion for EXO-200 binary classification.
+
+options:
+  -h, --help            show this help message and exit
+  --data-root DATA_ROOT
+  --output-dir OUTPUT_DIR
+  --batch-size BATCH_SIZE
+  --epochs EPOCHS
+  --learning-rate LEARNING_RATE
+  --weight-decay WEIGHT_DECAY
+  --gradient-clip-norm GRADIENT_CLIP_NORM
+  --early-stopping-patience EARLY_STOPPING_PATIENCE
+  --num-workers NUM_WORKERS
+  --device DEVICE
+  --seed SEED
+  --no-amp
+  --resume-from RESUME_FROM
+  --baseline-samples BASELINE_SAMPLES
+  --no-classification-amplitude-normalization

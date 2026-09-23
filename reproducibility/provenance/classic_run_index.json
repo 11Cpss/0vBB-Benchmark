@@ -1,0 +1,746 @@
+{
+  "records": [
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "classic_001_topology_xgboost",
+      "model_key": "classic_001_topology_xgboost",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/classic_001_topology_xgboost/classification/training/best_model.pt",
+      "checkpoint_sha256": "171f1abe31192b2767380d2451fe8d42988c2192b2046475ef002e648576b16f",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/classic_001_topology_xgboost/classification/predictions.npz",
+      "prediction_sha256": "5ba52c65c24e32acffd79520e55f0770aa0a970e819ef53f733115fb687f5801",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/classic_001_topology_xgboost/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/classic_001_topology_xgboost/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/classic_001_topology_xgboost/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/classic_001_topology_xgboost/classification/run_summary.json",
+      "best_epoch": 50
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_001_two_conv_baseline",
+      "model_key": "cnn_001_two_conv_baseline",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_001_two_conv_baseline/classification/training/best_model.pt",
+      "checkpoint_sha256": "7694d4fe20160185a4fe3b9622a2e6a47b49a80bb103b0bd564654e845e0ce69",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_001_two_conv_baseline/classification/predictions.npz",
+      "prediction_sha256": "28771e81fad62703d85053d862bd919a1f3f61b8752c340f23d13d6fdd91c7a6",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_001_two_conv_baseline/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_001_two_conv_baseline/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_001_two_conv_baseline/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_001_two_conv_baseline/classification/run_summary.json",
+      "best_epoch": 49
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_002_global_energy_skip",
+      "model_key": "cnn_002_global_energy_skip",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_002_global_energy_skip/classification/training/best_model.pt",
+      "checkpoint_sha256": "2dcea2c5bbd31f3a3396e412b15481bd2a63d01d9b26b88d761cf791f8809f13",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_002_global_energy_skip/classification/predictions.npz",
+      "prediction_sha256": "c0fac1c2b86cbfabef06d7c90bcb0af01b2a22738fa513d5423a6aaf5e723feb",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_002_global_energy_skip/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_002_global_energy_skip/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_002_global_energy_skip/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_002_global_energy_skip/classification/run_summary.json",
+      "best_epoch": 48
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_003_residual_spatial",
+      "model_key": "cnn_003_residual_spatial",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_003_residual_spatial/classification/training/best_model.pt",
+      "checkpoint_sha256": "f8095e1993aaebbf86f51cda63c6c391808facc99288732ce61ad572960e46fa",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_003_residual_spatial/classification/predictions.npz",
+      "prediction_sha256": "504aa8e9d2f70ef950dccc38f417b91f8fa6727fb54a68db3cd8fa4633065fcb",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_003_residual_spatial/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_003_residual_spatial/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_003_residual_spatial/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_003_residual_spatial/classification/run_summary.json",
+      "best_epoch": 11
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "mvcnn",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_004_multiview_late_fusion/classification/training/best_model.pt",
+      "checkpoint_sha256": "efa875892ee5d5c01e6b37b1cc714f560d063286a34995c8b1d3ad2338c40322",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_004_multiview_late_fusion/classification/predictions.npz",
+      "prediction_sha256": "0b10a8351ca7c18799442849f1539f5cdfc349ac7bef9405a206311e8ac83e0a",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_004_multiview_late_fusion/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_004_multiview_late_fusion/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_004_multiview_late_fusion/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_004_multiview_late_fusion/classification/run_summary.json",
+      "best_epoch": 14
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_005_multiscale_projection",
+      "model_key": "cnn_005_multiscale_projection",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_005_multiscale_projection/classification/training/best_model.pt",
+      "checkpoint_sha256": "e537ef9561f265a7ed12c52839501ff5394bebb520fca1647ab50126eb6f408a",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_005_multiscale_projection/classification/predictions.npz",
+      "prediction_sha256": "62f6e2339dcd0b161e126db186c4e0e4a3fdaa3e1a356c3ae9e970c4133b553d",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_005_multiscale_projection/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_005_multiscale_projection/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_005_multiscale_projection/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_005_multiscale_projection/classification/run_summary.json",
+      "best_epoch": 9
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "cnn_006_dense_3d_resnet",
+      "model_key": "cnn_006_dense_3d_resnet",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/training/best_model.pt",
+      "checkpoint_sha256": "5b30ee03fae74ce01ef0879f34ffc3e32baec47448d7932407f176810d9c9300",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_006_dense_3d_resnet/classification/predictions.npz",
+      "prediction_sha256": "1c5d6821b12cb03080e1f67042af167ac4ac5465529fb1be4e50633a3d7ceccd",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_006_dense_3d_resnet/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/cnn_006_dense_3d_resnet/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/cnn_006_dense_3d_resnet/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/run_summary.json",
+      "best_epoch": 11
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "gine",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_001_static_gine/classification/training/best_model.pt",
+      "checkpoint_sha256": "f1e355ac21bbb09176e144c51a26e96f9c8fbd9d403bb9118b3e06050dfc532e",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_001_static_gine/classification/predictions.npz",
+      "prediction_sha256": "08b97d025d3253a31646eb769a04157606b100bf5942ad7c5059a37a8584c360",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_001_static_gine/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_001_static_gine/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/gnn_001_static_gine/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_001_static_gine/classification/run_summary.json",
+      "best_epoch": 31
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "gnn_002_particlenet_edgeconv",
+      "model_key": "gnn_002_particlenet_edgeconv",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_002_particlenet_edgeconv/classification/training/best_model.pt",
+      "checkpoint_sha256": "75cf63b65e0a663b93fae5d65a3d6802199d8b9cf5c8c1e1c1dfa77963dc1150",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_002_particlenet_edgeconv/classification/predictions.npz",
+      "prediction_sha256": "98650244b6f3bfed9c123e9215e932ede92c19ed5acdae32991edc118fb14efa",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_002_particlenet_edgeconv/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_002_particlenet_edgeconv/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/gnn_002_particlenet_edgeconv/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_002_particlenet_edgeconv/classification/run_summary.json",
+      "best_epoch": 23
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "gnn_003_egnn",
+      "model_key": "gnn_003_egnn",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_003_egnn/classification/training/best_model.pt",
+      "checkpoint_sha256": "7af845840bf7b882aff6a8394504960535687e3b22c02da9a2f610bb9fd0a4bf",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_003_egnn/classification/predictions.npz",
+      "prediction_sha256": "7d4922b7aff68d9a41a6a2849a74e6c5611f033a84e29e770f7a44407b5366de",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_003_egnn/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_003_egnn/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/gnn_003_egnn/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_003_egnn/classification/run_summary.json",
+      "best_epoch": 6
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "gnn_004_gravnet",
+      "model_key": "gnn_004_gravnet",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_004_gravnet/classification/training/best_model.pt",
+      "checkpoint_sha256": "fe2ea8e35a3c2c66ecafef9868091c23f2510f8f7f97540741f8e3f4818463ae",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_004_gravnet/classification/predictions.npz",
+      "prediction_sha256": "588c5601491cf8f3aa60ddee7be58eba34095138f16a2f61e388b7a9ffca6910",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_004_gravnet/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_004_gravnet/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/gnn_004_gravnet/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_004_gravnet/classification/run_summary.json",
+      "best_epoch": 38
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "gnn_005_dimenet_lite",
+      "model_key": "gnn_005_dimenet_lite",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_005_dimenet_lite/classification/training/best_model.pt",
+      "checkpoint_sha256": "7ea358b3c0d614480d1dbe14d4009f2c118aa4858f002aaf6739c4dbe27142e6",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_005_dimenet_lite/classification/predictions.npz",
+      "prediction_sha256": "ac59c93750dd489123b9a7a141bd4f44b7668657bc04dc0e04cbde429d4fd22c",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_005_dimenet_lite/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/gnn_005_dimenet_lite/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/gnn_005_dimenet_lite/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/gnn_005_dimenet_lite/classification/run_summary.json",
+      "best_epoch": 15
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "hybrid_001_cnn_gnn",
+      "model_key": "hybrid_001_cnn_gnn",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/hybrid_001_cnn_gnn/classification/training/best_model.pt",
+      "checkpoint_sha256": "20ab16a38bee40f62320f5b7600a1737232167f4905a964b2de3a0aa7b3c8d87",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/hybrid_001_cnn_gnn/classification/predictions.npz",
+      "prediction_sha256": "80bed0b36a1a7a91ec636c2a19dcf5d55ef81a46f23adf81611f35d543252657",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/hybrid_001_cnn_gnn/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/hybrid_001_cnn_gnn/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/hybrid_001_cnn_gnn/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/hybrid_001_cnn_gnn/classification/run_summary.json",
+      "best_epoch": 21
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "mixer_001_projection_mlp_mixer",
+      "model_key": "mixer_001_projection_mlp_mixer",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/training/best_model.pt",
+      "checkpoint_sha256": "2a62f4bdfaac66d7d3abfa5e4cd829c178a5afc0c97536a8283859b3929e427d",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/mixer_001_projection_mlp_mixer/classification/predictions.npz",
+      "prediction_sha256": "621a73d95b4a4a8e0e4c9f58636aa073663ad44c9155306d5e45ef9ba2bd0e3a",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/mixer_001_projection_mlp_mixer/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/mixer_001_projection_mlp_mixer/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/mixer_001_projection_mlp_mixer/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/run_summary.json",
+      "best_epoch": 11
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "point_001_deepsets",
+      "model_key": "point_001_deepsets",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_001_deepsets/classification/training/best_model.pt",
+      "checkpoint_sha256": "8595e4cd431f8bfc536f0389f3d6e3ddb09dec6f7ac97659e1f11d18b5ba1eb8",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_001_deepsets/classification/predictions.npz",
+      "prediction_sha256": "adc3a2c746523bb58acfe1e2069f6e1048a0a2f3bdf5f21ac53ff4c3badc0b71",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_001_deepsets/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_001_deepsets/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/point_001_deepsets/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_001_deepsets/classification/run_summary.json",
+      "best_epoch": 50
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "point_002_pointnetpp",
+      "model_key": "point_002_pointnetpp",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_002_pointnetpp/classification/training/best_model.pt",
+      "checkpoint_sha256": "d5b0a931fe6bd26bca8121a28b3c24c1e982619f24ceb39f0900a3ee820fe8c9",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_002_pointnetpp/classification/predictions.npz",
+      "prediction_sha256": "247af8d95ae485065869ffe86997a8ecc685bcfc13f93bfe4fc69d79308caf7c",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_002_pointnetpp/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_002_pointnetpp/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/point_002_pointnetpp/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_002_pointnetpp/classification/run_summary.json",
+      "best_epoch": 22
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "point_003_pointmlp",
+      "model_key": "point_003_pointmlp",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_003_pointmlp/classification/training/best_model.pt",
+      "checkpoint_sha256": "d496a5057f4fb31f577b27b18257d800cd94c174a4e5a32194f6342803ab41ce",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_003_pointmlp/classification/predictions.npz",
+      "prediction_sha256": "dc7b8afa596d452604ec298b9414f67f17a8589dc851629a1254d8459ac8534c",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_003_pointmlp/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_003_pointmlp/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/point_003_pointmlp/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_003_pointmlp/classification/run_summary.json",
+      "best_epoch": 31
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "point_004_rigid_kpconv",
+      "model_key": "point_004_rigid_kpconv",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_004_rigid_kpconv/classification/training/best_model.pt",
+      "checkpoint_sha256": "b3b13bd079dcd7e9546e1ae5afc70b9a6d59d7d8318cf13df3d509c9059bf4f8",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_004_rigid_kpconv/classification/predictions.npz",
+      "prediction_sha256": "b7aa7f793839e12cb8021b92b6f6887a507640b3d9d55f24990ecd5c6df7266f",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_004_rigid_kpconv/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/point_004_rigid_kpconv/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/point_004_rigid_kpconv/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/point_004_rigid_kpconv/classification/run_summary.json",
+      "best_epoch": 10
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "bigru",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/seq_001_bigru/classification/training/best_model.pt",
+      "checkpoint_sha256": "e97af2f3b5713cda2d5588b5251ba71bd74598913de2afc4a7fb8d698b8023af",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/seq_001_bigru/classification/predictions.npz",
+      "prediction_sha256": "37cfa76e8798b60910ac1da0c1bd888c7d053d8eadf65ebabe5558dc4a9b4f87",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/seq_001_bigru/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/seq_001_bigru/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/seq_001_bigru/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/seq_001_bigru/classification/run_summary.json",
+      "best_epoch": 21
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "seq_002_dilated_tcn",
+      "model_key": "seq_002_dilated_tcn",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/seq_002_dilated_tcn/classification/training/best_model.pt",
+      "checkpoint_sha256": "4369052d4e6502b8dbb359d49ac2436f14d05020362de92a2dbd948cbd0dc618",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/seq_002_dilated_tcn/classification/predictions.npz",
+      "prediction_sha256": "912a6d6124fa3209ab53ca0dc348e3922b7f3b88099ad37d856cc230c8aa4da0",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/seq_002_dilated_tcn/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/seq_002_dilated_tcn/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/seq_002_dilated_tcn/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/seq_002_dilated_tcn/classification/run_summary.json",
+      "best_epoch": 18
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "sparse_001_submanifold_resnet",
+      "model_key": "sparse_001_submanifold_resnet",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/sparse_001_submanifold_resnet/classification/training/best_model.pt",
+      "checkpoint_sha256": "db2ffbf40b2583d99099c42276a72e27d1ba7381b15bb4e3a7e8a500cb2d80aa",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/sparse_001_submanifold_resnet/classification/predictions.npz",
+      "prediction_sha256": "e24deed3a7ed778c68b0beb2ec24a322ae5b0a4c2302c02d10cc456a8e3e1f05",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/sparse_001_submanifold_resnet/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/sparse_001_submanifold_resnet/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/sparse_001_submanifold_resnet/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/sparse_001_submanifold_resnet/classification/run_summary.json",
+      "best_epoch": 9
+    },
+    {
+      "dataset": "NEXT",
+      "population": "canonical_116549",
+      "architecture_id": "topo_001_persistence_perslay",
+      "model_key": "topo_001_persistence_perslay",
+      "checkpoint": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/topo_001_persistence_perslay/classification/training/best_model.pt",
+      "checkpoint_sha256": "c661ea4018a54b829b76d731a0fbe2d50230d05714cdd1a64b99bac5b06d6669",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/topo_001_persistence_perslay/classification/predictions.npz",
+      "prediction_sha256": "f7cc34bb6a02b9f929d9f935c28e2b065677abbf441eb863fda4f5352d4b29f9",
+      "run_records": [
+        "code/classic/NEXT/run_records/canonical_campaign/runs/topo_001_persistence_perslay/classification/run_summary.json",
+        "code/classic/NEXT/run_records/canonical_campaign/runs/topo_001_persistence_perslay/classification/training/history.json"
+      ],
+      "training_entry": "code/classic/NEXT/01_code/architectures/topo_001_persistence_perslay/train_classification.py",
+      "source_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/topo_001_persistence_perslay/classification/run_summary.json",
+      "best_epoch": 49
+    },
+    {
+      "dataset": "MJD",
+      "population": "official_test_390000",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "mvcnn",
+      "checkpoint": "/home/wenyu/MJD/outputs/classification/cnn_004_multiview_late_fusion/best.pt",
+      "checkpoint_sha256": "ac3ee565e5f36cc0e9e44a18745f3d8e4977aee6538051cf7d62d234d2ae95aa",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/MJD/outputs/classification/cnn_004_multiview_late_fusion/energybench_classification/clean/predictions.npz",
+      "prediction_sha256": "64422a5d36efcc468658173730d04aeca6761e8d3f08a598bf424007d17d49fd",
+      "run_records": [
+        "code/classic/MJD/run_records/classification/cnn_004_multiview_late_fusion/run_config.json"
+      ],
+      "training_entry": "code/classic/MJD/architectures/cnn_004_multiview_late_fusion/train_classification.py"
+    },
+    {
+      "dataset": "MJD",
+      "population": "official_test_390000",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "gine",
+      "checkpoint": "/home/wenyu/MJD/outputs/classification/gnn_001_static_gine/best.pt",
+      "checkpoint_sha256": "fdb3a8e827109d89ec05fc6c0efe8a745c46b0e3ce644983bf8e3b28103d4b37",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/MJD/outputs/classification/gnn_001_static_gine/energybench_classification/clean/predictions.npz",
+      "prediction_sha256": "b96bb24553ea1de551e92bf89518a21772fdbee600c601024e5524b5ee36265d",
+      "run_records": [
+        "code/classic/MJD/run_records/classification/gnn_001_static_gine/run_config.json"
+      ],
+      "training_entry": "code/classic/MJD/architectures/gnn_001_static_gine/train_classification.py"
+    },
+    {
+      "dataset": "MJD",
+      "population": "official_test_390000",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "bigru",
+      "checkpoint": "/home/wenyu/MJD/outputs/classification/seq_001_bigru/best.pt",
+      "checkpoint_sha256": "5c3d7d034a9276ba5db143e981a9fa19362f51ce5ac61cb7bc26302218d5aa25",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/MJD/outputs/classification/seq_001_bigru/energybench_classification/clean/predictions.npz",
+      "prediction_sha256": "148add5614f9335f445d77e1ec1075ef525aee3981a780ce62d6ed35bea2dd80",
+      "run_records": [
+        "code/classic/MJD/run_records/classification/seq_001_bigru/run_config.json"
+      ],
+      "training_entry": "code/classic/MJD/architectures/seq_001_bigru/train_classification.py"
+    },
+    {
+      "dataset": "MJD",
+      "population": "official_test_390000",
+      "architecture_id": "ssm_001_pointmamba",
+      "model_key": "mamba",
+      "checkpoint": "/home/wenyu/MJD/outputs/classification/ssm_001_pointmamba/best.pt",
+      "checkpoint_sha256": "9295c6a58349588a6d5149ee61392d14f80d42013a3468f0c1f3ae20f4df64bb",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/MJD/outputs/classification/ssm_001_pointmamba/energybench_classification/clean/predictions.npz",
+      "prediction_sha256": "735b98eba403b21cdde0d0ad9d11ad6c89be7644b5a739ffc1a4e700e0657d6a",
+      "run_records": [
+        "code/classic/MJD/run_records/classification/ssm_001_pointmamba/run_config.json"
+      ],
+      "training_entry": "code/classic/MJD/architectures/ssm_001_pointmamba/train_classification.py"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "exploratory_cnn_004_multiview_late_fusion",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_004_multiview_late_fusion_classification_best.pt",
+      "checkpoint_sha256": "c9b030d97af71c1ff6f5fd2d2e67902935f941cc3f1678f9059951e2fababb16",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/predictions_test.npz",
+      "prediction_sha256": "b187f7e04391fc0d2febeaa7c03df8c2cd5b495887b02428ad10f03ae614cfa4",
+      "checkpoint_epoch": 12,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "cnn_005_multiscale_projection",
+      "model_key": "exploratory_cnn_005_multiscale_projection",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_005_multiscale_projection_classification_best.pt",
+      "checkpoint_sha256": "8d4e5ca22029c04fd80a4675bcbadd62eb840a9b9b51a652b797464327176693",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/predictions_test.npz",
+      "prediction_sha256": "9edb153f074dc9de45a0a02db16d688504a194b3ce2c31b5e8db55add526abfa",
+      "checkpoint_epoch": 7,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "cnn_006_dense_3d_resnet",
+      "model_key": "exploratory_cnn_006_dense_3d_resnet",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_006_dense_3d_resnet_classification_best.pt",
+      "checkpoint_sha256": "bacceff52aeab7634dd1a64098caeb94a36e2b17590aca4600aa3a9b8791c22b",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/predictions_test.npz",
+      "prediction_sha256": "2cbda0f822c594c4dcc207f17a878fecf8f8b7e0e77f331a7c3f39d8aa6d0477",
+      "checkpoint_epoch": 10,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "exploratory_gnn_001_static_gine",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_001_static_gine_classification_best.pt",
+      "checkpoint_sha256": "7690d43e69a87c3f159f4dc556165ebf796da19b0ed91d2b0c64271483e204ed",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/predictions_test.npz",
+      "prediction_sha256": "ba8126a597cb0d34e7b24945ac8089217d8e0238f3388042652854295455b5a7",
+      "checkpoint_epoch": 42,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "gnn_002_particlenet_edgeconv",
+      "model_key": "exploratory_gnn_002_particlenet_edgeconv",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_002_particlenet_edgeconv_classification_best.pt",
+      "checkpoint_sha256": "9a3a96d490bf55b38a2c4fa184ca1496c04ca1bc66c99aa6ddbf94432e48edba",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/predictions_test.npz",
+      "prediction_sha256": "6764ed91271cfc9ac7a9ae698069e1698e37c9c0240e836e11fdfc3b53d60eca",
+      "checkpoint_epoch": 47,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "gnn_003_egnn",
+      "model_key": "exploratory_gnn_003_egnn",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_003_egnn_classification_best.pt",
+      "checkpoint_sha256": "02eb555e3fa6e6a942c8f4a58165eb035d7303f6047c7e591dd49ab20bae460b",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/predictions_test.npz",
+      "prediction_sha256": "8a2ecabd867a24c8cd19c740012eae7ba908d5d5f38b1685dbf524c9383b4abe",
+      "checkpoint_epoch": 7,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "gnn_004_gravnet",
+      "model_key": "exploratory_gnn_004_gravnet",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_004_gravnet_classification_best.pt",
+      "checkpoint_sha256": "26e4b073df783a9ae6d2e2954af23c8ff9127f2e6c9b6764031d648a9aefde18",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/predictions_test.npz",
+      "prediction_sha256": "ee6233a5604f499a5c61020f5e963597c39b7500956c678e6fb4277b58efe8d9",
+      "checkpoint_epoch": 42,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "gnn_005_dimenet_lite",
+      "model_key": "exploratory_gnn_005_dimenet_lite",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/gnn_005_dimenet_lite/attempt_001/best.pt",
+      "checkpoint_sha256": "5d86eebc43dff476b4efc05bb7263e924348c3efe6c6da2bee4b8db619758648",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/predictions_test.npz",
+      "prediction_sha256": "ec8503373bcda96c3b7a8b95ec6eecb60748094bfb49dfed951e9cd0d01048ad",
+      "checkpoint_epoch": 26,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "exploratory_seq_001_bigru",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_001_bigru/attempt_001/best.pt",
+      "checkpoint_sha256": "37efa40310302ae44737f2a7fbdb444792adf1886ae3eb8fc035a26ba74dbcc9",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/predictions_test.npz",
+      "prediction_sha256": "f4a5ddf16ee8a944d1a6459a83daf49adbc7fa47d7ea9d32db6e608dd891e89a",
+      "checkpoint_epoch": 20,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "seq_002_dilated_tcn",
+      "model_key": "exploratory_seq_002_dilated_tcn",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_002_dilated_tcn/attempt_001/best.pt",
+      "checkpoint_sha256": "2d64a26939527a47152f1d1bbdf08a5ceb289e8737f8cae60907c9eb9948d70e",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/predictions_test.npz",
+      "prediction_sha256": "2cbc81ff5847a51b5a2ed87cd4e917aaf5d96b20091db1e6a9deae32ce4c53e2",
+      "checkpoint_epoch": 16,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "NEXT",
+      "population": "exploratory_115499",
+      "architecture_id": "ssm_001_pointmamba",
+      "model_key": "exploratory_ssm_001_pointmamba",
+      "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/ssm_001_pointmamba/attempt_001/best.pt",
+      "checkpoint_sha256": "38c34e7d1f9cebcd911d8e87f5f0097ca355683a1913fc252e7601387df681fb",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/predictions_test.npz",
+      "prediction_sha256": "f184d5662d8fe683643da951e7f040837976de17e06961cc0bb67f4c3d6dda0b",
+      "checkpoint_epoch": 12,
+      "inference_adapter": "next_cnn.adapter:predict",
+      "training_entry": "code/classic/NEXT/src/next_alt/training.py:main_for_architecture (earlier file-split API; current architecture CLI wrappers use canonical workflow_runner)",
+      "source_config_note": "Original config/representation recorded in copied exploratory audit manifest"
+    },
+    {
+      "dataset": "EXO-200",
+      "population": "heldout_140383",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "mvcnn",
+      "checkpoint": "/home/wenyu/EXO200/outputs/classification/cnn_004_multiview_late_fusion/best.pt",
+      "checkpoint_sha256": "26267ad71fba1e6faf46dfd5c428844ed9d51289a78b8ddbc4c2fdddab70b90d",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/EXO200/outputs/classification/cnn_004_multiview_late_fusion/energybench_predictions.npz",
+      "prediction_sha256": "3e089721395da375db50869cfa2c3ba44bb5ad85645ea5d3b5f6e27d90b31047",
+      "run_records": [
+        "code/classic/EXO200/run_records/classification/cnn_004_multiview_late_fusion/run_config.json"
+      ],
+      "training_entry": "code/classic/EXO200/architectures/cnn_004_multiview_late_fusion/train_classification.py"
+    },
+    {
+      "dataset": "EXO-200",
+      "population": "heldout_140383",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "gine",
+      "checkpoint": "/home/wenyu/EXO200/outputs/classification/gnn_001_static_gine/best.pt",
+      "checkpoint_sha256": "46322d192755a695f715205a34e682c88695fbec27b52ac29659ab104ffedf80",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/EXO200/outputs/classification/gnn_001_static_gine/energybench_predictions.npz",
+      "prediction_sha256": "2b6b23e73123cfe9f54a0e538bf8ceefc80c7772e070b7e0cbee4bd3143f6a65",
+      "run_records": [
+        "code/classic/EXO200/run_records/classification/gnn_001_static_gine/run_config.json"
+      ],
+      "training_entry": "code/classic/EXO200/architectures/gnn_001_static_gine/train_classification.py"
+    },
+    {
+      "dataset": "EXO-200",
+      "population": "heldout_140383",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "bigru",
+      "checkpoint": "/home/wenyu/EXO200/outputs/classification/seq_001_bigru/best.pt",
+      "checkpoint_sha256": "01566336a78a4efa8874146dc8b46aee73b785e202b32aeabb6a4900ef674bd7",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/EXO200/outputs/classification/seq_001_bigru/energybench_predictions.npz",
+      "prediction_sha256": "305a207db10aef48d0e73a2499a62ffc138b7d366e4a8470c6c0f31520e39988",
+      "run_records": [
+        "code/classic/EXO200/run_records/classification/seq_001_bigru/run_config.json"
+      ],
+      "training_entry": "code/classic/EXO200/architectures/seq_001_bigru/train_classification.py"
+    },
+    {
+      "dataset": "EXO-200",
+      "population": "heldout_140383",
+      "architecture_id": "ssm_001_pointmamba",
+      "model_key": "mamba",
+      "checkpoint": "/home/wenyu/EXO200/outputs/classification/ssm_001_pointmamba/best.pt",
+      "checkpoint_sha256": "5c8e0efb582cdab38c406a66d75b7debbffe458e868b1ea0f6785f252f4e56c0",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/EXO200/outputs/classification/ssm_001_pointmamba/energybench_predictions.npz",
+      "prediction_sha256": "eeb2482ccb26a950d6922d2bdce518132594242ed2b84612b9f24c1bce0a980f",
+      "run_records": [
+        "code/classic/EXO200/run_records/classification/ssm_001_pointmamba/run_config.json"
+      ],
+      "training_entry": "code/classic/EXO200/architectures/ssm_001_pointmamba/train_classification.py"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "population": "classification_2nu_vs_Bi214",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "mvcnn",
+      "checkpoint": "/home/wenyu/SuperNEMO/outputs/classification/cnn_004_multiview_late_fusion/best.pt",
+      "checkpoint_sha256": "47250315ef03c5778f88e1c0aa6d07adc43dbd4fd50a7234d1948e897d27c7b8",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/SuperNEMO/outputs/classification/cnn_004_multiview_late_fusion/test_evaluation/test_predictions.npz",
+      "prediction_sha256": "be2f3453de0afb1549a4086e72da448deccc99a1ec2a0991f3b19f83ff0dfd0e",
+      "run_records": [
+        "code/classic/SuperNEMO/run_records/classification/cnn_004_multiview_late_fusion/run_config.json"
+      ],
+      "training_entry": "code/classic/SuperNEMO/supernemobench/workflow.py"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "population": "classification_2nu_vs_Bi214",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "gine",
+      "checkpoint": "/home/wenyu/SuperNEMO/outputs/classification/gnn_001_static_gine/best.pt",
+      "checkpoint_sha256": "3fb0df805e8ea924ae262595a9ba4f79f34dd6941e16eea7ee00703848c7e86f",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/SuperNEMO/outputs/classification/gnn_001_static_gine/test_evaluation/test_predictions.npz",
+      "prediction_sha256": "d8364c001d8ffc5a83a29578f9959a2fb5c7c3ea3a9b8114b1689cf641198eef",
+      "run_records": [
+        "code/classic/SuperNEMO/run_records/classification/gnn_001_static_gine/run_config.json"
+      ],
+      "training_entry": "code/classic/SuperNEMO/supernemobench/workflow.py"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "population": "classification_2nu_vs_Bi214",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "bigru",
+      "checkpoint": "/home/wenyu/SuperNEMO/outputs/classification/seq_001_bigru/best.pt",
+      "checkpoint_sha256": "6bdcbe81c2ab2503429048e23c889851759f25a3ae5d95e31abc24830438fa19",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/SuperNEMO/outputs/classification/seq_001_bigru/test_evaluation/test_predictions.npz",
+      "prediction_sha256": "83abdddbd3dcd61122e6050b4337c517e74ae769dbe1390982f8b100b0a8e484",
+      "run_records": [
+        "code/classic/SuperNEMO/run_records/classification/seq_001_bigru/run_config.json"
+      ],
+      "training_entry": "code/classic/SuperNEMO/supernemobench/workflow.py"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "population": "classification_2nu_vs_Bi214",
+      "architecture_id": "ssm_001_pointmamba",
+      "model_key": "mamba",
+      "checkpoint": "/home/wenyu/SuperNEMO/outputs/classification/ssm_001_pointmamba/best.pt",
+      "checkpoint_sha256": "8b473019ad317f4f943351811daef36fa958f0da962531fbe8e3dc6215b1cb44",
+      "checkpoint_included": false,
+      "prediction_source": "/home/wenyu/SuperNEMO/outputs/classification/ssm_001_pointmamba/test_evaluation/test_predictions.npz",
+      "prediction_sha256": "12c66db94a21dd08709fc866ef7bb36bd1b285a9686983c29150d8c265f7c0fc",
+      "run_records": [
+        "code/classic/SuperNEMO/run_records/classification/ssm_001_pointmamba/run_config.json"
+      ],
+      "training_entry": "code/classic/SuperNEMO/supernemobench/workflow.py"
+    }
+  ],
+  "note": "22 canonical NEXT runs,11 earlier NEXT runs,4 MJD,4 EXO-200,4 SuperNEMO; 45 prediction/checkpoint provenances. NEXT has23 distinct classification architecture IDs across populations."
+}

@@ -1,0 +1,4189 @@
+{
+  "paper_snapshot": "code/transformers/configs/paper_reference/classification_table_evidence.json",
+  "rows": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "paper_matched_auc": "0.987718",
+      "paper_I": "0.973246",
+      "paper_params": "111105.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 31,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D31",
+          "raw": "NEXT-T01"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G31",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F31",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J31",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S31",
+          "raw": "0.987718"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W31",
+          "raw": "0.973246"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K31",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P31",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q31",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T31",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_002_voxel_coordinate_mlp/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_002_voxel_coordinate_mlp",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "cache_manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/token_cache/voxel_b4460785f223_ae165e692ff1/cache_manifest.json",
+        "center_coordinates": true,
+        "compact_training_batches": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "feature_dim": 2,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 111105,
+        "position_encoding": "coordinate_mlp",
+        "seed": 42,
+        "source_manifest_sha256": "b4460785f2234ef63984ceb100c40695aa69fdb7aa338d72c27d68d8dd08ab18",
+        "tokenization": "voxel",
+        "tokenization_config_sha256": "ae165e692ff169963dcfa8816ba8df26fa06140045cfe3a0ff91b08b3871550b",
+        "tokenization_source_sha256": "e2c4669a93383a4361b48c58b6d42d73915d09fcdb1f1ba09fd2b71c176f2478",
+        "trim_padding": true,
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 111105,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.987718",
+          "source_full_precision": 0.9877184038572273,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 4.038572273268315e-07
+        },
+        "independence": {
+          "paper_recorded": "0.973246",
+          "source_full_precision": 0.9732458912544566,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 1.087455434589657e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_002_voxel_coordinate_mlp/training/best_model.pt",
+        "exists": true,
+        "sha256": "5c33c8876e389860a81e6e7c5cc4cec0b5ce278b48a4a57e09d75f3ac6cf8f98",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_002_voxel_coordinate_mlp/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "89b712b37d211246663a78054d38019677191ac4afb4aae93f7ecb26e82c66fa",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_002_voxel_coordinate_mlp/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "473a4e358e497a7925752bebfa133e5b7bde48efff77c77273e7285a235557af",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "paper_matched_auc": "0.978698",
+      "paper_I": "0.972763",
+      "paper_params": "113409.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 32,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D32",
+          "raw": "NEXT-T02"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G32",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F32",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J32",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S32",
+          "raw": "0.978698"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W32",
+          "raw": "0.972763"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K32",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P32",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q32",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T32",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_003_voxel_fourier_xyz/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_003_voxel_fourier_xyz",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "cache_manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/token_cache/voxel_b4460785f223_ae165e692ff1/cache_manifest.json",
+        "center_coordinates": true,
+        "compact_training_batches": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "feature_dim": 2,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 113409,
+        "position_encoding": "fourier_xyz",
+        "seed": 42,
+        "source_manifest_sha256": "b4460785f2234ef63984ceb100c40695aa69fdb7aa338d72c27d68d8dd08ab18",
+        "tokenization": "voxel",
+        "tokenization_config_sha256": "ae165e692ff169963dcfa8816ba8df26fa06140045cfe3a0ff91b08b3871550b",
+        "tokenization_source_sha256": "e2c4669a93383a4361b48c58b6d42d73915d09fcdb1f1ba09fd2b71c176f2478",
+        "trim_padding": true,
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 113409,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.978698",
+          "source_full_precision": 0.9786975242362346,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 4.7576376538405185e-07
+        },
+        "independence": {
+          "paper_recorded": "0.972763",
+          "source_full_precision": 0.9727633134531835,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 3.134531834092513e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_003_voxel_fourier_xyz/training/best_model.pt",
+        "exists": true,
+        "sha256": "fe30ac32efe4317da12b0b2578e3d428a854f088a7b076f435abbdaf8001cad2",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_003_voxel_fourier_xyz/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "a9ad6ba466fe57dbe049b70ed0b4c9a30a424afa6b5f0649d43910137fabdcbf",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_003_voxel_fourier_xyz/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "6c776309c3a174ff75e43d1695b4342ca6a167c50cafe9ca5b25f591a5e67bf9",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_rope",
+      "paper_matched_auc": "0.5124",
+      "paper_I": "0.483",
+      "paper_params": "113409.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 33,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D33",
+          "raw": "NEXT-T03"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G33",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F33",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J33",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S33",
+          "raw": "0.5124"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W33",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K33",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P33",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q33",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T33",
+          "raw": null
+        }
+      },
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "paper_matched_auc": "0.975494",
+      "paper_I": "0.97527",
+      "paper_params": "111105.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 34,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D34",
+          "raw": "NEXT-T04"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G34",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F34",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J34",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S34",
+          "raw": "0.975494"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W34",
+          "raw": "0.97527"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K34",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P34",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q34",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T34",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_001_sampled_hits_coordinate_mlp",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "cache_manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/token_cache/sampled_hits_b4460785f223_4ba5d22f5536/cache_manifest.json",
+        "center_coordinates": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "feature_dim": 2,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 111105,
+        "position_encoding": "coordinate_mlp",
+        "seed": 42,
+        "source_manifest_sha256": "b4460785f2234ef63984ceb100c40695aa69fdb7aa338d72c27d68d8dd08ab18",
+        "tokenization": "sampled_hits",
+        "tokenization_config_sha256": "4ba5d22f5536d1812605f13cb4d23c329a24cdcba386e97942e346aaeb20f1e1",
+        "tokenization_source_sha256": "e2c4669a93383a4361b48c58b6d42d73915d09fcdb1f1ba09fd2b71c176f2478",
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 111105,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.975494",
+          "source_full_precision": 0.975494450021349,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 4.5002134907434765e-07
+        },
+        "independence": {
+          "paper_recorded": "0.97527",
+          "source_full_precision": 0.9752702548781785,
+          "decimal_places": 5,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 2.548781785627341e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/training/best_model.pt",
+        "exists": true,
+        "sha256": "1edfa563fe81a23af2ae74282aefca965c418885d1fd7af5c5d77a3242b57eea",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "740ecefab6f3028edde36328f8bc12a070b202c2752036b520e0c933bc941990",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "515742e43a762571a1a956be5b47911cebd0909697dce9f3a6ae06e6ef5c3c89",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "paper_matched_auc": "0.96273",
+      "paper_I": "0.974274",
+      "paper_params": "113409.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 35,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D35",
+          "raw": "NEXT-T05"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G35",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F35",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J35",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S35",
+          "raw": "0.96273"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W35",
+          "raw": "0.974274"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K35",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P35",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q35",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T35",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_004_sampled_hits_fourier_xyz",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "cache_manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/token_cache/sampled_hits_b4460785f223_4ba5d22f5536/cache_manifest.json",
+        "center_coordinates": true,
+        "compact_training_batches": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "feature_dim": 2,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 113409,
+        "position_encoding": "fourier_xyz",
+        "seed": 42,
+        "source_manifest_sha256": "b4460785f2234ef63984ceb100c40695aa69fdb7aa338d72c27d68d8dd08ab18",
+        "tokenization": "sampled_hits",
+        "tokenization_config_sha256": "4ba5d22f5536d1812605f13cb4d23c329a24cdcba386e97942e346aaeb20f1e1",
+        "tokenization_source_sha256": "e2c4669a93383a4361b48c58b6d42d73915d09fcdb1f1ba09fd2b71c176f2478",
+        "trim_padding": false,
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 113409,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.96273",
+          "source_full_precision": 0.9627299318274409,
+          "decimal_places": 5,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 6.817255904234543e-08
+        },
+        "independence": {
+          "paper_recorded": "0.974274",
+          "source_full_precision": 0.9742742018107595,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 2.0181075954806005e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/training/best_model.pt",
+        "exists": true,
+        "sha256": "3a4536d0ec81c367dc6e81ae8b06d660fdbdeda91bd52c8fdbb5a5df123197e8",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "580c3877f48b499820d34c3f46af6de69f11c3e959294fb35f5b9e4523a878cf",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "f30daa719e916bc5a738ed0989e66d402d24ae56948da4700faaeb4d76f11059",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_rope",
+      "paper_matched_auc": "0.4971",
+      "paper_I": "0.512",
+      "paper_params": "113409.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 36,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D36",
+          "raw": "NEXT-T06"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G36",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F36",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J36",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S36",
+          "raw": "0.4971"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W36",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K36",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P36",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q36",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T36",
+          "raw": null
+        }
+      },
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "paper_matched_auc": "0.987424",
+      "paper_I": "0.970741",
+      "paper_params": "111233.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 37,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D37",
+          "raw": "NEXT-T07"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G37",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F37",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J37",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S37",
+          "raw": "0.987424"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W37",
+          "raw": "0.970741"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K37",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P37",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q37",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T37",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final/transformer_005_summary_features_coordinate_mlp/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_005_summary_features_coordinate_mlp",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "center_coordinates": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "evaluation_config": {
+          "distance_correlation_max_samples": 1200,
+          "energy_bin_width_kev": 5.0,
+          "energy_bin_width_mev": 0.005,
+          "energy_grid_bin_count": 600,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_min_kev": 0.0,
+          "energy_roi": null,
+          "energy_unit": "MeV",
+          "fractional_energy_floor": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_bin": 20,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "performance_bins": 10,
+          "score_bins": 20,
+          "seed": 42,
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "feature_dim": 4,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 111233,
+        "position_encoding": "coordinate_mlp",
+        "raw_hdf5_streaming": true,
+        "seed": 42,
+        "summary_morton_bits": 10,
+        "tokenization": "summary_features",
+        "training_config": {
+          "amp_precision": "auto",
+          "batch_size": 64,
+          "classification_loss": "bce_with_logits",
+          "deterministic": false,
+          "device": "auto",
+          "early_stopping_min_delta": 0.0,
+          "early_stopping_patience": 5,
+          "epochs": 50,
+          "gradient_clip_norm": 1.0,
+          "learning_rate": 0.0005,
+          "num_workers": 8,
+          "optimizer": "adamw",
+          "regression_loss": "mse",
+          "scheduler": "cosine",
+          "seed": 42,
+          "use_amp": true,
+          "weight_decay": 0.0001
+        },
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 111233,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.987424",
+          "source_full_precision": 0.987424357216143,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 3.57216142998773e-07
+        },
+        "independence": {
+          "paper_recorded": "0.970741",
+          "source_full_precision": 0.9707408062305775,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 1.9376942250737272e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_005_summary_features_coordinate_mlp/training/best_model.pt",
+        "exists": true,
+        "sha256": "8ea2a045afc3ef93f230ad684a5b4d14b99962799d7129f77dece21cda153485",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_005_summary_features_coordinate_mlp/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "5441b97fe45b1b703baa2884c4f4dc548b1d6ef775487f7c7bc07eb9617fff55",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_005_summary_features_coordinate_mlp/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "3843afecff0c374f471beb8cf2cd182f9a9774cdd2d4fa0c4b6419e990de8a14",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "paper_matched_auc": "0.983448",
+      "paper_I": "0.972612",
+      "paper_params": "113537.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 38,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D38",
+          "raw": "NEXT-T08"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G38",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F38",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J38",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S38",
+          "raw": "0.983448"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W38",
+          "raw": "0.972612"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K38",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P38",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q38",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T38",
+          "raw": null
+        }
+      },
+      "source_training_config": "code/transformers/configs/next/final/transformer_006_summary_features_fourier_xyz/representation_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_006_summary_features_fourier_xyz",
+      "source_code": "code/transformers/original/next_detector",
+      "representation": {
+        "center_coordinates": true,
+        "coordinate_scale": 1000.0,
+        "d_model": 64,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "evaluation_config": {
+          "distance_correlation_max_samples": 1200,
+          "energy_bin_width_kev": 5.0,
+          "energy_bin_width_mev": 0.005,
+          "energy_grid_bin_count": 600,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_min_kev": 0.0,
+          "energy_roi": null,
+          "energy_unit": "MeV",
+          "fractional_energy_floor": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_bin": 20,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "performance_bins": 10,
+          "score_bins": 20,
+          "seed": 42,
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "feature_dim": 4,
+        "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
+        "max_tokens": 512,
+        "nhead": 4,
+        "num_frequencies": 6,
+        "num_layers": 2,
+        "parameter_count": 113537,
+        "position_encoding": "fourier_xyz",
+        "raw_hdf5_streaming": true,
+        "seed": 42,
+        "summary_morton_bits": 10,
+        "tokenization": "summary_features",
+        "training_config": {
+          "amp_precision": "auto",
+          "batch_size": 64,
+          "classification_loss": "bce_with_logits",
+          "deterministic": false,
+          "device": "auto",
+          "early_stopping_min_delta": 0.0,
+          "early_stopping_patience": 5,
+          "epochs": 50,
+          "gradient_clip_norm": 1.0,
+          "learning_rate": 0.0005,
+          "num_workers": 8,
+          "optimizer": "adamw",
+          "regression_loss": "mse",
+          "scheduler": "cosine",
+          "seed": 42,
+          "use_amp": true,
+          "weight_decay": 0.0001
+        },
+        "voxel_size": 15.0,
+        "voxel_truncation": "occupancy"
+      },
+      "exact_parameter_count": 113537,
+      "paper_source_comparison": {
+        "matched_auc": {
+          "paper_recorded": "0.983448",
+          "source_full_precision": 0.9834475590665179,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 4.409334820598687e-07
+        },
+        "independence": {
+          "paper_recorded": "0.972612",
+          "source_full_precision": 0.9726117883363878,
+          "decimal_places": 6,
+          "equal_at_recorded_precision": true,
+          "absolute_difference": 2.1166361219293606e-07
+        }
+      },
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_006_summary_features_fourier_xyz/training/best_model.pt",
+        "exists": true,
+        "sha256": "bf1b6731b1d1e998fe648c34c7b032773daa1ddbc42c7ea29d900fbd450b0ea4",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_006_summary_features_fourier_xyz/evaluation/predictions.npz",
+        "exists": true,
+        "sha256": "3c30c9394fb42721c5c54f69a1f7954d244908fb0a12a7d099d4842de04c2860",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/final/transformer_006_summary_features_fourier_xyz/evaluation/metrics.json",
+        "exists": true,
+        "sha256": "3d59986a3c2452222545c33a93ad176a2beba654de0f57cde3be0fa2384c2385",
+        "packaged": false
+      },
+      "status": "saved_run_matches_all_recorded_metric_digits_and_exact_parameter_count",
+      "limitation": "Paper workbook stores 5\u20136 decimal metric precision rather than the source full-precision binary floats. All stored digits and exact parameter counts match this uniquely named completed run; this is not proof of an unrecorded workbook event fingerprint. Preserve the original NEXT evaluation profile."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_rope",
+      "paper_matched_auc": "0.6023",
+      "paper_I": "0.532",
+      "paper_params": "113537.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "NEXT",
+      "paper_row": 39,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D39",
+          "raw": "NEXT-T09"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G39",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F39",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J39",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S39",
+          "raw": "0.6023"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W39",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K39",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P39",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q39",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T39",
+          "raw": null
+        }
+      },
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "paper_matched_auc": "0.9293956978212661",
+      "paper_I": "0.8116150873441846",
+      "paper_params": "111105",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 5,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D5",
+          "raw": "MJD-T01"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G5",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G5",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J5",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S5",
+          "raw": "0.929396803268499"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W5",
+          "raw": "0.811567853170932"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K5",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P5",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q5",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T5",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__pulse_entities__coordinate_mlp",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "pulse_entities",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 3,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 111105,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "7e01ea1751382ef2ba212318a94cda33ea8bbb72172c0f150bfcb2420428246f",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "d8543a5b5c23b3b9cf5d4f4de7c7d493f9c3a7709df6c0e91bd4dd1a8c53331c",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "paper_matched_auc": "0.9413866002250502",
+      "paper_I": "0.802097914589581",
+      "paper_params": "113409",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 6,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D6",
+          "raw": "MJD-T02"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G6",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G6",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J6",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S6",
+          "raw": "0.941387979984189"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W6",
+          "raw": "0.802061930228155"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K6",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P6",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q6",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T6",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__pulse_entities__fourier_coordinates",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "pulse_entities",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 3,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 113409,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "42db930535908b706e88a179d90d0bae8394802f1bd764ac09273543d559c7bc",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "81d32f80203c458e3fe06632e55e72954e75d42f4482ca831b2fda21d8b23c53",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "paper_matched_auc": "0.9734501967234624",
+      "paper_I": "0.7983154151144947",
+      "paper_params": "112257",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 7,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D7",
+          "raw": "MJD-T03"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G7",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G7",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J7",
+          "raw": "112257.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S7",
+          "raw": "0.973450974021451"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W7",
+          "raw": "0.798281679797024"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K7",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P7",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q7",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T7",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__raw_patches__coordinate_mlp",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "raw_patches",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 3,
+        "feature_dim": 20,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 112257,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "ad011cd2959c25aaf5165329fde3a462f0f3198b3fdcf9f0854a8dddaa1e1330",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "7feeb9abacdd0127ddccce5aaa289a541afe0e1568cc1b1547cdf54e0b617021",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "paper_matched_auc": "0.9810463173072814",
+      "paper_I": "0.7876310269369133",
+      "paper_params": "114561",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 8,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D8",
+          "raw": "MJD-T04"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G8",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G8",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J8",
+          "raw": "114561.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S8",
+          "raw": "0.981046811242557"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W8",
+          "raw": "0.787611356782479"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K8",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P8",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q8",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T8",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__raw_patches__fourier_coordinates",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "raw_patches",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 3,
+        "feature_dim": 20,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 114561,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "dd0ac549e296571d1ff99a356eda1023c84d09758f2aed80f61f9452fdb1ee09",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "e99d450caced3b55b882d81990ecd93cdeafa0f6deb1e74fafed86aee4d66626",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "paper_matched_auc": "0.9653926210283701",
+      "paper_I": "0.7990151806667429",
+      "paper_params": "111105",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 9,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D9",
+          "raw": "MJD-T05"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G9",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G9",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J9",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S9",
+          "raw": "0.965393653790337"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W9",
+          "raw": "0.798969546110333"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K9",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P9",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q9",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T9",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__segment_summary__coordinate_mlp",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "segment_summary",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 3,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 111105,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "fc5d40c901fd221f364a5e65bcefe4d9722edfedab6cb9c33ef91c40e983cf98",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "ff77ac0afdf1f203ad30dc80c7f044aef0dbab23aedb28b88d3d7f43967e8592",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "paper_matched_auc": "0.9691365055544586",
+      "paper_I": "0.7818013873421643",
+      "paper_params": "113409",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "MJD",
+      "paper_row": 10,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D10",
+          "raw": "MJD-T06"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G10",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G10",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J10",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S10",
+          "raw": "0.969137624411691"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W10",
+          "raw": "0.781775803332116"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K10",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P10",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q10",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T10",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__segment_summary__fourier_coordinates",
+      "source_code": "code/transformers/original/mjd_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "segment_summary",
+          "token_count": 500,
+          "patch_size": 20,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 3,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+        "validation_fraction": 0.1,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "regression_waveform_scale": 1.0,
+        "seed": 42
+      },
+      "exact_parameter_count": 113409,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "db65f13f62d06a5bc3333a62f47ced5ad57a02d32893c84f16f62e29f3aedc63",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/predictions.npz",
+        "exists": true,
+        "sha256": "1436348703415eb4eda2101402503b1fc72ec1822360eaf6a0732fcad53ce815",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp",
+      "paper_matched_auc": "0.9413216210053226",
+      "paper_I": "0.7371650799725772",
+      "paper_params": "111297",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 6,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E6",
+          "raw": "EXO-T01"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H6",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H6",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K6",
+          "raw": "111297.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T6",
+          "raw": "0.9419427583"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X6",
+          "raw": "0.8033360979"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L6",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q6",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R6",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U6",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__pulse_entities__coordinate_mlp",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "pulse_entities",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 6,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 111297,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "da4df1c4a44d277f4457195687bc7f8008053d0f5f88f510322e89970f82457c",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "589966d39b1e9b6bc9c61c50f0cbc89914730ff59ae087b6be893f037f3d53da",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier",
+      "paper_matched_auc": "0.9471205351711137",
+      "paper_I": "0.7291835373545541",
+      "paper_params": "115905",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 7,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E7",
+          "raw": "EXO-T02"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H7",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H7",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K7",
+          "raw": "115905.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T7",
+          "raw": "0.9476028841"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X7",
+          "raw": "0.7970264444"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L7",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q7",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R7",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U7",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__pulse_entities__fourier_coordinates",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "pulse_entities",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 6,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 115905,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "a4e3e539b346f38a6a6728a579dca6da1424e344d25a502bffb1ac3dbcd0d3ca",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "4a0801d51ab9e53d1442081d24581dd4c758bec20b5ced00c124c3f50f1b0d74",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp",
+      "paper_matched_auc": "0.9695573209630712",
+      "paper_I": "0.8009381579076389",
+      "paper_params": "120769",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 8,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E8",
+          "raw": "EXO-T03"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H8",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H8",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K8",
+          "raw": "120769.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T8",
+          "raw": "0.9698176584"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X8",
+          "raw": "0.8883553547"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L8",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q8",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R8",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U8",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__raw_patches__coordinate_mlp",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "raw_patches",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 6,
+        "feature_dim": 150,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 120769,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "2776927e28cea939ab1a715e5140ff9736b73f2cfcc6edcae5e3c39a78024bb6",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "2664fdf32df9b6b4f73b3a813c7ea1834b5e9e58e4ff0c66ea23eaea605c124f",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier",
+      "paper_matched_auc": "0.9722610766369408",
+      "paper_I": "0.7900516557727041",
+      "paper_params": "125377",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 9,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E9",
+          "raw": "EXO-T04"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H9",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H9",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K9",
+          "raw": "125377.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T9",
+          "raw": "0.9725859375"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X9",
+          "raw": "0.8723790748"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L9",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q9",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R9",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U9",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__raw_patches__fourier_coordinates",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "raw_patches",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 6,
+        "feature_dim": 150,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 125377,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "6038a220f78973df20d68f70c31ee1fa2fa0b8cbe0af8e67cad3768d59cc9bdd",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "257424ad8bfdf3853c09145126218747b289ef2869f18fa8bbbeee664326d4f1",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp",
+      "paper_matched_auc": "0.9469545080993464",
+      "paper_I": "0.7761410115147421",
+      "paper_params": "111425",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 10,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E10",
+          "raw": "EXO-T05"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H10",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H10",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K10",
+          "raw": "111425.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T10",
+          "raw": "0.9475392273"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X10",
+          "raw": "0.859148205"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L10",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q10",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R10",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U10",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__segment_summary__coordinate_mlp",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "segment_summary",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "coordinate_mlp",
+        "coordinate_dim": 6,
+        "feature_dim": 4,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 111425,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "10d1d70efdfe4e73f675944e88cdcc1c3e46eeef280e25d1f57efa89d370ec87",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "f6eb487230ef9b6c26ba561b83dcbbd9199a26ab233c5dfcd3f98090b39610f3",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier",
+      "paper_matched_auc": "0.9600237431248531",
+      "paper_I": "0.8019020777424724",
+      "paper_params": "116033",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 11,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E11",
+          "raw": "EXO-T06"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H11",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H11",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K11",
+          "raw": "116033.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T11",
+          "raw": "0.9604387635"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X11",
+          "raw": "0.8890241852"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L11",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q11",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R11",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U11",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__segment_summary__fourier_coordinates",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "segment_summary",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "fourier_coordinates",
+        "coordinate_dim": 6,
+        "feature_dim": 4,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 116033,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/best.pt",
+        "exists": true,
+        "sha256": "188165ee17d8639f7340dfb551ce6f90908361ea71583d08a7d8094d8ab3ca44",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "d7ef2c04549928c02b03994be97ba9de5471d899e93972abb083ab8a0314c67f",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope",
+      "paper_matched_auc": "0.9709096841000631",
+      "paper_I": "0.7892311644895167",
+      "paper_params": "116161",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 12,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E12",
+          "raw": "EXO-T07"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H12",
+          "raw": "raw_patches tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H12",
+          "raw": "raw_patches tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K12",
+          "raw": "116161.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T12",
+          "raw": "0.9711907679"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X12",
+          "raw": "0.8782880057"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L12",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q12",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R12",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U12",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__raw_patches__rope",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "raw_patches",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "rope",
+        "coordinate_dim": 6,
+        "feature_dim": 150,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "rope_base": 1.5707963267948966,
+        "rotary_pair_counts": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 116161,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__rope/best.pt",
+        "exists": true,
+        "sha256": "00b91dfc198fc9083dcb8d73dc836aaee2639bab14fb36b46e9d72c71c8a8954",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__rope/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "e4e8cdf2b658a84c4be57fa55b74be4cfff6b784e257ccf1f468de8b2e443283",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope",
+      "paper_matched_auc": "0.9551706747468208",
+      "paper_I": "0.7727311876027604",
+      "paper_params": "106817",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 13,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E13",
+          "raw": "EXO-T08"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H13",
+          "raw": "segment_summary tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H13",
+          "raw": "segment_summary tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K13",
+          "raw": "106817.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T13",
+          "raw": "0.9557026902"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X13",
+          "raw": "0.8464677142"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L13",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q13",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R13",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U13",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__segment_summary__rope",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "segment_summary",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "rope",
+        "coordinate_dim": 6,
+        "feature_dim": 4,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "rope_base": 1.5707963267948966,
+        "rotary_pair_counts": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 106817,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__rope/best.pt",
+        "exists": true,
+        "sha256": "54dc9aa4bccb43674514ebcbb87f0644fd97023228711b872433061a1fcd28a2",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__rope/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "9b5c7227a7c2858a340d6b027cdb94f2ae22a9bc67314f1ec619515e0bc20324",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope",
+      "paper_matched_auc": "0.9459249799253545",
+      "paper_I": "0.7153366170715236",
+      "paper_params": "106689",
+      "paper_status": "recomputed_transformer",
+      "paper_worksheet": "EXO200 Model Results",
+      "paper_row": 14,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E14",
+          "raw": "EXO-T09"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H14",
+          "raw": "pulse_entities tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H14",
+          "raw": "pulse_entities tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K14",
+          "raw": "106689.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T14",
+          "raw": "0.9464707448"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X14",
+          "raw": "0.7763494244"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L14",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q14",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R14",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U14",
+          "raw": "ok"
+        }
+      },
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/run_config.json",
+      "final_evaluation": "strict600",
+      "run_id": "classification__pulse_entities__rope",
+      "source_code": "code/transformers/original/exo200_detector",
+      "representation": {
+        "task": "classification",
+        "tokenization": {
+          "tokenization": "pulse_entities",
+          "channel_regions": 7,
+          "time_regions": 12,
+          "uniform_entity_fraction": 0.5,
+          "entity_context_size": 9,
+          "tokens_per_block": 84,
+          "token_count": 504
+        },
+        "position_encoding": "rope",
+        "coordinate_dim": 6,
+        "feature_dim": 2,
+        "d_model": 64,
+        "nhead": 4,
+        "num_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+        "num_frequencies": 6,
+        "rope_base": 1.5707963267948966,
+        "rotary_pair_counts": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "pooling": "masked_mean",
+        "positive_class": "background"
+      },
+      "training": {
+        "batch_size": 64,
+        "epochs": 50,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "early_stopping_patience": 5,
+        "seed": 42,
+        "num_workers": 0,
+        "device": "auto",
+        "early_stopping_min_delta": 0.0,
+        "deterministic": false,
+        "use_amp": false,
+        "amp_precision": "auto"
+      },
+      "data": {
+        "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+        "validation_fraction": 0.1,
+        "test_fraction": 0.2727272727272727,
+        "baseline_samples": 200,
+        "classification_amplitude_normalization": true,
+        "seed": 42,
+        "input_field": "Waveforms",
+        "label_field": "Charge_cluster_number",
+        "event_field": "event_number",
+        "group_attribute": "run_number",
+        "position_field": "Charge_Clusters_Pos",
+        "input_shape": [
+          226,
+          300
+        ],
+        "input_dtype": "int16",
+        "num_classes": 2,
+        "class_names": [
+          "signal",
+          "background"
+        ]
+      },
+      "exact_parameter_count": 106689,
+      "checkpoint": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__rope/best.pt",
+        "exists": true,
+        "sha256": "b7cccc780f32d104cb8f4e33d405618477228352be74e1f7bdda00d3f8f3f29c",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__rope/energybench_predictions.npz",
+        "exists": true,
+        "sha256": "0962f47a88b5a6b1128b30a5139de3407f0aaa6ac833566c6a35c792e6ee6a08",
+        "packaged": false
+      },
+      "status": "exact_saved_run_audited",
+      "limitation": "Weights and event predictions are referenced and hashed but intentionally not packaged. Strict600 uses restored original physical energy, not the historical evaluator output."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_mlp",
+      "paper_matched_auc": "0.5912104133278413",
+      "paper_I": "0.975384791562389",
+      "paper_params": "111233.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 6,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K6",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T6",
+          "raw": "0.5912104133278413"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X6",
+          "raw": "0.975384791562389"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L6",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q6",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R6",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U6",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP6",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_001_sampled_hits_coordinate_mlp/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_001_sampled_hits_coordinate_mlp",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 4,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "coordinate_mlp"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 128,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "sampled_hits",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "189b0c581ef5902d007110870a4e83d2fda0654f97416544c0f5ab70115f3f93",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "6ca1510ea091ce313a8a02476b90ca5a6b4fa37135db630fc161fb095ca792c5",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "e13698a5ace11c91370a62c4162803746c8ec14d538d0f923a073cb333dce87f",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 111233,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_mlp",
+      "paper_matched_auc": "0.5914158866798868",
+      "paper_I": "0.9761247768221727",
+      "paper_params": "111233.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 7,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K7",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T7",
+          "raw": "0.5914158866798868"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X7",
+          "raw": "0.9761247768221727"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L7",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q7",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R7",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U7",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP7",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_002_voxel_coordinate_mlp/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_002_voxel_coordinate_mlp",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 4,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "coordinate_mlp"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 128,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "voxel",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "bb70843bd6bbe540d3d3e5741d0ba86118e2768873aec1d4ef3c3fbc20780ad3",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "a7e8d0b42cad6c977e8fe3c47d2a257edb4fcba5e3f0de21d61f63828db69ae1",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "a87e71c62bbcf26b39dcab898f1951c40225d5550924aa2dbdcb30674d2d610b",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 111233,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_fourier",
+      "paper_matched_auc": "0.5896103162658949",
+      "paper_I": "0.9765258664774298",
+      "paper_params": "113537.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 8,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K8",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T8",
+          "raw": "0.5896103162658949"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X8",
+          "raw": "0.9765258664774298"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L8",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q8",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R8",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U8",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP8",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_003_voxel_fourier_xyz/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_003_voxel_fourier_xyz",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 4,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "fourier_xyz"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 128,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "voxel",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/best.pt",
+        "exists": true,
+        "sha256": "d296320d826bf2ee316305a4a1de517d80110c18e0ebcdd235f02f15279d1e53",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "86a445172fbd7262ed78e298b828c580cac098cdb357fad5cfc991f5a7492725",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "edc53f5244403debea871d5a0c793da61e5ac23b0082bb877e19b24bbc909af5",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 113537,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_fourier",
+      "paper_matched_auc": "0.5890906098410181",
+      "paper_I": "0.9740046303484715",
+      "paper_params": "113537.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 9,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K9",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T9",
+          "raw": "0.5890906098410181"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X9",
+          "raw": "0.9740046303484715"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L9",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q9",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R9",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U9",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP9",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_004_sampled_hits_fourier_xyz/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_004_sampled_hits_fourier_xyz",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 4,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "fourier_xyz"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 128,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "sampled_hits",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/best.pt",
+        "exists": true,
+        "sha256": "e36e0f918058ba05896e6c732c5211d7321cdb6874a34d6318fed7497c14f657",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "ae08602bfa1aaa032657a513e1cc6770bb957dfbbd034825d3238e2208b24637",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "bf411199ea4276838af80a9eb4a10d9b63fc26a6ce2b3c2fa192ce67fd95b512",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 113537,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_mlp",
+      "paper_matched_auc": "0.590401975879365",
+      "paper_I": "0.9749901725375236",
+      "paper_params": "111361.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 10,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K10",
+          "raw": "111361.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T10",
+          "raw": "0.590401975879365"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X10",
+          "raw": "0.9749901725375236"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L10",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q10",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R10",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U10",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP10",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_005_summary_features_coordinate_mlp/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_005_summary_features_coordinate_mlp",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 6,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "coordinate_mlp"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 16,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "summary_features",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/best.pt",
+        "exists": true,
+        "sha256": "d127aa3bdcb180cc88a328e0aed7a3abc1810980625b682cd025387ff8d7da85",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "db9dc222034db08e6d8bc574155d212a835ad99d9757b1ed33ac25b76e3c5e4e",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "e0d10f3a2c67ae42329bb9ec69bb25d4051965aa95df5774541a663ad4f0d8e5",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 111361,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_fourier",
+      "paper_matched_auc": "0.5891324617733658",
+      "paper_I": "0.9771130772722894",
+      "paper_params": "113665.0",
+      "paper_status": "historical_transformer",
+      "paper_worksheet": "SuperNEMO Model Results",
+      "paper_row": 11,
+      "paper_source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K11",
+          "raw": "113665.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T11",
+          "raw": "0.5891324617733658"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X11",
+          "raw": "0.9771130772722894"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L11",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q11",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R11",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U11",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP11",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_006_summary_features_fourier_xyz/run_config.json",
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "run_id": "transformer_006_summary_features_fourier_xyz",
+      "source_code": "code/transformers/published_supernemo",
+      "representation": {
+        "model": {
+          "d_model": 64,
+          "dim_feedforward": 256,
+          "dropout": 0.1,
+          "feature_dim": 6,
+          "nhead": 4,
+          "num_frequencies": 6,
+          "num_layers": 2,
+          "pooling": "masked_mean",
+          "position_encoding": "fourier_xyz"
+        },
+        "tokenization": {
+          "center_coordinates": true,
+          "coordinate_scale_mm": 1000.0,
+          "max_tokens": 16,
+          "sampling_key": "local_event_number",
+          "seed": 42,
+          "summary_morton_bits": 10,
+          "tokenization": "summary_features",
+          "tracker_radius_scale_mm": 24.0,
+          "voxel_size_mm": 60.0
+        }
+      },
+      "training": {
+        "amp_precision": "auto",
+        "batch_size": 64,
+        "classification_loss": "bce_with_logits",
+        "deterministic": false,
+        "device": "cuda",
+        "early_stopping_min_delta": 0.0,
+        "early_stopping_patience": 12,
+        "energy_loss": "mse",
+        "epochs": 50,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0005,
+        "num_workers": 0,
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "seed": 42,
+        "use_amp": true,
+        "weight_decay": 0.0001
+      },
+      "data": {
+        "coordinate_scale_mm": 1000.0,
+        "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+        "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+        "max_points": 512,
+        "num_classes": 2,
+        "point_bin_size_mm": 15.0,
+        "projection_bin_size_mm": 44.0,
+        "projection_grid_size": 128,
+        "projection_input_scale": 1.0,
+        "projection_origin_mm": [
+          -2816.0,
+          -2816.0,
+          -2816.0
+        ],
+        "scan_chunk_rows": 262144,
+        "seed": 42,
+        "split_block_events": 4096,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "train_event_order": "proportional_without_replacement"
+      },
+      "checkpoint": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/best.pt",
+        "exists": true,
+        "sha256": "edfd37925e991e452b9a5ab387f69ea9c9ae609bc1406d4549891aa20b35e37c",
+        "packaged": false
+      },
+      "predictions": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/test_predictions.npz",
+        "exists": true,
+        "sha256": "9b38d795cfc5af3833e4144499e608208c793c224141549b1046224cc663dad7",
+        "packaged": false
+      },
+      "source_metrics": {
+        "path": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "exists": true,
+        "sha256": "31c3de26db5e68a6e59f1a8aa513300fef3bd1304c466e3b321e34802fe20f40",
+        "packaged": false
+      },
+      "status": "exact_saved_run_linked_metrics_match_paper",
+      "exact_parameter_count": 113665,
+      "historical_matching_bins": 6,
+      "historical_I_energy_bins_per_category": 8,
+      "limitation": "The canonical Transformer_Approach SuperNEMO package uses different IDs and has only one completed local run; it is retained as a related source snapshot and must not replace this published implementation."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_rope",
+      "paper_matched_auc": "0.793",
+      "paper_I": "0.749",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_rope",
+      "paper_matched_auc": "0.916",
+      "paper_I": "0.768",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_rope",
+      "paper_matched_auc": "0.878",
+      "paper_I": "0.777",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_rope",
+      "paper_matched_auc": "0.551",
+      "paper_I": "0.865",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_rope",
+      "paper_matched_auc": "0.602",
+      "paper_I": "0.953",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_rope",
+      "paper_matched_auc": "0.582",
+      "paper_I": "0.956",
+      "paper_params": null,
+      "paper_status": "reported_display_values",
+      "paper_worksheet": null,
+      "paper_row": null,
+      "paper_source_cells": null,
+      "source_training_config": null,
+      "final_evaluation": "historical; do not silently substitute strict600 or overflow601",
+      "status": "missing_exact_training_source_and_checkpoint",
+      "source_code": null,
+      "checkpoint": null,
+      "predictions": null,
+      "limitation": "Current paper retains recorded values, but no corresponding RoPE implementation/config/checkpoint/prediction was located. The recovered MLP/Fourier package does not implement RoPE. No EXO implementation or unrelated Transformer was substituted."
+    }
+  ],
+  "missing_model_count": 9,
+  "search": {
+    "roots": [
+      "/home/klz/Data/zeronu_benchmark/Transformer_Approach",
+      "/home/wenyu",
+      "/home filename search excluding environment caches"
+    ],
+    "excluded_candidate": "/home/klz/Data/pelon/MJD/transformer(1).ipynb is unrelated Optuna energy regression, contains no RoPE, and is not a source for the classification matrix."
+  },
+  "no_training_or_inference_performed": true
+}

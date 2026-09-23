@@ -1,0 +1,1334 @@
+[
+  {
+    "epoch": 1,
+    "learning_rate": 0.0003,
+    "train_loss": 0.5152226657702473,
+    "validation_loss": 0.43712487950649614,
+    "train_metrics": {
+      "auc": 0.8446930516203809,
+      "macro_auc": 0.8446930516203809,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.7638489507830509,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9092182843372578,
+      "macro_auc": 0.9092182843372578,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8337589175244162,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 2,
+    "learning_rate": 0.0002997040092642407,
+    "train_loss": 0.4396310942265797,
+    "validation_loss": 0.38887942624620125,
+    "train_metrics": {
+      "auc": 0.8968661098745017,
+      "macro_auc": 0.8968661098745017,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8230649492621023,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9222730178174632,
+      "macro_auc": 0.9222730178174632,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8484218285202832,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 3,
+    "learning_rate": 0.0002988172051971717,
+    "train_loss": 0.41684773876806713,
+    "validation_loss": 0.36794494768506864,
+    "train_metrics": {
+      "auc": 0.9088079047885967,
+      "macro_auc": 0.9088079047885967,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8358355711875283,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9285403566193006,
+      "macro_auc": 0.9285403566193006,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8547134546028905,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 4,
+    "learning_rate": 0.0002973430876093033,
+    "train_loss": 0.40287910416952655,
+    "validation_loss": 0.366013439250753,
+    "train_metrics": {
+      "auc": 0.9161192098179165,
+      "macro_auc": 0.9161192098179165,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8431640485752988,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9299413591063312,
+      "macro_auc": 0.9299413591063312,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8512649064153526,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 5,
+    "learning_rate": 0.00029528747416929463,
+    "train_loss": 0.3932406613013169,
+    "validation_loss": 0.38296540038079696,
+    "train_metrics": {
+      "auc": 0.9205535662334993,
+      "macro_auc": 0.9205535662334993,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8484784571876708,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9353077114747016,
+      "macro_auc": 0.9353077114747016,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8613999526153684,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 6,
+    "learning_rate": 0.00029265847744427303,
+    "train_loss": 0.3866447592951566,
+    "validation_loss": 0.3437119766286915,
+    "train_metrics": {
+      "auc": 0.9246065043644717,
+      "macro_auc": 0.9246065043644717,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8520877397276552,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9361066260167097,
+      "macro_auc": 0.9361066260167097,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8644273040777108,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 7,
+    "learning_rate": 0.0002894664728832377,
+    "train_loss": 0.38070293206171474,
+    "validation_loss": 0.386729339980664,
+    "train_metrics": {
+      "auc": 0.9272621015253659,
+      "macro_auc": 0.9272621015253659,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8557801991492193,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.936139698750996,
+      "macro_auc": 0.936139698750996,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8632163634927739,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 8,
+    "learning_rate": 0.000285724057869903,
+    "train_loss": 0.37601774893824896,
+    "validation_loss": 0.36446570880700097,
+    "train_metrics": {
+      "auc": 0.9289513022576161,
+      "macro_auc": 0.9289513022576161,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.858810214121058,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9333672254885556,
+      "macro_auc": 0.9333672254885556,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8591623450127676,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 9,
+    "learning_rate": 0.00028144600200657956,
+    "train_loss": 0.37261845847031505,
+    "validation_loss": 0.39097882457759986,
+    "train_metrics": {
+      "auc": 0.9312759494102293,
+      "macro_auc": 0.9312759494102293,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8615877278452435,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9345657357423359,
+      "macro_auc": 0.9345657357423359,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8600573880538079,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 10,
+    "learning_rate": 0.0002766491888253023,
+    "train_loss": 0.3693887022407228,
+    "validation_loss": 0.37656393210917777,
+    "train_metrics": {
+      "auc": 0.9331867544616594,
+      "macro_auc": 0.9331867544616594,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8634502958720502,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9347539943166989,
+      "macro_auc": 0.9347539943166989,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8633479874693974,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 11,
+    "learning_rate": 0.00027135254915624217,
+    "train_loss": 0.36549392461638763,
+    "validation_loss": 0.35095866981843177,
+    "train_metrics": {
+      "auc": 0.9348018266995007,
+      "macro_auc": 0.9348018266995007,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8660228379951995,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9407339593022876,
+      "macro_auc": 0.9407339593022876,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8704820070023955,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 12,
+    "learning_rate": 0.0002655769864163684,
+    "train_loss": 0.36245772409001126,
+    "validation_loss": 0.3915653601719178,
+    "train_metrics": {
+      "auc": 0.9366237081088594,
+      "macro_auc": 0.9366237081088594,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8684943796192875,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9382631797795824,
+      "macro_auc": 0.9382631797795824,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8654802958906994,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 13,
+    "learning_rate": 0.0002593452941132117,
+    "train_loss": 0.3600113593835294,
+    "validation_loss": 0.38926853274627593,
+    "train_metrics": {
+      "auc": 0.9374074271685547,
+      "macro_auc": 0.9374074271685547,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8700093871052069,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9407798506777595,
+      "macro_auc": 0.9407798506777595,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.865243372732777,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 14,
+    "learning_rate": 0.0002526820658893033,
+    "train_loss": 0.3578164295444781,
+    "validation_loss": 0.387502164142019,
+    "train_metrics": {
+      "auc": 0.938882724006177,
+      "macro_auc": 0.938882724006177,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8717739252358658,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.939500596759019,
+      "macro_auc": 0.939500596759019,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8611103798667965,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 15,
+    "learning_rate": 0.0002456135984623034,
+    "train_loss": 0.3560185360135385,
+    "validation_loss": 0.3578287833415623,
+    "train_metrics": {
+      "auc": 0.9399168944489337,
+      "macro_auc": 0.9399168944489337,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8731790204139832,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9418490141216874,
+      "macro_auc": 0.9418490141216874,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8705873061836944,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 16,
+    "learning_rate": 0.00023816778784387096,
+    "train_loss": 0.35307561920787695,
+    "validation_loss": 0.3660060508088291,
+    "train_metrics": {
+      "auc": 0.9414778958741948,
+      "macro_auc": 0.9414778958741948,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8756565032438984,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9454796378785763,
+      "macro_auc": 0.9454796378785763,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8776686761260432,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 17,
+    "learning_rate": 0.00023037401924684944,
+    "train_loss": 0.3516982347563701,
+    "validation_loss": 0.34996703659436845,
+    "train_metrics": {
+      "auc": 0.942471955975606,
+      "macro_auc": 0.942471955975606,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8764526248247344,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9436725002665993,
+      "macro_auc": 0.9436725002665993,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8736146576460369,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 18,
+    "learning_rate": 0.00022226305111525726,
+    "train_loss": 0.3508211867367155,
+    "validation_loss": 0.3774045587663585,
+    "train_metrics": {
+      "auc": 0.9436740423457286,
+      "macro_auc": 0.9436740423457286,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8781488390883814,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9447609869807742,
+      "macro_auc": 0.9447609869807742,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8731934609208414,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 19,
+    "learning_rate": 0.00021386689373476087,
+    "train_loss": 0.3487634688349327,
+    "validation_loss": 0.37535441929688906,
+    "train_metrics": {
+      "auc": 0.9447064263131909,
+      "macro_auc": 0.9447064263131909,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8802223199220514,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9458814569908277,
+      "macro_auc": 0.9458814569908277,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8775107273540949,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 20,
+    "learning_rate": 0.00020521868290270169,
+    "train_loss": 0.34642972026769675,
+    "validation_loss": 0.3844793325380328,
+    "train_metrics": {
+      "auc": 0.9458181691416734,
+      "macro_auc": 0.9458181691416734,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8812293543097507,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9453786595996184,
+      "macro_auc": 0.9453786595996184,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8769315818569511,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 21,
+    "learning_rate": 0.00019635254915624208,
+    "train_loss": 0.3444615476792619,
+    "validation_loss": 0.35549349543973224,
+    "train_metrics": {
+      "auc": 0.9468323240794118,
+      "macro_auc": 0.9468323240794118,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8832077758501865,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9472670584641514,
+      "macro_auc": 0.9472670584641514,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8749308974122726,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 22,
+    "learning_rate": 0.00018730348307472816,
+    "train_loss": 0.3414590508753145,
+    "validation_loss": 0.39450026611699374,
+    "train_metrics": {
+      "auc": 0.9481012876980025,
+      "macro_auc": 0.9481012876980025,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8853198745217329,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9436882602523486,
+      "macro_auc": 0.9436882602523486,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.872666965014347,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 23,
+    "learning_rate": 0.00017810719718785867,
+    "train_loss": 0.3402321332900358,
+    "validation_loss": 0.34547119606476046,
+    "train_metrics": {
+      "auc": 0.9492157154297385,
+      "macro_auc": 0.9492157154297385,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8866299104066161,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9474058025498714,
+      "macro_auc": 0.9474058025498714,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8790902150735778,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 24,
+    "learning_rate": 0.00016879998503464564,
+    "train_loss": 0.3380570124727905,
+    "validation_loss": 0.37898227398275347,
+    "train_metrics": {
+      "auc": 0.9502059707584186,
+      "macro_auc": 0.9502059707584186,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8884865372275957,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9472780126769001,
+      "macro_auc": 0.9472780126769001,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8796693605707215,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 25,
+    "learning_rate": 0.000159418577929397,
+    "train_loss": 0.33619677759865685,
+    "validation_loss": 0.37013551925736726,
+    "train_metrics": {
+      "auc": 0.9514571243212878,
+      "macro_auc": 0.9514571243212878,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8897817200979111,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9492687700539801,
+      "macro_auc": 0.9492687700539801,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8824861136704663,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 26,
+    "learning_rate": 0.00015,
+    "train_loss": 0.33445861329135296,
+    "validation_loss": 0.3608676714117159,
+    "train_metrics": {
+      "auc": 0.952520673750896,
+      "macro_auc": 0.952520673750896,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8921106727821478,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9469042907794647,
+      "macro_auc": 0.9469042907794647,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8796167109800721,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 27,
+    "learning_rate": 0.000140581422070603,
+    "train_loss": 0.33235323977326875,
+    "validation_loss": 0.41841070007316444,
+    "train_metrics": {
+      "auc": 0.953705509115826,
+      "macro_auc": 0.953705509115826,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8940920649254973,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9446391090155851,
+      "macro_auc": 0.9446391090155851,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8796956853660463,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 28,
+    "learning_rate": 0.00013120001496535436,
+    "train_loss": 0.3313058884846595,
+    "validation_loss": 0.4217871481419897,
+    "train_metrics": {
+      "auc": 0.9547436271135226,
+      "macro_auc": 0.9547436271135226,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8958922502911191,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9446363777670616,
+      "macro_auc": 0.9446363777670616,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8783794455998105,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 29,
+    "learning_rate": 0.0001218928028121413,
+    "train_loss": 0.3300595451659776,
+    "validation_loss": 0.39832997071488335,
+    "train_metrics": {
+      "auc": 0.955875042833385,
+      "macro_auc": 0.955875042833385,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8972438746167922,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9470190700029487,
+      "macro_auc": 0.9470190700029487,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8794850870034485,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 30,
+    "learning_rate": 0.00011269651692527177,
+    "train_loss": 0.32618613621789316,
+    "validation_loss": 0.3983129789962233,
+    "train_metrics": {
+      "auc": 0.9573133027547298,
+      "macro_auc": 0.9573133027547298,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8994985622281898,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9473808094692662,
+      "macro_auc": 0.9473808094692662,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8805644036117619,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 31,
+    "learning_rate": 0.00010364745084375793,
+    "train_loss": 0.32308618027121666,
+    "validation_loss": 0.4166928603885931,
+    "train_metrics": {
+      "auc": 0.9582303541188352,
+      "macro_auc": 0.9582303541188352,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9014383659307493,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9457355445951775,
+      "macro_auc": 0.9457355445951775,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8797746597520204,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 32,
+    "learning_rate": 9.478131709729836e-05,
+    "train_loss": 0.3220053715339968,
+    "validation_loss": 0.4029571208301311,
+    "train_metrics": {
+      "auc": 0.9592780561379897,
+      "macro_auc": 0.9592780561379897,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9031375507973098,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9469102750382011,
+      "macro_auc": 0.9469102750382011,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8795114117987732,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 33,
+    "learning_rate": 8.61331062652391e-05,
+    "train_loss": 0.31879473154929955,
+    "validation_loss": 0.3961951971157462,
+    "train_metrics": {
+      "auc": 0.9604187583780589,
+      "macro_auc": 0.9604187583780589,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9052704436892511,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9463969157990335,
+      "macro_auc": 0.9463969157990335,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8814331218574776,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 34,
+    "learning_rate": 7.773694888474269e-05,
+    "train_loss": 0.3173561623153482,
+    "validation_loss": 0.4220944562084048,
+    "train_metrics": {
+      "auc": 0.9614019888538918,
+      "macro_auc": 0.9614019888538918,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9065240381187766,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9460946279466547,
+      "macro_auc": 0.9460946279466547,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8816963698107247,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 35,
+    "learning_rate": 6.962598075315047e-05,
+    "train_loss": 0.31497795455093824,
+    "validation_loss": 0.4162092281888832,
+    "train_metrics": {
+      "auc": 0.9624036263508944,
+      "macro_auc": 0.9624036263508944,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9089569619049882,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9459483524048686,
+      "macro_auc": 0.9459483524048686,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8798009845473451,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 36,
+    "learning_rate": 6.183221215612905e-05,
+    "train_loss": 0.31438315448425275,
+    "validation_loss": 0.43193240300554253,
+    "train_metrics": {
+      "auc": 0.9628572920972164,
+      "macro_auc": 0.9628572920972164,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9100204377480453,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.944780852883178,
+      "macro_auc": 0.944780852883178,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8796430357753968,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  },
+  {
+    "epoch": 37,
+    "learning_rate": 5.438640153769654e-05,
+    "train_loss": 0.3110657353986171,
+    "validation_loss": 0.4481830052382151,
+    "train_metrics": {
+      "auc": 0.9644835459115303,
+      "macro_auc": 0.9644835459115303,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.9118235937165807,
+      "signal_count": 160803,
+      "background_count": 175829,
+      "signal_fraction": 0.4776818603103686,
+      "background_fraction": 0.5223181396896314,
+      "events": 336632
+    },
+    "validation_metrics": {
+      "auc": 0.9451370853287843,
+      "macro_auc": 0.9451370853287843,
+      "positive_class": "background",
+      "class_names": [
+        "signal",
+        "background"
+      ],
+      "accuracy": 0.8814067970621529,
+      "signal_count": 17813,
+      "background_count": 20174,
+      "signal_fraction": 0.4689235791191724,
+      "background_fraction": 0.5310764208808276,
+      "events": 37987
+    }
+  }
+]

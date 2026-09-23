@@ -1,0 +1,63 @@
+note: using only cached resource files
+note: Running TeX ...
+warning: wing_contribution/sections/benchmarking_metrics:5: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: model_design:8: Underfull \hbox (badness 3039) in paragraph at lines 7--8
+warning: transformer_contribution/sections/transformer_models:15: Underfull \hbox (badness 1147) in paragraph at lines 14--15
+warning: iclr2027_conference.tex:450: Underfull \vbox (badness 2626) has occurred while \output is active
+warning: iclr2027_conference.bbl:58: Underfull \hbox (badness 1360) in paragraph at lines 51--58
+warning: iclr2027_conference.bbl:58: Underfull \hbox (badness 1242) in paragraph at lines 51--58
+warning: iclr2027_conference.bbl:68: Underfull \hbox (badness 4927) in paragraph at lines 61--68
+warning: iclr2027_conference.bbl:68: Underfull \hbox (badness 1365) in paragraph at lines 61--68
+warning: iclr2027_conference.bbl:68: Underfull \hbox (badness 1668) in paragraph at lines 61--68
+warning: iclr2027_conference.bbl:68: Underfull \hbox (badness 10000) in paragraph at lines 61--68
+warning: wing_contribution/tables/metric_protocols:13: Underfull \hbox (badness 10000) in paragraph at lines 12--13
+warning: wing_contribution/sections/appendix_raw_observations:10: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: wing_contribution/tables/model_adaptations:5: Underfull \hbox (badness 1132) in paragraph at lines 5--5
+warning: wing_contribution/tables/model_adaptations:15: Underfull \hbox (badness 3826) in paragraph at lines 14--15
+warning: wing_contribution/tables/training_protocol:4: Underfull \hbox (badness 1412) in paragraph at lines 4--4
+warning: transformer_contribution/sections/appendix_tokenization:128: Underfull \hbox (badness 1635) in paragraph at lines 128--128
+note: Running BibTeX on iclr2027_conference.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: wing_contribution/sections/benchmarking_metrics:5: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: model_design:8: Underfull \hbox (badness 3039) in paragraph at lines 7--8
+warning: transformer_contribution/sections/transformer_models:15: Underfull \hbox (badness 1147) in paragraph at lines 14--15
+warning: iclr2027_conference.tex:450: Underfull \vbox (badness 2626) has occurred while \output is active
+warning: iclr2027_conference.bbl:52: Underfull \hbox (badness 1360) in paragraph at lines 45--52
+warning: iclr2027_conference.bbl:52: Underfull \hbox (badness 1242) in paragraph at lines 45--52
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 4927) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 1365) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 1668) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 10000) in paragraph at lines 55--62
+warning: wing_contribution/tables/metric_protocols:13: Underfull \hbox (badness 10000) in paragraph at lines 12--13
+warning: wing_contribution/sections/appendix_metrics:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: wing_contribution/tables/model_adaptations:5: Underfull \hbox (badness 1132) in paragraph at lines 5--5
+warning: wing_contribution/tables/model_adaptations:15: Underfull \hbox (badness 3826) in paragraph at lines 14--15
+warning: wing_contribution/sections/appendix_models:48: Underfull \vbox (badness 8094) has occurred while \output is active
+warning: wing_contribution/tables/training_protocol:4: Underfull \hbox (badness 1412) in paragraph at lines 4--4
+warning: transformer_contribution/sections/appendix_tokenization:128: Underfull \hbox (badness 1635) in paragraph at lines 128--128
+note: Rerunning TeX because "iclr2027_conference.aux" changed ...
+warning: wing_contribution/sections/benchmarking_metrics:5: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: model_design:8: Underfull \hbox (badness 3039) in paragraph at lines 7--8
+warning: transformer_contribution/sections/transformer_models:15: Underfull \hbox (badness 1147) in paragraph at lines 14--15
+warning: iclr2027_conference.tex:450: Underfull \vbox (badness 2626) has occurred while \output is active
+warning: iclr2027_conference.bbl:52: Underfull \hbox (badness 1360) in paragraph at lines 45--52
+warning: iclr2027_conference.bbl:52: Underfull \hbox (badness 1242) in paragraph at lines 45--52
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 4927) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 1365) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 1668) in paragraph at lines 55--62
+warning: iclr2027_conference.bbl:62: Underfull \hbox (badness 10000) in paragraph at lines 55--62
+warning: wing_contribution/tables/metric_protocols:13: Underfull \hbox (badness 10000) in paragraph at lines 12--13
+warning: wing_contribution/sections/appendix_metrics:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: wing_contribution/tables/model_adaptations:5: Underfull \hbox (badness 1132) in paragraph at lines 5--5
+warning: wing_contribution/tables/model_adaptations:15: Underfull \hbox (badness 3826) in paragraph at lines 14--15
+warning: wing_contribution/sections/appendix_models:48: Underfull \vbox (badness 8094) has occurred while \output is active
+warning: wing_contribution/tables/training_protocol:4: Underfull \hbox (badness 1412) in paragraph at lines 4--4
+warning: transformer_contribution/sections/appendix_tokenization:128: Underfull \hbox (badness 1635) in paragraph at lines 128--128
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `iclr2027_conference.out` (4.091796875 KiB)
+note: Writing `iclr2027_conference.bbl` (4.52734375 KiB)
+note: Writing `iclr2027_conference.aux` (29.7763671875 KiB)
+note: Writing `iclr2027_conference.log` (29.685546875 KiB)
+note: Writing `iclr2027_conference.blg` (425 B)
+note: Writing `iclr2027_conference.pdf` (1.7931232452392578 MiB)

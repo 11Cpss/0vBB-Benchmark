@@ -1,0 +1,33 @@
+{
+  "status": "DONE",
+  "architecture_id": "ssm_001_pointmamba",
+  "model_name": "PointMambaLiteClassifier",
+  "backend": "pytorch",
+  "parameter_count": 316993,
+  "started_at": "2026-08-04T07:25:11.399773+00:00",
+  "completed_at": "2026-08-04T08:39:49.098160+00:00",
+  "duration_seconds": 4477.698418074055,
+  "epochs_completed": 24,
+  "configured_epochs": 50,
+  "best_epoch": 12,
+  "best_validation_auc": 0.9281015982368893,
+  "best_validation_loss": 0.40776593573138437,
+  "early_stopped": true,
+  "attempt": 1,
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "amp_precision": "bfloat16"
+  },
+  "artifacts": {
+    "best": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/ssm_001_pointmamba/attempt_001/best.pt",
+    "last": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/ssm_001_pointmamba/attempt_001/last.pt",
+    "csv": "/home/wenyu/summer/03_training_runs/campaigns/20260803_200356/ssm_001_pointmamba/attempt_001/epochs.csv",
+    "json": "/home/wenyu/summer/03_training_runs/campaigns/20260803_200356/ssm_001_pointmamba/attempt_001/history.json",
+    "plot": "/home/wenyu/summer/03_training_runs/campaigns/20260803_200356/ssm_001_pointmamba/attempt_001/history.png",
+    "summary": "/home/wenyu/summer/03_training_runs/campaigns/20260803_200356/ssm_001_pointmamba/attempt_001/run_summary.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "classification__segment_summary__rope",
+  "task": "classification",
+  "tokenization": "segment_summary",
+  "position_encoding": "rope",
+  "parameter_count": 106817,
+  "train_events": 336632,
+  "validation_events": 37987,
+  "test_events": 140383,
+  "epochs_completed": 50,
+  "best_epoch": 49,
+  "best_validation_auc": 0.9670853567228459,
+  "training_seconds": 12806.658544184174,
+  "minutes_per_epoch": 4.268886181394724,
+  "evaluation_seconds": 96.83819508878514,
+  "test_auc": 0.964939775897746,
+  "test_accuracy": 0.9011062593049016,
+  "test_loss": 0.2377721715681153
+}

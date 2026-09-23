@@ -1,0 +1,62 @@
+{
+  "architecture": "cnn_004_multiview_late_fusion",
+  "task": "classification",
+  "data": {
+    "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+    "validation_fraction": 0.1,
+    "baseline_samples": 200,
+    "classification_amplitude_normalization": true,
+    "regression_waveform_scale": 1.0,
+    "seed": 42
+  },
+  "training": {
+    "batch_size": 16,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "early_stopping_patience": 12,
+    "seed": 42,
+    "num_workers": 0,
+    "device": "cuda",
+    "early_stopping_min_delta": 0.0,
+    "deterministic": false,
+    "use_amp": true,
+    "amp_precision": "auto"
+  },
+  "counts": {
+    "train": 936000,
+    "validation": 104000,
+    "test": 390000
+  },
+  "smoke": false,
+  "classification_target": "clean_vs_non_clean",
+  "representation": {
+    "source": "waveform",
+    "views": "multiresolution_stft",
+    "window": "hann",
+    "n_fft": [
+      64,
+      128,
+      256
+    ],
+    "hop_length": [
+      16,
+      32,
+      64
+    ],
+    "magnitude_transform": "log1p",
+    "image_size": 128
+  },
+  "model": {
+    "base_channels": 16,
+    "stage_blocks": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "fusion_features": 256,
+    "dropout": 0.1
+  }
+}

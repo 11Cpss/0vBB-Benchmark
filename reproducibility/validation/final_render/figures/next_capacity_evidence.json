@@ -1,0 +1,71 @@
+{
+  "source_csv": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/paper/wing_contribution/figures/data/next_capacity_plot.csv",
+  "source_csv_sha256": "913f18891c4c820061ee45eb8ca83f3f6f17ec24ef7b3e0770a53cefba3773c5",
+  "full_precision_results": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/paper/wing_contribution/figures/data/unified_results.json",
+  "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
+  "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+  "plotted_ids": [
+    "cnn_003_residual_spatial",
+    "cnn_004_multiview_late_fusion",
+    "cnn_005_multiscale_projection",
+    "cnn_006_dense_3d_resnet",
+    "mixer_001_projection_mlp_mixer",
+    "sparse_001_submanifold_resnet",
+    "point_001_deepsets",
+    "point_002_pointnetpp",
+    "point_003_pointmlp",
+    "point_004_rigid_kpconv",
+    "gnn_001_static_gine",
+    "gnn_002_particlenet_edgeconv",
+    "gnn_003_egnn",
+    "gnn_004_gravnet",
+    "gnn_005_dimenet_lite",
+    "seq_001_bigru",
+    "seq_002_dilated_tcn",
+    "topo_001_persistence_perslay",
+    "hybrid_001_cnn_gnn"
+  ],
+  "points_per_panel": 19,
+  "same_test_events": 116549,
+  "each_value_matches_recomputed_results": true,
+  "no_point_jitter_or_score_adjustment": true,
+  "square_panel_inches": [
+    [
+      1.9074999999999998,
+      1.9075
+    ],
+    [
+      1.9074999999999989,
+      1.9075
+    ]
+  ],
+  "all_points_within_limits": true,
+  "spearman_parameters": {
+    "auc": -0.23508771929824557,
+    "matched_auc": -0.23508771929824557,
+    "energy_independence_score": 0.3368421052631579
+  },
+  "palette": {
+    "Projection and voxel models": [
+      "#276A98",
+      "o"
+    ],
+    "Point-set models": [
+      "#D17B28",
+      "^"
+    ],
+    "Graph models": [
+      "#798D35",
+      "s"
+    ],
+    "Sequence, state-space, topology and hybrid models": [
+      "#B75E91",
+      "D"
+    ]
+  },
+  "output_sha256": {
+    "next_capacity_scores.pdf": "43d6eb90e0a3027d9ed9edea56ef11ff2848f0c55d1ef4fbd3d0ffcb6876f70e",
+    "next_capacity_scores.png": "11bb97790fe2e7042e96f1e8b5fc3ebcefa46c2b9c81504794aca14178493e30"
+  },
+  "interpretation": "Single-run point estimates across heterogeneous models; no significance or scaling-law claim."
+}

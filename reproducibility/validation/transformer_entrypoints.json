@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/waveform_run.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "usage: waveform_run.py [-h] --dataset {EXO-200,MJD} --model-key MODEL_KEY\n                       [--mode {train,test}] [--data-root DATA_ROOT]\n                       [--output-dir OUTPUT_DIR] [--checkpoint CHECKPOINT]\n                       [--device DEVICE] [--describe]\n\nThin EXO/MJD runner using copied original loaders, models and training loops.\nThis convenience entry point is new; it does not alter any archived source.\nIts --describe mode was checked without loading data or performing a forward\npass.\n\noptions:\n  -h, --help            show this help message and exit\n  --dataset {EXO-200,MJD}\n  --model-key MODEL_KEY\n  --mode {train,test}\n  --data-root DATA_ROOT\n  --output-dir OUTPUT_DIR\n  --checkpoint CHECKPOINT\n  --device DEVICE\n  --describe\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/next_run.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "usage: next_run.py [-h] --model-key MODEL_KEY [--mode {train,test}]\n                   [--data-root DATA_ROOT] [--split-manifest SPLIT_MANIFEST]\n                   [--token-cache TOKEN_CACHE] [--output-dir OUTPUT_DIR]\n                   [--checkpoint CHECKPOINT] [--describe]\n\nUse original NEXT APIs with an explicit archived configuration and output\npath. This new convenience wrapper has only been syntax/constructor checked,\nnot trained.\n\noptions:\n  -h, --help            show this help message and exit\n  --model-key MODEL_KEY\n  --mode {train,test}\n  --data-root DATA_ROOT\n  --split-manifest SPLIT_MANIFEST\n  --token-cache TOKEN_CACHE\n  --output-dir OUTPUT_DIR\n  --checkpoint CHECKPOINT\n  --describe\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/waveform_run.py",
+        "--dataset",
+        "EXO-200",
+        "--model-key",
+        "entity_rope",
+        "--describe"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "{\n  \"run_id\": \"classification__pulse_entities__rope\",\n  \"dataset\": \"EXO-200 v1\",\n  \"task\": \"classification\",\n  \"data\": {\n    \"data_root\": \"/home/klz/Data/zeronu_benchmark/EXO-200\",\n    \"validation_fraction\": 0.1,\n    \"test_fraction\": 0.2727272727272727,\n    \"baseline_samples\": 200,\n    \"classification_amplitude_normalization\": true,\n    \"seed\": 42,\n    \"input_field\": \"Waveforms\",\n    \"label_field\": \"Charge_cluster_number\",\n    \"event_field\": \"event_number\",\n    \"group_attribute\": \"run_number\",\n    \"position_field\": \"Charge_Clusters_Pos\",\n    \"input_shape\": [\n      226,\n      300\n    ],\n    \"input_dtype\": \"int16\",\n    \"num_classes\": 2,\n    \"class_names\": [\n      \"signal\",\n      \"background\"\n    ]\n  },\n  \"counts\": {\n    \"train\": 336632,\n    \"validation\": 37987,\n    \"test\": 140383\n  },\n  \"class_counts\": {\n    \"train\": {\n      \"signal\": 160803,\n      \"background\": 175829\n    },\n    \"validation\": {\n      \"signal\": 17813,\n      \"background\": 20174\n    },\n    \"test\": {\n      \"signal\": 66062,\n      \"background\": 74321\n    }\n  },\n  \"split_runs\": {\n    \"train\": [\n      8956,\n      8957,\n      8958,\n      8968,\n      8972,\n      8999,\n      9000,\n      9001,\n      9008,\n      9009\n    ],\n    \"validation\": [\n      8969\n    ],\n    \"test\": [\n      8967,\n      8970,\n      8971,\n      9010\n    ]\n  },\n  \"split_overlap_counts\": {\n    \"train_validation\": 0,\n    \"train_test\": 0,\n    \"validation_test\": 0\n  },\n  \"training\": {\n    \"batch_size\": 64,\n    \"epochs\": 50,\n    \"learning_rate\": 0.0005,\n    \"weight_decay\": 0.0001,\n    \"gradient_clip_norm\": 1.0,\n    \"early_stopping_patience\": 5,\n    \"seed\": 42,\n    \"num_workers\": 0,\n    \"device\": \"auto\",\n    \"early_stopping_min_delta\": 0.0,\n    \"deterministic\": false,\n    \"use_amp\": false,\n    \"amp_precision\": \"auto\"\n  },\n  \"representation\": {\n    \"task\": \"classification\",\n    \"tokenization\": {\n      \"tokenization\": \"pulse_entities\",\n      \"channel_regions\": 7,\n      \"time_regions\": 12,\n      \"uniform_entity_fraction\": 0.5,\n      \"entity_context_size\": 9,\n      \"tokens_per_block\": 84,\n      \"token_count\": 504\n    },\n    \"position_encoding\": \"rope\",\n    \"coordinate_dim\": 6,\n    \"feature_dim\": 2,\n    \"d_model\": 64,\n    \"nhead\": 4,\n    \"num_layers\": 2,\n    \"dim_feedforward\": 256,\n    \"dropout\": 0.1,\n    \"num_frequencies\": 6,\n    \"rope_base\": 1.5707963267948966,\n    \"rotary_pair_counts\": [\n      2,\n      2,\n      1,\n      1,\n      1,\n      1\n    ],\n    \"pooling\": \"masked_mean\",\n    \"positive_class\": \"background\"\n  },\n  \"parameter_count\": 106689\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/waveform_run.py",
+        "--dataset",
+        "MJD",
+        "--model-key",
+        "entity_mlp",
+        "--describe"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "{\n  \"run_id\": \"classification__pulse_entities__coordinate_mlp\",\n  \"task\": \"classification\",\n  \"data\": {\n    \"data_root\": \"/home/klz/Data/zeronu_benchmark/MJD\",\n    \"validation_fraction\": 0.1,\n    \"baseline_samples\": 200,\n    \"classification_amplitude_normalization\": true,\n    \"regression_waveform_scale\": 1.0,\n    \"seed\": 42\n  },\n  \"counts\": {\n    \"train\": 936000,\n    \"validation\": 104000,\n    \"test\": 390000\n  },\n  \"training\": {\n    \"batch_size\": 64,\n    \"epochs\": 50,\n    \"learning_rate\": 0.0005,\n    \"weight_decay\": 0.0001,\n    \"gradient_clip_norm\": 1.0,\n    \"early_stopping_patience\": 5,\n    \"seed\": 42,\n    \"num_workers\": 0,\n    \"device\": \"auto\",\n    \"early_stopping_min_delta\": 0.0,\n    \"deterministic\": false,\n    \"use_amp\": false,\n    \"amp_precision\": \"auto\"\n  },\n  \"representation\": {\n    \"task\": \"classification\",\n    \"tokenization\": {\n      \"tokenization\": \"pulse_entities\",\n      \"token_count\": 500,\n      \"patch_size\": 20,\n      \"uniform_entity_fraction\": 0.5,\n      \"entity_context_size\": 9\n    },\n    \"position_encoding\": \"coordinate_mlp\",\n    \"coordinate_dim\": 3,\n    \"feature_dim\": 2,\n    \"d_model\": 64,\n    \"nhead\": 4,\n    \"num_layers\": 2,\n    \"dim_feedforward\": 256,\n    \"dropout\": 0.1,\n    \"num_frequencies\": 6,\n    \"pooling\": \"masked_mean\"\n  },\n  \"parameter_count\": 111105\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/next_run.py",
+        "--model-key",
+        "entity_mlp",
+        "--describe"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "{\n  \"cache_manifest_path\": \"/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/token_cache/sampled_hits_b4460785f223_4ba5d22f5536/cache_manifest.json\",\n  \"center_coordinates\": true,\n  \"coordinate_scale\": 1000.0,\n  \"d_model\": 64,\n  \"dim_feedforward\": 256,\n  \"dropout\": 0.1,\n  \"feature_dim\": 2,\n  \"manifest_path\": \"/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json\",\n  \"max_tokens\": 512,\n  \"nhead\": 4,\n  \"num_frequencies\": 6,\n  \"num_layers\": 2,\n  \"parameter_count\": 111105,\n  \"position_encoding\": \"coordinate_mlp\",\n  \"seed\": 42,\n  \"source_manifest_sha256\": \"b4460785f2234ef63984ceb100c40695aa69fdb7aa338d72c27d68d8dd08ab18\",\n  \"tokenization\": \"sampled_hits\",\n  \"tokenization_config_sha256\": \"4ba5d22f5536d1812605f13cb4d23c329a24cdcba386e97942e346aaeb20f1e1\",\n  \"tokenization_source_sha256\": \"e2c4669a93383a4361b48c58b6d42d73915d09fcdb1f1ba09fd2b71c176f2478\",\n  \"voxel_size\": 15.0,\n  \"voxel_truncation\": \"occupancy\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "code/transformers/next_run.py",
+        "--model-key",
+        "summary_fourier",
+        "--describe"
+      ],
+      "returncode": 0,
+      "status": "pass",
+      "stdout": "{\n  \"center_coordinates\": true,\n  \"coordinate_scale\": 1000.0,\n  \"d_model\": 64,\n  \"dim_feedforward\": 256,\n  \"dropout\": 0.1,\n  \"evaluation_config\": {\n    \"distance_correlation_max_samples\": 1200,\n    \"energy_bin_width_kev\": 5.0,\n    \"energy_bin_width_mev\": 0.005,\n    \"energy_grid_bin_count\": 600,\n    \"energy_grid_max_kev\": 3000.0,\n    \"energy_grid_min_kev\": 0.0,\n    \"energy_roi\": null,\n    \"energy_unit\": \"MeV\",\n    \"fractional_energy_floor\": null,\n    \"matching_target\": \"overlap\",\n    \"min_coverage\": 0.5,\n    \"min_per_bin\": 20,\n    \"min_per_class\": 20,\n    \"min_valid_bins\": 2,\n    \"performance_bins\": 10,\n    \"score_bins\": 20,\n    \"seed\": 42,\n    \"support_trim_quantile\": 0.005,\n    \"target_tpr\": 0.9\n  },\n  \"feature_dim\": 4,\n  \"manifest_path\": \"/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json\",\n  \"max_tokens\": 512,\n  \"nhead\": 4,\n  \"num_frequencies\": 6,\n  \"num_layers\": 2,\n  \"parameter_count\": 113537,\n  \"position_encoding\": \"fourier_xyz\",\n  \"raw_hdf5_streaming\": true,\n  \"seed\": 42,\n  \"summary_morton_bits\": 10,\n  \"tokenization\": \"summary_features\",\n  \"training_config\": {\n    \"amp_precision\": \"auto\",\n    \"batch_size\": 64,\n    \"classification_loss\": \"bce_with_logits\",\n    \"deterministic\": false,\n    \"device\": \"auto\",\n    \"early_stopping_min_delta\": 0.0,\n    \"early_stopping_patience\": 5,\n    \"epochs\": 50,\n    \"gradient_clip_norm\": 1.0,\n    \"learning_rate\": 0.0005,\n    \"num_workers\": 8,\n    \"optimizer\": \"adamw\",\n    \"regression_loss\": \"mse\",\n    \"scheduler\": \"cosine\",\n    \"seed\": 42,\n    \"use_amp\": true,\n    \"weight_decay\": 0.0001\n  },\n  \"voxel_size\": 15.0,\n  \"voxel_truncation\": \"occupancy\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "no_training": true,
+  "no_model_forward": true
+}

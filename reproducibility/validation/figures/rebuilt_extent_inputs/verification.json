@@ -1,0 +1,17 @@
+{
+  "all_pass": true,
+  "checks": {
+    "histogram_exact_normalized_csv": true,
+    "medians_exact_normalized_csv": true,
+    "complete_ecdf_exact_normalized_csv": true
+  },
+  "n_source_events": 458752,
+  "n_ecdf_rows": 229376,
+  "input_sha256": "ea16f7b5706235c69867cabbace5c0d3ea91aa2f027b25fd291e128dc4f4372c",
+  "output_sha256": {
+    "supernemo_conditional_extent_histogram.csv": "0158a190d2ddfe99edad83d408c590073b4c97701b0071e59c951145daadbb29",
+    "extent_energy_medians.csv": "719da54d5e3e1b8df6d0f1f16d1782d3a51973d2fa135311397deabcba47ff78",
+    "supernemo_cohort_ecdf.csv": "336606adf53a83a63b07adcac4d76faf9035fec4d92139f91963498a5e7f5701"
+  },
+  "method": "Exact historical bins and stable energy/event-ordinal quartiles; no event sampling, fitting, metric change or source-file mutation."
+}

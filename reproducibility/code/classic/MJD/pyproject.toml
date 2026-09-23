@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mjdbench"
+version = "0.1.0"
+description = "Paired classification and energy-regression workflow for MJD waveforms"
+requires-python = ">=3.10"
+dependencies = ["h5py>=3.8", "numpy>=1.23", "torch>=2.0"]
+
+[tool.setuptools]
+packages = ["mjdbench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

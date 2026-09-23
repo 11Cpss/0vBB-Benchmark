@@ -1,0 +1,458 @@
+[
+  {
+    "epoch": 1,
+    "learning_rate": 0.0003,
+    "train": {
+      "loss": 0.46315084298459364,
+      "accuracy": 0.8188094507517644,
+      "auc": 0.8779609156544423,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.40725506007330475,
+      "accuracy": 0.8271178362921482,
+      "auc": 0.9051317781355415,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 2,
+    "learning_rate": 0.0002997040092642407,
+    "train": {
+      "loss": 0.43785793309040816,
+      "accuracy": 0.8242559067198527,
+      "auc": 0.8909210371336025,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4040154297325135,
+      "accuracy": 0.8398665554628857,
+      "auc": 0.9092516300834338,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 3,
+    "learning_rate": 0.0002988172051971717,
+    "train": {
+      "loss": 0.42099403580133443,
+      "accuracy": 0.8315434182264498,
+      "auc": 0.900808437013144,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.502895499422594,
+      "accuracy": 0.8149648516620994,
+      "auc": 0.9097198071179863,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 4,
+    "learning_rate": 0.0002973430876093033,
+    "train": {
+      "loss": 0.41636852545583125,
+      "accuracy": 0.8335378950598343,
+      "auc": 0.9029865462846955,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.3809369372058139,
+      "accuracy": 0.8367687358513046,
+      "auc": 0.9141928885800739,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 5,
+    "learning_rate": 0.00029528747416929463,
+    "train": {
+      "loss": 0.4102877219124426,
+      "accuracy": 0.8407486959189936,
+      "auc": 0.9045184289621744,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4167658122806559,
+      "accuracy": 0.8391516740140593,
+      "auc": 0.9147815944881302,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 6,
+    "learning_rate": 0.00029265847744427303,
+    "train": {
+      "loss": 0.40163376017143004,
+      "accuracy": 0.8439705431113839,
+      "auc": 0.9099239286471876,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.474274285609917,
+      "accuracy": 0.8166924818300965,
+      "auc": 0.9159705868658523,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 7,
+    "learning_rate": 0.0002894664728832377,
+    "train": {
+      "loss": 0.40117997889889645,
+      "accuracy": 0.8449677815280761,
+      "auc": 0.910175951016662,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4244881231880623,
+      "accuracy": 0.8385559394733707,
+      "auc": 0.917992148498616,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 8,
+    "learning_rate": 0.000285724057869903,
+    "train": {
+      "loss": 0.39761616093749264,
+      "accuracy": 0.84841976066278,
+      "auc": 0.9130517411551612,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.40874572673937454,
+      "accuracy": 0.8297390682711784,
+      "auc": 0.9183213886406629,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 9,
+    "learning_rate": 0.00028144600200657956,
+    "train": {
+      "loss": 0.392325785877506,
+      "accuracy": 0.8508745013807917,
+      "auc": 0.9155532873725377,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.3892798886274774,
+      "accuracy": 0.837066603121649,
+      "auc": 0.9174685459411027,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 10,
+    "learning_rate": 0.0002766491888253023,
+    "train": {
+      "loss": 0.38702459231272784,
+      "accuracy": 0.8537895059834305,
+      "auc": 0.9166657682960896,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4108254468934223,
+      "accuracy": 0.8451090194209461,
+      "auc": 0.9217292076687196,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 11,
+    "learning_rate": 0.00027135254915624217,
+    "train": {
+      "loss": 0.38552382091033416,
+      "accuracy": 0.8572414851181344,
+      "auc": 0.9201670479680929,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.3877398990583792,
+      "accuracy": 0.8487430001191469,
+      "auc": 0.9230468770986037,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 12,
+    "learning_rate": 0.0002655769864163684,
+    "train": {
+      "loss": 0.37953051044135583,
+      "accuracy": 0.8614605707272169,
+      "auc": 0.9223166173010073,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.40776593573138437,
+      "accuracy": 0.8400452758250924,
+      "auc": 0.9281015982368893,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": true
+  },
+  {
+    "epoch": 13,
+    "learning_rate": 0.0002593452941132117,
+    "train": {
+      "loss": 0.3760790811716166,
+      "accuracy": 0.8655262350414238,
+      "auc": 0.9265187437135636,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.42305155607630807,
+      "accuracy": 0.8452281663290837,
+      "auc": 0.9255513899360144,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 14,
+    "learning_rate": 0.0002526820658893033,
+    "train": {
+      "loss": 0.37071053471259635,
+      "accuracy": 0.8725069039582694,
+      "auc": 0.9262861755785499,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4247064844375712,
+      "accuracy": 0.8494578815679733,
+      "auc": 0.9244894181125953,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 15,
+    "learning_rate": 0.0002456135984623034,
+    "train": {
+      "loss": 0.3710558232858471,
+      "accuracy": 0.8715096655415772,
+      "auc": 0.9292142555922509,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4227366368664145,
+      "accuracy": 0.8593470749434052,
+      "auc": 0.91332141401045,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 16,
+    "learning_rate": 0.00023816778784387096,
+    "train": {
+      "loss": 0.36356992734897337,
+      "accuracy": 0.8795642835225529,
+      "auc": 0.9339525444726389,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.4752809982172045,
+      "accuracy": 0.8474323841296318,
+      "auc": 0.9229905710947989,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 17,
+    "learning_rate": 0.00023037401924684944,
+    "train": {
+      "loss": 0.3526732581068915,
+      "accuracy": 0.8850107394906414,
+      "auc": 0.939059192750719,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.47687914993236236,
+      "accuracy": 0.8496366019301799,
+      "auc": 0.9154730256485563,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 18,
+    "learning_rate": 0.00022226305111525726,
+    "train": {
+      "loss": 0.33832206226052014,
+      "accuracy": 0.8938324639459957,
+      "auc": 0.9441341587546503,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.46911390547748366,
+      "accuracy": 0.8628619087334684,
+      "auc": 0.9167473798979359,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 19,
+    "learning_rate": 0.00021386689373476087,
+    "train": {
+      "loss": 0.32972708031584874,
+      "accuracy": 0.8982816814973918,
+      "auc": 0.9488942203717305,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.521175848600644,
+      "accuracy": 0.8489812939354223,
+      "auc": 0.9097420355284467,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 20,
+    "learning_rate": 0.00020521868290270169,
+    "train": {
+      "loss": 0.3147581216856899,
+      "accuracy": 0.9042651119975452,
+      "auc": 0.9522131739697682,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.5081841540341447,
+      "accuracy": 0.8642320981770523,
+      "auc": 0.9043151694612234,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 21,
+    "learning_rate": 0.00019635254915624208,
+    "train": {
+      "loss": 0.3000835696646521,
+      "accuracy": 0.9128567045105861,
+      "auc": 0.9598144011894835,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.49313367614903186,
+      "accuracy": 0.8599428094840939,
+      "auc": 0.9100935786979748,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 22,
+    "learning_rate": 0.00018730348307472816,
+    "train": {
+      "loss": 0.2943867241546378,
+      "accuracy": 0.9153881558760356,
+      "auc": 0.9607276321496842,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.5185881729722538,
+      "accuracy": 0.8617300131061599,
+      "auc": 0.8998142036185076,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 23,
+    "learning_rate": 0.00017810719718785867,
+    "train": {
+      "loss": 0.2791652606866497,
+      "accuracy": 0.9203743479594968,
+      "auc": 0.9634804475175361,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.6641300270490568,
+      "accuracy": 0.8352198260455141,
+      "auc": 0.8837276992110294,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  },
+  {
+    "epoch": 24,
+    "learning_rate": 0.00016879998503464564,
+    "train": {
+      "loss": 0.262295782097623,
+      "accuracy": 0.9284289659404725,
+      "auc": 0.9672135891817415,
+      "events": 13036,
+      "mean_representation_coverage": 1.0
+    },
+    "validation": {
+      "loss": 0.5670601484844794,
+      "accuracy": 0.852734421541761,
+      "auc": 0.9010393927129614,
+      "events": 16786,
+      "mean_representation_coverage": 1.0
+    },
+    "improved": false
+  }
+]

@@ -1,0 +1,19 @@
+\begingroup
+\renewcommand{\arraystretch}{1}
+
+\section{Model Design}
+\label{sec:model-design}
+
+We design two complementary modeling approaches for the NLDBD datasets: a \emph{native-representation approach} and a \emph{unified Transformer approach}. The first preserves each dataset as closely as possible to its native representation, applying only minimal preprocessing before benchmarking different model group. Each group provide different inductive biases---for example, RNNs emphasize sequential structure, while GNNs emphasize graph structure. Each dataset is then benchmarked across all architecture families to evaluate how different inductive biases affect different modalities. The second approach instead converts each event into a sequence of tokens through tokenization and positional encoding, after which all tokenized events are processed by a common Transformer backbone. This separates the representation of heterogeneous detector data from the architecture used to model it, allowing us to test whether a unified Transformer can operate effectively across substantially different detector modalities. We benchmark both approaches using $\operatorname{AUC}_{\mathrm{match}}$ and $I$ introduced in the previous section.
+
+% Wing's specialized non-Transformer models.
+\input{wing_contribution/sections/model_design}
+
+\FloatBarrier
+
+% Shared Transformer with detector-aware tokenization.
+\input{transformer_contribution/sections/transformer_models}
+
+\FloatBarrier
+
+\endgroup

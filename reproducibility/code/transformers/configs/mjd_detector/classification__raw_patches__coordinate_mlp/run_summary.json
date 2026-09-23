@@ -1,0 +1,22 @@
+{
+  "run_id": "classification__raw_patches__coordinate_mlp",
+  "task": "classification",
+  "tokenization": "raw_patches",
+  "position_encoding": "coordinate_mlp",
+  "parameter_count": 112257,
+  "train_events": 936000,
+  "validation_events": 104000,
+  "test_events": 390000,
+  "epochs_completed": 50,
+  "best_epoch": 46,
+  "best_validation_score": 0.9738937177862866,
+  "training_seconds": 16938.5402614302,
+  "minutes_per_epoch": 5.6461800871434,
+  "evaluation_seconds": 76.47879612958059,
+  "test_auc": 0.9744913625955232,
+  "test_accuracy": 0.9167333333333333,
+  "test_mae_kev": null,
+  "test_rmse_kev": null,
+  "test_bias_kev": null,
+  "test_loss": 0.19776490331337976
+}

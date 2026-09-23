@@ -1,0 +1,31 @@
+\begin{table}[t]
+\caption{Detector-specific implementations of the three tokenization families.}
+\label{tab:tokenization-summary}
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Dataset & Entity & Local region & Summary \\
+\midrule
+NEXT &
+Sampled hits &
+Occupied voxels &
+Morton-ordered groups \\
+
+MJD &
+Salient waveform samples &
+Raw waveform patches &
+Segment statistics \\
+
+EXO-200 &
+Salient sensor-time points &
+Sensor-time patches &
+Sensor-region statistics \\
+
+SuperNEMO &
+Tracker hits &
+Occupied 3D patches &
+Balanced Morton groups \\
+\bottomrule
+\end{tabular}
+\end{table}

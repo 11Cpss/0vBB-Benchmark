@@ -1,0 +1,53 @@
+{
+  "run_id": "classification__segment_summary__coordinate_mlp",
+  "task": "classification",
+  "data": {
+    "data_root": "/home/klz/Data/zeronu_benchmark/MJD",
+    "validation_fraction": 0.1,
+    "baseline_samples": 200,
+    "classification_amplitude_normalization": true,
+    "regression_waveform_scale": 1.0,
+    "seed": 42
+  },
+  "counts": {
+    "train": 936000,
+    "validation": 104000,
+    "test": 390000
+  },
+  "training": {
+    "batch_size": 64,
+    "epochs": 50,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "early_stopping_patience": 5,
+    "seed": 42,
+    "num_workers": 0,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "deterministic": false,
+    "use_amp": false,
+    "amp_precision": "auto"
+  },
+  "representation": {
+    "task": "classification",
+    "tokenization": {
+      "tokenization": "segment_summary",
+      "token_count": 500,
+      "patch_size": 20,
+      "uniform_entity_fraction": 0.5,
+      "entity_context_size": 9
+    },
+    "position_encoding": "coordinate_mlp",
+    "coordinate_dim": 3,
+    "feature_dim": 2,
+    "d_model": 64,
+    "nhead": 4,
+    "num_layers": 2,
+    "dim_feedforward": 256,
+    "dropout": 0.1,
+    "num_frequencies": 6,
+    "pooling": "masked_mean"
+  },
+  "parameter_count": 111105
+}

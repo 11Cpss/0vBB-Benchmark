@@ -1,0 +1,11 @@
+{
+  "python": "3.11.15",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.1",
+    "pandas": "3.0.5",
+    "h5py": "3.16.0"
+  }
+}

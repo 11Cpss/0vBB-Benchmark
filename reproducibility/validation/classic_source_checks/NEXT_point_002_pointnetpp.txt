@@ -1,0 +1,27 @@
+usage: train_classification.py [-h] --output-dir OUTPUT_DIR [--data DATA]
+                               [--manifest MANIFEST]
+                               [--max-files-per-class MAX_FILES_PER_CLASS]
+                               [--epochs EPOCHS] [--batch-size BATCH_SIZE]
+                               [--learning-rate LEARNING_RATE]
+                               [--patience PATIENCE] [--device DEVICE]
+                               [--num-workers NUM_WORKERS]
+                               [--microbatch-size MICROBATCH_SIZE]
+                               [--estimator-rounds ESTIMATOR_ROUNDS] [--quiet]
+
+Train and evaluate point_002_pointnetpp with Simple EnergyBench.
+
+options:
+  -h, --help            show this help message and exit
+  --output-dir OUTPUT_DIR
+  --data DATA
+  --manifest MANIFEST
+  --max-files-per-class MAX_FILES_PER_CLASS
+  --epochs EPOCHS
+  --batch-size BATCH_SIZE
+  --learning-rate LEARNING_RATE
+  --patience PATIENCE
+  --device DEVICE
+  --num-workers NUM_WORKERS
+  --microbatch-size MICROBATCH_SIZE
+  --estimator-rounds ESTIMATOR_ROUNDS
+  --quiet

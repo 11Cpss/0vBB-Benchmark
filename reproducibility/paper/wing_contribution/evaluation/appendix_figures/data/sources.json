@@ -1,0 +1,38 @@
+{
+  "energy_threshold_scan.csv": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/figures/energy_threshold_scan.csv",
+    "sha256": "4140aa05c67d1a2062a85f72ca0badb86d94135b300450da14eba5b5d3ef069d",
+    "source_sha256": "c57551f471829eae92dc33ceda2120e3ed56bdb57a6521f90bafe4d5626ffcfb",
+    "copy_note": "CSV line endings normalized to LF; cell values unchanged."
+  },
+  "energy_shortcut_histograms.csv": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/figures/energy_shortcut_histograms.csv",
+    "sha256": "43859daf5cc65ad5f3a9786de25c9f0c58d43b66ba7f0f33037b47bff8ee4873",
+    "source_sha256": "9f32d0e0aaaf2e6badaa335d857fff756d50f1a0a6f0df12581a177b754987ca",
+    "copy_note": "CSV line endings normalized to LF; cell values unchanged."
+  },
+  "supernemo_conditional_extent_histogram.csv": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/figures/supernemo_conditional_extent_histogram.csv",
+    "sha256": "0158a190d2ddfe99edad83d408c590073b4c97701b0071e59c951145daadbb29",
+    "source_sha256": "5d03bd91dcab7f9882b24f339ed78925c202cd790adc4610e9e79865c6c35928",
+    "copy_note": "CSV line endings normalized to LF; cell values unchanged."
+  },
+  "extent_summary.json": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/evidence/supernemo_population_summary.json",
+    "source_sha256": "c0cb2f665177a43c26a2ccd0350a28c03c152159aae059b2446f018677f9ce6e",
+    "derivation": "Preserved plot-relevant summaries; omitted local filesystem provenance and unrelated descriptor metadata.",
+    "sha256": "c7960dee959d51281d08f6b084b4e21741c5f780c89bb871eb1e5bc771bb5d84"
+  },
+  "extent_energy_medians.csv": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision4_20260904/evidence/supernemo_geometry_event_descriptors_LOCAL_ONLY.csv.gz",
+    "source_sha256": "ea16f7b5706235c69867cabbace5c0d3ea91aa2f027b25fd291e128dc4f4372c",
+    "derivation": "Exact median raw radius in the unchanged 100 keV energy bins; bins with <20 events left blank, matching the original renderer.",
+    "sha256": "719da54d5e3e1b8df6d0f1f16d1782d3a51973d2fa135311397deabcba47ff78",
+    "copy_note": "CSV line endings normalized to LF; cell values unchanged."
+  },
+  "external_extent_cdf": {
+    "source": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/evidence/supernemo_cohort_ecdf_LOCAL_ONLY.csv.gz",
+    "sha256": "fc8a00df56c0072d792eebe8c2ea24e5c57038d4d90ac48cc416cf03269b1462",
+    "usage": "Read only via --extent-cdf; exact event-derived CDF retained locally, never copied into the repository."
+  }
+}

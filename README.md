@@ -6,8 +6,29 @@ representations, notebooks, and tests, while collaborator-provided data splits,
 training loops, checkpoint selection, and evaluation remain fixed within that
 detector workflow.
 
-Raw detector data, checkpoints, predictions, and generated results are not
-distributed.
+Full raw detector datasets, trained checkpoints, and bulk prediction archives
+are not distributed. The paper reproduction snapshot below includes reviewed
+numerical results, figure inputs, source manifests, and validation records.
+
+## EnergyBench paper reproduction
+
+The [`reproducibility/`](reproducibility/README.md) directory contains the
+23 September 2026 paper snapshot, classic and Transformer experiment code,
+recorded configurations, metric implementations, and table/figure generators.
+Start with the [English reproduction guide](reproducibility/README.md).
+
+- [Benchmark source and commands](reproducibility/benchmark/README.md)
+- [I, matched AUC and inclusive AUC implementation](reproducibility/benchmark/core/unified_metrics.py)
+- [Protocol configuration](reproducibility/benchmark/protocol.json)
+- [Classic models](reproducibility/code/classic/README.md)
+- [Transformer models](reproducibility/code/transformers/README.md)
+- [Publication scope and external inputs](reproducibility/PUBLICATION.md)
+
+Run its documented commands from `reproducibility/` with a separate Python 3.11
+environment. Each result retains its recorded evaluation profile. Nine RoPE
+experiment sources and eight example-figure generators remain unrecovered;
+the guide identifies those gaps. The optional per-event companion is not
+included in this Git branch, and no substitute model or result is implied.
 
 ## Benchmarks
 

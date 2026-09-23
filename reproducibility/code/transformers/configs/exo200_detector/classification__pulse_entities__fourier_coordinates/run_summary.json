@@ -1,0 +1,19 @@
+{
+  "run_id": "classification__pulse_entities__fourier_coordinates",
+  "task": "classification",
+  "tokenization": "pulse_entities",
+  "position_encoding": "fourier_coordinates",
+  "parameter_count": 115905,
+  "train_events": 336632,
+  "validation_events": 37987,
+  "test_events": 140383,
+  "epochs_completed": 49,
+  "best_epoch": 44,
+  "best_validation_auc": 0.9624899983849597,
+  "training_seconds": 78751.86107930075,
+  "minutes_per_epoch": 26.786347305884608,
+  "evaluation_seconds": 338.70105990068987,
+  "test_auc": 0.9596201753154566,
+  "test_accuracy": 0.8924371184545137,
+  "test_loss": 0.25294141179339497
+}

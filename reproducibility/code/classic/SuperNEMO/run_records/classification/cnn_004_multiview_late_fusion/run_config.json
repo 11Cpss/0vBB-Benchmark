@@ -1,0 +1,92 @@
+{
+  "architecture_id": "cnn_004_multiview_late_fusion",
+  "classification_label_mapping": {
+    "2nu": 1,
+    "Bi214": 0
+  },
+  "counts": {
+    "test": {
+      "by_category": {
+        "2nu": 327680,
+        "Bi214": 262144
+      },
+      "total": 589824
+    },
+    "train": {
+      "by_category": {
+        "2nu": 2629632,
+        "Bi214": 2105618
+      },
+      "total": 4735250
+    },
+    "validation": {
+      "by_category": {
+        "2nu": 326804,
+        "Bi214": 266240
+      },
+      "total": 593044
+    }
+  },
+  "data": {
+    "coordinate_scale_mm": 1000.0,
+    "data_root": "/home/klz/Data/zeronu_benchmark/SuperNEMO",
+    "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+    "max_points": 512,
+    "num_classes": 2,
+    "point_bin_size_mm": 15.0,
+    "projection_bin_size_mm": 44.0,
+    "projection_grid_size": 128,
+    "projection_input_scale": 1.0,
+    "projection_origin_mm": [
+      -2816.0,
+      -2816.0,
+      -2816.0
+    ],
+    "scan_chunk_rows": 262144,
+    "seed": 42,
+    "split_block_events": 4096,
+    "split_fractions": [
+      0.8,
+      0.1,
+      0.1
+    ],
+    "train_event_order": "proportional_without_replacement"
+  },
+  "dataset": "SuperNEMO",
+  "energy_target": null,
+  "input_kind": "projection2d",
+  "input_representation": "topology_only",
+  "manifest_path": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+  "model": {
+    "base_channels": 16,
+    "dropout": 0.1,
+    "fusion_features": 256,
+    "stage_blocks": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "model_name": "MultiViewLateFusionCNN",
+  "task": "classification",
+  "training": {
+    "amp_precision": "auto",
+    "batch_size": 16,
+    "classification_loss": "bce_with_logits",
+    "deterministic": false,
+    "device": "cuda",
+    "early_stopping_min_delta": 0.0,
+    "early_stopping_patience": 12,
+    "energy_loss": "mse",
+    "epochs": 50,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "seed": 42,
+    "use_amp": true,
+    "weight_decay": 0.0001
+  }
+}

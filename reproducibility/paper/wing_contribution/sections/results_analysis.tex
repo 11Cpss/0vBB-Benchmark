@@ -1,0 +1,65 @@
+\subsection{Classification Results}
+\label{sec:wing-results}
+
+Table~\ref{tab:benchmark-main} reports matched AUC, energy independence $I$,
+and trainable parameter counts. Within each dataset, all models use the same
+metric definitions and evaluation protocol, allowing direct comparison
+between specialized baselines and tokenized Transformers. Matched AUC
+measures discrimination after balancing the class energy spectra, while $I$
+measures within-class score stability with energy.
+
+\input{wing_contribution/tables/benchmark_main}
+\paragraph{Specialized-baseline comparison.}
+Static GINE has the highest matched-AUC point estimate on NEXT, EXO-200,
+and SuperNEMO among the shared classic models. It also has the highest $I$
+on EXO-200, where the recalculated values are 0.949 and 0.801, respectively.
+BiGRU has the highest matched AUC on MJD, while GINE has the highest $I$
+with additional PSD-label supervision.
+These matched-AUC leaders are unchanged by reevaluation. On SuperNEMO,
+PointMamba-lite has the highest $I$ and now marginally exceeds BiGRU in
+matched AUC (0.579492745 versus 0.579485174); this small ordering reversal
+removes BiGRU from the two-metric Pareto set, leaving GINE and PointMamba-lite.
+These single-run point estimates do not establish statistical significance.
+Parameter counts and training protocols also
+differ, including the additional PSD supervision for MJD GINE.
+
+The finer common energy grid lowers $I$ for the EXO-200 and SuperNEMO
+classic models relative to their historical quantile-energy estimates;
+both class-level values decline, as documented in
+Table~\ref{tab:independence-diagnostics}. This reflects a changed estimator
+resolution and pooling rule, not a change in the fitted models.
+All reported retained-campaign classic matched AUCs meet the original count and
+coverage gates. Coverage, overflow counts, sparse-bin losses, and effective
+sample sizes are reported in Appendix~\ref{app:metric-details}.
+
+Among the recorded Transformer results, region tokens provide the strongest
+matched-AUC configuration on each detector: region--MLP on NEXT,
+region--Fourier on MJD and EXO-200, and region--RoPE on SuperNEMO. Summary
+tokens remain close to the leading NEXT representation, suggesting that
+spatial aggregation can preserve much of the useful event structure. Entity
+tokens are generally weaker on the dense MJD and EXO-200 waveforms, where
+selecting isolated measurements can discard contiguous pulse structure
+retained by regional patches. Across the completed MLP and Fourier
+comparisons, changing tokenization generally produces a larger performance
+range than changing positional encoding within one tokenization. This
+supports the conclusion that defining what constitutes a token is a central
+modeling decision, although the evidence consists of single-seed results.
+
+\paragraph{Effect of positional encoding and energy dependence.}
+Positional-encoding preferences remain detector dependent. Coordinate MLPs
+perform best across the NEXT tokenizations, whereas Fourier features provide
+the strongest MLP/Fourier results on MJD and EXO-200. SuperNEMO shows smaller
+differences among the additive encodings, with its reported region--RoPE
+variant achieving the highest Transformer matched AUC. NEXT and MJD are more
+sensitive to RoPE, but for different reasons: NEXT supplies physical spatial
+coordinates, while MJD supplies time together with waveform level and local
+change. The comparison therefore varies both coordinate semantics and the
+encoding mechanism, so it does not isolate a universal positional-encoding
+effect.
+
+Within model subsets evaluated under a common protocol, the strongest
+classifier is not always the most energy independent. SuperNEMO further shows
+that high independence can coexist with weak class separation. Energy-matched
+AUC and $I$ must therefore be interpreted jointly: the former measures
+discrimination after energy-spectrum balancing, whereas the latter measures
+within-class score stability with energy.

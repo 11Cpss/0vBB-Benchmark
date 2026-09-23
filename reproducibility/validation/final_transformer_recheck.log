@@ -1,0 +1,1 @@
+{"py_files": 102, "py_failures": 0, "notebook_cells": 81, "cell_failures": 0, "imports": [["NEXT", "pass"], ["MJD", "pass"], ["EXO", "pass"], ["SuperNEMO_canonical", "pass"], ["SuperNEMO_published", "pass"]], "source_files": 201, "all_hashes_identical": true}

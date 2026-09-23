@@ -1,0 +1,94 @@
+{
+  "all_executed_portability_checks_pass": true,
+  "checks": {
+    "six_tables_byte_identical": true,
+    "six_active_Wing_PDFs_byte_identical": true,
+    "single_event_archive_two_distinct_profiles": true,
+    "identical_original_event_input": true,
+    "600_vs_601_bin_count": true,
+    "unchanged_inclusive_population": true,
+    "high_energy_rule_distinct_and_correct": true,
+    "all_original_and_copied_source_hashes_unchanged": true,
+    "final_assembly_integrity_pass": true,
+    "isolated_compilation_25_pages": true,
+    "no_overfull_boxes": true,
+    "only_existing_unresolved_reference_names": true
+  },
+  "relocated_bundle": "/tmp/energybench-portability-haeqwnvw",
+  "working_directory": "/tmp",
+  "source_access_guard": "Python audit hook rejects opens under /home except the installed scientific interpreter and its packages.",
+  "allowed_external_dependency_paths": [
+    "/home/wenyu/summer/.venv",
+    "/home/wenyu/summer/envs/python-builds/cpython-3.11.15-linux-x86_64-gnu"
+  ],
+  "copied_offline_TeX_dependencies": "Tectonic executable and prepared TeX cache copied into scratch; compilation used --only-cached and relocated XDG_CACHE_HOME.",
+  "figure_checks": {
+    "mjd_motivation_main_v2_generated.pdf": true,
+    "mjd_low_high_waveforms.pdf": true,
+    "next_capacity_scores.pdf": true,
+    "energy_bias_spectrum.pdf": true,
+    "energy_threshold_tradeoff.pdf": true,
+    "supernemo_extent_energy_population.pdf": true
+  },
+  "compiled_pdf": {
+    "sha256": "467d1e865626d6791bf0aa5c863e9221c5b23535068efb481eeaa28db865890f",
+    "pages": 25,
+    "known_preserved_unresolved_references": [
+      "app",
+      "fig:energybench-auc"
+    ],
+    "reference_labels_missing_from_frozen_active_tree": {
+      "app": true,
+      "fig:energybench-auc": true
+    },
+    "overfull_boxes": 0
+  },
+  "integrity": {
+    "source_files": 755,
+    "bundled_event_records": 73,
+    "symlinks": [],
+    "original_git_head_unchanged": true,
+    "original_git_status_unchanged": true
+  },
+  "limitations": [
+    "Nine reported NEXT/MJD/SuperNEMO RoPE configurations lack recovered original implementations/checkpoints.",
+    "Eight dataset-description panel PDFs lack recovered generators/exact selected-event records.",
+    "No model training or checkpoint inference performed by these replay commands.",
+    "Two existing manuscript references remain unresolved; packaging does not modify the frozen manuscript."
+  ],
+  "final_assembly_manifest_check": {
+    "all_pass": true,
+    "manifest_sha256": "b9f8b31f02880496e861e3ef999787eddabe4a515ba3917e0c16998c9212c8b1",
+    "original_bundle_with_event_data": {
+      "checked_files": 879,
+      "include_event_data": true,
+      "all_pass": true,
+      "failures": []
+    },
+    "relocated_code_only_bundle": {
+      "checked_files": 805,
+      "include_event_data": false,
+      "all_pass": true,
+      "failures": []
+    },
+    "fresh_standard_venv_present": true,
+    "relocated_working_directory": "/tmp",
+    "source_access_guard_enabled": true,
+    "numerical_test_count": 14,
+    "new_source_validators_write_only_mutable_validation_outputs": {
+      "classic": true,
+      "transformers": true
+    },
+    "final_documentation_review": "Root/model/figure/input documentation and runnable commands agree with recovered scope; 9 RoPE and 8 dataset-image generators disclosed.",
+    "unresolved_entrypoint_issues": [],
+    "maintainer_helper_rerun_receipts_independently_inspected": {
+      "classic_processes": 40,
+      "classic_all_pass": true,
+      "transformer_imports": 5,
+      "transformer_all_imports_pass": true,
+      "transformer_all_syntax_pass": true,
+      "transformer_bundled_hashes_match": true
+    }
+  },
+  "all_pass": true
+}

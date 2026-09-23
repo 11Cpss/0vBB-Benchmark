@@ -1,0 +1,47 @@
+architecture_id: classic_001_topology_xgboost
+
+data:
+  root: /home/klz/Data/zeronu_benchmark/NEXT
+  max_files_per_class: 100
+  split_seed: 42
+  split_fractions: [0.8, 0.1, 0.1]
+  num_workers: 0
+  balance_training_classes: true
+  event_shuffle_buffer_size: 512
+
+representation:
+  point_bin_size: 15.0
+  coordinate_scale: 1000.0
+  max_points: 512
+
+model:
+  backend: xgboost
+  extractor:
+    max_topology_points: 192
+    connectivity_radius: 0.026
+    blob_radius: 0.030
+  estimator:
+    n_estimators: 500
+    max_depth: 4
+    learning_rate: 0.04
+    max_bins: 32
+    min_samples_leaf: 24
+    l2_regularization: 1.0
+    min_split_gain: 0.0
+    subsample: 0.85
+    colsample: 0.90
+    random_state: 42
+    early_stopping_rounds: 12
+
+training:
+  batch_size: 128
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0
+  gradient_clip_norm: 1.0
+  early_stopping_patience: 12
+  early_stopping_min_delta: 0.0
+  seed: 42
+  deterministic: true
+  use_amp: false
+  amp_precision: auto

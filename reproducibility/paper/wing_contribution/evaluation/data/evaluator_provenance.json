@@ -1,0 +1,13 @@
+{
+  "protocol_file_sha256": "989fc7188680c4c9d6086e94405940854c4027f0631e64c9aa1846728a3e5fb8",
+  "audited_evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
+  "core_evaluator_byte_identical_to_validated_source": true,
+  "validation_source": "MJD / EXO-200 strict 600-bin reevaluation, 2026-09-17",
+  "scope": "23 configurations: 8 classic, 9 EXO-200 Transformers, 6 MJD MLP/Fourier Transformers; no MJD RoPE updates",
+  "legacy_v2": {
+    "protocol_file_sha256": "a4692911d0d9580f68f0ab3e52309c76344bc64e31c32c1feaaedaeefd3e103b",
+    "audited_evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
+    "scope": "Unchanged NEXT/SuperNEMO classic results and plots"
+  },
+  "local_import_shim": "unified_metrics.py only re-exports core; result records carry their actual profile fingerprint."
+}

@@ -1,0 +1,328 @@
+{
+  "records": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9732458912544566,
+        "matched_auc": 0.9877184038572275,
+        "inclusive_auc": 0.9879433296670025
+      },
+      "expected_source_metrics": {
+        "I": 0.9732458912544566,
+        "matched_auc": 0.9877184038572273,
+        "inclusive_auc": 0.9879433296670025
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 2.220446049250313e-16,
+        "inclusive_auc": 0.0
+      },
+      "native_input_sha256": "89b712b37d211246663a78054d38019677191ac4afb4aae93f7ecb26e82c66fa",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9727633134531835,
+        "matched_auc": 0.9786975242362349,
+        "inclusive_auc": 0.9789711921577328
+      },
+      "expected_source_metrics": {
+        "I": 0.9727633134531835,
+        "matched_auc": 0.9786975242362346,
+        "inclusive_auc": 0.9789711921577329
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 3.3306690738754696e-16,
+        "inclusive_auc": 1.1102230246251565e-16
+      },
+      "native_input_sha256": "a9ad6ba466fe57dbe049b70ed0b4c9a30a424afa6b5f0649d43910137fabdcbf",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9752702548781785,
+        "matched_auc": 0.975494450021349,
+        "inclusive_auc": 0.9755668276775151
+      },
+      "expected_source_metrics": {
+        "I": 0.9752702548781785,
+        "matched_auc": 0.975494450021349,
+        "inclusive_auc": 0.9755668276775151
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 0.0,
+        "inclusive_auc": 0.0
+      },
+      "native_input_sha256": "740ecefab6f3028edde36328f8bc12a070b202c2752036b520e0c933bc941990",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9742742018107595,
+        "matched_auc": 0.962729931827441,
+        "inclusive_auc": 0.9626838102960615
+      },
+      "expected_source_metrics": {
+        "I": 0.9742742018107595,
+        "matched_auc": 0.9627299318274409,
+        "inclusive_auc": 0.9626838102960615
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 1.1102230246251565e-16,
+        "inclusive_auc": 0.0
+      },
+      "native_input_sha256": "580c3877f48b499820d34c3f46af6de69f11c3e959294fb35f5b9e4523a878cf",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9707408062305775,
+        "matched_auc": 0.987424357216143,
+        "inclusive_auc": 0.9876072147024234
+      },
+      "expected_source_metrics": {
+        "I": 0.9707408062305775,
+        "matched_auc": 0.987424357216143,
+        "inclusive_auc": 0.9876072147024234
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 0.0,
+        "inclusive_auc": 0.0
+      },
+      "native_input_sha256": "5441b97fe45b1b703baa2884c4f4dc548b1d6ef775487f7c7bc07eb9617fff55",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "n_events": 116549,
+      "metrics": {
+        "I": 0.9726117883363878,
+        "matched_auc": 0.9834475590665179,
+        "inclusive_auc": 0.9837072182602816
+      },
+      "expected_source_metrics": {
+        "I": 0.9726117883363878,
+        "matched_auc": 0.9834475590665179,
+        "inclusive_auc": 0.9837072182602816
+      },
+      "absolute_error": {
+        "I": 0.0,
+        "matched_auc": 0.0,
+        "inclusive_auc": 0.0
+      },
+      "native_input_sha256": "3c30c9394fb42721c5c54f69a1f7954d244908fb0a12a7d099d4842de04c2860",
+      "diagnostics": {
+        "status": "ok",
+        "coverage": {
+          "signal_count_total": 64879,
+          "background_count_total": 51670,
+          "signal_count_with_energy": 64879,
+          "background_count_with_energy": 51670,
+          "signal_count_common_support": 64112,
+          "background_count_common_support": 50120,
+          "signal_count_matched": 64112,
+          "background_count_matched": 50120,
+          "signal_common_support_count_fraction": 0.9881779928790517,
+          "signal_common_support_weight_fraction": 0.9881779928790517,
+          "signal_matched_count_fraction": 0.9881779928790517,
+          "signal_matched_weight_fraction": 0.9881779928790517,
+          "background_common_support_count_fraction": 0.9700019353590091,
+          "background_common_support_weight_fraction": 0.9700019353590091,
+          "background_matched_count_fraction": 0.9700019353590091,
+          "background_matched_weight_fraction": 0.9700019353590091
+        },
+        "protocol": {
+          "energy_bin_width_kev": 5.0,
+          "energy_unit": "MeV",
+          "energy_grid_min_kev": 0.0,
+          "energy_grid_max_kev": 3000.0,
+          "energy_grid_bin_count": 600,
+          "selected_energy_bin_count": 11,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "source_package": "code/transformers/original/evalutaions_workflow",
+      "unrelated_diagnostic_optimization": "Only distance-correlation max_samples is reduced from 1200 to 4; this has no effect on histogram I or either AUC. No distance-correlation result is reported."
+    }
+  ]
+}

@@ -1,0 +1,3372 @@
+{
+  "schema_version": 1,
+  "workbook": "/home/wenyu/iclr final paper/Benchmarking table.xlsx",
+  "workbook_sha256": "12e242aaead6cf4a49ad78528ca22d318f16542d3d1ec8daf14fd1b549a2185a",
+  "scope": {
+    "datasets": [
+      "NEXT",
+      "MJD",
+      "EXO-200",
+      "SuperNEMO"
+    ],
+    "classification_metric_records": 30,
+    "complete_three_number_records": 27,
+    "missing_independence_records": 3,
+    "excluded_dataset": "CUORE",
+    "source_priority": "Full detector-specific sheets and comments take precedence over stale All Datasets summary"
+  },
+  "numeric_representation": "params, matched_auc and independence retain exact raw workbook strings; missing cells are null. numeric_values contains parsed convenience values. Do not invent more source precision.",
+  "alignment": {
+    "reference_table": "transformer_contribution/tables/tokenization_summary.tex",
+    "row_keys": [
+      "entity_mlp",
+      "entity_fourier",
+      "entity_rope",
+      "region_mlp",
+      "region_fourier",
+      "region_rope",
+      "summary_mlp",
+      "summary_fourier",
+      "summary_rope"
+    ],
+    "families": {
+      "entity": {
+        "NEXT": "Sampled_hits",
+        "MJD": "pulse_entities",
+        "EXO-200": "pulse_entities",
+        "SuperNEMO": "sampled_hits"
+      },
+      "region": {
+        "NEXT": "Voxel",
+        "MJD": "raw_patches",
+        "EXO-200": "raw_patches",
+        "SuperNEMO": "voxel"
+      },
+      "summary": {
+        "NEXT": "summary_features",
+        "MJD": "segment_summary",
+        "EXO-200": "segment_summary",
+        "SuperNEMO": "summary_features"
+      }
+    },
+    "positional_encoding_aliases": {
+      "mlp": [
+        "Coordinate_mlp",
+        "coordinate_mlp"
+      ],
+      "fourier": [
+        "Fourier_xyz",
+        "fourier_xyz",
+        "fourier_coordinates"
+      ],
+      "rope": [
+        "RoPE",
+        "rope"
+      ]
+    },
+    "meaning": "The nine rows align the existing Entity / Local region / Summary semantic families and PE families. Token features, coordinate dimensions, token budgets and parameter counts remain detector-specific."
+  },
+  "records": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "source_architecture_id": "NEXT-T01",
+      "source_tokenizer": "Voxel",
+      "source_position_encoding": "Coordinate_mlp",
+      "tokenization_family": "region",
+      "worksheet": "NEXT",
+      "row": 31,
+      "params": "111105.0",
+      "matched_auc": "0.987718",
+      "independence": "0.973246",
+      "numeric_values": {
+        "params": 111105,
+        "matched_auc": 0.987718,
+        "independence": 0.973246
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F31",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Coordinate_mlp\nLegacy Minutes / Epoch: 7.462861"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D31",
+          "raw": "NEXT-T01"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G31",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F31",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J31",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S31",
+          "raw": "0.987718"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W31",
+          "raw": "0.973246"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K31",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P31",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q31",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T31",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "source_architecture_id": "NEXT-T02",
+      "source_tokenizer": "Voxel",
+      "source_position_encoding": "Fourier_xyz",
+      "tokenization_family": "region",
+      "worksheet": "NEXT",
+      "row": 32,
+      "params": "113409.0",
+      "matched_auc": "0.978698",
+      "independence": "0.972763",
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.978698,
+        "independence": 0.972763
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F32",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Fourier_xyz\nLegacy Minutes / Epoch: 10.480115"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D32",
+          "raw": "NEXT-T02"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G32",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F32",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J32",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S32",
+          "raw": "0.978698"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W32",
+          "raw": "0.972763"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K32",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P32",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q32",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T32",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_rope",
+      "source_architecture_id": "NEXT-T03",
+      "source_tokenizer": "Voxel",
+      "source_position_encoding": "RoPE",
+      "tokenization_family": "region",
+      "worksheet": "NEXT",
+      "row": 33,
+      "params": "113409.0",
+      "matched_auc": "0.5124",
+      "independence": null,
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.5124,
+        "independence": null
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F33",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: RoPE\n"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D33",
+          "raw": "NEXT-T03"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G33",
+          "raw": "Voxel"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F33",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J33",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S33",
+          "raw": "0.5124"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W33",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K33",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P33",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q33",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T33",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "source_architecture_id": "NEXT-T04",
+      "source_tokenizer": "Sampled_hits",
+      "source_position_encoding": "Coordinate_mlp",
+      "tokenization_family": "entity",
+      "worksheet": "NEXT",
+      "row": 34,
+      "params": "111105.0",
+      "matched_auc": "0.975494",
+      "independence": "0.97527",
+      "numeric_values": {
+        "params": 111105,
+        "matched_auc": 0.975494,
+        "independence": 0.97527
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F34",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Coordinate_mlp\nLegacy Minutes / Epoch: 8.388493"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D34",
+          "raw": "NEXT-T04"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G34",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F34",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J34",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S34",
+          "raw": "0.975494"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W34",
+          "raw": "0.97527"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K34",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P34",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q34",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T34",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "source_architecture_id": "NEXT-T05",
+      "source_tokenizer": "Sampled_hits",
+      "source_position_encoding": "Fourier_xyz",
+      "tokenization_family": "entity",
+      "worksheet": "NEXT",
+      "row": 35,
+      "params": "113409.0",
+      "matched_auc": "0.96273",
+      "independence": "0.974274",
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.96273,
+        "independence": 0.974274
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F35",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Fourier_xyz\nLegacy Minutes / Epoch: 11.447714"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D35",
+          "raw": "NEXT-T05"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G35",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F35",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J35",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S35",
+          "raw": "0.96273"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W35",
+          "raw": "0.974274"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K35",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P35",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q35",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T35",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_rope",
+      "source_architecture_id": "NEXT-T06",
+      "source_tokenizer": "Sampled_hits",
+      "source_position_encoding": "RoPE",
+      "tokenization_family": "entity",
+      "worksheet": "NEXT",
+      "row": 36,
+      "params": "113409.0",
+      "matched_auc": "0.4971",
+      "independence": null,
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.4971,
+        "independence": null
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F36",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: RoPE\n"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D36",
+          "raw": "NEXT-T06"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G36",
+          "raw": "Sampled_hits"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F36",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J36",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S36",
+          "raw": "0.4971"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W36",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K36",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P36",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q36",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T36",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "source_architecture_id": "NEXT-T07",
+      "source_tokenizer": "summary_features",
+      "source_position_encoding": "Coordinate_mlp",
+      "tokenization_family": "summary",
+      "worksheet": "NEXT",
+      "row": 37,
+      "params": "111233.0",
+      "matched_auc": "0.987424",
+      "independence": "0.970741",
+      "numeric_values": {
+        "params": 111233,
+        "matched_auc": 0.987424,
+        "independence": 0.970741
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F37",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Coordinate_mlp\nLegacy Minutes / Epoch: 7.342869"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D37",
+          "raw": "NEXT-T07"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G37",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F37",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J37",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S37",
+          "raw": "0.987424"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W37",
+          "raw": "0.970741"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K37",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P37",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q37",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T37",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "source_architecture_id": "NEXT-T08",
+      "source_tokenizer": "summary_features",
+      "source_position_encoding": "Fourier_xyz",
+      "tokenization_family": "summary",
+      "worksheet": "NEXT",
+      "row": 38,
+      "params": "113537.0",
+      "matched_auc": "0.983448",
+      "independence": "0.972612",
+      "numeric_values": {
+        "params": 113537,
+        "matched_auc": 0.983448,
+        "independence": 0.972612
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F38",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: Fourier_xyz\nLegacy Minutes / Epoch: 7.488032"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D38",
+          "raw": "NEXT-T08"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G38",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F38",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J38",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S38",
+          "raw": "0.983448"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W38",
+          "raw": "0.972612"
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K38",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P38",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q38",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T38",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_rope",
+      "source_architecture_id": "NEXT-T09",
+      "source_tokenizer": "summary_features",
+      "source_position_encoding": "RoPE",
+      "tokenization_family": "summary",
+      "worksheet": "NEXT",
+      "row": 39,
+      "params": "113537.0",
+      "matched_auc": "0.6023",
+      "independence": null,
+      "numeric_values": {
+        "params": 113537,
+        "matched_auc": 0.6023,
+        "independence": null
+      },
+      "comment_references": [
+        {
+          "worksheet": "NEXT",
+          "cell": "F39",
+          "part": "xl/comments2.xml",
+          "text": "Legacy Position Encoding: RoPE\n"
+        }
+      ],
+      "task": "classification",
+      "test_events": null,
+      "matched_auc_status": null,
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "NEXT",
+          "cell": "D39",
+          "raw": "NEXT-T09"
+        },
+        "tokenizer": {
+          "worksheet": "NEXT",
+          "cell": "G39",
+          "raw": "summary_features"
+        },
+        "position_encoding": {
+          "worksheet": "NEXT",
+          "cell": "F39",
+          "raw": "Transformer"
+        },
+        "params": {
+          "worksheet": "NEXT",
+          "cell": "J39",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "NEXT",
+          "cell": "S39",
+          "raw": "0.6023"
+        },
+        "independence": {
+          "worksheet": "NEXT",
+          "cell": "W39",
+          "raw": null
+        },
+        "parameter_count_definition": {
+          "worksheet": "NEXT",
+          "cell": "K39",
+          "raw": "legacy reported parameters"
+        },
+        "task": {
+          "worksheet": "NEXT",
+          "cell": "P39",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "NEXT",
+          "cell": "Q39",
+          "raw": null
+        },
+        "matched_auc_status": {
+          "worksheet": "NEXT",
+          "cell": "T39",
+          "raw": null
+        }
+      },
+      "position_encoding_evidence": "Cell comment",
+      "comparability": {
+        "status": "workbook_reported_legacy_result",
+        "test_count_known": false,
+        "test_event_count": null,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "source_architecture_id": "MJD-T01",
+      "source_tokenizer": "pulse_entities",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "entity",
+      "worksheet": "MJD",
+      "row": 5,
+      "params": "111105.0",
+      "matched_auc": "0.929396803268499",
+      "independence": "0.811567853170932",
+      "numeric_values": {
+        "params": 111105,
+        "matched_auc": 0.929396803268499,
+        "independence": 0.811567853170932
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D5",
+          "raw": "MJD-T01"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G5",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G5",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J5",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S5",
+          "raw": "0.929396803268499"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W5",
+          "raw": "0.811567853170932"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K5",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P5",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q5",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T5",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "source_architecture_id": "MJD-T02",
+      "source_tokenizer": "pulse_entities",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "entity",
+      "worksheet": "MJD",
+      "row": 6,
+      "params": "113409.0",
+      "matched_auc": "0.941387979984189",
+      "independence": "0.802061930228155",
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.941387979984189,
+        "independence": 0.802061930228155
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D6",
+          "raw": "MJD-T02"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G6",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G6",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J6",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S6",
+          "raw": "0.941387979984189"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W6",
+          "raw": "0.802061930228155"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K6",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P6",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q6",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T6",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "source_architecture_id": "MJD-T03",
+      "source_tokenizer": "raw_patches",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "region",
+      "worksheet": "MJD",
+      "row": 7,
+      "params": "112257.0",
+      "matched_auc": "0.973450974021451",
+      "independence": "0.798281679797024",
+      "numeric_values": {
+        "params": 112257,
+        "matched_auc": 0.973450974021451,
+        "independence": 0.798281679797024
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D7",
+          "raw": "MJD-T03"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G7",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G7",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J7",
+          "raw": "112257.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S7",
+          "raw": "0.973450974021451"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W7",
+          "raw": "0.798281679797024"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K7",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P7",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q7",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T7",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "source_architecture_id": "MJD-T04",
+      "source_tokenizer": "raw_patches",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "region",
+      "worksheet": "MJD",
+      "row": 8,
+      "params": "114561.0",
+      "matched_auc": "0.981046811242557",
+      "independence": "0.787611356782479",
+      "numeric_values": {
+        "params": 114561,
+        "matched_auc": 0.981046811242557,
+        "independence": 0.787611356782479
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D8",
+          "raw": "MJD-T04"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G8",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G8",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J8",
+          "raw": "114561.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S8",
+          "raw": "0.981046811242557"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W8",
+          "raw": "0.787611356782479"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K8",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P8",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q8",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T8",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "source_architecture_id": "MJD-T05",
+      "source_tokenizer": "segment_summary",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "summary",
+      "worksheet": "MJD",
+      "row": 9,
+      "params": "111105.0",
+      "matched_auc": "0.965393653790337",
+      "independence": "0.798969546110333",
+      "numeric_values": {
+        "params": 111105,
+        "matched_auc": 0.965393653790337,
+        "independence": 0.798969546110333
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D9",
+          "raw": "MJD-T05"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G9",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G9",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J9",
+          "raw": "111105.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S9",
+          "raw": "0.965393653790337"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W9",
+          "raw": "0.798969546110333"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K9",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P9",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q9",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T9",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "source_architecture_id": "MJD-T06",
+      "source_tokenizer": "segment_summary",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "summary",
+      "worksheet": "MJD",
+      "row": 10,
+      "params": "113409.0",
+      "matched_auc": "0.969137624411691",
+      "independence": "0.781775803332116",
+      "numeric_values": {
+        "params": 113409,
+        "matched_auc": 0.969137624411691,
+        "independence": 0.781775803332116
+      },
+      "comment_references": [],
+      "task": "binary classification",
+      "test_events": "390000.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "MJD",
+          "cell": "D10",
+          "raw": "MJD-T06"
+        },
+        "tokenizer": {
+          "worksheet": "MJD",
+          "cell": "G10",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "MJD",
+          "cell": "G10",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "MJD",
+          "cell": "J10",
+          "raw": "113409.0"
+        },
+        "matched_auc": {
+          "worksheet": "MJD",
+          "cell": "S10",
+          "raw": "0.969137624411691"
+        },
+        "independence": {
+          "worksheet": "MJD",
+          "cell": "W10",
+          "raw": "0.781775803332116"
+        },
+        "parameter_count_definition": {
+          "worksheet": "MJD",
+          "cell": "K10",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "MJD",
+          "cell": "P10",
+          "raw": "binary classification"
+        },
+        "test_events": {
+          "worksheet": "MJD",
+          "cell": "Q10",
+          "raw": "390000.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "MJD",
+          "cell": "T10",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 390000,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp",
+      "source_architecture_id": "EXO-T01",
+      "source_tokenizer": "pulse_entities",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "entity",
+      "worksheet": "EXO200 Model Results",
+      "row": 6,
+      "params": "111297.0",
+      "matched_auc": "0.9419427583",
+      "independence": "0.8033360979",
+      "numeric_values": {
+        "params": 111297,
+        "matched_auc": 0.9419427583,
+        "independence": 0.8033360979
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E6",
+          "raw": "EXO-T01"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H6",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H6",
+          "raw": "pulse_entities tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K6",
+          "raw": "111297.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T6",
+          "raw": "0.9419427583"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X6",
+          "raw": "0.8033360979"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L6",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q6",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R6",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U6",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier",
+      "source_architecture_id": "EXO-T02",
+      "source_tokenizer": "pulse_entities",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "entity",
+      "worksheet": "EXO200 Model Results",
+      "row": 7,
+      "params": "115905.0",
+      "matched_auc": "0.9476028841",
+      "independence": "0.7970264444",
+      "numeric_values": {
+        "params": 115905,
+        "matched_auc": 0.9476028841,
+        "independence": 0.7970264444
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E7",
+          "raw": "EXO-T02"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H7",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H7",
+          "raw": "pulse_entities tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K7",
+          "raw": "115905.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T7",
+          "raw": "0.9476028841"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X7",
+          "raw": "0.7970264444"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L7",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q7",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R7",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U7",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp",
+      "source_architecture_id": "EXO-T03",
+      "source_tokenizer": "raw_patches",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "region",
+      "worksheet": "EXO200 Model Results",
+      "row": 8,
+      "params": "120769.0",
+      "matched_auc": "0.9698176584",
+      "independence": "0.8883553547",
+      "numeric_values": {
+        "params": 120769,
+        "matched_auc": 0.9698176584,
+        "independence": 0.8883553547
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E8",
+          "raw": "EXO-T03"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H8",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H8",
+          "raw": "raw_patches tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K8",
+          "raw": "120769.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T8",
+          "raw": "0.9698176584"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X8",
+          "raw": "0.8883553547"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L8",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q8",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R8",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U8",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier",
+      "source_architecture_id": "EXO-T04",
+      "source_tokenizer": "raw_patches",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "region",
+      "worksheet": "EXO200 Model Results",
+      "row": 9,
+      "params": "125377.0",
+      "matched_auc": "0.9725859375",
+      "independence": "0.8723790748",
+      "numeric_values": {
+        "params": 125377,
+        "matched_auc": 0.9725859375,
+        "independence": 0.8723790748
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E9",
+          "raw": "EXO-T04"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H9",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H9",
+          "raw": "raw_patches tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K9",
+          "raw": "125377.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T9",
+          "raw": "0.9725859375"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X9",
+          "raw": "0.8723790748"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L9",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q9",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R9",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U9",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp",
+      "source_architecture_id": "EXO-T05",
+      "source_tokenizer": "segment_summary",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "summary",
+      "worksheet": "EXO200 Model Results",
+      "row": 10,
+      "params": "111425.0",
+      "matched_auc": "0.9475392273",
+      "independence": "0.859148205",
+      "numeric_values": {
+        "params": 111425,
+        "matched_auc": 0.9475392273,
+        "independence": 0.859148205
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E10",
+          "raw": "EXO-T05"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H10",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H10",
+          "raw": "segment_summary tokens + coordinate_mlp positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K10",
+          "raw": "111425.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T10",
+          "raw": "0.9475392273"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X10",
+          "raw": "0.859148205"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L10",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q10",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R10",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U10",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier",
+      "source_architecture_id": "EXO-T06",
+      "source_tokenizer": "segment_summary",
+      "source_position_encoding": "fourier_coordinates",
+      "tokenization_family": "summary",
+      "worksheet": "EXO200 Model Results",
+      "row": 11,
+      "params": "116033.0",
+      "matched_auc": "0.9604387635",
+      "independence": "0.8890241852",
+      "numeric_values": {
+        "params": 116033,
+        "matched_auc": 0.9604387635,
+        "independence": 0.8890241852
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E11",
+          "raw": "EXO-T06"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H11",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H11",
+          "raw": "segment_summary tokens + fourier_coordinates positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K11",
+          "raw": "116033.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T11",
+          "raw": "0.9604387635"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X11",
+          "raw": "0.8890241852"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L11",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q11",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R11",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U11",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope",
+      "source_architecture_id": "EXO-T07",
+      "source_tokenizer": "raw_patches",
+      "source_position_encoding": "rope",
+      "tokenization_family": "region",
+      "worksheet": "EXO200 Model Results",
+      "row": 12,
+      "params": "116161.0",
+      "matched_auc": "0.9711907679",
+      "independence": "0.8782880057",
+      "numeric_values": {
+        "params": 116161,
+        "matched_auc": 0.9711907679,
+        "independence": 0.8782880057
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E12",
+          "raw": "EXO-T07"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H12",
+          "raw": "raw_patches tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H12",
+          "raw": "raw_patches tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K12",
+          "raw": "116161.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T12",
+          "raw": "0.9711907679"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X12",
+          "raw": "0.8782880057"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L12",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q12",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R12",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U12",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope",
+      "source_architecture_id": "EXO-T08",
+      "source_tokenizer": "segment_summary",
+      "source_position_encoding": "rope",
+      "tokenization_family": "summary",
+      "worksheet": "EXO200 Model Results",
+      "row": 13,
+      "params": "106817.0",
+      "matched_auc": "0.9557026902",
+      "independence": "0.8464677142",
+      "numeric_values": {
+        "params": 106817,
+        "matched_auc": 0.9557026902,
+        "independence": 0.8464677142
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E13",
+          "raw": "EXO-T08"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H13",
+          "raw": "segment_summary tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H13",
+          "raw": "segment_summary tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K13",
+          "raw": "106817.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T13",
+          "raw": "0.9557026902"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X13",
+          "raw": "0.8464677142"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L13",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q13",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R13",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U13",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope",
+      "source_architecture_id": "EXO-T09",
+      "source_tokenizer": "pulse_entities",
+      "source_position_encoding": "rope",
+      "tokenization_family": "entity",
+      "worksheet": "EXO200 Model Results",
+      "row": 14,
+      "params": "106689.0",
+      "matched_auc": "0.9464707448",
+      "independence": "0.7763494244",
+      "numeric_values": {
+        "params": 106689,
+        "matched_auc": 0.9464707448,
+        "independence": 0.7763494244
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "140383.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "E14",
+          "raw": "EXO-T09"
+        },
+        "tokenizer": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H14",
+          "raw": "pulse_entities tokens + rope positional encoding"
+        },
+        "position_encoding": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "H14",
+          "raw": "pulse_entities tokens + rope positional encoding"
+        },
+        "params": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "K14",
+          "raw": "106689.0"
+        },
+        "matched_auc": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "T14",
+          "raw": "0.9464707448"
+        },
+        "independence": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "X14",
+          "raw": "0.7763494244"
+        },
+        "parameter_count_definition": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "L14",
+          "raw": "trainable parameters"
+        },
+        "task": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "Q14",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "R14",
+          "raw": "140383.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "EXO200 Model Results",
+          "cell": "U14",
+          "raw": "ok"
+        }
+      },
+      "position_encoding_evidence": "Explicit tokenizer and PE text",
+      "comparability": {
+        "status": "workbook_reported_test_result",
+        "test_count_known": true,
+        "test_event_count": 140383,
+        "split_identity_known": false,
+        "matching_protocol_known": false,
+        "independence_protocol_known": false,
+        "positive_label_known": false,
+        "note": "No Transformer split fingerprint, label mapping or matching/independence settings in these workbook rows. Equal test counts alone do not establish identical splits/protocols. NEXT QA Summary covers the separate 23 non-Transformer classification candidates plus 3 regression rows, not the nine legacy Transformer rows."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_mlp",
+      "source_architecture_id": "transformer_001_sampled_hits_coordinate_mlp",
+      "source_tokenizer": "sampled_hits",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "entity",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 6,
+      "params": "111233.0",
+      "matched_auc": "0.5912104133278413",
+      "independence": "0.975384791562389",
+      "numeric_values": {
+        "params": 111233,
+        "matched_auc": 0.5912104133278413,
+        "independence": 0.975384791562389
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E6",
+          "raw": "transformer_001_sampled_hits_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K6",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T6",
+          "raw": "0.5912104133278413"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X6",
+          "raw": "0.975384791562389"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L6",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q6",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R6",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U6",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP6",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "e13698a5ace11c91370a62c4162803746c8ec14d538d0f923a073cb333dce87f",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_mlp",
+      "source_architecture_id": "transformer_002_voxel_coordinate_mlp",
+      "source_tokenizer": "voxel",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "region",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 7,
+      "params": "111233.0",
+      "matched_auc": "0.5914158866798868",
+      "independence": "0.9761247768221727",
+      "numeric_values": {
+        "params": 111233,
+        "matched_auc": 0.5914158866798868,
+        "independence": 0.9761247768221727
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E7",
+          "raw": "transformer_002_voxel_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K7",
+          "raw": "111233.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T7",
+          "raw": "0.5914158866798868"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X7",
+          "raw": "0.9761247768221727"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L7",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q7",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R7",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U7",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP7",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "a87e71c62bbcf26b39dcab898f1951c40225d5550924aa2dbdcb30674d2d610b",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_fourier",
+      "source_architecture_id": "transformer_003_voxel_fourier_xyz",
+      "source_tokenizer": "voxel",
+      "source_position_encoding": "fourier_xyz",
+      "tokenization_family": "region",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 8,
+      "params": "113537.0",
+      "matched_auc": "0.5896103162658949",
+      "independence": "0.9765258664774298",
+      "numeric_values": {
+        "params": 113537,
+        "matched_auc": 0.5896103162658949,
+        "independence": 0.9765258664774298
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E8",
+          "raw": "transformer_003_voxel_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K8",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T8",
+          "raw": "0.5896103162658949"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X8",
+          "raw": "0.9765258664774298"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L8",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q8",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R8",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U8",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP8",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "edc53f5244403debea871d5a0c793da61e5ac23b0082bb877e19b24bbc909af5",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_fourier",
+      "source_architecture_id": "transformer_004_sampled_hits_fourier_xyz",
+      "source_tokenizer": "sampled_hits",
+      "source_position_encoding": "fourier_xyz",
+      "tokenization_family": "entity",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 9,
+      "params": "113537.0",
+      "matched_auc": "0.5890906098410181",
+      "independence": "0.9740046303484715",
+      "numeric_values": {
+        "params": 113537,
+        "matched_auc": 0.5890906098410181,
+        "independence": 0.9740046303484715
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E9",
+          "raw": "transformer_004_sampled_hits_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K9",
+          "raw": "113537.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T9",
+          "raw": "0.5890906098410181"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X9",
+          "raw": "0.9740046303484715"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L9",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q9",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R9",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U9",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP9",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "bf411199ea4276838af80a9eb4a10d9b63fc26a6ce2b3c2fa192ce67fd95b512",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_mlp",
+      "source_architecture_id": "transformer_005_summary_features_coordinate_mlp",
+      "source_tokenizer": "summary_features",
+      "source_position_encoding": "coordinate_mlp",
+      "tokenization_family": "summary",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 10,
+      "params": "111361.0",
+      "matched_auc": "0.590401975879365",
+      "independence": "0.9749901725375236",
+      "numeric_values": {
+        "params": 111361,
+        "matched_auc": 0.590401975879365,
+        "independence": 0.9749901725375236
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E10",
+          "raw": "transformer_005_summary_features_coordinate_mlp"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K10",
+          "raw": "111361.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T10",
+          "raw": "0.590401975879365"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X10",
+          "raw": "0.9749901725375236"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L10",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q10",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R10",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U10",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP10",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "e0d10f3a2c67ae42329bb9ec69bb25d4051965aa95df5774541a663ad4f0d8e5",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_fourier",
+      "source_architecture_id": "transformer_006_summary_features_fourier_xyz",
+      "source_tokenizer": "summary_features",
+      "source_position_encoding": "fourier_xyz",
+      "tokenization_family": "summary",
+      "worksheet": "SuperNEMO Model Results",
+      "row": 11,
+      "params": "113665.0",
+      "matched_auc": "0.5891324617733658",
+      "independence": "0.9771130772722894",
+      "numeric_values": {
+        "params": 113665,
+        "matched_auc": 0.5891324617733658,
+        "independence": 0.9771130772722894
+      },
+      "comment_references": [],
+      "task": "classification",
+      "test_events": "589824.0",
+      "matched_auc_status": "ok",
+      "source_cells": {
+        "architecture_id": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "tokenizer": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "position_encoding": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "E11",
+          "raw": "transformer_006_summary_features_fourier_xyz"
+        },
+        "params": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "K11",
+          "raw": "113665.0"
+        },
+        "matched_auc": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "T11",
+          "raw": "0.5891324617733658"
+        },
+        "independence": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "X11",
+          "raw": "0.9771130772722894"
+        },
+        "parameter_count_definition": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "L11",
+          "raw": "trainable neural-network parameters"
+        },
+        "task": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "Q11",
+          "raw": "classification"
+        },
+        "test_events": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "R11",
+          "raw": "589824.0"
+        },
+        "matched_auc_status": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "U11",
+          "raw": "ok"
+        },
+        "linked_metrics_json": {
+          "worksheet": "SuperNEMO Model Results",
+          "cell": "AP11",
+          "raw": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json"
+        }
+      },
+      "position_encoding_evidence": "Architecture ID suffix, checked against linked metadata",
+      "comparability": {
+        "status": "workbook_and_linked_metrics_verified",
+        "source_metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/energybench/.energybench/metrics.json",
+        "source_metrics_sha256": "31c3de26db5e68a6e59f1a8aa513300fef3bd1304c466e3b321e34802fe20f40",
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "evaluation_fingerprint": "c6a37c5f076a5ee359d07a48245127f08ca95a2510cb2cfb837bdfec7c463a82",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "matching_bins": 6,
+        "matching_common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "matching_min_per_class": 20,
+        "matching_target": "overlap",
+        "independence_energy_bins_by_category": {
+          "2nu": 8,
+          "Bi214": 8
+        },
+        "test_event_counts": {
+          "by_category": {
+            "2nu": 327680,
+            "Bi214": 262144
+          },
+          "total": 589824
+        },
+        "note": "Same saved Q6 matching and eight-per-category quantile independence protocol as the four SuperNEMO non-Transformer rows; 2nu versus Bi214. Separate from the new 0nu/Bi214 fixed-5-keV illustration."
+      }
+    }
+  ],
+  "all_datasets_duplicate_mapping": [
+    {
+      "worksheet": "NEXT",
+      "row": 31,
+      "source_architecture_id": "NEXT-T01",
+      "all_datasets_row": 63,
+      "all_datasets_id": "NEXT-T01",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "NEXT",
+      "row": 32,
+      "source_architecture_id": "NEXT-T02",
+      "all_datasets_row": 64,
+      "all_datasets_id": "NEXT-T02",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "NEXT",
+      "row": 34,
+      "source_architecture_id": "NEXT-T04",
+      "all_datasets_row": 65,
+      "all_datasets_id": "NEXT-T03",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "NEXT",
+      "row": 35,
+      "source_architecture_id": "NEXT-T05",
+      "all_datasets_row": 66,
+      "all_datasets_id": "NEXT-T04",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "NEXT",
+      "row": 37,
+      "source_architecture_id": "NEXT-T07",
+      "all_datasets_row": 67,
+      "all_datasets_id": "NEXT-T05",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "NEXT",
+      "row": 38,
+      "source_architecture_id": "NEXT-T08",
+      "all_datasets_row": 68,
+      "all_datasets_id": "NEXT-T06",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 5,
+      "source_architecture_id": "MJD-T01",
+      "all_datasets_row": 26,
+      "all_datasets_id": "MJD-T01",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 6,
+      "source_architecture_id": "MJD-T02",
+      "all_datasets_row": 27,
+      "all_datasets_id": "MJD-T02",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 7,
+      "source_architecture_id": "MJD-T03",
+      "all_datasets_row": 28,
+      "all_datasets_id": "MJD-T03",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 8,
+      "source_architecture_id": "MJD-T04",
+      "all_datasets_row": 29,
+      "all_datasets_id": "MJD-T04",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 9,
+      "source_architecture_id": "MJD-T05",
+      "all_datasets_row": 30,
+      "all_datasets_id": "MJD-T05",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "MJD",
+      "row": 10,
+      "source_architecture_id": "MJD-T06",
+      "all_datasets_row": 31,
+      "all_datasets_id": "MJD-T06",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 6,
+      "source_architecture_id": "EXO-T01",
+      "all_datasets_row": 86,
+      "all_datasets_id": "EXO-T01",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 7,
+      "source_architecture_id": "EXO-T02",
+      "all_datasets_row": 87,
+      "all_datasets_id": "EXO-T02",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 8,
+      "source_architecture_id": "EXO-T03",
+      "all_datasets_row": 88,
+      "all_datasets_id": "EXO-T03",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 9,
+      "source_architecture_id": "EXO-T04",
+      "all_datasets_row": 89,
+      "all_datasets_id": "EXO-T04",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 10,
+      "source_architecture_id": "EXO-T05",
+      "all_datasets_row": 90,
+      "all_datasets_id": "EXO-T05",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 11,
+      "source_architecture_id": "EXO-T06",
+      "all_datasets_row": 91,
+      "all_datasets_id": "EXO-T06",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 12,
+      "source_architecture_id": "EXO-T07",
+      "all_datasets_row": 92,
+      "all_datasets_id": "EXO-T07",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 13,
+      "source_architecture_id": "EXO-T08",
+      "all_datasets_row": 93,
+      "all_datasets_id": "EXO-T08",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "EXO200 Model Results",
+      "row": 14,
+      "source_architecture_id": "EXO-T09",
+      "all_datasets_row": 94,
+      "all_datasets_id": "EXO-T09",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 6,
+      "source_architecture_id": "transformer_001_sampled_hits_coordinate_mlp",
+      "all_datasets_row": 99,
+      "all_datasets_id": "transformer_001_sampled_hits_coordinate_mlp",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 7,
+      "source_architecture_id": "transformer_002_voxel_coordinate_mlp",
+      "all_datasets_row": 100,
+      "all_datasets_id": "transformer_002_voxel_coordinate_mlp",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 8,
+      "source_architecture_id": "transformer_003_voxel_fourier_xyz",
+      "all_datasets_row": 101,
+      "all_datasets_id": "transformer_003_voxel_fourier_xyz",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 9,
+      "source_architecture_id": "transformer_004_sampled_hits_fourier_xyz",
+      "all_datasets_row": 102,
+      "all_datasets_id": "transformer_004_sampled_hits_fourier_xyz",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 10,
+      "source_architecture_id": "transformer_005_summary_features_coordinate_mlp",
+      "all_datasets_row": 103,
+      "all_datasets_id": "transformer_005_summary_features_coordinate_mlp",
+      "all_three_metric_strings_match": true
+    },
+    {
+      "worksheet": "SuperNEMO Model Results",
+      "row": 11,
+      "source_architecture_id": "transformer_006_summary_features_fourier_xyz",
+      "all_datasets_row": 104,
+      "all_datasets_id": "transformer_006_summary_features_fourier_xyz",
+      "all_three_metric_strings_match": true
+    }
+  ],
+  "missing_variant_cells": {
+    "NEXT": [],
+    "MJD": [
+      "entity_rope",
+      "region_rope",
+      "summary_rope"
+    ],
+    "EXO-200": [],
+    "SuperNEMO": [
+      "entity_rope",
+      "region_rope",
+      "summary_rope"
+    ]
+  },
+  "workbook_issues": [
+    {
+      "issue": "All Datasets omits three NEXT RoPE results",
+      "authoritative_cells": [
+        "NEXT!S33",
+        "NEXT!S36",
+        "NEXT!S39"
+      ],
+      "values": [
+        "0.5124",
+        "0.4971",
+        "0.6023"
+      ],
+      "missing_I_cells": [
+        "NEXT!W33",
+        "NEXT!W36",
+        "NEXT!W39"
+      ],
+      "PE_comment_refs": [
+        "NEXT!F33",
+        "NEXT!F36",
+        "NEXT!F39"
+      ],
+      "action": "Include all three results; missing I remains a dash."
+    },
+    {
+      "issue": "NEXT T identifiers shift between full and stale summary sheets",
+      "mappings": [
+        {
+          "worksheet": "NEXT",
+          "row": 31,
+          "source_architecture_id": "NEXT-T01",
+          "all_datasets_row": 63,
+          "all_datasets_id": "NEXT-T01",
+          "all_three_metric_strings_match": true
+        },
+        {
+          "worksheet": "NEXT",
+          "row": 32,
+          "source_architecture_id": "NEXT-T02",
+          "all_datasets_row": 64,
+          "all_datasets_id": "NEXT-T02",
+          "all_three_metric_strings_match": true
+        },
+        {
+          "worksheet": "NEXT",
+          "row": 34,
+          "source_architecture_id": "NEXT-T04",
+          "all_datasets_row": 65,
+          "all_datasets_id": "NEXT-T03",
+          "all_three_metric_strings_match": true
+        },
+        {
+          "worksheet": "NEXT",
+          "row": 35,
+          "source_architecture_id": "NEXT-T05",
+          "all_datasets_row": 66,
+          "all_datasets_id": "NEXT-T04",
+          "all_three_metric_strings_match": true
+        },
+        {
+          "worksheet": "NEXT",
+          "row": 37,
+          "source_architecture_id": "NEXT-T07",
+          "all_datasets_row": 67,
+          "all_datasets_id": "NEXT-T05",
+          "all_three_metric_strings_match": true
+        },
+        {
+          "worksheet": "NEXT",
+          "row": 38,
+          "source_architecture_id": "NEXT-T08",
+          "all_datasets_row": 68,
+          "all_datasets_id": "NEXT-T06",
+          "all_three_metric_strings_match": true
+        }
+      ],
+      "action": "Join by tokenizer plus PE, retaining full NEXT coordinates; do not merge by T number."
+    },
+    {
+      "issue": "Blank Transformer placeholders are not evaluated variants",
+      "exact_ranges": [
+        "MJD!B11:W12",
+        "SuperNEMO!B5:W12",
+        "All Datasets!B32:W33",
+        "All Datasets!B69:W70",
+        "All Datasets!B74:W81"
+      ],
+      "action": "Do not invent zero-valued results; absent semantic variants remain dashes."
+    },
+    {
+      "issue": "MJD classification-labelled rows also contain regression-column values",
+      "range": "MJD!Y5:AM10",
+      "action": "Use J/S/W for this classification table; do not count regression metrics as classification variants."
+    },
+    {
+      "issue": "NEXT QA Summary covers non-Transformer campaign only",
+      "cells": [
+        "QA Summary!C8",
+        "QA Summary!C9",
+        "QA Summary!C10"
+      ],
+      "action": "Its 23 classification rows, 3 regression rows and 116549 events do not establish legacy Transformer split or protocol."
+    },
+    {
+      "issue": "Legacy comments do not state a matching protocol",
+      "comment_part": "xl/comments2.xml",
+      "action": "NEXT comments establish PE and minutes per epoch only. Do not assign the revised figure 5-keV protocol to saved main-table values."
+    },
+    {
+      "issue": "Positional-encoding prose mentions RoPE only for EXO-200",
+      "file": "transformer_contribution/sections/transformer_models.tex",
+      "action": "Include NEXT in the description when the three NEXT RoPE records are shown."
+    }
+  ],
+  "comparability_evidence": {
+    "SuperNEMO_baseline_rows_checked": [
+      {
+        "worksheet": "SuperNEMO Model Results",
+        "row": 2,
+        "architecture_id": "cnn_004_multiview_late_fusion",
+        "metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/cnn_004_multiview_late_fusion/test_evaluation/energybench/.energybench/metrics.json",
+        "metrics_sha256": "fc816b423e5f334b4ac7e3c6f250dff86c6e70cd5621e1532b17f1e360fec9c2",
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "test_events": 589824
+      },
+      {
+        "worksheet": "SuperNEMO Model Results",
+        "row": 3,
+        "architecture_id": "gnn_001_static_gine",
+        "metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/gnn_001_static_gine/test_evaluation/energybench/.energybench/metrics.json",
+        "metrics_sha256": "727952aa24be696de1a775f249e264021407cddf599da93c26a675d74bfb9ddd",
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "test_events": 589824
+      },
+      {
+        "worksheet": "SuperNEMO Model Results",
+        "row": 4,
+        "architecture_id": "seq_001_bigru",
+        "metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/seq_001_bigru/test_evaluation/energybench/.energybench/metrics.json",
+        "metrics_sha256": "af56774cacaf3d41d0c9d647c1e8543b6b14652139218d3948f3d119873e8722",
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "test_events": 589824
+      },
+      {
+        "worksheet": "SuperNEMO Model Results",
+        "row": 5,
+        "architecture_id": "ssm_001_pointmamba",
+        "metrics_json": "/home/wenyu/SuperNEMO/outputs/classification/ssm_001_pointmamba/test_evaluation/energybench/.energybench/metrics.json",
+        "metrics_sha256": "0cebc6281eef7f003f617bbe4d94fd9c1bcf2db88a822dfcd9b809f35187309e",
+        "protocol_fingerprint": "fe0d8c893343290b9809776c54cfaec4a33824b7c0a19efead712ffc6df83762",
+        "label_mapping": {
+          "label_mapping": {
+            "2nu": 1,
+            "Bi214": 0
+          },
+          "positive_category": "2nu",
+          "positive_label": 1,
+          "score_direction": "higher",
+          "score_space": "logit"
+        },
+        "test_events": 589824
+      }
+    ],
+    "workbook_metric_definitions": {
+      "params": "Field Guide!A12:E12",
+      "matched_auc": "Field Guide!A21:E21",
+      "I": "Field Guide!A25:E25",
+      "test_events": "Field Guide!A19:E19"
+    },
+    "protocol_notes": "Header and Field Guide notes define metric names but do not establish NEXT/MJD/EXO per-Transformer binning, trimming, split identity or exact label roles. No actual per-variant matching protocol was found in comments. SuperNEMO protocol and labels were independently read from workbook-linked saved metrics."
+  },
+  "validation": {
+    "no_models_run": true,
+    "workbook_values_not_modified": true,
+    "all_30_classification_results_included": true,
+    "all_27_complete_triples_match_All_Datasets_numeric_strings": true,
+    "NEXT_RoPE_found_in_full_sheet_comments": true,
+    "all_SuperNEMO_values_match_linked_metrics": true
+  }
+}

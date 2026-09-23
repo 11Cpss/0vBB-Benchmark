@@ -1,0 +1,4 @@
+PASS tables_and_matching.log
+PASS mjd_motivation.log
+PASS mjd_waveforms.log
+PASS appendix_figures.log

@@ -1,0 +1,15 @@
+Figure~\ref{fig:next-capacity} compares model capacity, energy-matched
+ranking error, and energy independence for 19 NEXT neural configurations.
+The complete results are listed in Table~\ref{tab:next-classification}.
+
+\input{wing_contribution/sections/next_capacity_figure}
+
+The shared classic-model reevaluation separates energy-matched ranking
+from within-class score stability. The matched-AUC leaders among the available
+retained-campaign classic models remain unchanged, while the independence values on EXO-200 and SuperNEMO are lower
+under the finer common grid. The MJD and EXO-200 reevaluation excludes energies outside 0--3000 keV
+without changing inclusive AUC. The reevaluated Transformers retain the
+same matched-AUC leaders, while EXO-200 region--RoPE leaves the Transformer
+Pareto set after its independence score decreases under the fixed grid.
+These single-run comparisons describe the retained test populations and do
+not establish statistical significance or performance under distribution shift.

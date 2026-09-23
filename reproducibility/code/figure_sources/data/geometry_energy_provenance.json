@@ -1,0 +1,348 @@
+{
+  "manifest": "/home/wenyu/SuperNEMO/data/manifests/split_manifest.json",
+  "manifest_sha256": "16e741f5687a89a1e890242ac3d9575ac34d54b4b6b291193ca118843e749603",
+  "split": "test",
+  "energy_definition": "E1 + E2; reconstructed calorimeter electron energies, keV",
+  "coordinates": "All stored tX,tY,tZ tracker hit centers in mm; equal hit weights; no trajectory fit",
+  "descriptor_definitions": {
+    "covariance": "C = (1/n) sum_j (r_j - mean(r))(r_j - mean(r))^T",
+    "radius_gyration_mm": "sqrt(trace(C))",
+    "anisotropy": "(3 lambda_max(C)/trace(C) - 1)/2; undefined for zero trace",
+    "n_tracker_hits": "number of raw tracker rows in the event"
+  },
+  "predefined_descriptors": [
+    "radius_gyration_mm",
+    "anisotropy",
+    "n_tracker_hits"
+  ],
+  "energy_bin_width_keV": 250.0,
+  "energy_bin_edges_keV": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0,
+    2250.0,
+    2500.0,
+    2750.0,
+    3000.0,
+    3250.0
+  ],
+  "bin_boundary": "left closed/right open, except inclusive last right edge",
+  "trend_min_finite_events": 20,
+  "cohort_windows_keV": {
+    "low": [
+      500.0,
+      1000.0
+    ],
+    "high": [
+      2200.0,
+      2700.0
+    ]
+  },
+  "normalization": "None; physical coordinates retained and moments centered per event",
+  "uncertainty_display": "Middle 50 percent of events (IQR), not an uncertainty interval for the median",
+  "checks": {
+    "Bi214": {
+      "individually_recomputed_covariances": 192,
+      "maximum_covariance_abs_error": 4.656612873077393e-10,
+      "maximum_translation_covariance_abs_error": 2.1827872842550278e-11,
+      "n_raw_tracker_rows": 6325883,
+      "source_file": "/home/klz/Data/zeronu_benchmark/SuperNEMO/data_Bi214_merged.h5",
+      "index_file": "/home/wenyu/SuperNEMO/data/manifests/Bi214_event_offsets.npy",
+      "n_events": 262144,
+      "energy_sha256": "1e97ced282103d818a37073597489e39e479b58b205f39e5fa1a26cff5db4d01",
+      "n_tracker_hits_sha256": "d69a5b932a357abbca5f59460f4bc117fe38e0f813aab39e251772ed39944320",
+      "index_sha256": "d829cf5942d7d6f73c93af6fcf4732449042d1d606d1c14e0c9d21e10448881b",
+      "zero_variance_events": 0
+    },
+    "0nubb": {
+      "individually_recomputed_covariances": 144,
+      "maximum_covariance_abs_error": 1.1641532182693481e-10,
+      "maximum_translation_covariance_abs_error": 2.9103830456733704e-11,
+      "n_raw_tracker_rows": 4918467,
+      "source_file": "/home/klz/Data/zeronu_benchmark/SuperNEMO/data_0nubb_merged.h5",
+      "index_file": "/home/wenyu/SuperNEMO/data/manifests/0nubb_event_offsets.npy",
+      "n_events": 196608,
+      "energy_sha256": "056ec5d73b80138e67224d9d37863a486caee3ed3e1f943cd8624abf68f0ad3e",
+      "n_tracker_hits_sha256": "f2f1ee72cf2724e14c232b5f96a5473c942359673559475bfc3fb389efa2564a",
+      "index_sha256": "340e9ccfbd747810a29975f521df4d98839efeb5129063fc94ec22275bf8d7b4",
+      "zero_variance_events": 0
+    }
+  },
+  "summary": {
+    "Bi214": {
+      "n_events": 262144,
+      "energy": {
+        "n": 262144,
+        "minimum": 300.046875,
+        "maximum": 3108.75,
+        "mean": 1451.5179171860218,
+        "p25": 1003.0,
+        "median": 1455.625,
+        "p75": 1870.25
+      },
+      "bin_counts": [
+        0,
+        8661,
+        24550,
+        31931,
+        34197,
+        39005,
+        40254,
+        35299,
+        25845,
+        15139,
+        6144,
+        1079,
+        40
+      ],
+      "features": {
+        "radius_gyration_mm": {
+          "all_finite": {
+            "n": 262144,
+            "minimum": 60.82985062484386,
+            "maximum": 2188.11066094573,
+            "mean": 309.04220854291043,
+            "p25": 234.2038243820708,
+            "median": 289.66888858697087,
+            "p75": 350.18001518348376
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": 0.056926661790381895,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 56481,
+              "minimum": 71.81609542783568,
+              "maximum": 2183.8812998803674,
+              "mean": 299.72649758860354,
+              "p25": 224.05981852069337,
+              "median": 282.2383195100089,
+              "p75": 336.7717376394348
+            },
+            "high": {
+              "n": 24976,
+              "minimum": 71.9256877052025,
+              "maximum": 2012.4801933414606,
+              "mean": 311.48320368235056,
+              "p25": 238.7059082638144,
+              "median": 294.26622447311365,
+              "p75": 355.70294400259843
+            }
+          },
+          "trend_covered_events": 262144,
+          "trend_coverage_fraction": 1.0
+        },
+        "anisotropy": {
+          "all_finite": {
+            "n": 262144,
+            "minimum": 0.09128845874772584,
+            "maximum": 0.9990582312160659,
+            "mean": 0.7984056887164339,
+            "p25": 0.6917390905693319,
+            "median": 0.8513534106276179,
+            "p75": 0.9405130140007489
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": 0.02675641827468776,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 56481,
+              "minimum": 0.19652122208054867,
+              "maximum": 0.999057558430634,
+              "mean": 0.78989409046005,
+              "p25": 0.6716225606065,
+              "median": 0.8428336002363874,
+              "p75": 0.9397348663230325
+            },
+            "high": {
+              "n": 24976,
+              "minimum": 0.2508997633047848,
+              "maximum": 0.9987109913050893,
+              "mean": 0.8022604107099123,
+              "p25": 0.7003190728163458,
+              "median": 0.8534842624045668,
+              "p75": 0.9403401566782666
+            }
+          },
+          "trend_covered_events": 262144,
+          "trend_coverage_fraction": 1.0
+        },
+        "n_tracker_hits": {
+          "all_finite": {
+            "n": 262144,
+            "minimum": 6.0,
+            "maximum": 148.0,
+            "mean": 24.131328582763672,
+            "p25": 20.0,
+            "median": 22.0,
+            "p75": 26.0
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": 0.03280533730391686,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 56481,
+              "minimum": 6.0,
+              "maximum": 148.0,
+              "mean": 23.675802482250667,
+              "p25": 20.0,
+              "median": 22.0,
+              "p75": 26.0
+            },
+            "high": {
+              "n": 24976,
+              "minimum": 6.0,
+              "maximum": 109.0,
+              "mean": 24.29252081998719,
+              "p25": 20.0,
+              "median": 22.0,
+              "p75": 27.0
+            }
+          },
+          "trend_covered_events": 262144,
+          "trend_coverage_fraction": 1.0
+        }
+      }
+    },
+    "0nubb": {
+      "n_events": 196608,
+      "energy": {
+        "n": 196608,
+        "minimum": 310.1875,
+        "maximum": 3147.75,
+        "mean": 2653.440623998642,
+        "p25": 2583.125,
+        "median": 2729.25,
+        "p75": 2821.5
+      },
+      "bin_counts": [
+        0,
+        48,
+        174,
+        352,
+        668,
+        1082,
+        1817,
+        3002,
+        6571,
+        20494,
+        74151,
+        87481,
+        768
+      ],
+      "features": {
+        "radius_gyration_mm": {
+          "all_finite": {
+            "n": 196608,
+            "minimum": 65.65175375415416,
+            "maximum": 1680.7874390223503,
+            "mean": 339.49104405432166,
+            "p25": 269.6878055203682,
+            "median": 313.82686351594214,
+            "p75": 384.51223374419664
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": -0.1954269745203538,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 526,
+              "minimum": 125.0694078268342,
+              "maximum": 1192.497719269758,
+              "mean": 391.70577321656305,
+              "p25": 282.2074074515015,
+              "median": 335.06232486621434,
+              "p75": 455.2590077397607
+            },
+            "high": {
+              "n": 73465,
+              "minimum": 72.7472122335633,
+              "maximum": 1627.4074773302752,
+              "mean": 364.90300701448433,
+              "p25": 274.90113222757014,
+              "median": 333.8334990752449,
+              "p75": 421.0727480072953
+            }
+          },
+          "trend_covered_events": 196608,
+          "trend_coverage_fraction": 1.0
+        },
+        "anisotropy": {
+          "all_finite": {
+            "n": 196608,
+            "minimum": 0.19048504626098217,
+            "maximum": 0.9995304600146993,
+            "mean": 0.8465794866333014,
+            "p25": 0.7799683646500908,
+            "median": 0.9018851868509525,
+            "p75": 0.9597298616804116
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": 0.06626425085799204,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 526,
+              "minimum": 0.3289864201581377,
+              "maximum": 0.9953492288848571,
+              "mean": 0.8488280729466332,
+              "p25": 0.791734918376774,
+              "median": 0.9078622276225008,
+              "p75": 0.9540436501507787
+            },
+            "high": {
+              "n": 73465,
+              "minimum": 0.19048504626098217,
+              "maximum": 0.9990011503096914,
+              "mean": 0.8376671093440546,
+              "p25": 0.7648025441087858,
+              "median": 0.8892329783493604,
+              "p75": 0.9546331305504614
+            }
+          },
+          "trend_covered_events": 196608,
+          "trend_coverage_fraction": 1.0
+        },
+        "n_tracker_hits": {
+          "all_finite": {
+            "n": 196608,
+            "minimum": 6.0,
+            "maximum": 122.0,
+            "mean": 25.016616821289062,
+            "p25": 20.0,
+            "median": 23.0,
+            "p75": 28.0
+          },
+          "n_nonfinite": 0,
+          "spearman_with_energy": -0.20998547356597602,
+          "predefined_energy_cohorts": {
+            "low": {
+              "n": 526,
+              "minimum": 13.0,
+              "maximum": 88.0,
+              "mean": 26.929657794676807,
+              "p25": 20.0,
+              "median": 24.0,
+              "p75": 30.0
+            },
+            "high": {
+              "n": 73465,
+              "minimum": 6.0,
+              "maximum": 122.0,
+              "mean": 26.835962703328114,
+              "p25": 21.0,
+              "median": 24.0,
+              "p75": 30.0
+            }
+          },
+          "trend_covered_events": 196608,
+          "trend_coverage_fraction": 1.0
+        }
+      }
+    }
+  },
+  "scope": "Descriptive within-class topology-energy relationships; not independence score, model inference, fitted track length, or proof of topology energy separability."
+}

@@ -1,0 +1,146 @@
+{
+  "original_package": "/home/wenyu/summer/src/energybench",
+  "bundle_package": "code/transformers/original/exo200_detector/frozen_energybench/energybench",
+  "fingerprint_algorithm": "SHA256 concatenating UTF-8 basename and complete file bytes for each sorted top-level *.py, matching original evaluator _evaluator_code_fingerprint.",
+  "original_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+  "bundle_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+  "per_file": [
+    {
+      "name": "__init__.py",
+      "original_sha256": "3a962dd4a2f81994ff5afad2146abf19095f66158fdda2063c6a3c61eca59182",
+      "bundle_sha256": "3a962dd4a2f81994ff5afad2146abf19095f66158fdda2063c6a3c61eca59182",
+      "identical": true
+    },
+    {
+      "name": "__main__.py",
+      "original_sha256": "d7815f9da17bcd8e79d1d47170e5795e29cc5837f97d1049664813068a9e563f",
+      "bundle_sha256": "d7815f9da17bcd8e79d1d47170e5795e29cc5837f97d1049664813068a9e563f",
+      "identical": true
+    },
+    {
+      "name": "adapters.py",
+      "original_sha256": "8ff340b4698ff56ae8c628ec30f9cab68f559533d85742b530eab96275006c69",
+      "bundle_sha256": "8ff340b4698ff56ae8c628ec30f9cab68f559533d85742b530eab96275006c69",
+      "identical": true
+    },
+    {
+      "name": "cli.py",
+      "original_sha256": "cbf9bfd1fd50ace2c00e0bb175f72f9557925d2ecc4e83338144b0ce9137d662",
+      "bundle_sha256": "cbf9bfd1fd50ace2c00e0bb175f72f9557925d2ecc4e83338144b0ce9137d662",
+      "identical": true
+    },
+    {
+      "name": "config.py",
+      "original_sha256": "649d636bc9904e4c681d05cdb374c94a68ccc000c285f9cd0d7034888c385d9c",
+      "bundle_sha256": "649d636bc9904e4c681d05cdb374c94a68ccc000c285f9cd0d7034888c385d9c",
+      "identical": true
+    },
+    {
+      "name": "data.py",
+      "original_sha256": "7cefa3a5da36986130e4714dfeb56dbf5aed87cf0e2f9656a446bf816491ddac",
+      "bundle_sha256": "7cefa3a5da36986130e4714dfeb56dbf5aed87cf0e2f9656a446bf816491ddac",
+      "identical": true
+    },
+    {
+      "name": "decorrelation.py",
+      "original_sha256": "ac6bcce455db4447be2f498b5612085dd08f4a8a6766ada8b54a38e25acb2a85",
+      "bundle_sha256": "ac6bcce455db4447be2f498b5612085dd08f4a8a6766ada8b54a38e25acb2a85",
+      "identical": true
+    },
+    {
+      "name": "dependence.py",
+      "original_sha256": "6754db08e12cdf6c2fd0b66e97b0a1366c087e16f9582addad3a4009c06af545",
+      "bundle_sha256": "6754db08e12cdf6c2fd0b66e97b0a1366c087e16f9582addad3a4009c06af545",
+      "identical": true
+    },
+    {
+      "name": "evaluation.py",
+      "original_sha256": "86279a710f40956238f4e95649f57499eee575be7c53c9424ede02f826064148",
+      "bundle_sha256": "86279a710f40956238f4e95649f57499eee575be7c53c9424ede02f826064148",
+      "identical": true
+    },
+    {
+      "name": "next_workflow.py",
+      "original_sha256": "ea2a9409949fdb21a0a93332ebd11fa2f11739ec9d41cca80b2ec5b840344c35",
+      "bundle_sha256": "ea2a9409949fdb21a0a93332ebd11fa2f11739ec9d41cca80b2ec5b840344c35",
+      "identical": true
+    },
+    {
+      "name": "plotting.py",
+      "original_sha256": "a8c54a5c44dd680be0ca8ae5b48d4602da76e816aaf5dd694f99636ac9cbb099",
+      "bundle_sha256": "a8c54a5c44dd680be0ca8ae5b48d4602da76e816aaf5dd694f99636ac9cbb099",
+      "identical": true
+    },
+    {
+      "name": "regression.py",
+      "original_sha256": "1dd69f66ab41cfcf65580864a605083b298c9d0aff92b62a14b80bd622ddfd79",
+      "bundle_sha256": "1dd69f66ab41cfcf65580864a605083b298c9d0aff92b62a14b80bd622ddfd79",
+      "identical": true
+    },
+    {
+      "name": "reporting.py",
+      "original_sha256": "3d95b75e7aaad73960b96a4fa4d9e9018eecabc281f249439ede3e5ecdf75c40",
+      "bundle_sha256": "3d95b75e7aaad73960b96a4fa4d9e9018eecabc281f249439ede3e5ecdf75c40",
+      "identical": true
+    },
+    {
+      "name": "roc.py",
+      "original_sha256": "6ea941b67f3bd86de3256772546f0c75b0dedd836fb36bff3da745b3c0ac76b8",
+      "bundle_sha256": "6ea941b67f3bd86de3256772546f0c75b0dedd836fb36bff3da745b3c0ac76b8",
+      "identical": true
+    },
+    {
+      "name": "utils.py",
+      "original_sha256": "1440404beb2e2a613309f3642609b1afe0c057965d8bea099a4d035b89421476",
+      "bundle_sha256": "1440404beb2e2a613309f3642609b1afe0c057965d8bea099a4d035b89421476",
+      "identical": true
+    }
+  ],
+  "published_run_fingerprints": [
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_001_sampled_hits_coordinate_mlp/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    },
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_002_voxel_coordinate_mlp/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    },
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_003_voxel_fourier_xyz/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    },
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_004_sampled_hits_fourier_xyz/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    },
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_005_summary_features_coordinate_mlp/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    },
+    {
+      "config": "code/transformers/configs/published_supernemo/transformer_006_summary_features_fourier_xyz/run_config.json",
+      "recorded_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c"
+    }
+  ],
+  "replay": [
+    {
+      "dataset": "NEXT",
+      "n_models": 6,
+      "max_error": {
+        "I": 0.0,
+        "matched_auc": 3.3306690738754696e-16,
+        "inclusive_auc": 1.1102230246251565e-16
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "n_models": 6,
+      "max_error": {
+        "I": 0.0,
+        "matched_auc": 0.0,
+        "inclusive_auc": 0.0
+      }
+    }
+  ],
+  "all_exact_source_matches": true
+}

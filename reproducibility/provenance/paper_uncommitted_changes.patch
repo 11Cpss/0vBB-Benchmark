@@ -1,0 +1,16 @@
+diff --git a/wing_contribution/sections/mjd_motivation_figure.tex b/wing_contribution/sections/mjd_motivation_figure.tex
+index d0837cf..b0e647f 100644
+--- a/wing_contribution/sections/mjd_motivation_figure.tex
++++ b/wing_contribution/sections/mjd_motivation_figure.tex
+@@ -1,6 +1,9 @@
+ \begin{figure}[!htb]
+ \centering
+-    \includegraphics[width=\linewidth]{wing_contribution/figures/mjd_motivation_main_v2.pdf}
+-\caption{Figure (a) shows two example of MJD waveforms: the taller one represent a event with higher energy, and a shorter one with lower energy; Figure (b) shows the energy distribution of Signal-like training sets and background-like training sets, using SuperNEMO events. Retained energy bins are shown in the blue region. Figure (c) shows the ROC curve of the raw (original classifier) without energy shortcut learning mitigation, as well as the one after energy shortcut learning mitigation.}
++    \includegraphics[width=\linewidth]{wing_contribution/figures/mjd_motivation_main_v2_generated.pdf}
++\caption{Energy shortcuts in detector data.
++(a) Baseline-subtracted MJD waveforms from two clean test events with energies of 158 and 1132\,keV.
++(b) Unit-area energy spectra for SuperNEMO $0\nu\beta\beta$ (signal-like) and $^{214}$Bi (background-like) test events. Shading marks retained 5\,keV matching bins; spectra use 50\,keV display bins.
++(c) ROC curves using energy alone as the score for the original population, retained events with unit weights, and the same retained events after matching. The point marks a 2200\,keV threshold.}
+ \label{fig:mjd-motivation}
+ \end{figure}

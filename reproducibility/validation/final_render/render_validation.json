@@ -1,0 +1,15 @@
+{
+  "all_generated_tables_byte_match_final_paper": {
+    "next_classification.tex": true,
+    "transformer_diagnostics.tex": true,
+    "evaluation_losses.tex": true,
+    "benchmark_main.tex": true,
+    "independence_diagnostics.tex": true,
+    "matching_diagnostics.tex": true
+  },
+  "event_evaluation_performed": false,
+  "figures_generated_from_frozen_display_inputs": true,
+  "source_paper_modified": false,
+  "dataset_example_pdf_generation": "Original generating code unavailable; eight exact supplied PDF assets remain in paper/dataset_description/Images.",
+  "presentation_adjustments": "Three documented main-table spacing/heading substitutions only; no metric edits."
+}

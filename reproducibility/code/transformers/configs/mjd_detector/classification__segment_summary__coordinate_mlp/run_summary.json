@@ -1,0 +1,22 @@
+{
+  "run_id": "classification__segment_summary__coordinate_mlp",
+  "task": "classification",
+  "tokenization": "segment_summary",
+  "position_encoding": "coordinate_mlp",
+  "parameter_count": 111105,
+  "train_events": 936000,
+  "validation_events": 104000,
+  "test_events": 390000,
+  "epochs_completed": 36,
+  "best_epoch": 31,
+  "best_validation_score": 0.9665008764449651,
+  "training_seconds": 18932.4685318009,
+  "minutes_per_epoch": 8.765031727685601,
+  "evaluation_seconds": 118.9029726521112,
+  "test_auc": 0.9670155303222862,
+  "test_accuracy": 0.9048487179487179,
+  "test_mae_kev": null,
+  "test_rmse_kev": null,
+  "test_bias_kev": null,
+  "test_loss": 0.2211508397257471
+}

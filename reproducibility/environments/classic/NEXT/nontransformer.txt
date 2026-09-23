@@ -1,0 +1,3 @@
+# Additional dependency for classic_001_topology_xgboost.
+# PyTorch remains managed by requirements/next-cnn-cu128.txt.
+xgboost==3.0.5

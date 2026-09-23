@@ -1,0 +1,101 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arnquist et~al.(2023{\natexlab{a}})]{arnquist2023mjdrelease}
+I.~J. Arnquist et~al.
+\newblock {Majorana Demonstrator} data release for {AI/ML} applications,
+  2023{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2308.10856}.
+
+\bibitem[Arnquist et~al.(2023{\natexlab{b}})]{majorana_ml_dataset}
+I.~J. Arnquist et~al.
+\newblock {Majorana Demonstrator Data Release for AI/ML Applications}.
+\newblock \emph{arXiv preprint arXiv:2308.10856}, 2023{\natexlab{b}}.
+
+\bibitem[Cho et~al.(2014)Cho, van Merri{\"e}nboer, Gulcehre, Bahdanau,
+  Bougares, Schwenk, and Bengio]{wing_cho2014gru}
+Kyunghyun Cho, Bart van Merri{\"e}nboer, Caglar Gulcehre, Dzmitry Bahdanau,
+  Fethi Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using {RNN} encoder--decoder for
+  statistical machine translation.
+\newblock In \emph{Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  1724--1734, 2014.
+\newblock \doi{10.3115/v1/D14-1179}.
+\newblock URL \url{https://aclanthology.org/D14-1179/}.
+
+\bibitem[{EXO-200 Collaboration}(2026)]{exo200_ml_dataset}
+{EXO-200 Collaboration}.
+\newblock {EXO-200 Public Data Release for AI/ML Applications}, 2026.
+\newblock [Dataset]. https://doi.org/10.5281/zenodo.22155860.
+
+\bibitem[Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel,
+  Bethge, and Wichmann]{geirhos2020shortcut}
+Robert Geirhos, J{\"o}rn-Henrik Jacobsen, Claudio Michaelis, Richard Zemel,
+  Wieland Brendel, Matthias Bethge, and Felix~A. Wichmann.
+\newblock Shortcut learning in deep neural networks.
+\newblock \emph{Nature Machine Intelligence}, 2:\penalty0 665--673, 2020.
+\newblock \doi{10.1038/s42256-020-00257-z}.
+\newblock URL \url{https://www.nature.com/articles/s42256-020-00257-z}.
+
+\bibitem[Gu \& Dao(2023)Gu and Dao]{wing_gu2023mamba}
+Albert Gu and Tri Dao.
+\newblock Mamba: Linear-time sequence modeling with selective state spaces.
+\newblock \emph{arXiv preprint arXiv:2312.00752}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2312.00752}.
+
+\bibitem[Hanley \& McNeil(1982)Hanley and McNeil]{hanley1982meaning}
+James~A. Hanley and Barbara~J. McNeil.
+\newblock The meaning and use of the area under a receiver operating
+  characteristic ({ROC}) curve.
+\newblock \emph{Radiology}, 143\penalty0 (1):\penalty0 29--36, 1982.
+\newblock \doi{10.1148/radiology.143.1.7063747}.
+\newblock URL
+  \url{https://www.med.mcgill.ca/epidemiology/hanley/software/hanley_mcneil_radiology_82.pdf}.
+
+\bibitem[Liang et~al.(2024)Liang, Zhou, Xu, Zhu, Zou, Ye, Tan, and
+  Bai]{wing_liang2024pointmamba}
+Dingkang Liang, Xin Zhou, Wei Xu, Xingkui Zhu, Zhikang Zou, Xiaoqing Ye, Xiao
+  Tan, and Xiang Bai.
+\newblock Pointmamba: A simple state space model for point cloud analysis.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~37, 2024.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2024/hash/395371f778ebd4854b88521100af30ad-Abstract-Conference.html}.
+
+\bibitem[Lin(1991)]{lin1991divergence}
+Jianhua Lin.
+\newblock Divergence measures based on the {Shannon} entropy.
+\newblock \emph{IEEE Transactions on Information Theory}, 37\penalty0
+  (1):\penalty0 145--151, 1991.
+\newblock \doi{10.1109/18.61115}.
+\newblock URL \url{https://ieeexplore.ieee.org/document/61115/}.
+
+\bibitem[Macko(2026{\natexlab{a}})]{macko2026supernemo}
+Miroslav Macko.
+\newblock {SuperNEMO} simulation dataset for {$0\nu\beta\beta$} {AI} summer
+  school at {University of California, Irvine 2026}, June 2026{\natexlab{a}}.
+\newblock Dataset release documentation, 18 June 2026, on behalf of the
+  SuperNEMO Collaboration.
+
+\bibitem[Macko(2026{\natexlab{b}})]{supernemo_ml_dataset}
+Miroslav Macko.
+\newblock {SuperNEMO Dataset for 0vbb AI Summer School - UC Irvine, USA (20-21
+  June 2026)}, 2026{\natexlab{b}}.
+\newblock [Dataset]. https://doi.org/10.5281/zenodo.20698789.
+
+\bibitem[Mistry(2026)]{next_ml_dataset}
+Krishan Mistry.
+\newblock {NEXT Simulation Dataset for AI Summer School UC Irvine 2026}.
+\newblock \emph{arXiv preprint arXiv:2605.07566}, 2026.
+
+\bibitem[Xu et~al.(2019)Xu, Hu, Leskovec, and Jegelka]{wing_xu2019gin}
+Keyulu Xu, Weihua Hu, Jure Leskovec, and Stefanie Jegelka.
+\newblock How powerful are graph neural networks?
+\newblock \emph{arXiv preprint arXiv:1810.00826}, 2019.
+\newblock URL \url{https://arxiv.org/abs/1810.00826}.
+
+\end{thebibliography}

@@ -1,0 +1,35 @@
+{
+  "dataset": "SuperNEMO",
+  "passed": true,
+  "audit_hook_installed_before_pth": true,
+  "pth_processing_enabled": true,
+  "allowlisted_home_roots": [
+    "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923",
+    "/home/wenyu/summer/.venv",
+    "/home/wenyu/summer/envs/python-builds"
+  ],
+  "forbidden_open_probe_blocked": true,
+  "blocked_nonprobe_opens": [],
+  "home_open_events": 1089,
+  "project_modules": {
+    "architectures": "code/classic/SuperNEMO/architectures/__init__.py",
+    "architectures._point_sequence_common": "code/classic/SuperNEMO/architectures/_point_sequence_common.py",
+    "architectures.cnn_004_multiview_late_fusion": "code/classic/SuperNEMO/architectures/cnn_004_multiview_late_fusion.py",
+    "architectures.gnn_001_static_gine": "code/classic/SuperNEMO/architectures/gnn_001_static_gine.py",
+    "architectures.seq_001_bigru": "code/classic/SuperNEMO/architectures/seq_001_bigru.py",
+    "architectures.ssm_001_pointmamba": "code/classic/SuperNEMO/architectures/ssm_001_pointmamba.py",
+    "architectures.trf_001_tracker_transformer": "code/classic/SuperNEMO/architectures/trf_001_tracker_transformer.py",
+    "supernemobench": "code/classic/SuperNEMO/supernemobench/__init__.py",
+    "supernemobench.config": "code/classic/SuperNEMO/supernemobench/config.py",
+    "supernemobench.data": "code/classic/SuperNEMO/supernemobench/data.py",
+    "supernemobench.evaluation": "code/classic/SuperNEMO/supernemobench/evaluation.py",
+    "supernemobench.models": "code/classic/SuperNEMO/supernemobench/models.py",
+    "supernemobench.tokenization": "code/classic/SuperNEMO/supernemobench/tokenization.py",
+    "supernemobench.training": "code/classic/SuperNEMO/supernemobench/training.py",
+    "supernemobench.workflow": "code/classic/SuperNEMO/supernemobench/workflow.py"
+  },
+  "constructor_class": "architectures.cnn_004_multiview_late_fusion.MultiViewLateFusionCNN",
+  "parameter_count": 807666,
+  "forward_executed": false,
+  "data_loaded": false
+}

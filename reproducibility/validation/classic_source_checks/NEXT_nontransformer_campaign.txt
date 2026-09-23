@@ -1,0 +1,12 @@
+usage: nontransformer_campaign.py [-h] --run-id RUN_ID [--resume-queue]
+
+Run the ten non-Transformer NEXT training jobs as one serial campaign. This is
+orchestration, not a model/data smoke test. Preflight only validates imports,
+YAML syntax, required paths, and immutable output ownership. Each training
+program is then executed once in the documented order and receives a fresh
+attempt directory. A failure is recorded and the queue continues.
+
+options:
+  -h, --help       show this help message and exit
+  --run-id RUN_ID
+  --resume-queue

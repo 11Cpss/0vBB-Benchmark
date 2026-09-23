@@ -1,0 +1,203 @@
+{
+  "amp_precision": "bfloat16",
+  "artifact_paths": {
+    "best_model": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/training/best_model.pt",
+    "history": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/training/history.json",
+    "history_plot": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/training/training_history.png",
+    "last_model": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/cnn_006_dense_3d_resnet/classification/training/last_model.pt"
+  },
+  "best_epoch": 11,
+  "best_metric": 0.9840739359990878,
+  "device": "cuda",
+  "epochs_completed": 16,
+  "history": [
+    {
+      "epoch": 1,
+      "learning_rate": 0.0005,
+      "train_auc": 0.9391515327730675,
+      "train_events": 932391,
+      "train_loss": 0.31175335002569304,
+      "val_auc": 0.9545039344092467,
+      "val_events": 116549,
+      "val_loss": 0.3049652170502653
+    },
+    {
+      "epoch": 2,
+      "learning_rate": 0.0004995066821070679,
+      "train_auc": 0.9684256216611951,
+      "train_events": 932391,
+      "train_loss": 0.221598990321456,
+      "val_auc": 0.9736758208592735,
+      "val_events": 116549,
+      "val_loss": 0.24244132670177426
+    },
+    {
+      "epoch": 3,
+      "learning_rate": 0.0004980286753286195,
+      "train_auc": 0.9776952603160876,
+      "train_events": 932391,
+      "train_loss": 0.18292221579824983,
+      "val_auc": 0.9790645824081434,
+      "val_events": 116549,
+      "val_loss": 0.2018649717326804
+    },
+    {
+      "epoch": 4,
+      "learning_rate": 0.0004955718126821722,
+      "train_auc": 0.9808942073881065,
+      "train_events": 932391,
+      "train_loss": 0.1679115789693425,
+      "val_auc": 0.9803972605286343,
+      "val_events": 116549,
+      "val_loss": 0.1932172056322271
+    },
+    {
+      "epoch": 5,
+      "learning_rate": 0.0004921457902821578,
+      "train_auc": 0.9827392126945611,
+      "train_events": 932391,
+      "train_loss": 0.15839815595485338,
+      "val_auc": 0.9821868637399034,
+      "val_events": 116549,
+      "val_loss": 0.1646348924757848
+    },
+    {
+      "epoch": 6,
+      "learning_rate": 0.00048776412907378846,
+      "train_auc": 0.9841482951008739,
+      "train_events": 932391,
+      "train_loss": 0.1512607129966759,
+      "val_auc": 0.9833759502384989,
+      "val_events": 116549,
+      "val_loss": 0.17559825521904668
+    },
+    {
+      "epoch": 7,
+      "learning_rate": 0.0004824441214720629,
+      "train_auc": 0.985447031130195,
+      "train_events": 932391,
+      "train_loss": 0.14465130647243798,
+      "val_auc": 0.9837717847546076,
+      "val_events": 116549,
+      "val_loss": 0.15509040936470903
+    },
+    {
+      "epoch": 8,
+      "learning_rate": 0.00047620676311650495,
+      "train_auc": 0.9863968300534408,
+      "train_events": 932391,
+      "train_loss": 0.13952763582893715,
+      "val_auc": 0.9820534016275324,
+      "val_events": 116549,
+      "val_loss": 0.17014358523547338
+    },
+    {
+      "epoch": 9,
+      "learning_rate": 0.0004690766700109659,
+      "train_auc": 0.9872727867861774,
+      "train_events": 932391,
+      "train_loss": 0.13437607484379785,
+      "val_auc": 0.9836193736252808,
+      "val_events": 116549,
+      "val_loss": 0.17714659426242302
+    },
+    {
+      "epoch": 10,
+      "learning_rate": 0.00046108198137550377,
+      "train_auc": 0.9881194891276075,
+      "train_events": 932391,
+      "train_loss": 0.12947222901730435,
+      "val_auc": 0.9837720954382418,
+      "val_events": 116549,
+      "val_loss": 0.180361892582887
+    },
+    {
+      "epoch": 11,
+      "learning_rate": 0.0004522542485937368,
+      "train_auc": 0.9890481736516963,
+      "train_events": 932391,
+      "train_loss": 0.1239107147711085,
+      "val_auc": 0.9840739359990878,
+      "val_events": 116549,
+      "val_loss": 0.15732263053273615
+    },
+    {
+      "epoch": 12,
+      "learning_rate": 0.00044262831069394727,
+      "train_auc": 0.9899339681520133,
+      "train_events": 932391,
+      "train_loss": 0.11831213352672666,
+      "val_auc": 0.9837356479076157,
+      "val_events": 116549,
+      "val_loss": 0.16057080684046957
+    },
+    {
+      "epoch": 13,
+      "learning_rate": 0.0004322421568553528,
+      "train_auc": 0.9908412525228241,
+      "train_events": 932391,
+      "train_loss": 0.11209963782986122,
+      "val_auc": 0.9829358897653538,
+      "val_events": 116549,
+      "val_loss": 0.16889162363929108
+    },
+    {
+      "epoch": 14,
+      "learning_rate": 0.00042113677648217214,
+      "train_auc": 0.9918435348240208,
+      "train_events": 932391,
+      "train_loss": 0.10518942609893424,
+      "val_auc": 0.9817022497719108,
+      "val_events": 116549,
+      "val_loss": 0.1756835119199191
+    },
+    {
+      "epoch": 15,
+      "learning_rate": 0.0004093559974371724,
+      "train_auc": 0.9928787781027589,
+      "train_events": 932391,
+      "train_loss": 0.09744941821922692,
+      "val_auc": 0.9811009531433833,
+      "val_events": 116549,
+      "val_loss": 0.1909975464664773
+    },
+    {
+      "epoch": 16,
+      "learning_rate": 0.0003969463130731183,
+      "train_auc": 0.9938264582040007,
+      "train_events": 932391,
+      "train_loss": 0.09030695097658242,
+      "val_auc": 0.9796023939756525,
+      "val_events": 116549,
+      "val_loss": 0.2105819498184091
+    }
+  ],
+  "loss_function": "bce_with_logits",
+  "model": {
+    "architecture": {
+      "architecture_id": "cnn_006_dense_3d_resnet",
+      "backend": "torch",
+      "input_kind": "dense3d",
+      "microbatch_size": 2,
+      "model_name": "Dense3DResidualCNN",
+      "supports_regression": false,
+      "task": "classification"
+    },
+    "class_name": "MicrobatchModel",
+    "config": {
+      "base_channels": 12,
+      "dropout": 0.1,
+      "head_features": 128,
+      "stage_blocks": [
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    "module": "workflow_models"
+  },
+  "selection_metric": "val_auc",
+  "stopped_early": true,
+  "task": "classification"
+}

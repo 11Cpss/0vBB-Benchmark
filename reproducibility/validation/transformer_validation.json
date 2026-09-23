@@ -1,0 +1,1887 @@
+{
+  "syntax": [
+    {
+      "path": "code/transformers/assemble_sources.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/build_model_mapping.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/next_run.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/evaluation.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/metrics.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/models.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/plotting.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/training.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/simple_energybench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/tests/test_workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/energy_aware.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/model.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/positional_encoding.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/protocol.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/rotary_attention.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_energy_aware.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_exo_transformer.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_rotary_attention.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/models.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/training.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/waveform_points.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/__main__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/adapters.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/cli.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/decorrelation.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/dependence.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/evaluation.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/next_workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/plotting.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/regression.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/reporting.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/roc.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/utils.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/energy_aware.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/model.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/positional_encoding.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tests/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tests/test_mjd_transformer.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/models.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/training.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/waveform_points.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/cache.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/model.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/positional_encoding.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/benchmark_token_cache.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/build_token_cache.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/measure_voxel_padding.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/tests/test_cache.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/model.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/positional_encoding.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/test_supernemo_transformer.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/test_supernemobench_integration.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/evaluation.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/models.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/training.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/_point_sequence_common.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/cnn_004_multiview_late_fusion.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/gnn_001_static_gine.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/seq_001_bigru.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/ssm_001_pointmamba.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/trf_001_tracker_transformer.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/__init__.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/config.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/data.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/evaluation.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/models.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/tokenization.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/training.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/workflow.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/replay_historical_transformers.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/validate_sources.py",
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/waveform_run.py",
+      "status": "pass"
+    }
+  ],
+  "notebook_cell_syntax": [
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 7,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 9,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "cell": 11,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 7,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 8,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 9,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 10,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "cell": 11,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 8,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 10,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 12,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "cell": 14,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 5,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 7,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 9,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 11,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "cell": 13,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 8,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 10,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "cell": 11,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 8,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 10,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 12,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "cell": 14,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 6,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 7,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 8,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "cell": 9,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_results.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_results.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_results.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "cell": 1,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "cell": 2,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "cell": 3,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "cell": 4,
+      "status": "pass"
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "cell": 5,
+      "status": "pass"
+    }
+  ],
+  "imports": [
+    {
+      "name": "NEXT",
+      "status": "pass",
+      "returncode": 0,
+      "stdout": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/evalutaions_workflow/energybench/__init__.py /home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/next_detector/next_transformer/__init__.py 111105\n",
+      "stderr": "",
+      "paths": [
+        "original/evalutaions_workflow",
+        "original/next_detector"
+      ]
+    },
+    {
+      "name": "MJD",
+      "status": "pass",
+      "returncode": 0,
+      "stdout": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/mjd_detector/mjdbench/__init__.py /home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/mjd_detector/mjd_transformer/__init__.py 111105\n",
+      "stderr": "",
+      "paths": [
+        "original/mjd_detector"
+      ]
+    },
+    {
+      "name": "EXO",
+      "status": "pass",
+      "returncode": 0,
+      "stdout": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/exo200_detector/exobench/__init__.py /home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/exo200_detector/exo_transformer/__init__.py 106689\n",
+      "stderr": "",
+      "paths": [
+        "original/exo200_detector",
+        "original/exo200_detector/frozen_energybench"
+      ]
+    },
+    {
+      "name": "SuperNEMO_canonical",
+      "status": "pass",
+      "returncode": 0,
+      "stdout": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/supernemo_detector/supernemobench/__init__.py /home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/original/supernemo_detector/supernemo_transformer/__init__.py 111233\n",
+      "stderr": "",
+      "paths": [
+        "original/supernemo_detector",
+        "original/exo200_detector/frozen_energybench"
+      ]
+    },
+    {
+      "name": "SuperNEMO_published",
+      "status": "pass",
+      "returncode": 0,
+      "stdout": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/published_supernemo/supernemobench/__init__.py /home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/code/transformers/published_supernemo/architectures/__init__.py 111233\n",
+      "stderr": "",
+      "paths": [
+        "published_supernemo",
+        "original/exo200_detector/frozen_energybench"
+      ]
+    }
+  ],
+  "source_hash_recheck": [
+    {
+      "path": "code/transformers/original/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/pyproject.toml",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/evaluation.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/metrics.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/models.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/plotting.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/energybench/training.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/simple_energybench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/tests/test_workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/cache.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/model.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/positional_encoding.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/next_transformer/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/tests/test_cache.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/energy_aware.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/model.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/positional_encoding.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tests/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tests/test_mjd_transformer.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjd_transformer/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/models.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/training.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/waveform_points.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/mjdbench/workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/energy_aware.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/model.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/positional_encoding.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/protocol.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/rotary_attention.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_energy_aware.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_exo_transformer.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tests/test_rotary_attention.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exo_transformer/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/models.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/training.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/waveform_points.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/exobench/workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/__main__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/adapters.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/cli.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/decorrelation.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/dependence.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/evaluation.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/next_workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/plotting.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/regression.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/reporting.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/roc.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/frozen_energybench/energybench/utils.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/model.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/positional_encoding.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/test_supernemo_transformer.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tests/test_supernemobench_integration.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemo_transformer/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/evaluation.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/models.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/training.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/supernemobench/workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/evalutaions_workflow/requirements.txt",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/CACHE_GUIDE.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/build_token_cache.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/benchmark_token_cache.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/scripts/measure_voxel_padding.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_train.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_full_Model_run_with_cache.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/next_energybench_final_results.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/next_detector/notebooks/Tests/Exploration/next_energybench_cached_optimized.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_train.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/mjd_detector/notebooks/mjd_transformer_results_energy_aware.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_train.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_results.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/notebooks/exo_transformer_energybench_results_executed.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_train.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_transformer_results.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/supernemo_detector/notebooks/supernemo_token_count_audit.ipynb",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/original/exo200_detector/manifests/exo200_v1_split.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/event_split.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/energybench_input_provenance.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__pulse_entities__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__pulse_entities__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__raw_patches__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__raw_patches__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__segment_summary__coordinate_mlp/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/mjd_detector/classification__segment_summary__fourier_coordinates/run_summary.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_002_voxel_coordinate_mlp/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_002_voxel_coordinate_mlp/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_003_voxel_fourier_xyz/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_003_voxel_fourier_xyz/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final/transformer_005_summary_features_coordinate_mlp/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final/transformer_005_summary_features_coordinate_mlp/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final/transformer_006_summary_features_fourier_xyz/representation_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/next/final/transformer_006_summary_features_fourier_xyz/evaluation/metrics.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/config.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/data.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/evaluation.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/models.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/tokenization.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/training.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/supernemobench/workflow.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/__init__.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/_point_sequence_common.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/cnn_004_multiview_late_fusion.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/gnn_001_static_gine.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/seq_001_bigru.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/ssm_001_pointmamba.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/architectures/trf_001_tracker_transformer.py",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/README.md",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/requirements.txt",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/evaluation/supernemo_2nu_vs_bi214.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/published_supernemo/data/manifests/split_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_001_sampled_hits_coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_001_sampled_hits_coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_002_voxel_coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_002_voxel_coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_003_voxel_fourier_xyz/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_003_voxel_fourier_xyz/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_004_sampled_hits_fourier_xyz/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_004_sampled_hits_fourier_xyz/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_005_summary_features_coordinate_mlp/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_005_summary_features_coordinate_mlp/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_006_summary_features_fourier_xyz/run_config.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/published_supernemo/transformer_006_summary_features_fourier_xyz/historical_evaluation_manifest.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "environments/transformers/source_pyproject.toml",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "environments/transformers/source_next_requirements.txt",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "environments/transformers/source_published_supernemo_requirements.txt",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/paper_reference/classification_table_evidence.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    },
+    {
+      "path": "code/transformers/configs/paper_reference/classification_transformer_workbook.json",
+      "source_unchanged": null,
+      "bundle_identical": true
+    }
+  ],
+  "no_training": true,
+  "no_model_forward": true,
+  "no_original_source_writes": true,
+  "original_source_paths_checked": false,
+  "limitations": "No data-dependent training/inference was executed. Import and constructor checks do not establish numerical checkpoint equivalence or hardware reproducibility."
+}

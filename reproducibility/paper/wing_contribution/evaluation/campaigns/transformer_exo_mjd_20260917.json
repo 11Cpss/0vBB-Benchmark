@@ -1,0 +1,94 @@
+{
+  "campaign_id": "transformer-exo-mjd-20260917",
+  "scope": "EXO-200 nine Transformer configurations and MJD six MLP/Fourier Transformer configurations",
+  "selected_models": [
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier"
+    }
+  ],
+  "excluded_by_user": [
+    {
+      "dataset": "MJD",
+      "model_key": "entity_rope",
+      "action": "Keep existing reported paper value; no reevaluation claimed."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_rope",
+      "action": "Keep existing reported paper value; no reevaluation claimed."
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_rope",
+      "action": "Keep existing reported paper value; no reevaluation claimed."
+    }
+  ],
+  "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
+  "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+  "protocol_file_sha256": "989fc7188680c4c9d6086e94405940854c4027f0631e64c9aa1846728a3e5fb8",
+  "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
+  "scope_metadata": "Statistical protocol v3 replaces v2 overflow handling with the final strict 0--3000 keV range. Campaign scope remains separate from metric configuration.",
+  "source_root": "/home/klz/Data/zeronu_benchmark/Transformer_Approach",
+  "policy": {
+    "predictions": "Reuse original saved test predictions and checkpoint provenance; no training or checkpoint substitution.",
+    "inclusive_auc": "Original score/weight population; not filtered by energy.",
+    "energy": "Original physical keV, 600 fixed bins in 0--3000 inclusive; exclude values outside the range before support and histogram construction."
+  }
+}

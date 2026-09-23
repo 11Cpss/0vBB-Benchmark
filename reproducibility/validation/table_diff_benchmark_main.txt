@@ -1,0 +1,21 @@
+--- generated
++++ working_tree
+@@ -8,15 +8,15 @@
+ \caption{Cross-detector classification results. Higher values are better for energy-matched AUC ($\mathrm{AUC}_{\mathrm{match}}$) and energy independence ($I$). Parameters are rounded counts or ranges in thousands across available dataset-specific implementations; ranges are not uncertainty. Within each model family and dataset, bold marks the highest eligible result where recorded precision resolves the comparison; displayed ties use unrounded values where available. \datasetbest{Blue} marks the highest AUC and $I$ across both model families in each dataset. Highlighting denotes point estimates, not statistical significance. Results are from single training seeds. A dash denotes an unavailable result. $^{\ddagger}$MJD GINE uses additional PSD-label supervision and is excluded from best-result highlighting. Evaluation details are provided in Appendix~\ref{app:metric-details}.}
+ \label{tab:benchmark-main}
+ \small
+-\setlength{\tabcolsep}{4pt}
+-\renewcommand{\arraystretch}{1.08}
++\setlength{\tabcolsep}{2pt}
++\renewcommand{\arraystretch}{1}
+ \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lc*{4}{rr}@{}}
+ \toprule
+  & & \multicolumn{2}{c}{NEXT} & \multicolumn{2}{c}{MJD} & \multicolumn{2}{c}{EXO-200} & \multicolumn{2}{c}{SuperNEMO} \\
+ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(l){9-10}
+ Model & \shortstack{\#Params\\(K)} & $\mathrm{AUC}_{\mathrm{match}}$ & $I$ & $\mathrm{AUC}_{\mathrm{match}}$ & $I$ & $\mathrm{AUC}_{\mathrm{match}}$ & $I$ & $\mathrm{AUC}_{\mathrm{match}}$ & $I$ \\
+ \midrule
+-\multicolumn{10}{@{}l}{\textit{Specialized baselines}} \\
++\multicolumn{10}{@{}l}{\textit{Native Representation Approach}} \\
+ Multi-view CNN & 808 & 0.977 & 0.971 & 0.970 & 0.760 & 0.863 & 0.752 & 0.586 & 0.910 \\
+ Static GINE & 480 & \datasetbest{\bestscore{0.995}} & 0.970 & 0.969$^{\ddagger}$ & 0.797$^{\ddagger}$ & \bestscore{0.949} & \bestscore{0.801} & \bestscore{0.590} & 0.913 \\
+ BiGRU & 734 & 0.979 & \bestscore{0.971} & \bestscore{0.975} & \bestscore{0.775} & 0.929 & 0.789 & 0.579 & 0.921 \\

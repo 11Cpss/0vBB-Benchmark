@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "entry_point": "iclr2027_conference.tex",
+  "paper_root_at_inventory": "/home/wenyu/iclr final paper/EnergyBench_reproducibility_20260923/paper",
+  "method": "Recursively follow literal input/include commands after stripping unescaped percent comments; enumerate only active figure/table environments and includegraphics. No conditional content branches affect these manuscript includes.",
+  "active_tex_files": [
+    {
+      "path": "iclr2027_conference.tex",
+      "sha256": "d9220fd18599be42df52711781bd7f805f2668e3ace02b9ef478808f29622b41"
+    },
+    {
+      "path": "math_commands.tex",
+      "sha256": "90473c4d0542070db244cea73ef962d6cddc5b2a746757e6a40ddf5fdfb90ba9"
+    },
+    {
+      "path": "wing_contribution/packages.tex",
+      "sha256": "4646009ebe76a6519550e38a7713bfcd472ee77252ddb5e859739fa6bf5257f5"
+    },
+    {
+      "path": "dataset_description/datasets_section.tex",
+      "sha256": "4dc6209cb8d06b2af64fc19da8fc84418cc4c385752cd6be313aa76ac0d030d9"
+    },
+    {
+      "path": "wing_contribution/benchmarking_metrics.tex",
+      "sha256": "16cdd928ba6c778d8a5875389592070530ba16490f1587db3c4186be1accfc7d"
+    },
+    {
+      "path": "wing_contribution/plain_style.tex",
+      "sha256": "7014e00dec56ceed64f4f721aa79cac2a418cb402ab2c17f977fc34ab085caef"
+    },
+    {
+      "path": "wing_contribution/sections/energy_bias_problem.tex",
+      "sha256": "f34cc1f1d4e0fa2cbb5271778ea29f7058b693013b00d3d04acd8111d9d2be0e"
+    },
+    {
+      "path": "wing_contribution/sections/mjd_motivation_figure.tex",
+      "sha256": "f0d115200d29c4d0732e1b090564d93b30863bbf498451af19cf524193b4a8da"
+    },
+    {
+      "path": "wing_contribution/sections/benchmarking_metrics.tex",
+      "sha256": "26109be133e8a9ed45e894412af1f9e6707d4564d475a51c6efe7af9cc324296"
+    },
+    {
+      "path": "model_design.tex",
+      "sha256": "a883675d71b72e93ca185f21c8ab30ea9a655e7853e7261d62d524dab382da8f"
+    },
+    {
+      "path": "wing_contribution/sections/model_design.tex",
+      "sha256": "337d713ea2fd0bced70be69fed1482c18ebdb7e40d35933d0fb59c78b24e7fd2"
+    },
+    {
+      "path": "transformer_contribution/sections/transformer_models.tex",
+      "sha256": "242484499ac9ac289a34fd755446c39aeeb450128fa3627099cf52052f717645"
+    },
+    {
+      "path": "wing_contribution/experiment_results.tex",
+      "sha256": "b958887455009a7d967926dcc5433652068e1c6b0f2a82f41d3e594491f3ca8a"
+    },
+    {
+      "path": "wing_contribution/sections/experimental_setup.tex",
+      "sha256": "ce541aaa77bfbe48f3cf21ab8790e9737209379cbad2ebfea59ad924ca4eac26"
+    },
+    {
+      "path": "wing_contribution/sections/results_analysis.tex",
+      "sha256": "82e9cf4ec14e2b9ce1f946090565b81d9d3cdb7e1e5f95bc635aa2057cc597e3"
+    },
+    {
+      "path": "wing_contribution/tables/benchmark_main.tex",
+      "sha256": "a32a552ee07976f3a890b35710cd9acaa73d737de942198fd4645bc750a0f20e"
+    },
+    {
+      "path": "wing_contribution/conclusion.tex",
+      "sha256": "3417b1afe7c2228ed43570c92007601affaf95af875204a70a80ef30f0aa983e"
+    },
+    {
+      "path": "wing_contribution/sections/conclusion.tex",
+      "sha256": "82cd775fd842db75133639b2aa2ca02f00f159bc209980b82532d80373125fc1"
+    },
+    {
+      "path": "wing_contribution/sections/next_capacity_figure.tex",
+      "sha256": "02d95d5d96827b47b41720e2c05a6b7cccedd786e9cd283c3a5da595bb018716"
+    },
+    {
+      "path": "wing_contribution/appendices.tex",
+      "sha256": "fe5944d7093706e3c727c98d3a71f09ae6b30bec5347b353ab4cc743b385c8ad"
+    },
+    {
+      "path": "wing_contribution/sections/appendix_metrics.tex",
+      "sha256": "99175a7e889be58b44528c573a41eb5b1dc969e5afe7a0988d2ff4c8846a7713"
+    },
+    {
+      "path": "wing_contribution/tables/metric_protocols.tex",
+      "sha256": "1e38598b6232d9669195c67b300b0de41fd540a15b90d6eb0bc5a7f59ff75b97"
+    },
+    {
+      "path": "wing_contribution/tables/matching_diagnostics.tex",
+      "sha256": "af5d3c30619d316c233b3957dc863b6798587c3e0eb3ebe1fc88cf02d757ac18"
+    },
+    {
+      "path": "wing_contribution/tables/evaluation_losses.tex",
+      "sha256": "4e40a6b4f3f702ed11b52479c84270fd5c98e7e516ecef7a2c2e003049eb91d6"
+    },
+    {
+      "path": "wing_contribution/tables/independence_diagnostics.tex",
+      "sha256": "2c553006061ab1a0791cc97f8f19171c05ac9320be2da8d9e27acc41b8c46de5"
+    },
+    {
+      "path": "wing_contribution/tables/transformer_diagnostics.tex",
+      "sha256": "79d0475322ac6780d6e53e27e8e4d61c32a6665d8b4071e0d015a6dc0f48dedf"
+    },
+    {
+      "path": "wing_contribution/sections/appendix_mjd_motivation.tex",
+      "sha256": "b2c9e8ecd7485b69b51237fb32cbd723bb836efbc38f43efe3607611a95464bb"
+    },
+    {
+      "path": "wing_contribution/sections/appendix_energy_illustration.tex",
+      "sha256": "f93d0e590bcc98698605cb3b903649f3055ae7e54168921033cb56b2e59b4538"
+    },
+    {
+      "path": "wing_contribution/sections/energy_spectrum_figure.tex",
+      "sha256": "6017aca1cbb693648654243aede702ea1023ff68a4d25bccd4fd9ef9e40f8f1e"
+    },
+    {
+      "path": "wing_contribution/sections/appendix_raw_observations.tex",
+      "sha256": "0509efb4797ec695f8a2972de1da4ca71de803ac19938fea7415e7648c76cd38"
+    },
+    {
+      "path": "wing_contribution/sections/appendix_models.tex",
+      "sha256": "c547487e3063cf1ae61333ddf39b97c378a5246317833e44baf0fcbebb100586"
+    },
+    {
+      "path": "wing_contribution/tables/model_adaptations.tex",
+      "sha256": "dc91cb3295315181475039830bf657c7ba760f660673c1311814dc2182248f12"
+    },
+    {
+      "path": "wing_contribution/tables/training_protocol.tex",
+      "sha256": "219fcdc6b5abff384714388adb77fa17abae5f9d6043ef58e29374caffe517f4"
+    },
+    {
+      "path": "wing_contribution/tables/next_classification.tex",
+      "sha256": "45c2c64de290cc2cab5295cde968a8a9459ee7e656bf6d11bb3c45ed844993b3"
+    },
+    {
+      "path": "transformer_contribution/sections/appendix_tokenization.tex",
+      "sha256": "c80fb161fb25afd22a6faf1e5f0739dcd8c87840f4a70aca2600dce55b2f7964"
+    }
+  ],
+  "include_edges": [
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 17,
+      "to": "math_commands.tex"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 21,
+      "to": "wing_contribution/packages"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 405,
+      "to": "dataset_description/datasets_section"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 409,
+      "to": "wing_contribution/benchmarking_metrics"
+    },
+    {
+      "from": "wing_contribution/benchmarking_metrics.tex",
+      "line": 2,
+      "to": "wing_contribution/plain_style"
+    },
+    {
+      "from": "wing_contribution/benchmarking_metrics.tex",
+      "line": 6,
+      "to": "wing_contribution/sections/energy_bias_problem"
+    },
+    {
+      "from": "wing_contribution/sections/energy_bias_problem.tex",
+      "line": 41,
+      "to": "wing_contribution/sections/mjd_motivation_figure"
+    },
+    {
+      "from": "wing_contribution/benchmarking_metrics.tex",
+      "line": 7,
+      "to": "wing_contribution/sections/benchmarking_metrics"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 410,
+      "to": "model_design"
+    },
+    {
+      "from": "model_design.tex",
+      "line": 10,
+      "to": "wing_contribution/sections/model_design"
+    },
+    {
+      "from": "model_design.tex",
+      "line": 15,
+      "to": "transformer_contribution/sections/transformer_models"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 411,
+      "to": "wing_contribution/experiment_results"
+    },
+    {
+      "from": "wing_contribution/experiment_results.tex",
+      "line": 2,
+      "to": "wing_contribution/plain_style"
+    },
+    {
+      "from": "wing_contribution/experiment_results.tex",
+      "line": 7,
+      "to": "wing_contribution/sections/experimental_setup"
+    },
+    {
+      "from": "wing_contribution/experiment_results.tex",
+      "line": 8,
+      "to": "wing_contribution/sections/results_analysis"
+    },
+    {
+      "from": "wing_contribution/sections/results_analysis.tex",
+      "line": 11,
+      "to": "wing_contribution/tables/benchmark_main"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 412,
+      "to": "wing_contribution/conclusion"
+    },
+    {
+      "from": "wing_contribution/conclusion.tex",
+      "line": 2,
+      "to": "wing_contribution/plain_style"
+    },
+    {
+      "from": "wing_contribution/conclusion.tex",
+      "line": 6,
+      "to": "wing_contribution/sections/conclusion"
+    },
+    {
+      "from": "wing_contribution/sections/conclusion.tex",
+      "line": 5,
+      "to": "wing_contribution/sections/next_capacity_figure"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 478,
+      "to": "wing_contribution/appendices"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 2,
+      "to": "wing_contribution/plain_style"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 5,
+      "to": "wing_contribution/sections/appendix_metrics"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_metrics.tex",
+      "line": 160,
+      "to": "wing_contribution/tables/metric_protocols"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_metrics.tex",
+      "line": 255,
+      "to": "wing_contribution/tables/matching_diagnostics"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_metrics.tex",
+      "line": 257,
+      "to": "wing_contribution/tables/evaluation_losses"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_metrics.tex",
+      "line": 295,
+      "to": "wing_contribution/tables/independence_diagnostics"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_metrics.tex",
+      "line": 297,
+      "to": "wing_contribution/tables/transformer_diagnostics"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 6,
+      "to": "wing_contribution/sections/appendix_mjd_motivation"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 7,
+      "to": "wing_contribution/sections/appendix_energy_illustration"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_energy_illustration.tex",
+      "line": 15,
+      "to": "wing_contribution/sections/energy_spectrum_figure"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 8,
+      "to": "wing_contribution/sections/appendix_raw_observations"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 9,
+      "to": "wing_contribution/sections/appendix_models"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_models.tex",
+      "line": 32,
+      "to": "wing_contribution/tables/model_adaptations"
+    },
+    {
+      "from": "wing_contribution/sections/appendix_models.tex",
+      "line": 59,
+      "to": "wing_contribution/tables/training_protocol"
+    },
+    {
+      "from": "wing_contribution/appendices.tex",
+      "line": 14,
+      "to": "wing_contribution/tables/next_classification"
+    },
+    {
+      "from": "iclr2027_conference.tex",
+      "line": 479,
+      "to": "transformer_contribution/sections/appendix_tokenization"
+    }
+  ],
+  "figures": [
+    {
+      "asset": "dataset_description/Images/mjd_signal.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 29,
+      "exists": true,
+      "sha256": "1c4402143a1ea392a3cd2b560f2bf1655a4896c25a77d2859f7508fe5a621146",
+      "bytes": 30443,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/next_signal.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 35,
+      "exists": true,
+      "sha256": "dc09bb52801ac0e38c0f7ca6ec36aaac0c07dd5d4c72bd32245c43989bdcac36",
+      "bytes": 380128,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/supernemo_signal.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 41,
+      "exists": true,
+      "sha256": "08b79eadcc80baa14e7ebf477748546d8b489f3cc7f5004b6da44201b1e1a82b",
+      "bytes": 22561,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/exo_signal.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 47,
+      "exists": true,
+      "sha256": "f8fbe0c30dc5e4b4e433f5eb9766a04d6ec79be9e1329d728a87dad627cf03a5",
+      "bytes": 27614,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/mjd_background.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 57,
+      "exists": true,
+      "sha256": "97f985be9a33e98d10b85e833a3d393e2cdde905545cc150752c3ff8b99b4714",
+      "bytes": 32097,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/next_background.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 63,
+      "exists": true,
+      "sha256": "6d0308afef96f8e382c26ef92c5ba7c0fe4d861dd11e94376c137e9d82f5f109",
+      "bytes": 224744,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/supernemo_background.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 69,
+      "exists": true,
+      "sha256": "f6050609608182191d067c7765b5ebfa577af15f017bb80f28e05571b653937a",
+      "bytes": 28456,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "dataset_description/Images/exo_background.pdf",
+      "source_tex": "dataset_description/datasets_section.tex",
+      "line": 75,
+      "exists": true,
+      "sha256": "dc072c1d3e6d40c7afc5ff04b7fe2b31a3ffcdcd8c1a0065cdbaf094356f23b4",
+      "bytes": 29298,
+      "status": "archived_asset_only_generator_not_located",
+      "generator": null,
+      "source_commit": "9360b04fa52568562adcf1702231527d06a1146a",
+      "limitation": "Eight PDFs were imported through Overleaf on 2026-09-21. No matching generator, source event selection manifest, or exact figure input was found locally. Existing PDF bytes reproduce the manuscript panel, but regeneration from raw events is not established."
+    },
+    {
+      "asset": "wing_contribution/figures/mjd_motivation_main_v2_generated.pdf",
+      "source_tex": "wing_contribution/sections/mjd_motivation_figure.tex",
+      "line": 3,
+      "exists": true,
+      "sha256": "4b76c14beb8a8e2b9eda841090c3a14d2b92bb1bfccdc012b33b92e6a08e723a",
+      "bytes": 803437,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/scripts/plot_mjd_motivation_v2.py",
+      "inputs": [
+        "wing_contribution/evaluation/mjd_style/data/mjd_example_waveforms.csv",
+        "wing_contribution/figures/data/supernemo_matching_50keV.csv",
+        "wing_contribution/figures/data/supernemo_matching_roc.csv",
+        "wing_contribution/figures/data/supernemo_matching_evidence.json"
+      ],
+      "note": "Current uncommitted figure selected by active manuscript. Panel (a) MJD; panels (b,c) separate SuperNEMO 0nu/Bi214 energy-only illustration, not trained MJD output."
+    },
+    {
+      "asset": "wing_contribution/figures/next_capacity_scores.pdf",
+      "source_tex": "wing_contribution/sections/next_capacity_figure.tex",
+      "line": 3,
+      "exists": true,
+      "sha256": "43d6eb90e0a3027d9ed9edea56ef11ff2848f0c55d1ef4fbd3d0ffcb6876f70e",
+      "bytes": 30484,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/scripts/plot_next_capacity.py",
+      "inputs": [
+        "wing_contribution/figures/data/unified_results.json",
+        "wing_contribution/figures/data/next_capacity_plot.csv",
+        "wing_contribution/figures/data/next_unified_inventory.csv"
+      ],
+      "note": "Retained NEXT v2 profile; inspect per-record protocol tags rather than relabeling as v3."
+    },
+    {
+      "asset": "wing_contribution/figures/mjd_low_high_waveforms.pdf",
+      "source_tex": "wing_contribution/sections/appendix_mjd_motivation.tex",
+      "line": 55,
+      "exists": true,
+      "sha256": "6164c88891eb62db0129428371ab3a2b3f8633705f9d75c9fe2fb1f3adf304d6",
+      "bytes": 46494,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/evaluation/mjd_style/render.py",
+      "inputs": [
+        "wing_contribution/evaluation/mjd_style/data/selected_waveforms_exact.npz",
+        "wing_contribution/evaluation/mjd_style/data/mjd_waveform_summary.json"
+      ]
+    },
+    {
+      "asset": "wing_contribution/figures/energy_bias_spectrum.pdf",
+      "source_tex": "wing_contribution/sections/energy_spectrum_figure.tex",
+      "line": 3,
+      "exists": true,
+      "sha256": "0b50c40e8b6ff5172e974a9a3279e4f60c192b054a002c8e70566afb84fcc708",
+      "bytes": 19809,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/scripts/plot_appendix_figures.py",
+      "inputs": [
+        "wing_contribution/evaluation/appendix_figures/data/"
+      ]
+    },
+    {
+      "asset": "wing_contribution/figures/energy_threshold_tradeoff.pdf",
+      "source_tex": "wing_contribution/sections/appendix_energy_illustration.tex",
+      "line": 32,
+      "exists": true,
+      "sha256": "0b487a0c2bb6e6979ad3ff3a13c0cd6211ef75d583d0b40a5506d2b6ade84382",
+      "bytes": 24393,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/scripts/plot_appendix_figures.py",
+      "inputs": [
+        "wing_contribution/evaluation/appendix_figures/data/"
+      ]
+    },
+    {
+      "asset": "wing_contribution/figures/supernemo_extent_energy_population.pdf",
+      "source_tex": "wing_contribution/sections/appendix_raw_observations.tex",
+      "line": 51,
+      "exists": true,
+      "sha256": "0f2e4a6dd7e6b8dd3a80dc0ea8527dffc6386a3b1b508008e9986f7ecb6979ba",
+      "bytes": 55324,
+      "status": "script_and_frozen_inputs_available",
+      "generator": "wing_contribution/scripts/plot_appendix_figures.py",
+      "inputs": [
+        "wing_contribution/evaluation/appendix_figures/data/"
+      ],
+      "external_input_bundled": "code/figure_sources/data/supernemo_cohort_ecdf.csv.gz"
+    }
+  ],
+  "tables": [
+    {
+      "source_tex": "wing_contribution/tables/benchmark_main.tex",
+      "line": 6,
+      "labels": [
+        "tab:benchmark-main"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/scripts/build_classification_table.py",
+      "inputs": [
+        "wing_contribution/figures/data/unified_results.json",
+        "wing_contribution/figures/data/classification_transformer_workbook.json",
+        "wing_contribution/figures/data/classification_table_additions.json"
+      ]
+    },
+    {
+      "source_tex": "wing_contribution/tables/metric_protocols.tex",
+      "line": 1,
+      "labels": [
+        "tab:metric-protocols"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": null,
+      "status": "manually_maintained_LaTeX",
+      "note": "The active LaTeX source is the reproducible table artifact; no numeric table-generation script is asserted. Transformer tokenization details describe recorded implementations, not a plot."
+    },
+    {
+      "source_tex": "wing_contribution/tables/matching_diagnostics.tex",
+      "line": 1,
+      "labels": [
+        "tab:matching-diagnostics"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/evaluation/tables.py",
+      "inputs": [
+        "wing_contribution/evaluation/data/diagnostics.json",
+        "wing_contribution/figures/data/unified_results.json"
+      ]
+    },
+    {
+      "source_tex": "wing_contribution/tables/evaluation_losses.tex",
+      "line": 1,
+      "labels": [
+        "tab:evaluation-losses"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/evaluation/tables.py",
+      "inputs": [
+        "wing_contribution/evaluation/data/diagnostics.json",
+        "wing_contribution/figures/data/unified_results.json"
+      ]
+    },
+    {
+      "source_tex": "wing_contribution/tables/independence_diagnostics.tex",
+      "line": 1,
+      "labels": [
+        "tab:independence-diagnostics"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/evaluation/tables.py",
+      "inputs": [
+        "wing_contribution/evaluation/data/diagnostics.json",
+        "wing_contribution/figures/data/unified_results.json"
+      ]
+    },
+    {
+      "source_tex": "wing_contribution/tables/transformer_diagnostics.tex",
+      "line": 1,
+      "labels": [
+        "tab:transformer-diagnostics"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/evaluation/tables.py",
+      "inputs": [
+        "wing_contribution/evaluation/data/diagnostics.json",
+        "wing_contribution/figures/data/unified_results.json"
+      ]
+    },
+    {
+      "source_tex": "wing_contribution/sections/appendix_energy_illustration.tex",
+      "line": 72,
+      "labels": [
+        "tab:energy-only-stages"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": null,
+      "status": "manually_maintained_LaTeX",
+      "note": "The active LaTeX source is the reproducible table artifact; no numeric table-generation script is asserted. Transformer tokenization details describe recorded implementations, not a plot."
+    },
+    {
+      "source_tex": "wing_contribution/tables/model_adaptations.tex",
+      "line": 1,
+      "labels": [
+        "tab:wing-adaptations"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": null,
+      "status": "manually_maintained_LaTeX",
+      "note": "The active LaTeX source is the reproducible table artifact; no numeric table-generation script is asserted. Transformer tokenization details describe recorded implementations, not a plot."
+    },
+    {
+      "source_tex": "wing_contribution/tables/training_protocol.tex",
+      "line": 1,
+      "labels": [
+        "tab:wing-training"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": null,
+      "status": "manually_maintained_LaTeX",
+      "note": "The active LaTeX source is the reproducible table artifact; no numeric table-generation script is asserted. Transformer tokenization details describe recorded implementations, not a plot."
+    },
+    {
+      "source_tex": "wing_contribution/tables/next_classification.tex",
+      "line": 1,
+      "labels": [
+        "tab:next-classification"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": "wing_contribution/evaluation/tables.py",
+      "inputs": [
+        "wing_contribution/evaluation/data/diagnostics.json",
+        "wing_contribution/figures/data/unified_results.json"
+      ]
+    },
+    {
+      "source_tex": "transformer_contribution/sections/appendix_tokenization.tex",
+      "line": 11,
+      "labels": [
+        "tab:transformer-tokenization-configs"
+      ],
+      "rendering": "native LaTeX table; see mapping for generated versus manually maintained source",
+      "generator": null,
+      "status": "manually_maintained_LaTeX",
+      "note": "The active LaTeX source is the reproducible table artifact; no numeric table-generation script is asserted. Transformer tokenization details describe recorded implementations, not a plot."
+    }
+  ],
+  "summary": {
+    "active_tex_files": 35,
+    "figure_assets": 14,
+    "table_environments": 11,
+    "asset_only_figures": 8,
+    "missing_assets": []
+  },
+  "excluded_inactive_examples": [
+    "dataset_description/Images/*.png",
+    "wing_contribution/figures/mjd_motivation_main.pdf",
+    "wing_contribution/figures/supernemo_energy_matching_auc.pdf",
+    "transformer_contribution/tables/tokenization_summary.tex"
+  ]
+}

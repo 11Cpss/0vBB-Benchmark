@@ -1,0 +1,123 @@
+{
+  "run_id": "classification__segment_summary__rope",
+  "dataset": "EXO-200 v1",
+  "task": "classification",
+  "data": {
+    "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+    "validation_fraction": 0.1,
+    "test_fraction": 0.2727272727272727,
+    "baseline_samples": 200,
+    "classification_amplitude_normalization": true,
+    "seed": 42,
+    "input_field": "Waveforms",
+    "label_field": "Charge_cluster_number",
+    "event_field": "event_number",
+    "group_attribute": "run_number",
+    "position_field": "Charge_Clusters_Pos",
+    "input_shape": [
+      226,
+      300
+    ],
+    "input_dtype": "int16",
+    "num_classes": 2,
+    "class_names": [
+      "signal",
+      "background"
+    ]
+  },
+  "counts": {
+    "train": 336632,
+    "validation": 37987,
+    "test": 140383
+  },
+  "class_counts": {
+    "train": {
+      "signal": 160803,
+      "background": 175829
+    },
+    "validation": {
+      "signal": 17813,
+      "background": 20174
+    },
+    "test": {
+      "signal": 66062,
+      "background": 74321
+    }
+  },
+  "split_runs": {
+    "train": [
+      8956,
+      8957,
+      8958,
+      8968,
+      8972,
+      8999,
+      9000,
+      9001,
+      9008,
+      9009
+    ],
+    "validation": [
+      8969
+    ],
+    "test": [
+      8967,
+      8970,
+      8971,
+      9010
+    ]
+  },
+  "split_overlap_counts": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "training": {
+    "batch_size": 64,
+    "epochs": 50,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "early_stopping_patience": 5,
+    "seed": 42,
+    "num_workers": 0,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "deterministic": false,
+    "use_amp": false,
+    "amp_precision": "auto"
+  },
+  "representation": {
+    "task": "classification",
+    "tokenization": {
+      "tokenization": "segment_summary",
+      "channel_regions": 7,
+      "time_regions": 12,
+      "uniform_entity_fraction": 0.5,
+      "entity_context_size": 9,
+      "tokens_per_block": 84,
+      "token_count": 504
+    },
+    "position_encoding": "rope",
+    "coordinate_dim": 6,
+    "feature_dim": 4,
+    "d_model": 64,
+    "nhead": 4,
+    "num_layers": 2,
+    "dim_feedforward": 256,
+    "dropout": 0.1,
+    "num_frequencies": 6,
+    "rope_base": 1.5707963267948966,
+    "rotary_pair_counts": [
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "pooling": "masked_mean",
+    "positive_class": "background"
+  },
+  "parameter_count": 106817
+}

@@ -1,0 +1,133 @@
+{
+  "architecture_id": "hybrid_001_cnn_gnn",
+  "artifacts": {
+    "evaluation": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/hybrid_001_cnn_gnn/classification/evaluation",
+    "run_summary": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/hybrid_001_cnn_gnn/classification/run_summary.json",
+    "training": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/hybrid_001_cnn_gnn/classification/training"
+  },
+  "backend": "torch",
+  "best_epoch": 21,
+  "best_validation_metric": 0.9913809718107714,
+  "completed_at": "2026-08-13T03:13:20.989563+00:00",
+  "data_counts": {
+    "boundary_files": [
+      "0nubb_part_4/ATPC_0nubb_5bar_Efilt_5.0percent_smear_3983.h5",
+      "0nubb_part_5/ATPC_0nubb_5bar_Efilt_5.0percent_smear_5204.h5",
+      "Bi_part_6/ATPC_Bi_ion_5bar_Efilt_5.0percent_smear_3505.h5",
+      "Bi_part_7/ATPC_Bi_ion_5bar_Efilt_5.0percent_smear_3894.h5"
+    ],
+    "by_class": {
+      "0nubb": {
+        "test": 64879,
+        "total": 648793,
+        "train": 519034,
+        "validation": 64880
+      },
+      "Bi214": {
+        "test": 51670,
+        "total": 516696,
+        "train": 413357,
+        "validation": 51669
+      }
+    },
+    "fractions": {
+      "test": 0.10000008580089559,
+      "train": 0.7999998283982088,
+      "validation": 0.10000008580089559
+    },
+    "test": 116549,
+    "total": 1165489,
+    "train": 932391,
+    "validation": 116549
+  },
+  "data_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+  "duration_seconds": 83336.97551813303,
+  "environment": {
+    "cuda_available": true,
+    "device_requested": "auto",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128"
+  },
+  "epochs_completed": 26,
+  "evaluation_config": {
+    "distance_correlation_max_samples": 1200,
+    "energy_bin_width_kev": 5.0,
+    "energy_bin_width_mev": 0.005,
+    "energy_grid_bin_count": 600,
+    "energy_grid_max_kev": 3000.0,
+    "energy_grid_min_kev": 0.0,
+    "energy_roi": null,
+    "energy_unit": "MeV",
+    "fractional_energy_floor": null,
+    "matching_target": "overlap",
+    "min_coverage": 0.5,
+    "min_per_bin": 20,
+    "min_per_class": 20,
+    "min_valid_bins": 2,
+    "performance_bins": 10,
+    "score_bins": 20,
+    "seed": 42,
+    "support_trim_quantile": 0.005,
+    "target_tpr": 0.9
+  },
+  "event_split_manifest": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/event_split.json",
+  "input_kind": "hybrid",
+  "max_files_per_class": null,
+  "metrics": {
+    "auc": 0.991416629845904,
+    "energy_independence_score": 0.9702760231708398,
+    "matched_auc": 0.9912603169143328,
+    "matched_auc_status": "ok",
+    "n_events": 116549,
+    "task": "classification"
+  },
+  "model_config": {
+    "classifier_dim": 192,
+    "dropout": 0.1,
+    "feature_dim": 2,
+    "graph_embedding_dim": 192,
+    "graph_hidden_dim": 96,
+    "image_base_channels": 16,
+    "image_embedding_dim": 128,
+    "k": 16,
+    "num_graph_layers": 3
+  },
+  "model_name": "CNNGNNHybridClassifier",
+  "parameter_count": 341969,
+  "representation_config": {
+    "coordinate_scale": 1000.0,
+    "max_points": 512,
+    "point_bin_size": 15.0,
+    "projection_bin_size": 30.0,
+    "projection_grid_size": 128,
+    "projection_input_scale": 100.0,
+    "projection_origin": [
+      -1920.0,
+      -1920.0,
+      -120.0
+    ]
+  },
+  "started_at": "2026-08-12T04:04:24.014052+00:00",
+  "status": "DONE",
+  "task": "classification",
+  "training_config": {
+    "amp_precision": "auto",
+    "batch_size": 64,
+    "classification_loss": "bce_with_logits",
+    "deterministic": false,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "early_stopping_patience": 5,
+    "epochs": 50,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0005,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "regression_loss": "mse",
+    "scheduler": "cosine",
+    "seed": 42,
+    "use_amp": true,
+    "weight_decay": 0.0001
+  }
+}

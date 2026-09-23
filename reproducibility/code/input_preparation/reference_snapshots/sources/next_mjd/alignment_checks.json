@@ -1,0 +1,392 @@
+[
+  {
+    "dataset": "NEXT",
+    "architecture_id": "classic_001_topology_xgboost",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_001_two_conv_baseline",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_002_global_energy_skip",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_003_residual_spatial",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_004_multiview_late_fusion",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_005_multiscale_projection",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "cnn_006_dense_3d_resnet",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "gnn_001_static_gine",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "gnn_002_particlenet_edgeconv",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "gnn_003_egnn",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "gnn_004_gravnet",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "gnn_005_dimenet_lite",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "hybrid_001_cnn_gnn",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "mixer_001_projection_mlp_mixer",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "point_001_deepsets",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "point_002_pointnetpp",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "point_003_pointmlp",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "point_004_rigid_kpconv",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "seq_001_bigru",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "seq_002_dilated_tcn",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "sparse_001_submanifold_resnet",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "NEXT",
+    "architecture_id": "topo_001_persistence_perslay",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "category": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "reevaluation_equal_to_original_prediction": true,
+    "test_manifest_file_counts_match": true
+  },
+  {
+    "dataset": "MJD",
+    "architecture_id": "cnn_004_multiview_late_fusion",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "raw_labels_exact_match": true,
+    "raw_scores_exact_match": true,
+    "float32_then_clip_exact_match": true
+  },
+  {
+    "dataset": "MJD",
+    "architecture_id": "gnn_001_static_gine",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "raw_labels_exact_match": true,
+    "raw_scores_exact_match": true,
+    "float32_then_clip_exact_match": true
+  },
+  {
+    "dataset": "MJD",
+    "architecture_id": "seq_001_bigru",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "raw_labels_exact_match": true,
+    "raw_scores_exact_match": true,
+    "float32_then_clip_exact_match": true
+  },
+  {
+    "dataset": "MJD",
+    "architecture_id": "ssm_001_pointmamba",
+    "metadata_equal_to_first_model": {
+      "event_id": true,
+      "label": true,
+      "energy": true,
+      "sample_weight": true,
+      "group_id": true,
+      "split": true
+    },
+    "raw_labels_exact_match": true,
+    "raw_scores_exact_match": true,
+    "float32_then_clip_exact_match": true
+  }
+]

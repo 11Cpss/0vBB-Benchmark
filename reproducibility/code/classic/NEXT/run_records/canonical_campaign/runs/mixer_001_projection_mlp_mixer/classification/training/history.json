@@ -1,0 +1,203 @@
+{
+  "amp_precision": "bfloat16",
+  "artifact_paths": {
+    "best_model": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/training/best_model.pt",
+    "history": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/training/history.json",
+    "history_plot": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/training/training_history.png",
+    "last_model": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/runs/mixer_001_projection_mlp_mixer/classification/training/last_model.pt"
+  },
+  "best_epoch": 11,
+  "best_metric": 0.9504150060678617,
+  "device": "cuda",
+  "epochs_completed": 16,
+  "history": [
+    {
+      "epoch": 1,
+      "learning_rate": 0.0005,
+      "train_auc": 0.9155317006911035,
+      "train_events": 932391,
+      "train_loss": 0.3634651901041814,
+      "val_auc": 0.931126726461349,
+      "val_events": 116549,
+      "val_loss": 0.38738278416846617
+    },
+    {
+      "epoch": 2,
+      "learning_rate": 0.0004995066821070679,
+      "train_auc": 0.9374194457402277,
+      "train_events": 932391,
+      "train_loss": 0.31442471105566594,
+      "val_auc": 0.9404138634739831,
+      "val_events": 116549,
+      "val_loss": 0.31546541135833434
+    },
+    {
+      "epoch": 3,
+      "learning_rate": 0.0004980286753286195,
+      "train_auc": 0.9435328071217197,
+      "train_events": 932391,
+      "train_loss": 0.29826317649722056,
+      "val_auc": 0.9447055305612585,
+      "val_events": 116549,
+      "val_loss": 0.3099268950066916
+    },
+    {
+      "epoch": 4,
+      "learning_rate": 0.0004955718126821722,
+      "train_auc": 0.9477631039406126,
+      "train_events": 932391,
+      "train_loss": 0.2865614937013374,
+      "val_auc": 0.946735745793096,
+      "val_events": 116549,
+      "val_loss": 0.31254475970229434
+    },
+    {
+      "epoch": 5,
+      "learning_rate": 0.0004921457902821578,
+      "train_auc": 0.950370900430935,
+      "train_events": 932391,
+      "train_loss": 0.2790468651923168,
+      "val_auc": 0.9488162146621006,
+      "val_events": 116549,
+      "val_loss": 0.2861503015391558
+    },
+    {
+      "epoch": 6,
+      "learning_rate": 0.00048776412907378846,
+      "train_auc": 0.952208689643558,
+      "train_events": 932391,
+      "train_loss": 0.2732767204516505,
+      "val_auc": 0.9494149226083637,
+      "val_events": 116549,
+      "val_loss": 0.3013698982529051
+    },
+    {
+      "epoch": 7,
+      "learning_rate": 0.0004824441214720629,
+      "train_auc": 0.9544472038960343,
+      "train_events": 932391,
+      "train_loss": 0.26657113409059563,
+      "val_auc": 0.9498461501503965,
+      "val_events": 116549,
+      "val_loss": 0.28269996912084777
+    },
+    {
+      "epoch": 8,
+      "learning_rate": 0.00047620676311650495,
+      "train_auc": 0.9562835743452142,
+      "train_events": 932391,
+      "train_loss": 0.26102159506157974,
+      "val_auc": 0.9500464348982863,
+      "val_events": 116549,
+      "val_loss": 0.28127090660147425
+    },
+    {
+      "epoch": 9,
+      "learning_rate": 0.0004690766700109659,
+      "train_auc": 0.9576694636289298,
+      "train_events": 932391,
+      "train_loss": 0.25647814396969504,
+      "val_auc": 0.9502816310602639,
+      "val_events": 116549,
+      "val_loss": 0.28383627428896047
+    },
+    {
+      "epoch": 10,
+      "learning_rate": 0.00046108198137550377,
+      "train_auc": 0.9592170811013568,
+      "train_events": 932391,
+      "train_loss": 0.251610778942822,
+      "val_auc": 0.9494647259556164,
+      "val_events": 116549,
+      "val_loss": 0.3204900299737012
+    },
+    {
+      "epoch": 11,
+      "learning_rate": 0.0004522542485937368,
+      "train_auc": 0.9606991084025057,
+      "train_events": 932391,
+      "train_loss": 0.2468376716881262,
+      "val_auc": 0.9504150060678617,
+      "val_events": 116549,
+      "val_loss": 0.28868406554875903
+    },
+    {
+      "epoch": 12,
+      "learning_rate": 0.00044262831069394727,
+      "train_auc": 0.9618817473787041,
+      "train_events": 932391,
+      "train_loss": 0.24292686609118602,
+      "val_auc": 0.9502053690415652,
+      "val_events": 116549,
+      "val_loss": 0.2877359247998864
+    },
+    {
+      "epoch": 13,
+      "learning_rate": 0.0004322421568553528,
+      "train_auc": 0.9632228568277782,
+      "train_events": 932391,
+      "train_loss": 0.23837197985239836,
+      "val_auc": 0.9498813938751599,
+      "val_events": 116549,
+      "val_loss": 0.29023530489554283
+    },
+    {
+      "epoch": 14,
+      "learning_rate": 0.00042113677648217214,
+      "train_auc": 0.9643606982901705,
+      "train_events": 932391,
+      "train_loss": 0.23450083488868836,
+      "val_auc": 0.9487959716023167,
+      "val_events": 116549,
+      "val_loss": 0.29111503488599283
+    },
+    {
+      "epoch": 15,
+      "learning_rate": 0.0004093559974371724,
+      "train_auc": 0.9656015853104357,
+      "train_events": 932391,
+      "train_loss": 0.23018858803562706,
+      "val_auc": 0.9481937135399406,
+      "val_events": 116549,
+      "val_loss": 0.2954617443656936
+    },
+    {
+      "epoch": 16,
+      "learning_rate": 0.0003969463130731183,
+      "train_auc": 0.9667078281886226,
+      "train_events": 932391,
+      "train_loss": 0.22625722832893688,
+      "val_auc": 0.9485948365388248,
+      "val_events": 116549,
+      "val_loss": 0.29891298724546084
+    }
+  ],
+  "loss_function": "bce_with_logits",
+  "model": {
+    "architecture": {
+      "architecture_id": "mixer_001_projection_mlp_mixer",
+      "backend": "torch",
+      "input_kind": "projection2d",
+      "microbatch_size": 16,
+      "model_name": "ProjectionMLPMixerClassifier",
+      "supports_regression": false,
+      "task": "classification"
+    },
+    "class_name": "MicrobatchModel",
+    "config": {
+      "channel_mlp_dim": 256,
+      "classifier_dim": 128,
+      "depth": 6,
+      "dropout": 0.1,
+      "embedding_dim": 128,
+      "grid_size": 128,
+      "input_channels": 3,
+      "patch_size": 16,
+      "token_mlp_dim": 32
+    },
+    "module": "workflow_models"
+  },
+  "selection_metric": "val_auc",
+  "stopped_early": true,
+  "task": "classification"
+}

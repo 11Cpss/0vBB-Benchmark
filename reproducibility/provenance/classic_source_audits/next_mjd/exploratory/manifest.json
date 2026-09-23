@@ -1,0 +1,1627 @@
+{
+  "schema": "energybench-source-manifest-v1",
+  "ready": [
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "cnn_004_multiview_late_fusion",
+      "model_key": "exploratory_cnn_004_multiview_late_fusion",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_004_multiview_late_fusion.npz",
+      "standardized_sha256": "3fb0ec23809ca688d3468376f1a38779a707023a11d8e90833afb0e82372e466",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/predictions_test.npz",
+      "source_predictions_sha256": "b187f7e04391fc0d2febeaa7c03df8c2cd5b495887b02428ad10f03ae614cfa4",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "4d64ec04356593a08099c91678e394bf31c04d70b676e73d7983ca0ca142fe7a",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "b9857bbf904c3adff5cded70e3fe8ef5a956083527629c8165a40599dbee637d",
+      "old_metrics": {
+        "I": 0.9782244957575121,
+        "matched_auc": 0.9558186691697308,
+        "inclusive_auc": 0.9559364938700803
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "cnn_004_multiview_late_fusion",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_004_multiview_late_fusion_classification_best.pt",
+        "checkpoint_epoch": 12,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "c9b030d97af71c1ff6f5fd2d2e67902935f941cc3f1678f9059951e2fababb16",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "projection2d",
+        "model_name": "MultiViewLateFusionCNN",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_004_multiview_late_fusion_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9782244957575121,
+        "matched_auc": 0.9558186691697308,
+        "inclusive_auc": 0.9559364938700803
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "cnn_005_multiscale_projection",
+      "model_key": "exploratory_cnn_005_multiscale_projection",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_005_multiscale_projection.npz",
+      "standardized_sha256": "ce3288ef2e75cbb0d9782163f6ba11a18e1618e1b1546be7006934dc4a3bfa7b",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/predictions_test.npz",
+      "source_predictions_sha256": "9edb153f074dc9de45a0a02db16d688504a194b3ce2c31b5e8db55add526abfa",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "a7aceab709cec2f06306bc52b69949c756030e31c452820ad72e0b9eb43fa03a",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "833f4719531d88e7f1f35fef3950255e40568ee39ebb609839781c342134ccc8",
+      "old_metrics": {
+        "I": 0.9804438821063235,
+        "matched_auc": 0.9477872617938576,
+        "inclusive_auc": 0.9482554978386181
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "cnn_005_multiscale_projection",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_005_multiscale_projection_classification_best.pt",
+        "checkpoint_epoch": 7,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "8d4e5ca22029c04fd80a4675bcbadd62eb840a9b9b51a652b797464327176693",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "multiscale2d",
+        "model_name": "MultiScaleProjectionCNN",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_005_multiscale_projection_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9804438821063235,
+        "matched_auc": 0.9477872617938576,
+        "inclusive_auc": 0.9482554978386181
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "cnn_006_dense_3d_resnet",
+      "model_key": "exploratory_cnn_006_dense_3d_resnet",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_006_dense_3d_resnet.npz",
+      "standardized_sha256": "faa57031de212f6b0fe0b22dedc2a7e3d49f12363e525ce9ef7268be44add58a",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/predictions_test.npz",
+      "source_predictions_sha256": "2cbda0f822c594c4dcc207f17a878fecf8f8b7e0e77f331a7c3f39d8aa6d0477",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "79b3c14e64a671f5f2fc67ffea1707f717f30c484e788f01ccf65fac96e31c43",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "ded394b1c494ef12d0777bdb6b701351ef39cfd5af0e483dafcd7a63698009ee",
+      "old_metrics": {
+        "I": 0.9773195421595386,
+        "matched_auc": 0.9282100185713417,
+        "inclusive_auc": 0.9280821972769591
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "cnn_006_dense_3d_resnet",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_006_dense_3d_resnet_classification_best.pt",
+        "checkpoint_epoch": 10,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "bacceff52aeab7634dd1a64098caeb94a36e2b17590aca4600aa3a9b8791c22b",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "dense3d",
+        "model_name": "Dense3DResidualCNN",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_cnn_006_dense_3d_resnet_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9773195421595386,
+        "matched_auc": 0.9282100185713417,
+        "inclusive_auc": 0.9280821972769591
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "gnn_001_static_gine",
+      "model_key": "exploratory_gnn_001_static_gine",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_001_static_gine.npz",
+      "standardized_sha256": "c5cee79ba8895218ffd02786168e28ade3add7008fa4201cc9becdfe0660d9ae",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/predictions_test.npz",
+      "source_predictions_sha256": "ba8126a597cb0d34e7b24945ac8089217d8e0238f3388042652854295455b5a7",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "17aae242a1f547a763801ced08f53458ce67e58ce5e75e3f3d76612324f16be0",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "35f5a3bea847de86ddaaf105759033d38e7916e9cae4229071409515f0c9bbe8",
+      "old_metrics": {
+        "I": 0.9771105630292771,
+        "matched_auc": 0.9810351180751066,
+        "inclusive_auc": 0.9812236999343399
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "gnn_001_static_gine",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_001_static_gine_classification_best.pt",
+        "checkpoint_epoch": 42,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "7690d43e69a87c3f159f4dc556165ebf796da19b0ed91d2b0c64271483e204ed",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "graph",
+        "model_name": "StaticGINEClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_001_static_gine_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9771105630292771,
+        "matched_auc": 0.9810351180751066,
+        "inclusive_auc": 0.9812236999343399
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "gnn_002_particlenet_edgeconv",
+      "model_key": "exploratory_gnn_002_particlenet_edgeconv",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_002_particlenet_edgeconv.npz",
+      "standardized_sha256": "cfadad208d739f7eb04f3476525ba54cd646d89b45da6301c269d89644827d1d",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/predictions_test.npz",
+      "source_predictions_sha256": "6764ed91271cfc9ac7a9ae698069e1698e37c9c0240e836e11fdfc3b53d60eca",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "66dad0b0bbac811886d7ee96494f1836a420a85be05c640178d3530767ee06b6",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "bfa92d4de8b975039089bf694cca4863bfbdedd306439af47cffc430504338f0",
+      "old_metrics": {
+        "I": 0.9796999064401346,
+        "matched_auc": 0.9703625721059466,
+        "inclusive_auc": 0.9707540005763676
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "gnn_002_particlenet_edgeconv",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_002_particlenet_edgeconv_classification_best.pt",
+        "checkpoint_epoch": 47,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "9a3a96d490bf55b38a2c4fa184ca1496c04ca1bc66c99aa6ddbf94432e48edba",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "graph",
+        "model_name": "ParticleNetLiteClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_002_particlenet_edgeconv_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "context: graph candidates for appendix_models.tex GINE-lead claim"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9796999064401346,
+        "matched_auc": 0.9703625721059466,
+        "inclusive_auc": 0.9707540005763676
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "gnn_003_egnn",
+      "model_key": "exploratory_gnn_003_egnn",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_003_egnn.npz",
+      "standardized_sha256": "ada4fd31acf0bc706ad6b437676a60e35492ba56ef864c80f406f15e86985b88",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/predictions_test.npz",
+      "source_predictions_sha256": "8a2ecabd867a24c8cd19c740012eae7ba908d5d5f38b1685dbf524c9383b4abe",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "bd062d00583b6d3188c94d231e141c0df8d59bf63be01d2a8d9d374bc9b2f022",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "edbdac26c139966eb93956613fa29c8bfac25c55d31ec50aec4dd51047aca7a6",
+      "old_metrics": {
+        "I": 0.9774618356050869,
+        "matched_auc": 0.8865581910920768,
+        "inclusive_auc": 0.8870981727979217
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "gnn_003_egnn",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_003_egnn_classification_best.pt",
+        "checkpoint_epoch": 7,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "02eb555e3fa6e6a942c8f4a58165eb035d7303f6047c7e591dd49ab20bae460b",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "graph",
+        "model_name": "EGNNClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_003_egnn_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "context: graph candidates for appendix_models.tex GINE-lead claim"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9774618356050869,
+        "matched_auc": 0.8865581910920768,
+        "inclusive_auc": 0.8870981727979217
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "gnn_004_gravnet",
+      "model_key": "exploratory_gnn_004_gravnet",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_004_gravnet.npz",
+      "standardized_sha256": "b461924227e18772cfd0d8f7c89e25d80abd75332dcc08d4a0c8360f7fe48f56",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/predictions_test.npz",
+      "source_predictions_sha256": "ee6233a5604f499a5c61020f5e963597c39b7500956c678e6fb4277b58efe8d9",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "f26ea673ad39e85612b020ad685a39b25443cd6c16dc0d6c9ad89f6315525575",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "6cbadf8d1b51cf6bc40ba000568d3b379504ae246221e701eaae07f471ca6cf5",
+      "old_metrics": {
+        "I": 0.9773514958249705,
+        "matched_auc": 0.9556797035977415,
+        "inclusive_auc": 0.9557331033623361
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "356ccef9e87b40b753a7d799185c4addaa1c614ca62607b98ae47f3f1318c474",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "gnn_004_gravnet",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_004_gravnet_classification_best.pt",
+        "checkpoint_epoch": 42,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "26e4b073df783a9ae6d2e2954af23c8ff9127f2e6c9b6764031d648a9aefde18",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "graph",
+        "model_name": "GravNetClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/NEXTALT_gnn_004_gravnet_classification_best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "context: graph candidates for appendix_models.tex GINE-lead claim"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9773514958249705,
+        "matched_auc": 0.9556797035977415,
+        "inclusive_auc": 0.9557331033623361
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "gnn_005_dimenet_lite",
+      "model_key": "exploratory_gnn_005_dimenet_lite",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_005_dimenet_lite.npz",
+      "standardized_sha256": "7a446c78f748199043abc16be6469d939dc178f25800faf57635ce29f7463ab7",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/predictions_test.npz",
+      "source_predictions_sha256": "ec8503373bcda96c3b7a8b95ec6eecb60748094bfb49dfed951e9cd0d01048ad",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "f25634f4d0bce4f642eba130a3f58cd42daffda9d3af1b64cc6d39bd9741d085",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "0dbdc7a5bdda73b9104f15242336f6a80e3760d7279e43c4b96cb381dc766dad",
+      "old_metrics": {
+        "I": 0.9749254780601849,
+        "matched_auc": 0.9792265438170087,
+        "inclusive_auc": 0.9793507190032822
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "gnn_005_dimenet_lite",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/gnn_005_dimenet_lite/attempt_001/best.pt",
+        "checkpoint_epoch": 26,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "5d86eebc43dff476b4efc05bb7263e924348c3efe6c6da2bee4b8db619758648",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "graph",
+        "model_name": "DimeNetLiteClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/gnn_005_dimenet_lite/attempt_001/best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "center_projection": false,
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "context: graph candidates for appendix_models.tex GINE-lead claim"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9749254780601849,
+        "matched_auc": 0.9792265438170087,
+        "inclusive_auc": 0.9793507190032822
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "seq_001_bigru",
+      "model_key": "exploratory_seq_001_bigru",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__seq_001_bigru.npz",
+      "standardized_sha256": "a8cbc2bcd834bf13cf5c1ba2c9bc39da587276fcde2a5956d771bc37aaecb557",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/predictions_test.npz",
+      "source_predictions_sha256": "f4a5ddf16ee8a944d1a6459a83daf49adbc7fa47d7ea9d32db6e608dd891e89a",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "021a3ebc1dd89c9ac5d0cf1c6b03dcb1a6543c6b143bc89f3f08ee3ef1434edd",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "d04547ad83085271650eb5eab4d0d84dc858b083007d3568a2589a5be961a982",
+      "old_metrics": {
+        "I": 0.9776005045579627,
+        "matched_auc": 0.9339346346383425,
+        "inclusive_auc": 0.9342514549961928
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "seq_001_bigru",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_001_bigru/attempt_001/best.pt",
+        "checkpoint_epoch": 20,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "37efa40310302ae44737f2a7fbdb444792adf1886ae3eb8fc035a26ba74dbcc9",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "sequence",
+        "model_name": "HilbertBiGRUClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_001_bigru/attempt_001/best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "center_projection": false,
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9776005045579627,
+        "matched_auc": 0.9339346346383425,
+        "inclusive_auc": 0.9342514549961928
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "seq_002_dilated_tcn",
+      "model_key": "exploratory_seq_002_dilated_tcn",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__seq_002_dilated_tcn.npz",
+      "standardized_sha256": "8e982dce301922f9da96306f4fa31ef02d88ec66fa34a225229ed00c07a0cd86",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/predictions_test.npz",
+      "source_predictions_sha256": "2cbc81ff5847a51b5a2ed87cd4e917aaf5d96b20091db1e6a9deae32ce4c53e2",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "ca425a1a72bce47c8a768e8fef7b3180091c1db8fc40616d0025c0492b9d6a00",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "92b98bcbbaac90e4d7958494d83b6af7f6a4cac0c2cafd6b28dc4e6bd83bf93f",
+      "old_metrics": {
+        "I": 0.9755246819221913,
+        "matched_auc": 0.9260431004736538,
+        "inclusive_auc": 0.9263529468960454
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "seq_002_dilated_tcn",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_002_dilated_tcn/attempt_001/best.pt",
+        "checkpoint_epoch": 16,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "2d64a26939527a47152f1d1bbdf08a5ceb289e8737f8cae60907c9eb9948d70e",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "sequence",
+        "model_name": "HilbertTCNClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/seq_002_dilated_tcn/attempt_001/best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "center_projection": false,
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9755246819221913,
+        "matched_auc": 0.9260431004736538,
+        "inclusive_auc": 0.9263529468960454
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "architecture_id": "ssm_001_pointmamba",
+      "model_key": "exploratory_ssm_001_pointmamba",
+      "block": "classic_exploratory",
+      "main_table": false,
+      "status": "ready",
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__ssm_001_pointmamba.npz",
+      "standardized_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
+      "source_predictions": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/predictions_test.npz",
+      "source_predictions_sha256": "f184d5662d8fe683643da951e7f040837976de17e06961cc0bb67f4c3d6dda0b",
+      "source_metrics": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_json": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/evaluation_test/.energybench/metrics.json",
+      "source_metrics_sha256": "d8f9cf9ca43deb98e51bcd308bcf7a2af784afb546d5dd088fcc7a038514395b",
+      "source_resolved_manifest": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/evaluation_test/.energybench/resolved_manifest.json",
+      "source_resolved_manifest_sha256": "58a0bc3dd03d32a46874da8b632385d3df27899b0bcdee17418524f8cddcdf5e",
+      "old_metrics": {
+        "I": 0.9779342739423307,
+        "matched_auc": 0.9254195732422914,
+        "inclusive_auc": 0.9257424359863461
+      },
+      "legacy_protocol": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "0nubb"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        }
+      },
+      "old_protocol_fingerprint": "f49673580e66f8c2a97e143fecd914e80871bbe7870a0bc7f38b5b29521259e8",
+      "old_evaluator_code_fingerprint": "f3f0abfd7916b75cabf19c3e9cdfc360940af3453f908bdabb1c8ed165a5d37c",
+      "n_events": 115499,
+      "event_id_sha256": "bd207a18ab16ee3ea15845bda5f60dc318d34cc47fa5a744a6ca820ba6d5b9c2",
+      "energy_keV_sha256": "c89a630537e1efb6db7a1a3cfd2fa96c7701047c09876c935d543cccbeab884e",
+      "label_sha256": "9612cbf67cd89b109d43f8aca972eb143eb32f5a1e0b58541f388ce231efeb38",
+      "positive_class": "0nubb=1, Bi214=0",
+      "score_representation": "raw classifier logit; larger favors 0nubb",
+      "score_transform": "none",
+      "energy_source": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+      "energy_conversion": "MeV to keV using shared exact canonical-edge handling",
+      "test_split": "earlier file-split 80/10/10 seed 42; distinct from canonical event-count split",
+      "prediction_metadata": {
+        "adapter": "next_cnn.adapter:predict",
+        "architecture_id": "ssm_001_pointmamba",
+        "checkpoint": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/ssm_001_pointmamba/attempt_001/best.pt",
+        "checkpoint_epoch": 12,
+        "checkpoint_format_version": 3,
+        "checkpoint_sha256": "38c34e7d1f9cebcd911d8e87f5f0097ca355683a1913fc252e7601387df681fb",
+        "data_path": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "data_split": "test",
+        "dataset_inventory": {
+          "algorithm": "sha256-relative-path-size-v1",
+          "category_counts": {
+            "0nubb": 9988,
+            "Bi214": 4985
+          },
+          "digest": "992da3d7b260f3c759366e4e8a6c92efa172583824bc5173cdef471b2c164517",
+          "file_count": 14973
+        },
+        "dataset_root": "/home/klz/Data/zeronu_benchmark/NEXT",
+        "energy_condition_derivation": "float64 sum of MC/hits/table values_block_1 energy rows per event_id",
+        "energy_unit": "MeV",
+        "energy_unit_reference": "https://arxiv.org/abs/2605.07566",
+        "energy_unit_source": "NEXT zeronu benchmark data paper arXiv:2605.07566; source HDF5 attributes do not declare a unit",
+        "framework": "pytorch",
+        "input_kind": "sequence",
+        "model_name": "PointMambaLiteClassifier",
+        "model_path": "/home/wenyu/summer/02_models/checkpoints/20260803_200356/ssm_001_pointmamba/attempt_001/best.pt",
+        "positive_class": "0nubb",
+        "projection_coverage_compatibility_alias": true,
+        "representation": {
+          "center_projection": false,
+          "coordinate_scale": 1000.0,
+          "dense_bin_size": 15.0,
+          "dense_grid_size": 96,
+          "fine_bin_size": 15.0,
+          "fine_grid_size": 128,
+          "max_points": 512,
+          "point_bin_size": 15.0,
+          "projection_bin_size": 30.0,
+          "projection_grid_size": 128,
+          "projection_input_scale": 100.0,
+          "projection_origin": [
+            -1920.0,
+            -1920.0,
+            -120.0
+          ]
+        },
+        "representation_coverage_definition": "fraction of complete event deposited energy retained by the model representation",
+        "score_space": "logit",
+        "source_file_count": 1490,
+        "split_fractions": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "split_seed": 42
+      },
+      "paper_locations": [
+        "wing_contribution/sections/appendix_models.tex:8"
+      ],
+      "class_counts": {
+        "0": 50005,
+        "1": 65494
+      },
+      "old": {
+        "I": 0.9779342739423307,
+        "matched_auc": 0.9254195732422914,
+        "inclusive_auc": 0.9257424359863461
+      },
+      "energy_location_counts": {
+        "0": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        },
+        "1": {
+          "below_0": 0,
+          "above_3000": 0,
+          "nonfinite": 0
+        }
+      },
+      "energy_population_note": "Final v2 retains E>3000 in separate overflow bin; counts above 3000 are not exclusions. Negative/nonfinite energy is excluded from energy metrics."
+    }
+  ],
+  "blocked": []
+}

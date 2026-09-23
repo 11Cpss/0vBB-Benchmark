@@ -1,0 +1,132 @@
+{
+  "dataset": "EXO-200",
+  "architecture": "ssm_001_pointmamba",
+  "task": "classification",
+  "data": {
+    "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
+    "validation_fraction": 0.1,
+    "test_fraction": 0.2727272727272727,
+    "baseline_samples": 200,
+    "classification_amplitude_normalization": true,
+    "seed": 42,
+    "input_field": "Waveforms",
+    "label_field": "Charge_cluster_number",
+    "event_field": "event_number",
+    "group_attribute": "run_number",
+    "position_field": "Charge_Clusters_Pos",
+    "input_shape": [
+      226,
+      300
+    ],
+    "input_dtype": "int16",
+    "num_classes": 2,
+    "class_names": [
+      "signal",
+      "background"
+    ]
+  },
+  "model": {
+    "feature_dim": 2,
+    "model_dim": 128,
+    "inner_dim": 192,
+    "state_dim": 16,
+    "dt_rank": 16,
+    "num_layers": 3,
+    "conv_kernel": 4,
+    "hilbert_bits": 10,
+    "scan_chunk_size": 32,
+    "classifier_dim": 160,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 4,
+    "epochs": 50,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "early_stopping_patience": 12,
+    "seed": 42,
+    "num_workers": 0,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "deterministic": false,
+    "use_amp": true,
+    "amp_precision": "auto"
+  },
+  "counts": {
+    "train": 336632,
+    "validation": 37987,
+    "test": 140383
+  },
+  "class_counts": {
+    "train": {
+      "signal": 160803,
+      "background": 175829
+    },
+    "validation": {
+      "signal": 17813,
+      "background": 20174
+    },
+    "test": {
+      "signal": 66062,
+      "background": 74321
+    }
+  },
+  "split_runs": {
+    "train": [
+      8956,
+      8957,
+      8958,
+      8968,
+      8972,
+      8999,
+      9000,
+      9001,
+      9008,
+      9009
+    ],
+    "validation": [
+      8969
+    ],
+    "test": [
+      8967,
+      8970,
+      8971,
+      9010
+    ]
+  },
+  "split_overlap_counts": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "resume_from": null,
+  "classification_target": {
+    "source_field": "Charge_cluster_number",
+    "signal": {
+      "condition": "nccl == 1",
+      "label": 0,
+      "name": "signal"
+    },
+    "background": {
+      "condition": "nccl > 1",
+      "label": 1,
+      "name": "background"
+    },
+    "positive_class": "background"
+  },
+  "representation": {
+    "source": "Waveforms",
+    "adapter": "channel_major_flatten",
+    "input_shape": [
+      226,
+      300
+    ],
+    "serialized_shape": [
+      1,
+      67800
+    ],
+    "tokenizer": "adaptive_mean_rms",
+    "point_count": 512
+  }
+}

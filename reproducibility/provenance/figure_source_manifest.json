@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "copied_external_sources": [
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/scripts/analyze_energy_shortcut.py",
+      "bundle_path": "code/figure_sources/archived_preprocessing/analyze_energy_shortcut.py",
+      "bytes": 14216,
+      "sha256": "e43caca050c79c24dfd4ffeb06d316d7127cfc16abb40303fdd67ece5a57c8d3",
+      "copy_mode": "byte_identical",
+      "purpose": "Historical histogram/threshold extraction, also calls historical metrics; archived unchanged, never used as current evaluator."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/scripts/analyze_geometry_energy.py",
+      "bundle_path": "code/figure_sources/archived_preprocessing/analyze_geometry_energy.py",
+      "bytes": 16418,
+      "sha256": "cfd6b50f6ee87b7c05e06e4ecebab64f835fbdb0901b134fd716744c8f6c801b",
+      "copy_mode": "byte_identical",
+      "purpose": "Original raw SuperNEMO event geometry/energy descriptor extraction; legacy absolute paths retained."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/scripts/plot_population.py",
+      "bundle_path": "code/figure_sources/archived_preprocessing/plot_population.py",
+      "bytes": 10779,
+      "sha256": "9a229e4290d5bf67d576fea938d9c5f891e5d3e74f8f82e3d841e57d0a677104",
+      "copy_mode": "byte_identical",
+      "purpose": "Original event descriptor to conditional histogram/quartile ECDF extraction; legacy absolute paths retained."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/mjd/scripts/plot_mjd_low_high.py",
+      "bundle_path": "code/figure_sources/archived_preprocessing/plot_mjd_low_high.py",
+      "bytes": 11478,
+      "sha256": "f1343d3910524f281245f80c3cec59dc40dcb2aa10c3a9955278842480bce336",
+      "copy_mode": "byte_identical",
+      "purpose": "Original waveform event selection and preprocessing; legacy paths retained."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/mjd/scripts/inspect_mjd_metadata.py",
+      "bundle_path": "code/figure_sources/archived_preprocessing/inspect_mjd_metadata.py",
+      "bytes": 3050,
+      "sha256": "11f704662878bb5f405fcdd515ea43039a359304de7eca6b598532c9aa975f4b",
+      "copy_mode": "byte_identical",
+      "purpose": "Original MJD raw shard scalar metadata preparation; legacy paths retained."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/evidence/supernemo_cohort_ecdf_LOCAL_ONLY.csv.gz",
+      "bundle_path": "code/figure_sources/data/supernemo_cohort_ecdf.csv.gz",
+      "bytes": 3073682,
+      "sha256": "fc8a00df56c0072d792eebe8c2ea24e5c57038d4d90ac48cc416cf03269b1462",
+      "copy_mode": "byte_identical",
+      "purpose": "Exact complete ECDF input required by active appendix figure renderer."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision4_20260904/evidence/supernemo_geometry_event_descriptors_LOCAL_ONLY.csv.gz",
+      "bundle_path": "code/figure_sources/data/supernemo_geometry_event_descriptors.csv.gz",
+      "bytes": 11873930,
+      "sha256": "ea16f7b5706235c69867cabbace5c0d3ea91aa2f027b25fd291e128dc4f4372c",
+      "copy_mode": "byte_identical",
+      "purpose": "All 458752 test-event energy/geometry descriptors for independent reconstruction of plotted aggregates."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision4_20260904/evidence/geometry_energy.json",
+      "bundle_path": "code/figure_sources/data/geometry_energy_provenance.json",
+      "bytes": 10931,
+      "sha256": "b05f2f25414c4594e95594064b426b6e07e42246a490f1860a34897471b7aeb2",
+      "copy_mode": "byte_identical",
+      "purpose": "Raw descriptor definitions, source split/file metadata and original numerical checks."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/supernemo/evidence/supernemo_population_summary.json",
+      "bundle_path": "code/figure_sources/data/supernemo_population_summary.json",
+      "bytes": 8421,
+      "sha256": "c0cb2f665177a43c26a2ccd0350a28c03c152159aae059b2446f018677f9ce6e",
+      "copy_mode": "byte_identical",
+      "purpose": "Full original cohort/bin summary provenance."
+    },
+    {
+      "source_path": "/home/wenyu/iclr final paper/wing_huang_revision6_20260905/motivation_analysis/mjd/evidence/mjd_waveform_summary.json",
+      "bundle_path": "code/figure_sources/data/mjd_waveform_summary.json",
+      "bytes": 2707,
+      "sha256": "4912db11cd1a568cad26f5b8f5f21316ba11132da21d23c500662af3a2c1f6ef",
+      "copy_mode": "byte_identical",
+      "purpose": "Original deterministic MJD waveform selection and statistics provenance."
+    }
+  ],
+  "archived_code_policy": "All archived preprocessing scripts are byte-identical. They retain their historical paths and metric settings; current figure replay uses paper scripts and frozen plotting inputs, not archived metric calls.",
+  "derived_new_bundle_code": [
+    {
+      "bundle_path": "code/figure_sources/inventory_active_paper.py",
+      "sha256": "2dc57f0cc1e1e5cf431db0c0f7d16900f242bdc394e7bcf4409e058b2eb71f23",
+      "bytes": 6456,
+      "origin": "New bundle-only inventory/reproduction validation helper; no original file changed."
+    },
+    {
+      "bundle_path": "code/figure_sources/rebuild_extent_inputs.py",
+      "sha256": "70422658c1a77dffcd2a2efee3ec4c530f74934bed9918026cb9bd97e61661c5",
+      "bytes": 3633,
+      "origin": "New bundle-only inventory/reproduction validation helper; no original file changed."
+    },
+    {
+      "bundle_path": "code/figure_sources/validate_renders.py",
+      "sha256": "1273b876ede5abf4c07c416a781913ca6561492cf515b36cb12ad72450476282",
+      "bytes": 1493,
+      "origin": "New bundle-only inventory/reproduction validation helper; no original file changed."
+    }
+  ],
+  "documentation": {
+    "bundle_path": "code/figure_sources/README.md",
+    "sha256": "ed2f82b3da56ca9d257df14feb49d502397b89d39da4326d4f03102cdc9902b8"
+  },
+  "local_validation_environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1",
+    "Pillow": "12.3.0"
+  },
+  "validation": {
+    "figure_PDF_replay": "validation/figures/render_validation.json",
+    "extent_preprocessing": "validation/figures/rebuilt_extent_inputs/verification.json",
+    "active_figure_replay_count": 6,
+    "active_archived_only_panels": 8,
+    "all_original_code_copies_byte_identical": true
+  }
+}

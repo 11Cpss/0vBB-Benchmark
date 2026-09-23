@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rare-event-transformer-benchmark"
+version = "0.1.0"
+description = "Standardized rare-event Transformer representation benchmarks"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "torch>=2.5,<3",
+    "numpy>=1.24,<3",
+    "pandas>=2.0,<4",
+    "h5py>=3.8,<4",
+    "matplotlib>=3.7,<4",
+]
+
+[project.optional-dependencies]
+notebooks = [
+    "jupyterlab>=4,<5",
+    "ipykernel>=6.25,<8",
+    "nbconvert>=7,<8",
+]
+
+[tool.setuptools.packages.find]
+where = [
+    "evalutaions_workflow",
+    "next_detector",
+    "mjd_detector",
+    "exo200_detector",
+    "supernemo_detector",
+]
+include = [
+    "energybench*",
+    "simple_energybench*",
+    "next_transformer*",
+    "mjdbench*",
+    "mjd_transformer*",
+    "exobench*",
+    "exo_transformer*",
+    "supernemobench*",
+    "supernemo_transformer*",
+]

@@ -1,0 +1,22 @@
+{
+  "run_id": "classification__raw_patches__fourier_coordinates",
+  "task": "classification",
+  "tokenization": "raw_patches",
+  "position_encoding": "fourier_coordinates",
+  "parameter_count": 114561,
+  "train_events": 936000,
+  "validation_events": 104000,
+  "test_events": 390000,
+  "epochs_completed": 49,
+  "best_epoch": 44,
+  "best_validation_score": 0.9811227147845832,
+  "training_seconds": 15698.111830932088,
+  "minutes_per_epoch": 5.339493820044928,
+  "evaluation_seconds": 76.70353181613609,
+  "test_auc": 0.9814954149227426,
+  "test_accuracy": 0.9278538461538461,
+  "test_mae_kev": null,
+  "test_rmse_kev": null,
+  "test_bias_kev": null,
+  "test_loss": 0.1764251974936725
+}

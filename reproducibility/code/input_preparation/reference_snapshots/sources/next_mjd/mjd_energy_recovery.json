@@ -1,0 +1,16 @@
+{
+  "n_events": 390000,
+  "raw_dtype": "float64",
+  "finite": 390000,
+  "below_zero": 0,
+  "above_3000": 67,
+  "above_3000_by_class": {
+    "0": 66,
+    "1": 1
+  },
+  "raw_min": 0.0,
+  "raw_max": 4177.604856194463,
+  "float32_metadata_max_absolute_difference_keV": 0.00012427428737282753,
+  "fixed_bin_membership_float32_vs_float64_disagreements": 3,
+  "restored_physical_id_unique": 390000
+}

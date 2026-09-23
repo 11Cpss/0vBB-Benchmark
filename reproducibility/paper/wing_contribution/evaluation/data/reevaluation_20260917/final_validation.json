@@ -1,0 +1,23 @@
+{
+  "selected_configurations": 23,
+  "transformers": 15,
+  "classic_models": 8,
+  "numerical_tests_passed": 14,
+  "independent_synthetic_cases_passed": 48,
+  "independent_event_results_passed": 23,
+  "compiled_pdf": "/home/wenyu/iclr final paper/overleaf/iclr2027_conference.pdf",
+  "compiled_pdf_sha256": "e0b2d5e6d3a3b8cf710f5ecc27ad8985294942c22fa03ed08ac40a2a738ddaff",
+  "pages": 25,
+  "unresolved_references_or_citations": false,
+  "overfull_boxes": false,
+  "warnings": "Underfull boxes and Nimbus Roman small-caps font substitution; compilation succeeds.",
+  "visual_review_pages": [
+    7,
+    15
+  ],
+  "visual_review": "Main and diagnostic tables fit without overlap or clipping.",
+  "portable_tables_match": 6,
+  "retained_figure_files_changed": false,
+  "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+  "core_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0"
+}

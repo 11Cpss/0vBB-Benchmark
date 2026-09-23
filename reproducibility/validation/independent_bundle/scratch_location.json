@@ -1,0 +1,10 @@
+{
+  "scratch_root": "/tmp/energybench-portability-haeqwnvw",
+  "copy_scope": "paper, code, environments, reproduction, provenance and results; one original standardized event NPZ. No symlinks, original scientific datasets or other event NPZs copied.",
+  "sample_input_sha256": "8ba75f5ee3629639bebb6fddee792f4bbe68004483acff0919bebfc3e277cfc0",
+  "python_allowed_account_paths": [
+    "/home/wenyu/summer/.venv",
+    "/home/wenyu/summer/envs/python-builds/cpython-3.11.15-linux-x86_64-gnu"
+  ],
+  "guard": "Python audit hook rejects opens under /home except the installed scientific interpreter and its packages."
+}

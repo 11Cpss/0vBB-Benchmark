@@ -1,0 +1,10 @@
+# Dependency bounds for this source archive; not a claim about original training pins.
+torch>=2.5,<3
+numpy>=1.24,<3
+pandas>=2,<4
+h5py>=3.8,<4
+matplotlib>=3.7,<4
+PyYAML>=6,<7
+ipython>=8,<10
+ipykernel>=6,<8
+nbconvert>=7,<8

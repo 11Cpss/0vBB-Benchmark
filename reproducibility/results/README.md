@@ -1,0 +1,1 @@
+Full-precision published data and table evidence are frozen in `../paper/wing_contribution/figures/data/`. The selected MJD/EXO-200 event results and comparison CSVs are in `../paper/wing_contribution/evaluation/data/reevaluation_20260917/`. These are outputs and rendering inputs, never event-level evaluation inputs.

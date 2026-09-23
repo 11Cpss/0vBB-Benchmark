@@ -1,0 +1,52 @@
+{
+  "main_table_entries": 52,
+  "main_table_entries_with_event_replay": 43,
+  "unrecovered_main_entries": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_rope"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_rope"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_rope"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_rope"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_rope"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_rope"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_rope"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_rope"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_rope"
+    }
+  ],
+  "profile_registry_event_replays": 61,
+  "historical_transformer_event_replays": 12,
+  "active_figures": 14,
+  "figures_with_exact_regeneration": 6,
+  "archived_figure_assets_without_generator": 8,
+  "active_tables": 11,
+  "generated_tables_verified": 6,
+  "raw_detector_data_included": false,
+  "trained_weight_tensors_included": false,
+  "source_preservation": "All copied original source files are kept byte-identical. New portability wrappers are confined to the bundle."
+}

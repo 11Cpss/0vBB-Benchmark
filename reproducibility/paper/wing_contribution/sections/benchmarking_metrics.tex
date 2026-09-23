@@ -1,0 +1,57 @@
+\subsection{Energy-Aware Metric Design}
+\label{sec:benchmarking-metrics}
+
+The primary goal of this work is not to eliminate energy shortcut learning, but to provide a systematic benchmark to understand its impact across different NLDBD datasets and modalities. To characterize this effect, we introduces two complementary metrics: a \emph{Energy-matched AUC} that benchmark the classification power after matching the signal and background energy spectra, and a \emph{Energy Independence Score} that benchmark stability of the model score distribution with respect to energy within each true class.
+
+For all datasets, we partition events into fixed 5\,keV energy bins spanning $0$--$3000$,keV, covering the energy range relevant to the NLDBD searches. An example histogram from the SuperNEMO dataset is shown in Figure~\ref{fig:mjd-motivation}(b). We refer to an energy bin as \emph{retained} when it contains sufficient statistics for the two benchmarking metrics: Specifically, a bin must contain at least 20 events from each relevant class; for energy-matched AUC, it must additionally lie within the common energy support of the signal and background classes. Bins that do not satisfy these requirements are excluded from the corresponding metric calculation.
+
+\paragraph{Energy-matched AUC (AUC$_{match}$)} For event $x_i$, let $y_i\in{0,1}$, $E_i$, and $s_i$ denote its evaluation label, conditioning energy, and classifier score, respectively, with larger scores favoring $y_i=1$. Within the common energy support of the two classes, we reweights events so that, in each retained energy bin, the signal and background classes have the same total weight. The target weight assigned to each bin is proportional to the smaller of the two class-normalized bin weights. Letting $w_i$ denote the resulting event weights, normalized to sum to one within each class, the energy-matched AUC is defined as
+\begin{equation}
+\operatorname{AUC}_{\mathrm{match}}
+\sum_{i:y_i=1}\sum_{j:y_j=0} w_i w_j
+\left[
+\mathbf{1}(s_i>s_j)
++\frac{1}{2}\mathbf{1}(s_i=s_j)
+\right].
+\end{equation}
+This defines a single pooled weighted AUC, including cross-bin comparisons and half credit for ties~\citep{hanley1982meaning}. Energy matching changes only the evaluation weights, without retraining or random resampling. The metric therefore measures signal--background discrimination after balancing the two classes' energy distributions. Residual energy differences within individual bins, as well as the exclusion of energies outside the common support, limit this interpretation. 
+
+Figure~\ref{fig:mjd-motivation}(c) compares the ROC curves before and after energy matching for the SuperNEMO signal-like and background-like training samples, using only event energy as the classification score (i.e., an ``energy cut''). Using all events under their original energy distributions gives an inclusive AUC of 0.9706; We then restrict the evaluation to the retained energy bins used for energy matching, but do not yet apply the matching weights. This lead to an unweighted AUC at 0.9297. Finally, applying the energy-matching weights to these same retained events reduces the AUC to 0.5000, indicating no classification power. Once the signal and background energy distributions are matched and reweighted, energy alone provides no classification power between signal and background.
+
+
+\paragraph{Energy Independence Score (I)}
+The second metric asks whether the score distribution changes with energy
+within each true class. For class $g$, let $P_{gk}$ denote its normalized score histogram in energy bin $k$, and let $P_g$ denote the corresponding histogram pooled across all retained energy bins.
+Let $\pi_{gk}$ denote the fraction of the retained event weight for class $g$ that falls within energy bin $k$. Using
+Jensen-Shannon divergence in natural-log units \citep{lin1991divergence},
+\begin{equation}
+ I_g=1-\sqrt{\frac{\sum_k\pi_{gk}\operatorname{JS}(P_{gk},P_g)}{\ln 2}},
+ \qquad I=\frac{\sum_g A_g I_g}{\sum_g A_g},
+\end{equation}
+where $A_g$ is the total original weight, before sparse-bin exclusion, of events in class $g$ with finite scores and energies within the specified energy range. Only classes for which $I_g$ can be estimated are included in the average. This calculation uses the original event weights. Higher $I\in[0,1]$ indicates greater stability of the classifier score distribution across energy, while lower $I$ indicates stronger energy dependence. Importantly, $I$ measures score stability rather than classification power: a random classifier attains $I=1$ but an AUC of $0.5000$. Energy-matched AUC and $I$ therefore provide complementary diagnostics, with the former measuring discrimination after balancing the class energy distributions and the latter measuring how strongly the classifier score varies with energy within each class.
+
+% At the population level, exact score--energy independence within each class implies equal inclusive and energy-matched AUC, since energy reweighting leaves the class-conditional score distributions unchanged. However, a binned estimate of $I=1$ does not establish exact statistical independence or guarantee equal AUCs. Conversely, equal AUCs do not imply $I=1$, since the score distributions may vary with energy while preserving signal--background ranking.
+
+
+% \paragraph{Evaluation workflow.}
+% Evaluation starts from saved event-level scores, labels, physical energies,
+% and test identifiers. Scores are oriented toward the evaluation-positive
+% class and energies converted to keV. The MJD and EXO-200 classic models,
+% nine EXO-200 Transformers, and six MJD MLP/Fourier Transformers use exactly
+% 600 fixed 5 keV bins with edges $0,5,\ldots,3000$ keV. Intervals are
+% left-closed/right-open, except that the last includes 3000 keV. Energies
+% outside 0--3000 keV are excluded without clipping; inclusive AUC retains
+% its original finite-score population regardless of energy. Finite
+% score/energy pairs with positive base weight enter two separate calculations.
+% For $I$, each group/bin requires at least
+% 20 events; retained events define the weighted score-quantile histograms.
+% For matching, common-support trimming precedes the requirement of at least
+% 20 events per class/bin, followed by overlap reweighting and a pooled AUC.
+% Reporting requires at least 50\% coverage of each original finite-pair class
+% base mass and at least two valid bins; only the bin-count requirement has
+% an exception for exactly constant common energy.
+% Exact weights, boundaries, and reporting rules appear in
+% Appendix~\ref{app:metric-details}. NEXT and SuperNEMO retain their recorded
+% profiles, including an overflow bin for their classic models and the separate
+% energy-only illustration. The three MJD RoPE entries retain their recorded
+% results; they are not part of the MJD reevaluation.

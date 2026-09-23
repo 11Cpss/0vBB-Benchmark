@@ -1,0 +1,422 @@
+{
+  "dataset": "MJD",
+  "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
+  "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+  "evaluator_path": "/home/wenyu/iclr final paper/overleaf/wing_contribution/evaluation/core/unified_metrics.py",
+  "evaluator_file_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
+  "protocol_file_sha256": "a4692911d0d9580f68f0ab3e52309c76344bc64e31c32c1feaaedaeefd3e103b",
+  "source_root": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector",
+  "event_audit": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/event_identity_audit.json",
+  "legacy_evaluator_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/evalutaions_workflow/energybench/metrics.py",
+  "legacy_evaluator_sha256": "7746f47a8d4639d0cdd0c02b038cf9f11bc70af73f6d21c2ffd533c09ac9fad1",
+  "ready": [
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "run_id": "classification__pulse_entities__coordinate_mlp",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "entity_mlp",
+      "exact_parameter_count": 111105,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_entity_mlp.npz",
+      "standardized_sha256": "fde5dc2abd4b4d3e856e81cf8a4ecd026e62d14f4e64336bf22d9f5837c26491",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_entity_mlp.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.8115678531709327,
+        "matched_auc": 0.9293968032684995,
+        "inclusive_auc": 0.9334245029722467
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/run_config.json": "ab79f927987f2264c88564c4fd6f6dd235317ae4e802f8b116c139316eaaf3ed",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/run_summary.json": "b9fb4353a393ad404ea0901fd4d3a24075696ebc561b1273b8023ba95e6986e1",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/best.pt": "7e01ea1751382ef2ba212318a94cda33ea8bbb72172c0f150bfcb2420428246f",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/predictions.npz": "e7a858cab2ee1d3eba603cd75085524e18d5086df5c7bff784bb37edda1b7245",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/predictions.npz": "d8543a5b5c23b3b9cf5d4f4de7c7d493f9c3a7709df6c0e91bd4dd1a8c53331c",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/metrics.json": "0f5c92bec6b6b019fbd8f0658e23cd644fe118868f328dcdeb738f3cf15cefbe"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 27,
+        "validation_score": 0.9325194253094636
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "run_id": "classification__pulse_entities__fourier_coordinates",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "entity_fourier",
+      "exact_parameter_count": 113409,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_entity_fourier.npz",
+      "standardized_sha256": "3839256b67627253aa59d13db63db6eaba19eadf35e72b83fe9513b3bf02b1b9",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_entity_fourier.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.8020619302281552,
+        "matched_auc": 0.9413879799841893,
+        "inclusive_auc": 0.9444524476323212
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/run_config.json": "bb86f4182c8ca966ddc98768c119b8fa9d17fa4102a0f1ad5e8717dcb1f7b12f",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/run_summary.json": "7281ea58a3867e490a8003f014713bddc5d6f1e15e7601ca835f16533f42f0e7",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/best.pt": "42db930535908b706e88a179d90d0bae8394802f1bd764ac09273543d559c7bc",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/predictions.npz": "3c8f6cf40be06334373661418170a2b643ab8c512ca2a52cb9c5cf25c3589b29",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/predictions.npz": "81d32f80203c458e3fe06632e55e72954e75d42f4482ca831b2fda21d8b23c53",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/metrics.json": "4fddad459442d01563926bccfae73f1ef1a496ba70c68b920b0f2067715b28b9"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 23,
+        "validation_score": 0.9440660431128639
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "run_id": "classification__raw_patches__coordinate_mlp",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "region_mlp",
+      "exact_parameter_count": 112257,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_region_mlp.npz",
+      "standardized_sha256": "0d433ca3a74c5544eac11af12c4e1b358b6a74e7a4a462039607f8a1f0e65cc1",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_region_mlp.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.7982816797970245,
+        "matched_auc": 0.9734509740214516,
+        "inclusive_auc": 0.974491362595523
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/run_config.json": "873c2d34548f390d68be07c05a5f4d7e81f6f511eb1ec92d2772c5869322c8ec",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/run_summary.json": "a531cde2b481d24fdd24e08e16ddb791978b57de936c74476c017e7aec4ded5a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/best.pt": "ad011cd2959c25aaf5165329fde3a462f0f3198b3fdcf9f0854a8dddaa1e1330",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/predictions.npz": "8722915e4c61a6504efa367f61f114ee4aed9419a5101028fe438c4b4bd225f6",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/predictions.npz": "7feeb9abacdd0127ddccce5aaa289a541afe0e1568cc1b1547cdf54e0b617021",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/metrics.json": "b4d30585bea9a95b7e7e032f51c448a45f0af49dfcb3da74db641b5f2234f244"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 46,
+        "validation_score": 0.9738937177862866
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "run_id": "classification__raw_patches__fourier_coordinates",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "region_fourier",
+      "exact_parameter_count": 114561,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_region_fourier.npz",
+      "standardized_sha256": "f6b1430120e618f7c5129d7378f0d7f00f8ae95a23adf11b136361f3a1c5a93b",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_region_fourier.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.7876113567824797,
+        "matched_auc": 0.9810468112425579,
+        "inclusive_auc": 0.9814954149227425
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/run_config.json": "58d169e3a49e76df829bb230bb0e50b51bb821941a0487da5192fe363f0ba14b",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/run_summary.json": "b001eae1bd0d535fdb44466f2b1bef35d63d6c728841fadcc7c8a5e87a770f8c",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/best.pt": "dd0ac549e296571d1ff99a356eda1023c84d09758f2aed80f61f9452fdb1ee09",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/predictions.npz": "4310b028406c2a2d394422fab42f03592d5286647d5a192e2499d5dd1e132916",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/predictions.npz": "e99d450caced3b55b882d81990ecd93cdeafa0f6deb1e74fafed86aee4d66626",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/metrics.json": "90b9d32a761ba88117f1b4b206060b5c2b30f4eed9f14abd8ee76cd87bddb35e"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 44,
+        "validation_score": 0.9811227147845832
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "run_id": "classification__segment_summary__coordinate_mlp",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "summary_mlp",
+      "exact_parameter_count": 111105,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_summary_mlp.npz",
+      "standardized_sha256": "11344e3759891fbf67480536015f8b9b56b8e92ffac67efa1903ef9ac6f5f761",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_summary_mlp.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.7989695461103333,
+        "matched_auc": 0.9653936537903378,
+        "inclusive_auc": 0.9670155303222863
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/run_config.json": "a7b702c0df34e61003da2deef53f36c38895e795ac016476cb41950298feea65",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/run_summary.json": "fbb5dd4668e967059ec8e3efbb31113b99a29db8af253cc1e34299d2a0734ce0",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/best.pt": "fc5d40c901fd221f364a5e65bcefe4d9722edfedab6cb9c33ef91c40e983cf98",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/predictions.npz": "69e34bf95a0475390c5589623f746098d69e4733e99e568e8f3891b8114498e7",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/predictions.npz": "ff77ac0afdf1f203ad30dc80c7f044aef0dbab23aedb28b88d3d7f43967e8592",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/metrics.json": "afde8f9162bb486dd4c333ea21f8e5565158386590b193ce888549202e4c1ce0"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 31,
+        "validation_score": 0.9665008764449651
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "run_id": "classification__segment_summary__fourier_coordinates",
+      "status": "ready",
+      "family": "Transformer",
+      "architecture_id": "summary_fourier",
+      "exact_parameter_count": 113409,
+      "standardized_predictions": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_summary_fourier.npz",
+      "standardized_sha256": "bca72d24025283bf2ed6b96fd21d79efb7f668a42e85dae8d65834bdb98569ca",
+      "detail_json": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/details/MJD_summary_fourier.json",
+      "source_predictions": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/predictions.npz",
+      "old_metrics": {
+        "I": 0.7817758033321167,
+        "matched_auc": 0.9691376244116913,
+        "inclusive_auc": 0.9708923408197193
+      },
+      "source_metrics_json": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/metrics.json",
+      "legacy_protocol": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_grid_bin_count": 836,
+        "energy_grid_max_kev": 4180.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9
+      },
+      "source_files": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/run_config.json": "ae729d5d180aa20eeb9fcafc0439beb38dc8d0477544ca44dc272e0d431340b0",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/run_summary.json": "8745c3d535b1808046e8e8ede08641c0b2a4f67e66a81636e40cd49f283b601c",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/best.pt": "db65f13f62d06a5bc3333a62f47ced5ad57a02d32893c84f16f62e29f3aedc63",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/predictions.npz": "df75fd47bc2fbc876bf618b752d24ce0dd3726920306604ae1d6e367b086cc5b",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/predictions.npz": "1436348703415eb4eda2101402503b1fc72ec1822360eaf6a0732fcad53ce815",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/metrics.json": "4274ae71f6cd52e8c3ceb7b7a19caccc026208f94076b160b480be5871e4ac43"
+      },
+      "source_code": {
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/data.py": "1a92a9a0aebfd6b5ea5ee8bbaf11214d932f7add10df2fc75be1b21361d78b57",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjdbench/training.py": "be0748d7d9fa73aed1adc3e2b64e47be1107406d5e6ff60f1dbe265e6c4b550a",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/model.py": "c272e260cff80094f7dfbfe5471419912de0030e9003356a61afbf773dd7fc08",
+        "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/mjd_transformer/energy_aware.py": "0a0621b9570ab0e5e4d4f46e7dedd00939f4eea86dc9d56fdeb2618d9c56d83c"
+      },
+      "score_definition": "Raw single binary logit from trained clean-vs-nonclean classifier; higher meansclean. No sigmoid/product/sign flip.",
+      "label_definition": "1 iff low_avse,high_avse,dcr,lq PSD flags all true;0 otherwise.",
+      "energy_definition": "Original per-row float64 HDF5 energy_label in keV, recovered only after exactfull-vector float32energy and label comparison with Transformer saved prediction cache; no clipping.",
+      "event_identity": "Actual Transformer sorted six officialtestshards, allrows; exactsaved label andfloat32energy match; unique shard/row/rawid identifier.",
+      "test_event_id_sha256": "1b0c177ff75ab82bf04f649cb411501e32f2bd5d7fc724d0d543f02a3a6a65e4",
+      "n_events": 390000,
+      "inclusive_population_unchanged": true,
+      "prediction_scores_equal_training_saved": true,
+      "inference_run": false,
+      "training_run": false,
+      "checkpoint_metadata": {
+        "epoch": 23,
+        "validation_score": 0.9702529242872407
+      }
+    }
+  ],
+  "out_of_scope_user": [
+    {
+      "model_key": "entity_rope",
+      "status": "out_of_scope_user",
+      "reason": "User explicitly said RoPE need not be handled; existing historical paper values remain outside this campaign."
+    },
+    {
+      "model_key": "region_rope",
+      "status": "out_of_scope_user",
+      "reason": "User explicitly said RoPE need not be handled; existing historical paper values remain outside this campaign."
+    },
+    {
+      "model_key": "summary_rope",
+      "status": "out_of_scope_user",
+      "reason": "User explicitly said RoPE need not be handled; existing historical paper values remain outside this campaign."
+    }
+  ],
+  "recompute_script_sha256": "9bee30bfd4dae03f951634835a4af6878594cf0daea4e79732599b1dc90ec06c"
+}

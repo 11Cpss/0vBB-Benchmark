@@ -1,0 +1,10 @@
+{
+  "checked_files": 1,
+  "include_event_data": false,
+  "all_pass": true,
+  "failures": [],
+  "test": "Dedicated venv coexistence regression fixture, not final whole-bundle integrity verification",
+  "venv_python_is_symlink": true,
+  "exit_code": 0,
+  "fixture": "/tmp/energybench-venv-integrity-6_nestn0"
+}

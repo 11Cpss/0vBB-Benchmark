@@ -1,0 +1,38 @@
+usage: train_classification.py [-h] [--data-root DATA_ROOT]
+                               [--output-dir OUTPUT_DIR]
+                               [--batch-size BATCH_SIZE] [--epochs EPOCHS]
+                               [--learning-rate LEARNING_RATE]
+                               [--weight-decay WEIGHT_DECAY]
+                               [--gradient-clip-norm GRADIENT_CLIP_NORM]
+                               [--early-stopping-patience EARLY_STOPPING_PATIENCE]
+                               [--num-workers NUM_WORKERS] [--device DEVICE]
+                               [--seed SEED] [--no-amp]
+                               [--resume-from RESUME_FROM]
+                               [--baseline-samples BASELINE_SAMPLES]
+                               [--regression-waveform-scale REGRESSION_WAVEFORM_SCALE]
+                               [--no-classification-amplitude-normalization]
+                               [--smoke]
+
+Train cnn_004_multiview_late_fusion for MJD classification.
+
+options:
+  -h, --help            show this help message and exit
+  --data-root DATA_ROOT
+  --output-dir OUTPUT_DIR
+  --batch-size BATCH_SIZE
+  --epochs EPOCHS
+  --learning-rate LEARNING_RATE
+  --weight-decay WEIGHT_DECAY
+  --gradient-clip-norm GRADIENT_CLIP_NORM
+  --early-stopping-patience EARLY_STOPPING_PATIENCE
+  --num-workers NUM_WORKERS
+  --device DEVICE
+  --seed SEED
+  --no-amp
+  --resume-from RESUME_FROM
+                        Resume training from a checkpoint (older weight-only
+                        checkpoints are supported).
+  --baseline-samples BASELINE_SAMPLES
+  --regression-waveform-scale REGRESSION_WAVEFORM_SCALE
+  --no-classification-amplitude-normalization
+  --smoke               Use at most 512 events per split and one epoch.

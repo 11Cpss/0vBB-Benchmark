@@ -1,0 +1,144 @@
+{
+  "files": [
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/extract_next_mjd.py",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/extract_next_mjd.py",
+      "sha256": "f5a2b9a4d79765b9ed936b4bb40635e48e26d474a2aee22fd0774c5b32f40047"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/extract_exploratory.py",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/extract_exploratory.py",
+      "sha256": "00ab6ace44a4716bba39b2370ca47a798cf47738851f0e5cd5ae5e4a8a450b61"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/audit_next_raw.py",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/audit_next_raw.py",
+      "sha256": "f70e762ce0500ad00463c5ce40e2b259c8bed3d78ab9d562ec0b59dd65fa7c3f"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/manifest.json",
+      "sha256": "b4d81c35b26b01fd60520ff8dc9db914ec2895c9e4174522ef51098988b56d76"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/alignment_checks.json",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/alignment_checks.json",
+      "sha256": "22ce3abb9b7a6435befc7eab0403a6ef1e0f477f2a7fc3bc5c02d354c8773b71"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/mjd_energy_recovery.json",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/mjd_energy_recovery.json",
+      "sha256": "e2b8d913d1fb7ea2547d93cf0ec3704e2f2e57be842a7d24601209a0923d5905"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/README.md",
+      "bundle": "code/input_preparation/reference_snapshots/sources/next_mjd/README.md",
+      "sha256": "8c906aa395206e1d20943ac7a4a00a71db98d5e48dc4a30714b8b40d49973b1e"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/extract_sources.py",
+      "bundle": "code/input_preparation/reference_snapshots/sources/exo_sn/extract_sources.py",
+      "sha256": "a8b0b370143497a4a97b55ee42c9515491303b57dbf697160dc4e9337ad92323"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/replay_history.py",
+      "bundle": "code/input_preparation/reference_snapshots/sources/exo_sn/replay_history.py",
+      "sha256": "488d0f6f2cd50e8c8ab3cb6153fa029bf1a16de96c420bd5440b83babc332a27"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/source_audit.md",
+      "bundle": "code/input_preparation/reference_snapshots/sources/exo_sn/source_audit.md",
+      "sha256": "0f6ecbf519116ddad9963715d01e6a8dba6d2b8cfbff924d5865c126c3da3b96"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
+      "bundle": "code/input_preparation/reference_snapshots/sources/exo_sn/manifest.json",
+      "sha256": "7e462ca046359a8debac029ddcf9bd2aef96c12d0ef52fc29ef5d262ac0c7690"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/illustration_manifest.json",
+      "bundle": "code/input_preparation/reference_snapshots/sources/exo_sn/illustration_manifest.json",
+      "sha256": "39e50fe88e63ceb886c3576d60f86062bd46264586f7d987421c1ceedc7c8c51"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/recompute_exo_transformers.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/exo/recompute_exo_transformers.py",
+      "sha256": "cbe4fe37ec11b8185096f95d5ea0579214de3c27d732a56879a3dcd6ae56732c"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/recompute_strict600.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/exo/recompute_strict600.py",
+      "sha256": "254e798aa259250f23dec924cf53baf4ba8fbbde9179f46b5c4daf3643f49627"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/manifest.json",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/exo/manifest.json",
+      "sha256": "d28478881312762d3406d37c62ade5c1b4c552cc79f1932ca80199f399c82f86"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/source_audit.md",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/exo/source_audit.md",
+      "sha256": "075f5efecf96e54f1c85924bdece114afbaacf22b854371416a8b868869cea28"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/recompute_mjd.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/recompute_mjd.py",
+      "sha256": "9bee30bfd4dae03f951634835a4af6878594cf0daea4e79732599b1dc90ec06c"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/recompute_strict600.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/recompute_strict600.py",
+      "sha256": "883cfd4fdc4641899d0c9d3d8712b0d79e335b9d9b7b10182b8060e5b500a64c"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/finalize_artifacts.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/finalize_artifacts.py",
+      "sha256": "65b34d3bbae10f1f5d062e48ec81c033dfb15ca6b5a8b8680bc082b404e5852f"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/manifest.json",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/manifest.json",
+      "sha256": "37c19a6dd0c79cdf3fdd2d250a707c9bb4c2fec2fc16edc5c5df0ad0a39c4cc8"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/event_identity_audit.json",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/event_identity_audit.json",
+      "sha256": "8f0a585968d8c5f0fcf217356663fffba01dc1197376982a659bf94de9fd47df"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/README.md",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/mjd/README.md",
+      "sha256": "1e373c25708c5be63e2f3a163b9e6f29a17df0d0d2b0058d8eab6318f7b599f4"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/audit/independent_review.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/audit/independent_review.py",
+      "sha256": "6f1eab981b6d54bfcfeaae7f854926a228a6a8f0ab60047929bebdc351c9e846"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/audit/independent_sources.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/audit/independent_sources.py",
+      "sha256": "324fecac6c8963fe40714372cfe9f758516c9fa4d88f1c67bcacd4dd751f2c76"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/audit/independent_synthetic_v3.py",
+      "bundle": "code/input_preparation/reference_snapshots/transformer_exo_mjd_20260917/audit/independent_synthetic_v3.py",
+      "sha256": "4d372a5531cc5c2584086f467320566fd42a59a3e8733517a68d17a077e557bb"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/code/recompute_existing.py",
+      "bundle": "code/input_preparation/reference_snapshots/strict_600bin_20260917/code/recompute_existing.py",
+      "sha256": "f4c3b1deec4dafd3da174e76911875532e541f0e3519dd7562ed4c3685d6625a"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/code/collect_results.py",
+      "bundle": "code/input_preparation/reference_snapshots/strict_600bin_20260917/code/collect_results.py",
+      "sha256": "02b33ea397f4d6d271b48911836ed5a1c8fa336ab9fb9cf729d3af69a9c396ff"
+    },
+    {
+      "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/code/unified_metrics.py",
+      "bundle": "code/input_preparation/reference_snapshots/strict_600bin_20260917/code/unified_metrics.py",
+      "sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0"
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "source_hash_checks": 331,
+  "hash_failures": [],
+  "parsed_python_files": 153,
+  "syntax_failures": [],
+  "process_checks": [
+    {
+      "name": "MJD_cnn_004_multiview_late_fusion",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/cnn_004_multiview_late_fusion/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_cnn_004_multiview_late_fusion.txt"
+    },
+    {
+      "name": "MJD_gnn_001_static_gine",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/gnn_001_static_gine/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_gnn_001_static_gine.txt"
+    },
+    {
+      "name": "MJD_seq_001_bigru",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/seq_001_bigru/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_seq_001_bigru.txt"
+    },
+    {
+      "name": "MJD_ssm_001_pointmamba",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/ssm_001_pointmamba/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_ssm_001_pointmamba.txt"
+    },
+    {
+      "name": "MJD_package_import",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-c",
+        "import mjdbench.data as data, mjdbench.training as training; import pathlib; root=pathlib.Path.cwd(); assert pathlib.Path(data.__file__).is_relative_to(root); assert pathlib.Path(training.__file__).is_relative_to(root); print(data.__file__); print(training.__file__)"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_package_import.txt"
+    },
+    {
+      "name": "EXO200_cnn_004_multiview_late_fusion",
+      "cwd": "code/classic/EXO200",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/cnn_004_multiview_late_fusion/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/EXO200_cnn_004_multiview_late_fusion.txt"
+    },
+    {
+      "name": "EXO200_gnn_001_static_gine",
+      "cwd": "code/classic/EXO200",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/gnn_001_static_gine/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/EXO200_gnn_001_static_gine.txt"
+    },
+    {
+      "name": "EXO200_seq_001_bigru",
+      "cwd": "code/classic/EXO200",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/seq_001_bigru/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/EXO200_seq_001_bigru.txt"
+    },
+    {
+      "name": "EXO200_ssm_001_pointmamba",
+      "cwd": "code/classic/EXO200",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "architectures/ssm_001_pointmamba/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/EXO200_ssm_001_pointmamba.txt"
+    },
+    {
+      "name": "EXO200_package_import",
+      "cwd": "code/classic/EXO200",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-c",
+        "import exobench.data as data, exobench.training as training; import pathlib; root=pathlib.Path.cwd(); assert pathlib.Path(data.__file__).is_relative_to(root); assert pathlib.Path(training.__file__).is_relative_to(root); print(data.__file__); print(training.__file__)"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/EXO200_package_import.txt"
+    },
+    {
+      "name": "MJD_checkpoint_cli",
+      "cwd": "code/classic/MJD",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "scripts/run_checkpoint_inference.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/MJD_checkpoint_cli.txt"
+    },
+    {
+      "name": "NEXT_classic_001_topology_xgboost",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/classic_001_topology_xgboost/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_classic_001_topology_xgboost.txt"
+    },
+    {
+      "name": "NEXT_cnn_001_two_conv_baseline",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_001_two_conv_baseline/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_001_two_conv_baseline.txt"
+    },
+    {
+      "name": "NEXT_cnn_002_global_energy_skip",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_002_global_energy_skip/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_002_global_energy_skip.txt"
+    },
+    {
+      "name": "NEXT_cnn_003_residual_spatial",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_003_residual_spatial/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_003_residual_spatial.txt"
+    },
+    {
+      "name": "NEXT_cnn_004_multiview_late_fusion",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_004_multiview_late_fusion/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_004_multiview_late_fusion.txt"
+    },
+    {
+      "name": "NEXT_cnn_005_multiscale_projection",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_005_multiscale_projection/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_005_multiscale_projection.txt"
+    },
+    {
+      "name": "NEXT_cnn_006_dense_3d_resnet",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/cnn_006_dense_3d_resnet/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_cnn_006_dense_3d_resnet.txt"
+    },
+    {
+      "name": "NEXT_gnn_001_static_gine",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/gnn_001_static_gine/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_gnn_001_static_gine.txt"
+    },
+    {
+      "name": "NEXT_gnn_002_particlenet_edgeconv",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/gnn_002_particlenet_edgeconv/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_gnn_002_particlenet_edgeconv.txt"
+    },
+    {
+      "name": "NEXT_gnn_003_egnn",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/gnn_003_egnn/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_gnn_003_egnn.txt"
+    },
+    {
+      "name": "NEXT_gnn_004_gravnet",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/gnn_004_gravnet/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_gnn_004_gravnet.txt"
+    },
+    {
+      "name": "NEXT_gnn_005_dimenet_lite",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/gnn_005_dimenet_lite/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_gnn_005_dimenet_lite.txt"
+    },
+    {
+      "name": "NEXT_hybrid_001_cnn_gnn",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/hybrid_001_cnn_gnn/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_hybrid_001_cnn_gnn.txt"
+    },
+    {
+      "name": "NEXT_mixer_001_projection_mlp_mixer",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/mixer_001_projection_mlp_mixer/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_mixer_001_projection_mlp_mixer.txt"
+    },
+    {
+      "name": "NEXT_point_001_deepsets",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/point_001_deepsets/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_point_001_deepsets.txt"
+    },
+    {
+      "name": "NEXT_point_002_pointnetpp",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/point_002_pointnetpp/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_point_002_pointnetpp.txt"
+    },
+    {
+      "name": "NEXT_point_003_pointmlp",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/point_003_pointmlp/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_point_003_pointmlp.txt"
+    },
+    {
+      "name": "NEXT_point_004_rigid_kpconv",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/point_004_rigid_kpconv/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_point_004_rigid_kpconv.txt"
+    },
+    {
+      "name": "NEXT_seq_001_bigru",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/seq_001_bigru/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_seq_001_bigru.txt"
+    },
+    {
+      "name": "NEXT_seq_002_dilated_tcn",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/seq_002_dilated_tcn/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_seq_002_dilated_tcn.txt"
+    },
+    {
+      "name": "NEXT_sparse_001_submanifold_resnet",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/sparse_001_submanifold_resnet/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_sparse_001_submanifold_resnet.txt"
+    },
+    {
+      "name": "NEXT_ssm_001_pointmamba",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/ssm_001_pointmamba/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_ssm_001_pointmamba.txt"
+    },
+    {
+      "name": "NEXT_topo_001_persistence_perslay",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/topo_001_persistence_perslay/train_classification.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_topo_001_persistence_perslay.txt"
+    },
+    {
+      "name": "NEXT_run_energybench_campaign",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/run_energybench_campaign.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_run_energybench_campaign.txt"
+    },
+    {
+      "name": "NEXT_nontransformer_campaign",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "01_code/architectures/nontransformer_campaign.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_nontransformer_campaign.txt"
+    },
+    {
+      "name": "NEXT_inference_cli",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-m",
+        "energybench",
+        "predict",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_inference_cli.txt"
+    },
+    {
+      "name": "NEXT_old_adapters",
+      "cwd": "code/classic/NEXT",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-c",
+        "import next_cnn.adapter, next_alt.adapter; print(next_cnn.adapter.__file__); print(next_alt.adapter.__file__)"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/NEXT_old_adapters.txt"
+    },
+    {
+      "name": "SuperNEMO_workflow",
+      "cwd": "code/classic/SuperNEMO",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-m",
+        "supernemobench.workflow",
+        "--help"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/SuperNEMO_workflow.txt"
+    },
+    {
+      "name": "SuperNEMO_package_import",
+      "cwd": "code/classic/SuperNEMO",
+      "command": [
+        "/home/wenyu/summer/.venv/bin/python",
+        "-B",
+        "-c",
+        "import supernemobench.data, supernemobench.models, supernemobench.training; print(supernemobench.data.__file__); print(supernemobench.models.__file__); print(supernemobench.training.__file__)"
+      ],
+      "returncode": 0,
+      "log": "validation/classic_source_checks/SuperNEMO_package_import.txt"
+    }
+  ],
+  "training_executed": false,
+  "data_loaded": false,
+  "all_pass": true
+}

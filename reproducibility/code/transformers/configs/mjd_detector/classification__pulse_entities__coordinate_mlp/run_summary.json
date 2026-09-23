@@ -1,0 +1,22 @@
+{
+  "run_id": "classification__pulse_entities__coordinate_mlp",
+  "task": "classification",
+  "tokenization": "pulse_entities",
+  "position_encoding": "coordinate_mlp",
+  "parameter_count": 111105,
+  "train_events": 936000,
+  "validation_events": 104000,
+  "test_events": 390000,
+  "epochs_completed": 32,
+  "best_epoch": 27,
+  "best_validation_score": 0.9325194253094636,
+  "training_seconds": 39806.35254309792,
+  "minutes_per_epoch": 20.7324752828635,
+  "evaluation_seconds": 355.44723642477766,
+  "test_auc": 0.9334245029722467,
+  "test_accuracy": 0.8565897435897436,
+  "test_mae_kev": null,
+  "test_rmse_kev": null,
+  "test_bias_kev": null,
+  "test_loss": 0.30663117188697453
+}
