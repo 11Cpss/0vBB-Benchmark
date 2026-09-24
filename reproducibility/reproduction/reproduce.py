@@ -16,13 +16,6 @@ def render(output):
     output.mkdir(parents=True,exist_ok=True)
     py=[sys.executable,'-B']
     call(py+[WING/'scripts/rebuild_unified_evaluation.py','--output-dir',output],output/'logs/tables_and_matching.log')
-    # Exact final working-tree presentation; the original source generator is
-    # kept byte-identical. These three substitutions do not change metrics.
-    path=output/'tables/benchmark_main.tex';s=path.read_text()
-    for old,new in [(r'\setlength{\tabcolsep}{4pt}',r'\setlength{\tabcolsep}{2pt}'),(r'\renewcommand{\arraystretch}{1.08}',r'\renewcommand{\arraystretch}{1}'),('Specialized baselines','Native Representation Approach')]:
-        if s.count(old)!=1:raise ValueError('Frozen table presentation changed: '+old)
-        s=s.replace(old,new)
-    path.write_text(s)
     tables={}
     for path in (output/'tables').glob('*.tex'):
         reference=WING/'tables'/path.name
@@ -31,14 +24,14 @@ def render(output):
     call(py+[WING/'scripts/plot_mjd_motivation_v2.py','--output-stem',output/'figures/mjd_motivation_main_v2_generated'],output/'logs/mjd_motivation.log')
     call(py+[WING/'evaluation/mjd_style/render.py','--output-dir',output/'figures'],output/'logs/mjd_waveforms.log')
     call(py+[WING/'scripts/plot_appendix_figures.py','--extent-cdf',ROOT/'code/figure_sources/data/supernemo_cohort_ecdf.csv.gz','--output-dir',output/'figures'],output/'logs/appendix_figures.log')
-    record={'all_generated_tables_byte_match_final_paper':tables,'event_evaluation_performed':False,'figures_generated_from_frozen_display_inputs':True,'source_paper_modified':False,'dataset_example_pdf_generation':'Original generating code unavailable; eight exact supplied PDF assets remain in paper/dataset_description/Images.','presentation_adjustments':'Three documented main-table spacing/heading substitutions only; no metric edits.'}
+    record={'all_generated_tables_byte_match_final_paper':tables,'event_evaluation_performed':False,'figures_generated_from_final_display_inputs':True,'source_paper_modified':False,'dataset_example_pdf_generation':'Original generating code unavailable; eight supplied PDF assets remain in paper/dataset_description/Images.'}
     (output/'render_validation.json').write_text(json.dumps(record,indent=2)+'\n')
 
 def compile_paper(output,engine,only_cached):
     work=output/'manuscript'
     if work.exists():raise FileExistsError(f'Choose a new output directory; existing build preserved: {work}')
     shutil.copytree(PAPER,work,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
-    # The existing reference PDF is preserved in paper/. Produce a fresh build.
+    # Always compile the supplied source in a separate build directory.
     (work/'iclr2027_conference.pdf').unlink(missing_ok=True)
     binary=shutil.which(engine) or (str(Path(engine).resolve()) if Path(engine).is_file() else None)
     if not binary:raise FileNotFoundError(f'Install {engine}, or pass --engine /path/to/tectonic')
@@ -59,7 +52,6 @@ def main():
     if a.action=='render':render(output)
     elif a.action=='compile':compile_paper(output,a.engine,a.only_cached)
     else:
-        call([sys.executable,'-B',WING/'evaluation/tests/test_metrics.py'],output/'logs/numerical_tests.log')
-        verify=ROOT/'reproduction/verify_bundle.py'
-        if verify.exists():call([sys.executable,'-B',verify],output/'logs/integrity.log')
+        call([sys.executable,'-B',ROOT/'benchmark/tests/test_metrics.py'],output/'logs/numerical_tests.log')
+        call([sys.executable,'-B',ROOT/'code/input_preparation/tests/test_standardize.py'],output/'logs/event_alignment_tests.log')
 if __name__=='__main__':main()

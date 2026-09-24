@@ -1,22 +1,12 @@
 #!/usr/bin/env python3
-"""Render manuscript Figure 2 from archived data in a publication layout.
-
-Run from any directory:
-    python plot_mjd_motivation_v2.py
-
-The default output stem is figures/mjd_motivation_main_v2_generated.
-PDF and SVG contain vector curves and editable text; PNG is a 600-dpi preview.
-Neither of the supplied reference PDFs is read, embedded, or overwritten.
+"""Render the final three-panel motivation figure from supplied plot data.
 
 Panel (a): MJD clean test-event waveforms, low/high energy examples.
-Panels (b,c): SuperNEMO 0nu/Bi214 test-partition energy diagnostic.
-The default blue shading represents the exact retained 5-keV bins.
---shade-mode reference reproduces the approximate 1100--3000 keV band in
-the professor's original mock-up; that band is NOT the measured support.
+Panels (b,c): the SuperNEMO 0nu/Bi214 energy-only test illustration.
+The blue shading shows the exact retained 5-keV bins.
 
-Visual conventions adapted from XENONnT/xenon_plot_style: thin lines,
-inward ticks, frame-free legends, its blue/red/gray palette, and fixed-size
-export. Typography remains the manuscript's Nimbus Roman / Computer Modern.
+Visual conventions follow XENONnT/xenon_plot_style; typography uses the
+bundled Nimbus Roman fonts and Computer Modern mathematical text.
 """
 
 from __future__ import annotations
@@ -302,30 +292,13 @@ def draw_figure(waves, histograms, curves, evidence, shade_spans, shade_label="R
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-stem", type=Path,
-                        default=ROOT / "figures/mjd_motivation_main_v2_generated")
-    parser.add_argument("--shade-mode", choices=["reference", "retained", "common-support", "none"],
-                        default="retained")
-    parser.add_argument("--shade-range", nargs=2, type=float, metavar=("LOW_KEV", "HIGH_KEV"),
-                        help="Override the blue band's endpoints.")
+    parser.add_argument("--output-stem", type=Path, required=True)
     parser.add_argument("--dpi", type=int, default=600)
     args = parser.parse_args()
     stem = args.output_stem.resolve()
-    protected = {(ROOT / f"figures/{name}").resolve() for name in
-                 ("mjd_motivation_main.pdf", "mjd_motivation_main_v2.pdf")}
-    if stem.with_suffix(".pdf") in protected:
-        parser.error("Use a new output name to preserve the two supplied reference PDFs.")
     waves, histograms, curves, evidence, sources, retained_spans = load_data()
-    shade_spans = {"reference": [[1100., 3000.]],
-                   "retained": retained_spans,
-                   "common-support": [evidence["common_support_keV"]],
-                   "none": []}[args.shade_mode]
-    if args.shade_range is not None:
-        shade_spans = [args.shade_range]
-    shade_label = {"reference": "Reference band", "retained": "Retained bins",
-                   "common-support": "Common support", "none": ""}[args.shade_mode]
-    if args.shade_range is not None:
-        shade_label = "Energy interval"
+    shade_spans = retained_spans
+    shade_label = "Retained bins"
     if any(not (0 <= span[0] < span[1] <= 3300) for span in shade_spans):
         parser.error("The shaded range must satisfy 0 <= LOW < HIGH <= 3300.")
     stem.parent.mkdir(parents=True, exist_ok=True)
@@ -354,14 +327,13 @@ def main():
                       for cohort, value in waves.items()},
         "auc_from_full_roc": {kind: value[2] for kind, value in curves.items()},
         "threshold": evidence["threshold"],
-        "shade_mode": "custom" if args.shade_range else args.shade_mode,
+        "shade_mode": "retained",
         "shade_label": shade_label,
         "shaded_spans_keV": shade_spans,
         "retained_bin_spans_keV": retained_spans,
         "recorded_common_support_keV": evidence["common_support_keV"],
         "shade_note": "Default retained shading uses the 283 measured 5-keV bins, "
                       "with gaps preserved and the upper edge clipped to common support. "
-                      "The optional reference band is only a mock-up reproduction. "
                       "Common support includes sparse bins that are subsequently excluded.",
         "outputs": [str(stem.with_suffix(f".{ext}")) for ext in ("pdf", "png", "svg")],
     }

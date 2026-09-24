@@ -4,29 +4,7 @@
   "d_model": 64,
   "dim_feedforward": 256,
   "dropout": 0.1,
-  "evaluation_config": {
-    "distance_correlation_max_samples": 1200,
-    "energy_bin_width_kev": 5.0,
-    "energy_bin_width_mev": 0.005,
-    "energy_grid_bin_count": 600,
-    "energy_grid_max_kev": 3000.0,
-    "energy_grid_min_kev": 0.0,
-    "energy_roi": null,
-    "energy_unit": "MeV",
-    "fractional_energy_floor": null,
-    "matching_target": "overlap",
-    "min_coverage": 0.5,
-    "min_per_bin": 20,
-    "min_per_class": 20,
-    "min_valid_bins": 2,
-    "performance_bins": 10,
-    "score_bins": 20,
-    "seed": 42,
-    "support_trim_quantile": 0.005,
-    "target_tpr": 0.9
-  },
   "feature_dim": 4,
-  "manifest_path": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/next_detector/results/event_split.json",
   "max_tokens": 512,
   "nhead": 4,
   "num_frequencies": 6,
@@ -57,5 +35,6 @@
     "weight_decay": 0.0001
   },
   "voxel_size": 15.0,
-  "voxel_truncation": "occupancy"
+  "voxel_truncation": "occupancy",
+  "uses_token_cache": false
 }

@@ -11,7 +11,7 @@ from .config import ARCHITECTURES, TASKS, TRANSFORMER_ARCHITECTURE_IDS
 from .tokenization import SuperNEMOTrackerTokenizationConfig
 
 
-_EXPECTED_MODEL_COUNT = 10
+_EXPECTED_MODEL_COUNT = 4
 
 
 @dataclass(frozen=True)
@@ -31,7 +31,7 @@ def _configured_model_ids() -> tuple[str, ...]:
     identifiers = tuple(ARCHITECTURES)
     if len(identifiers) != _EXPECTED_MODEL_COUNT:
         raise RuntimeError(
-            "SuperNEMO must configure exactly ten model experiments; "
+            "SuperNEMO must configure exactly four classic model experiments; "
             f"found {len(identifiers)}"
         )
     for identifier in identifiers:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Reconstruct active extent plotting arrays from bundled event descriptors.
-New portable verification code; original preprocessing sources remain unchanged.
+The exact selected descriptors are supplied alongside this script.
 """
 from pathlib import Path
 import argparse,csv,gzip,hashlib,io,json
@@ -9,7 +9,7 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[2]
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
- p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,default=ROOT/'validation/figures/rebuilt_extent_inputs');a=p.parse_args();a.output_dir.mkdir(parents=True,exist_ok=True)
+ p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,default=ROOT/'outputs/extent_inputs');a=p.parse_args();a.output_dir.mkdir(parents=True,exist_ok=True)
  source=Path(__file__).resolve().parent/'data/supernemo_geometry_event_descriptors.csv.gz';expected=ROOT/'paper/wing_contribution/evaluation/appendix_figures/data';refcdf=Path(__file__).resolve().parent/'data/supernemo_cohort_ecdf.csv.gz'
  frame=pd.read_csv(source);assert len(frame)==458752;assert not frame[['category','event_ordinal']].duplicated().any()
  ee=np.arange(0.,3300.,100.);rr=np.arange(0.,2240.,20.);hrows=[];mrows=[];crows=[]
@@ -34,6 +34,6 @@ def main():
  cdf=write('supernemo_cohort_ecdf.csv',['category','energy_cohort','radius_gyration_mm','ecdf','cohort_n'],crows)
  # Text-normalized equality also verifies complete ECDF rows, not a sampled curve.
  checks={'histogram_exact_normalized_csv':hist.read_text()==(expected/hist.name).read_text(),'medians_exact_normalized_csv':median.read_text()==(expected/median.name).read_text(),'complete_ecdf_exact_normalized_csv':cdf.read_text()==gzip.open(refcdf,'rt').read()}
- result={'all_pass':all(checks.values()),'checks':checks,'n_source_events':len(frame),'n_ecdf_rows':len(crows),'input_sha256':digest(source),'output_sha256':{x.name:digest(x) for x in [hist,median,cdf]},'method':'Exact historical bins and stable energy/event-ordinal quartiles; no event sampling, fitting, metric change or source-file mutation.'}
+ result={'all_pass':all(checks.values()),'checks':checks,'n_source_events':len(frame),'n_ecdf_rows':len(crows),'input_sha256':digest(source),'output_sha256':{x.name:digest(x) for x in [hist,median,cdf]},'method':'Exact plotted bins and stable energy/event-ordinal quartiles; no event sampling, fitting, metric change or source-file mutation.'}
  (a.output_dir/'verification.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2));raise SystemExit(0 if result['all_pass'] else 1)
 if __name__=='__main__':main()

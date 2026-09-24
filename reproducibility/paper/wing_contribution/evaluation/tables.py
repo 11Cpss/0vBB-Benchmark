@@ -1,7 +1,7 @@
-"""Render published tables from reviewed repository data without reading event files."""
+"""Render published tables from final repository data without reading event files."""
 from pathlib import Path
 import csv,importlib.util,json
-from unified_metrics import load_config,fingerprint
+from result_profiles import profile,fingerprint
 ROOT=Path(__file__).resolve().parent.parent
 NAMES={'mvcnn':'Multi-view CNN','gine':'Static GINE','bigru':'BiGRU','mamba':'PointMamba-lite'}
 DS=('NEXT','MJD','EXO-200','SuperNEMO')
@@ -13,14 +13,12 @@ def render_all(data_dir,output_dir):
     source=json.loads((data_dir/'unified_results.json').read_text());rr=source['records'];lookup={(r['dataset'],r['model_key']):r for r in rr}
     registry=source.get('protocol_registry',{fingerprint(source['protocol']):source['protocol']})
     assert all(key==fingerprint(config) for key,config in registry.items())
-    assert fingerprint(load_config()) in registry
+    assert fingerprint(profile("strict600")) in registry
     details=json.loads((ROOT/'evaluation/data/diagnostics.json').read_text())['records'];details={(r['dataset'],r['model_key']):r for r in details}
     for key,d in details.items():
         r=lookup[key];assert d['protocol_sha256']==r['protocol_sha256'] and r['protocol_sha256'] in registry;assert d['source_input_sha256']==r['input_sha256']
     spec=importlib.util.spec_from_file_location('paper_table_builder',ROOT/'scripts/build_classification_table.py');builder=importlib.util.module_from_spec(spec);spec.loader.exec_module(builder)
-    transformer_source=json.loads((data_dir/'classification_transformer_workbook.json').read_text())
-    additions=builder.load_additions(data_dir/'classification_table_additions.json')
-    main=builder.main_records(source,transformer_source,additions)
+    main=json.loads((data_dir/'main_table_results.json').read_text())['records']
     rendered={'benchmark_main.tex':builder.render(main)}
     provenance=json.loads((data_dir/'next_exploratory_provenance.json').read_text())
     earlier=lookup[provenance['dataset'],provenance['model_key']]

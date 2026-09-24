@@ -11,7 +11,7 @@ from .tokenization import SuperNEMOTrackerTokenizationConfig
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATA_ROOT = Path("/home/klz/Data/zeronu_benchmark/SuperNEMO")
+DEFAULT_DATA_ROOT = Path("data/SuperNEMO")
 DEFAULT_MANIFEST_PATH = PROJECT_ROOT / "data" / "manifests" / "split_manifest.json"
 DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "outputs"
 DEFAULT_SEED = 42
@@ -244,25 +244,11 @@ _COMMON_TRAINING = {
     "amp_precision": "auto",
 }
 
-TRANSFORMER_ARCHITECTURE_IDS = (
-    "transformer_001_sampled_hits_coordinate_mlp",
-    "transformer_002_voxel_coordinate_mlp",
-    "transformer_003_voxel_fourier_xyz",
-    "transformer_004_sampled_hits_fourier_xyz",
-    "transformer_005_summary_features_coordinate_mlp",
-    "transformer_006_summary_features_fourier_xyz",
-)
+TRANSFORMER_ARCHITECTURE_IDS = ()
 
-_SAMPLED_HITS_TOKENIZATION = SuperNEMOTrackerTokenizationConfig(
-    tokenization="sampled_hits"
-)
-_VOXEL_TOKENIZATION = SuperNEMOTrackerTokenizationConfig(tokenization="voxel")
-_SUMMARY_FEATURES_TOKENIZATION = SuperNEMOTrackerTokenizationConfig(
-    tokenization="summary_features"
-)
 
 ARCHITECTURES: dict[str, ArchitectureConfig] = {
-    "cnn_004_multiview_late_fusion": ArchitectureConfig(
+    'cnn_004_multiview_late_fusion': ArchitectureConfig(
         architecture_id="cnn_004_multiview_late_fusion",
         model_name="MultiViewLateFusionCNN",
         input_kind="projection2d",
@@ -278,7 +264,7 @@ ARCHITECTURES: dict[str, ArchitectureConfig] = {
             **_COMMON_TRAINING,
         ),
     ),
-    "gnn_001_static_gine": ArchitectureConfig(
+    'gnn_001_static_gine': ArchitectureConfig(
         architecture_id="gnn_001_static_gine",
         model_name="StaticGINEClassifier",
         input_kind="graph",
@@ -297,7 +283,7 @@ ARCHITECTURES: dict[str, ArchitectureConfig] = {
             **_COMMON_TRAINING,
         ),
     ),
-    "seq_001_bigru": ArchitectureConfig(
+    'seq_001_bigru': ArchitectureConfig(
         architecture_id="seq_001_bigru",
         model_name="HilbertBiGRUClassifier",
         input_kind="sequence",
@@ -316,7 +302,7 @@ ARCHITECTURES: dict[str, ArchitectureConfig] = {
             **_COMMON_TRAINING,
         ),
     ),
-    "ssm_001_pointmamba": ArchitectureConfig(
+    'ssm_001_pointmamba': ArchitectureConfig(
         architecture_id="ssm_001_pointmamba",
         model_name="PointMambaLiteClassifier",
         input_kind="sequence",
@@ -338,144 +324,6 @@ ARCHITECTURES: dict[str, ArchitectureConfig] = {
             learning_rate=3.0e-4,
             **_COMMON_TRAINING,
         ),
-    ),
-    "transformer_001_sampled_hits_coordinate_mlp": ArchitectureConfig(
-        architecture_id="transformer_001_sampled_hits_coordinate_mlp",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "coordinate_mlp",
-            "feature_dim": 4,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_SAMPLED_HITS_TOKENIZATION,
-    ),
-    "transformer_002_voxel_coordinate_mlp": ArchitectureConfig(
-        architecture_id="transformer_002_voxel_coordinate_mlp",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "coordinate_mlp",
-            "feature_dim": 4,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_VOXEL_TOKENIZATION,
-    ),
-    "transformer_003_voxel_fourier_xyz": ArchitectureConfig(
-        architecture_id="transformer_003_voxel_fourier_xyz",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "fourier_xyz",
-            "feature_dim": 4,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_VOXEL_TOKENIZATION,
-    ),
-    "transformer_004_sampled_hits_fourier_xyz": ArchitectureConfig(
-        architecture_id="transformer_004_sampled_hits_fourier_xyz",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "fourier_xyz",
-            "feature_dim": 4,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_SAMPLED_HITS_TOKENIZATION,
-    ),
-    "transformer_005_summary_features_coordinate_mlp": ArchitectureConfig(
-        architecture_id="transformer_005_summary_features_coordinate_mlp",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "coordinate_mlp",
-            "feature_dim": 6,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_SUMMARY_FEATURES_TOKENIZATION,
-    ),
-    "transformer_006_summary_features_fourier_xyz": ArchitectureConfig(
-        architecture_id="transformer_006_summary_features_fourier_xyz",
-        model_name="TrackerHitTransformer",
-        input_kind="sequence",
-        model={
-            "position_encoding": "fourier_xyz",
-            "feature_dim": 6,
-            "d_model": 64,
-            "nhead": 4,
-            "num_layers": 2,
-            "dim_feedforward": 256,
-            "dropout": 0.1,
-            "num_frequencies": 6,
-            "pooling": "masked_mean",
-        },
-        training=TrainingConfig(
-            batch_size=64,
-            learning_rate=5.0e-4,
-            **_COMMON_TRAINING,
-        ),
-        tasks=("classification",),
-        tokenization=_SUMMARY_FEATURES_TOKENIZATION,
     ),
 }
 for _architecture in ARCHITECTURES.values():

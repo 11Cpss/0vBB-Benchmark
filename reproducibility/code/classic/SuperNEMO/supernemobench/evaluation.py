@@ -1,38 +1,31 @@
-"""Canonical SuperNEMO classifier export and strict EnergyBench evaluation."""
-
+"""SuperNEMO classic prediction export and checkpoint/data identity checks."""
 from __future__ import annotations
-
 import hashlib
 import json
 import os
-import shutil
-import tempfile
 import uuid
+from dataclasses import dataclass
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
-
 import numpy as np
-
-from .config import (
-    CATEGORY_FIELD,
-    CLASSIFICATION_LABELS,
-    COORDINATE_FIELDS,
-    ENERGY_TARGET,
-    ENERGY_UNIT,
-    EVENT_CONSTANT_FIELDS,
-    PROJECT_ROOT,
-    RADIUS_FIELD,
-)
+from .config import (CATEGORY_FIELD, CLASSIFICATION_LABELS, COORDINATE_FIELDS,
+    ENERGY_TARGET, ENERGY_UNIT, EVENT_CONSTANT_FIELDS, PROJECT_ROOT, RADIUS_FIELD)
 from .tokenization import SuperNEMOTrackerTokenizationConfig
-
-
-EVALUATION_MANIFEST = (
-    PROJECT_ROOT / "evaluation" / "supernemo_2nu_vs_bi214.json"
-)
+EVALUATION_MANIFEST = PROJECT_ROOT / "evaluation" / "selection.json"
 SELECTION_SPLIT = "validation"
 EVALUATION_SPLIT = "test"
 
+
+@dataclass
+class PredictionBundle:
+    arrays: dict[str, np.ndarray]
+    metadata: dict[str, Any]
+    def require(self, name: str) -> np.ndarray:
+        return self.arrays[name]
+    @property
+    def n_events(self) -> int:
+        return len(self.arrays["event_id"])
 
 def file_sha256(path: str | Path) -> str:
     """Return a streaming SHA256 digest for one regular file."""
@@ -45,24 +38,6 @@ def file_sha256(path: str | Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
-
-
-def energybench_code_sha256() -> str:
-    """Match EnergyBench's own package-level code fingerprint."""
-
-    try:
-        import energybench
-    except ImportError as error:
-        raise RuntimeError(
-            "EnergyBench is required; use /home/wenyu/summer/.venv/bin/python"
-        ) from error
-    package_dir = Path(energybench.__file__).resolve().parent
-    digest = hashlib.sha256()
-    for path in sorted(package_dir.glob("*.py")):
-        digest.update(path.name.encode("utf-8"))
-        digest.update(path.read_bytes())
-    return digest.hexdigest()
-
 
 def dataset_provenance(
     *,
@@ -114,7 +89,8 @@ def dataset_provenance(
         "evaluation_protocol": {
             "manifest_path": str(EVALUATION_MANIFEST.resolve()),
             "manifest_sha256": file_sha256(EVALUATION_MANIFEST),
-            "evaluator_code_sha256": energybench_code_sha256(),
+            "selection_metric": "auc",
+            "selection_split": "validation",
         },
         "classification_label_mapping": dict(CLASSIFICATION_LABELS),
         "energy": {"definition": ENERGY_TARGET, "unit": ENERGY_UNIT},
@@ -172,7 +148,6 @@ def dataset_provenance(
     )
     return payload
 
-
 def assert_same_provenance(
     recorded: Any,
     expected: Mapping[str, Any],
@@ -192,82 +167,6 @@ def assert_same_provenance(
         )
 
 
-def matched_validation_auc(
-    label: np.ndarray,
-    score: np.ndarray,
-    energy_condition: np.ndarray,
-    *,
-    seed: int,
-    expected_manifest_sha256: str | None = None,
-    expected_evaluator_sha256: str | None = None,
-) -> float:
-    """Apply the frozen headline matching rule on validation predictions."""
-
-    try:
-        from energybench.config import load_manifest
-        from energybench.roc import evaluate_energy_matched_roc
-    except ImportError as error:
-        raise RuntimeError(
-            "EnergyBench is required; run this workflow with "
-            "/home/wenyu/summer/.venv/bin/python"
-        ) from error
-    if (
-        expected_manifest_sha256 is not None
-        and file_sha256(EVALUATION_MANIFEST) != expected_manifest_sha256
-    ):
-        raise ValueError("EnergyBench protocol manifest changed during this run")
-    if (
-        expected_evaluator_sha256 is not None
-        and energybench_code_sha256() != expected_evaluator_sha256
-    ):
-        raise ValueError("EnergyBench evaluator code changed during this run")
-    protocol = load_manifest(EVALUATION_MANIFEST)
-    classification = protocol["classification"]
-    if int(protocol["runtime"]["seed"]) != int(seed):
-        raise ValueError("training seed and EnergyBench protocol seed disagree")
-    target = (
-        "legacy_uniform"
-        if classification["matching_target"] == "uniform"
-        else "overlap"
-    )
-    energy_roi = classification.get("energy_roi")
-    result = evaluate_energy_matched_roc(
-        np.asarray(label, dtype=np.int8),
-        np.asarray(score, dtype=np.float64),
-        np.asarray(energy_condition, dtype=np.float64),
-        positive_label=int(classification["positive_label"]),
-        n_bins=int(classification["energy_bins"]),
-        min_per_class=int(classification["min_per_class"]),
-        target=target,
-        target_tpr=float(classification["target_tpr"]),
-        n_bootstrap=0,
-        random_state=int(seed),
-        support_trim_quantile=float(classification["support_trim_quantile"]),
-        energy_roi=(
-            None
-            if energy_roi is None
-            else (float(energy_roi[0]), float(energy_roi[1]))
-        ),
-    )
-    valid_bins = sum(1 for item in result.bins if item.valid)
-    coverage = min(
-        result.coverage.signal_matched_weight_fraction,
-        result.coverage.background_matched_weight_fraction,
-    )
-    if (
-        result.status != "ok"
-        or result.matched_auc is None
-        or valid_bins < int(classification["min_valid_bins"])
-        or coverage < float(classification["min_coverage"])
-    ):
-        raise RuntimeError(
-            "validation energy-matched AUC is not evaluable under the frozen "
-            f"protocol: status={result.status!r}, reason={result.reason!r}, "
-            f"valid_bins={valid_bins}, coverage={coverage:.6g}"
-        )
-    return float(result.matched_auc)
-
-
 def _string_column(name: str, values: Any, size: int) -> np.ndarray:
     array = np.asarray(values)
     if array.ndim != 1 or len(array) != size:
@@ -276,7 +175,6 @@ def _string_column(name: str, values: Any, size: int) -> np.ndarray:
     if np.any(np.char.strip(result) == ""):
         raise ValueError(f"{name} must not contain empty strings")
     return result
-
 
 def classification_bundle(
     *,
@@ -291,13 +189,6 @@ def classification_bundle(
 ) -> Any:
     """Validate and construct the sole canonical 2nu-vs-Bi214 bundle."""
 
-    try:
-        from energybench.data import PredictionBundle
-    except ImportError as error:
-        raise RuntimeError(
-            "EnergyBench is required; run this workflow with "
-            "/home/wenyu/summer/.venv/bin/python"
-        ) from error
     labels = np.asarray(label)
     if labels.ndim != 1 or labels.size == 0:
         raise ValueError("label must be a non-empty one-dimensional column")
@@ -344,12 +235,7 @@ def classification_bundle(
         metadata=dict(metadata),
     )
 
-
 def _save_bundle_atomic(bundle: Any, path: Path) -> Path:
-    try:
-        from energybench.data import save_bundle
-    except ImportError as error:
-        raise RuntimeError("EnergyBench is not importable") from error
     path = path.expanduser().resolve()
     if path.exists():
         raise FileExistsError(f"refusing to overwrite prediction bundle: {path}")
@@ -358,7 +244,7 @@ def _save_bundle_atomic(bundle: Any, path: Path) -> Path:
         f".{path.stem}.{os.getpid()}.{uuid.uuid4().hex}.tmp.npz"
     )
     try:
-        save_bundle(bundle, temporary)
+        np.savez_compressed(temporary, **bundle.arrays, __metadata__=np.asarray(json.dumps(bundle.metadata, sort_keys=True)))
         try:
             # A hard link is an atomic create-if-absent operation on the same
             # filesystem, so concurrent evaluators cannot overwrite each other.
@@ -372,130 +258,18 @@ def _save_bundle_atomic(bundle: Any, path: Path) -> Path:
             temporary.unlink()
     return path
 
-
-def evaluate_classification_bundle(
-    bundle: Any,
-    *,
-    architecture_id: str,
-    provenance: Mapping[str, Any],
-    output_dir: str | Path,
-) -> dict[str, Any]:
-    """Save one test bundle and run the user's EnergyBench in strict mode."""
-
-    try:
-        from energybench.config import load_manifest
-        from energybench.data import load_bundle
-        from energybench.evaluation import run_evaluation
-        from energybench.utils import write_json
-    except ImportError as error:
-        raise RuntimeError(
-            "EnergyBench is required; use /home/wenyu/summer/.venv/bin/python"
-        ) from error
+def export_classification_bundle(bundle: PredictionBundle, *, architecture_id: str,
+                                 provenance: Mapping[str, Any], output_dir: str | Path) -> dict[str, Any]:
+    """Export aligned test predictions; compute final metrics with benchmark/."""
+    if np.unique(bundle.require("split").astype(str)).tolist() != [EVALUATION_SPLIT]:
+        raise ValueError("Test export requires split='test'.")
+    assert_same_provenance(bundle.metadata.get("dataset_provenance"), provenance,
+                           context="prediction bundle")
     destination = Path(output_dir).expanduser().resolve()
-    evaluation_path = destination / "test_evaluation"
-    legacy_paths = (
-        destination / "test_predictions.npz",
-        destination / "test_metrics.json",
-    )
-    occupied = [
-        path for path in (*legacy_paths, evaluation_path) if path.exists()
-    ]
-    if occupied:
-        raise FileExistsError(
-            "refusing to overwrite existing test artifacts: "
-            + ", ".join(str(path) for path in occupied)
-        )
-    split_values = np.unique(bundle.require("split").astype(str)).tolist()
-    if split_values != [EVALUATION_SPLIT]:
-        raise ValueError(
-            f"strict test evaluation requires split={EVALUATION_SPLIT!r}; "
-            f"received {split_values}"
-        )
-    assert_same_provenance(
-        bundle.metadata.get("dataset_provenance"),
-        provenance,
-        context="prediction bundle",
-    )
-    config = load_manifest(EVALUATION_MANIFEST)
-    protocol = provenance.get("evaluation_protocol", {})
-    if protocol.get("manifest_sha256") != file_sha256(EVALUATION_MANIFEST):
-        raise ValueError("checkpoint and current EnergyBench protocol manifest disagree")
-    if config["dataset"]["dataset_version"] != provenance["manifest_content_sha256"]:
-        raise ValueError("EnergyBench manifest and split manifest versions disagree")
-    checkpoint_sha = str(bundle.metadata.get("checkpoint", {}).get("sha256", ""))
-    if len(checkpoint_sha) != 64 or any(
-        character not in "0123456789abcdef" for character in checkpoint_sha.lower()
-    ):
-        raise ValueError("prediction metadata has no valid checkpoint SHA256")
-    config["model_id"] = f"{architecture_id}@{checkpoint_sha[:12]}"
-
-    destination.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix=".test-evaluation-", dir=destination))
-    try:
-        staged_prediction = _save_bundle_atomic(
-            bundle, staging / "test_predictions.npz"
-        )
-        loaded = load_bundle(staged_prediction)
-        report = run_evaluation(
-            loaded,
-            config,
-            staging / "energybench",
-            strict=True,
-            allow_existing=False,
-        )
-        quality = report.get("quality", {})
-        evaluator_fingerprint = report.get("evaluator", {}).get("code_fingerprint")
-        if evaluator_fingerprint != protocol.get("evaluator_code_sha256"):
-            raise RuntimeError("EnergyBench evaluator code differs from the checkpoint")
-        if quality.get("errors") or quality.get("warnings"):
-            raise RuntimeError(
-                "strict EnergyBench quality checks were not clean: "
-                f"warnings={quality.get('warnings')}, errors={quality.get('errors')}"
-            )
-        classification = report.get("classification", {})
-        matched_auc = classification.get("aggregates", {}).get("matched_auc_macro")
-        if classification.get("status") != "ok" or matched_auc is None:
-            raise RuntimeError("EnergyBench did not produce the required matched AUC")
-        final_prediction = evaluation_path / "test_predictions.npz"
-        report["input"]["path"] = str(final_prediction)
-        write_json(staging / "energybench" / ".energybench" / "metrics.json", report)
-        native_metrics = bundle.metadata.get("native_metrics", {})
-        if not isinstance(native_metrics, Mapping):
-            raise TypeError("prediction metadata native_metrics must be a mapping")
-        metrics_payload = {
-            "loss": native_metrics.get("loss"),
-            "auc": native_metrics.get("auc"),
-            "accuracy": native_metrics.get("accuracy"),
-            "energy_matched_auc": float(matched_auc),
-            "events": int(bundle.n_events),
-            "energybench_model_id": config["model_id"],
-            "evaluation_fingerprint": report.get("evaluation_fingerprint"),
-            "protocol_fingerprint": report.get("protocol_fingerprint"),
-        }
-        for coverage_metric in (
-            "token_coverage_mean",
-            "token_coverage_minimum",
-            "token_truncated_events",
-            "token_truncated_event_fraction",
-        ):
-            if coverage_metric in native_metrics:
-                metrics_payload[coverage_metric] = native_metrics[coverage_metric]
-        staged_metrics = staging / "test_metrics.json"
-        staged_metrics.write_text(
-            json.dumps(metrics_payload, indent=2, sort_keys=True, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
-        try:
-            os.rename(staging, evaluation_path)
-        except OSError as error:
-            if evaluation_path.exists():
-                raise FileExistsError(
-                    f"refusing to overwrite test evaluation: {evaluation_path}"
-                ) from error
-            raise
-        return metrics_payload
-    finally:
-        shutil.rmtree(staging, ignore_errors=True)
+    path = _save_bundle_atomic(bundle, destination / "test_predictions.npz")
+    return {"events": bundle.n_events, "prediction_file": str(path),
+            "architecture_id": architecture_id,
+            "native_metrics": dict(bundle.metadata.get("native_metrics", {}))}
 
 
 def save_validation_bundle(
@@ -514,16 +288,3 @@ def save_validation_bundle(
         bundle,
         Path(output_dir).expanduser().resolve() / "validation_predictions.npz",
     )
-
-
-__all__ = [
-    "EVALUATION_MANIFEST",
-    "assert_same_provenance",
-    "classification_bundle",
-    "dataset_provenance",
-    "energybench_code_sha256",
-    "evaluate_classification_bundle",
-    "file_sha256",
-    "matched_validation_auc",
-    "save_validation_bundle",
-]

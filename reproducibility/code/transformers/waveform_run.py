@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Thin EXO/MJD runner using copied original loaders, models and training loops.
+"""Train or export EXO/MJD predictions with aligned physical energy and event IDs.
 
-This convenience entry point is new; it does not alter any archived source.
-Its --describe mode was checked without loading data or performing a forward pass.
+The publication adapters preserve model inputs and native label/score direction.
+Final metric computation uses the public EnergyBench entry points.
 """
 from pathlib import Path
 import argparse,dataclasses,hashlib,json,sys
@@ -13,9 +13,9 @@ def main():
     p.add_argument('--mode',choices=['train','test'],default='test');p.add_argument('--data-root',type=Path)
     p.add_argument('--output-dir',type=Path);p.add_argument('--checkpoint',type=Path);p.add_argument('--device')
     p.add_argument('--describe',action='store_true');a=p.parse_args()
-    records=json.loads((HERE.parents[1]/'provenance/transformer_model_mapping.json').read_text())['rows']
+    records=json.loads((HERE.parents[1]/'results/transformer_models.json').read_text())['rows']
     found=[r for r in records if r['dataset']==a.dataset and r['model_key']==a.model_key]
-    if not found or not found[0]['source_training_config']:p.error('No source-backed configuration for this entry.')
+    if not found or not found[0].get('source_training_config'):p.error('No source-backed configuration for this entry.')
     r=found[0];cfg=json.loads((HERE.parents[1]/r['source_training_config']).read_text())
     if a.describe:
         print(json.dumps(cfg,indent=2));return
@@ -23,7 +23,7 @@ def main():
     if a.mode=='test' and a.checkpoint is None:p.error('--mode test requires an explicit original --checkpoint')
     out=a.output_dir.resolve()
     if out.exists() and any(out.iterdir()):p.error('--output-dir must be new or empty; existing results are never overwritten')
-    source=HERE/'original'/('exo200_detector' if a.dataset=='EXO-200' else 'mjd_detector')
+    source=HERE/'detectors'/('exo200' if a.dataset=='EXO-200' else 'mjd')
     sys.path.insert(0,str(source));import torch
     if a.dataset=='EXO-200':
         from exobench import DataConfig,TrainingConfig,prepare_dataset,train_model,evaluate_model,set_seed
@@ -53,5 +53,5 @@ def main():
         checkpoint=torch.load(a.checkpoint,map_location='cpu',weights_only=False)
         model.load_state_dict(checkpoint['model_state_dict'],strict=True)
     evaluate_model(model,loaders.test_loader,device=tc.device,output_dir=out,use_amp=tc.use_amp,amp_precision=tc.amp_precision,**extra)
-    print('Native predictions written. Final EnergyBench metrics require the explicit source-aligned physical-energy adapter and root evaluation profile; native historical metrics are not final strict600 results.')
+    print('predictions.npz contains native score/label, physical energy_keV and event_id. Standardize the EXO positive-class direction before EnergyBench evaluation; MJD already uses positive label 1.')
 if __name__=='__main__':main()

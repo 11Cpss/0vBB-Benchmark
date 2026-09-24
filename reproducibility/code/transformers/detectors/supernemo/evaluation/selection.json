@@ -1,0 +1,28 @@
+{
+  "classification": {
+    "enabled": true,
+    "positive_label": "1",
+    "signal_categories": [
+      "2nu"
+    ],
+    "background_categories": [
+      "Bi214"
+    ],
+    "pair_mode": "pooled",
+    "score_direction": "higher",
+    "score_space": "logit",
+    "energy_bins": 6,
+    "matching_target": "overlap",
+    "min_per_class": 20,
+    "min_valid_bins": 2,
+    "min_coverage": 0.5,
+    "support_trim_quantile": 0.005,
+    "energy_roi": null,
+    "target_tpr": 0.9,
+    "bootstrap": 0,
+    "confidence": 0.95
+  },
+  "runtime": {
+    "seed": 42
+  }
+}

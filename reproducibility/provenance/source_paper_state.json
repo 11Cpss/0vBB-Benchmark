@@ -1,6 +1,0 @@
-{
-  "source": "/home/wenyu/iclr final paper/overleaf",
-  "head": "9360b04fa52568562adcf1702231527d06a1146a",
-  "status_porcelain": " M wing_contribution/sections/mjd_motivation_figure.tex\n?? wing_contribution/figures/mjd_motivation_main_v2_generated.json\n?? wing_contribution/figures/mjd_motivation_main_v2_generated.pdf\n?? wing_contribution/figures/mjd_motivation_main_v2_generated.png\n?? wing_contribution/figures/mjd_motivation_main_v2_generated.svg\n?? wing_contribution/scripts/README_mjd_motivation_v2.md\n?? wing_contribution/scripts/plot_mjd_motivation_v2.py\n",
-  "scope": "Snapshot current working-tree paper, including active uncommitted figure changes; original files must not be modified."
-}

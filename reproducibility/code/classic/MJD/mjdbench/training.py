@@ -424,9 +424,24 @@ def evaluate_model(
     selected_device = _device(device)
     amp_enabled, amp_dtype = _amp(selected_device, use_amp, amp_precision)
     model.to(selected_device)
+    # Collect source metadata from the very batches used for prediction, without
+    # another loader traversal or alteration of training targets/normalization.
+    metadata_columns: dict[str, list[np.ndarray]] = {
+        name: [] for name in ("event_id", "source_file", "row", "energy_keV")
+    }
+    def aligned_batches():
+        for batch in loader:
+            for name in metadata_columns:
+                if name not in batch:
+                    raise ValueError(f"MJD prediction export requires {name}")
+                value = batch[name]
+                if isinstance(value, torch.Tensor):
+                    value = value.detach().cpu().numpy()
+                metadata_columns[name].append(np.asarray(value).reshape(-1))
+            yield batch
     loss, metrics, targets, predictions = _epoch(
         model,
-        loader,
+        aligned_batches(),
         task=task,
         device=selected_device,
         optimizer=None,
@@ -440,7 +455,19 @@ def evaluate_model(
     (output / "metrics.json").write_text(
         json.dumps(metrics, indent=2, allow_nan=True), encoding="utf-8"
     )
-    np.savez_compressed(output / "predictions.npz", target=targets, prediction=predictions)
+    arrays = {name: np.concatenate(parts) for name, parts in metadata_columns.items()}
+    if any(len(value) != len(predictions) for value in arrays.values()):
+        raise ValueError("prediction metadata is not aligned")
+    if len(np.unique(arrays["event_id"])) != len(predictions):
+        raise ValueError("duplicate MJD source-file/row event IDs")
+    if arrays["energy_keV"].dtype != np.float64:
+        raise TypeError("physical energy must retain raw float64 precision")
+    arrays.update(target=targets, prediction=predictions)
+    if task == "classification":
+        arrays.update(score=predictions, label=targets.astype(np.int8),
+                      weight=np.ones(len(predictions), dtype=np.float64),
+                      group=targets.astype(np.int8))
+    np.savez_compressed(output / "predictions.npz", **arrays)
     return metrics
 
 

@@ -7,8 +7,7 @@
   "prediction_input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
   "n_events": 115499,
   "parameter_count": 316993,
-  "parameter_source": "/home/wenyu/summer/03_training_runs/campaigns/20260803_200356/ssm_001_pointmamba/attempt_001/run_summary.json",
   "parameter_source_sha256": "303979b17ba39c634d0a0a0b87a4060465c2b5ba3f01222d999bda13e2203529",
   "parameter_source_field": "parameter_count",
-  "scope": "The parameter count belongs to the earlier exploratory PointMamba-lite run. Metrics are read from its existing unified reevaluation record, not the legacy old_* fields. This run does not supply the missing 116549-event campaign result."
+  "scope": "PointMamba-lite uses the recorded 115499-event test population; the other NEXT main-table configurations use 116549 events."
 }

@@ -4,7 +4,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "mvcnn",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "8ba75f5ee3629639bebb6fddee792f4bbe68004483acff0919bebfc3e277cfc0",
       "source_detail_sha256": "f3d3d84271167d17e03463cb5fd1698532faf35049049961dd45069d163f1b43",
       "group_for_label": {
@@ -189,7 +189,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "gine",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "75b73e87a69cc767d35b30b2e9155ef33a8a13db1071e4b9a35be57b20a30503",
       "source_detail_sha256": "3c2404d4722b04f18de0d71c91f2a9ef9260b399ca42c1ef73487a7f1ad06551",
       "group_for_label": {
@@ -374,7 +374,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "bigru",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "85c46dc6c661ad1f937501878145180191f52c7857a4b2ae07279650bdf10004",
       "source_detail_sha256": "117a880e324f716c21ae173e358bef9d26f8603f23124db0df0afefe9b665f91",
       "group_for_label": {
@@ -559,7 +559,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "mamba",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "7583dddcafe5973cef6a74dc1ad7457eb12e3ae9fdc4dad8335a66abcae2ae42",
       "source_detail_sha256": "eddb93e2265aaf01670cd433f2f6771a9745e03bb91e843f9020e277a1e0f6f7",
       "group_for_label": {
@@ -744,7 +744,7 @@
     {
       "dataset": "SuperNEMO",
       "model_key": "mvcnn",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "2a81817feae0310c2684cdc0c5a8f1216cbd85850e38d2125948b41eac3c83be",
       "source_detail_sha256": "c16668e7a1c28b90c825f1c2817432d02122d061cfeaff5c183ad4af67e9f131",
       "group_for_label": {
@@ -891,7 +891,7 @@
     {
       "dataset": "SuperNEMO",
       "model_key": "gine",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "4097ec8dceee0e58151e7876bbc4bd5e86ebb2c004a9ab352754d60493f3a217",
       "source_detail_sha256": "73fcd1cbd86e14474dbbe5f744318658e8a9915d4ea69015b122d0d726452a8d",
       "group_for_label": {
@@ -1038,7 +1038,7 @@
     {
       "dataset": "SuperNEMO",
       "model_key": "bigru",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "f7fec36d5bd4ac587d2460f2ec3c798ea6f786231fc94a80d81fac95056b93de",
       "source_detail_sha256": "8da8d6b8adaeff37661f2750994ab9167e84f5b4f37f3524247516d048d2b559",
       "group_for_label": {
@@ -1185,7 +1185,7 @@
     {
       "dataset": "SuperNEMO",
       "model_key": "mamba",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "dbc67565ee13c37254e7118f9e0785713516ed4ec9fdd4500d493d5bba9280e1",
       "source_detail_sha256": "f9d1d622e8fd428fccca605a645538421b2256e90877eae051fd73e268a17f07",
       "group_for_label": {
@@ -1332,7 +1332,7 @@
     {
       "dataset": "NEXT",
       "model_key": "mvcnn",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "500ceca39197646668ebbb37103129561d5e9ff653faac7145b102495a10205b",
       "source_detail_sha256": "0ecf0598a3f95e5943cb63da515c13d7de02ed4b0effb2e8506a3c777c9a462c",
       "group_for_label": {
@@ -1479,7 +1479,7 @@
     {
       "dataset": "NEXT",
       "model_key": "gine",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "6b40a46b5a4c1f41f50e239fe9163741c02006c222859792633922c85e9bd9d1",
       "source_detail_sha256": "2ec8e2d8fec97a5fe2314db0ee3b6f941a47c1e821424bdad432be5719773375",
       "group_for_label": {
@@ -1626,7 +1626,7 @@
     {
       "dataset": "NEXT",
       "model_key": "bigru",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "b4be989124a5d9d87a78e1e4543b7ba7335478dd7b4cc0958c2ca14a2addb602",
       "source_detail_sha256": "f7c4eec58dc366129035fd7c6c2a64300987732c86dd2171f983861e4bffff63",
       "group_for_label": {
@@ -1773,7 +1773,7 @@
     {
       "dataset": "MJD",
       "model_key": "mvcnn",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "ef72db204a2a10a556b8275147506ef65ab1826b6a616472e7626e683c528218",
       "source_detail_sha256": "f9d4d2ca89e96a2ba8f880b9c1849a0d8d59d4184e240517ab72f11864a90f43",
       "group_for_label": {
@@ -1958,7 +1958,7 @@
     {
       "dataset": "MJD",
       "model_key": "gine",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "9361a49db498bafc753fc968351850e8dbf3f48e7ee5cb0596035e138d4546fc",
       "source_detail_sha256": "4007982c24a213d6cd481abe4a43ffb8c6f9d92abf5f0c42ecdc1a3fb8acb445",
       "group_for_label": {
@@ -2143,7 +2143,7 @@
     {
       "dataset": "MJD",
       "model_key": "bigru",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "6e36bf2ea281e046068432f82ac5965b9d166a86e61b3a0eec86fa0dc78a4e9d",
       "source_detail_sha256": "424fef59a3bd6fbdc064ec5f9022fb62665fd7016b5697185a6daef11f1f3e43",
       "group_for_label": {
@@ -2328,7 +2328,7 @@
     {
       "dataset": "MJD",
       "model_key": "mamba",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "0f66454cce936e713374ba3aec1c5b3c0ba7a6a9451be650a16b5c0d0341aa2b",
       "source_detail_sha256": "9f84ed3b5cfb2a60189e07994788e3037d7d73ae2e958de7df28e6419c63cc6a",
       "group_for_label": {
@@ -2513,7 +2513,7 @@
     {
       "dataset": "NEXT-exploratory",
       "model_key": "exploratory_ssm_001_pointmamba",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "source_input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
       "source_detail_sha256": "c99abbccb6565671f72cdedad1ab6e25341295c54103416eac5750d8ce128367",
       "group_for_label": {
@@ -2660,7 +2660,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "entity_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "a0ba1fbec9a4d6c0d0ef2f0b4c694b3e0fb10e9d471a297569c68b950c36a3c2",
       "source_detail_sha256": "f8b6899654b5c11837cdd0ec344e69fe7042c6c8fd83e0fb1547d384e90c3823",
       "group_for_label": {
@@ -2845,7 +2845,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "entity_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "cce536fd2e2978f51089b4c02f71a4e3ea4be44bf0f9237b8929357b8ce1c754",
       "source_detail_sha256": "2ba7dd13fc9835a88f49b9694751955de2959de8cce4c06da06cc51958cd413a",
       "group_for_label": {
@@ -3030,7 +3030,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "region_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "0a29722490300b4fddd3696acf5fc388a22a04fc006b63c4adcb775b196742b0",
       "source_detail_sha256": "8ebc2470ec348b7cf8a5e326305f49d1da5cc36ef9d29a78a2a66b9181ce7472",
       "group_for_label": {
@@ -3215,7 +3215,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "region_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "1d10de6769a4af3dcac0ac13b6289e2b3a689c6d85830d46ea7961ee80e1de0f",
       "source_detail_sha256": "bee32a7f684f5e96d38f278426fa3dbfb60f6fca1851189ae4e9fa7141ea8c12",
       "group_for_label": {
@@ -3400,7 +3400,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "summary_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "9beb788bebd7cba22d31c8d25ebc047ba959e2d02cd9d330962a913dd7bea9cd",
       "source_detail_sha256": "25fc0af954a84a8059f52b9c70c413a75e11e542fc0e692110be9793f8845abf",
       "group_for_label": {
@@ -3585,7 +3585,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "summary_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "4255beb3bf9579d989ce0f911c56cd420474e69ddbbc7cb851a82b5819fdb070",
       "source_detail_sha256": "bc4e9d0b1136b7c81d7b3fb786035bd92949c9663a090dcd76c26dd349761c1a",
       "group_for_label": {
@@ -3770,7 +3770,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "region_rope",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "838e03e1cb0d631a335832ed7a76bf344578d398bf57bd25ca5a2d2a83cae8a2",
       "source_detail_sha256": "90646b6348349e982c4c7d2c6932cb228bcf47ffea7fddc24caee65344be7843",
       "group_for_label": {
@@ -3955,7 +3955,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "summary_rope",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "48dc47b479684351f8fb5ae003d48d19e29e052b28b74c221a4e0bf66a47c0a6",
       "source_detail_sha256": "d91498057baac360a9e0d2f368ae43fb90ddbf9a87ee88f3f06b26ae2fe064c2",
       "group_for_label": {
@@ -4140,7 +4140,7 @@
     {
       "dataset": "EXO-200",
       "model_key": "entity_rope",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "7a3ccfaf07eb2dc1c38598bbe83fbab3d059fb52874996847034523335df0d04",
       "source_detail_sha256": "9298ff77fc313061c8c7ade9b30dec6c004a80d497455611e1f5120e0f38417d",
       "group_for_label": {
@@ -4325,7 +4325,7 @@
     {
       "dataset": "MJD",
       "model_key": "entity_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "fde5dc2abd4b4d3e856e81cf8a4ecd026e62d14f4e64336bf22d9f5837c26491",
       "source_detail_sha256": "efa955d006df604a49373c7989619dcd7b010a1db4e239add697f5beaca2a21d",
       "group_for_label": {
@@ -4510,7 +4510,7 @@
     {
       "dataset": "MJD",
       "model_key": "entity_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "3839256b67627253aa59d13db63db6eaba19eadf35e72b83fe9513b3bf02b1b9",
       "source_detail_sha256": "be70808dc5cf7ae9765b974ab93dff6514c24160f01945bbd6cacbf2ff10278f",
       "group_for_label": {
@@ -4695,7 +4695,7 @@
     {
       "dataset": "MJD",
       "model_key": "region_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "0d433ca3a74c5544eac11af12c4e1b358b6a74e7a4a462039607f8a1f0e65cc1",
       "source_detail_sha256": "93b7606e0a52de9523d9fc79aac8b899b0e8cd064565262f42b3ba3f793d1080",
       "group_for_label": {
@@ -4880,7 +4880,7 @@
     {
       "dataset": "MJD",
       "model_key": "region_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "f6b1430120e618f7c5129d7378f0d7f00f8ae95a23adf11b136361f3a1c5a93b",
       "source_detail_sha256": "dcf248b6741cf8570638b46efa5785225c8811f243a2303401ab6599761cfb4a",
       "group_for_label": {
@@ -5065,7 +5065,7 @@
     {
       "dataset": "MJD",
       "model_key": "summary_mlp",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "11344e3759891fbf67480536015f8b9b56b8e92ffac67efa1903ef9ac6f5f761",
       "source_detail_sha256": "dbe0e31a4fc21f10c81498a935cedc1d87832a11d26a880d50565bab0c2c09c6",
       "group_for_label": {
@@ -5250,7 +5250,7 @@
     {
       "dataset": "MJD",
       "model_key": "summary_fourier",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "source_input_sha256": "bca72d24025283bf2ed6b96fd21d79efb7f668a42e85dae8d65834bdb98569ca",
       "source_detail_sha256": "090b4a3ab201dd18305dd8137d1d13b9e302a57da4c6c2549d726b947bb3f369",
       "group_for_label": {

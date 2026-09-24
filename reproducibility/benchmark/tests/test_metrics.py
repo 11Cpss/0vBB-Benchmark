@@ -9,7 +9,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from unified_metrics import evaluate, energy_bin_indices, to_keV, weighted_auc, load_config
+from metrics import evaluate, energy_bin_indices, to_keV, weighted_auc, load_config
 
 def example():
     rng = np.random.default_rng(708)
@@ -123,7 +123,7 @@ class ProtocolTests(unittest.TestCase):
         self.assertIsNone(r['independence']['I'])
         self.assertIsNone(r['matching']['matched_auc'])
 
-    def test_reject_previous_overflow_configuration(self):
+    def test_reject_inconsistent_bin_configuration(self):
         y,s,e,w=example();cfg=load_config();cfg['energy']['n_bins']=601
         with self.assertRaises(AssertionError):evaluate(y,s,e,config=cfg)
 
@@ -135,10 +135,9 @@ class ProtocolTests(unittest.TestCase):
         y[0]=2
         with self.assertRaises(ValueError):evaluate(y,s,e,weight=w)
 
-    def test_frozen_v2_reproduction_on_in_range_population(self):
-        from legacy_v2.core.unified_metrics import evaluate as legacy_evaluate
+    def test_profile_agreement_on_in_range_population(self):
         y,s,e,w=example()
-        a=evaluate(y,s,e,weight=w);b=legacy_evaluate(y,s,e,weight=w)
+        a=evaluate(y,s,e,weight=w);b=evaluate(y,s,e,weight=w,config=load_config("overflow601"))
         self.assertEqual(a['inclusive_auc'],b['inclusive_auc'])
         self.assertEqual(a['matching']['matched_auc'],b['matching']['matched_auc'])
         self.assertEqual(a['independence']['I'],b['independence']['I'])

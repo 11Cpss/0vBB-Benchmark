@@ -1,0 +1,5 @@
+"""Energy grid constants for the published NEXT Transformer profile."""
+CANONICAL_ENERGY_MIN_KEV = 0.0
+CANONICAL_ENERGY_MAX_KEV = 3000.0
+CANONICAL_ENERGY_BIN_WIDTH_KEV = 5.0
+CANONICAL_ENERGY_BIN_COUNT = 600

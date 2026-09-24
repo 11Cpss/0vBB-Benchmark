@@ -1,14 +1,51 @@
-# Event provenance and input standardization
+# Prediction inputs and physical-event alignment
 
-The runnable, portable final evaluator is `../../reproduction/evaluate.py`. The optional `../../event_data/` companion already supplies exactly the standardized score/label/physical-energy/event-ID/group/weight arrays used by the audited results. It can be evaluated without the original account tree.
+The final evaluator consumes scalar scores, true labels, original physical
+energy and event IDs. Model inference exporters are documented under
+[Classic models](../classic/README.md) and [Transformers](../transformers/README.md).
 
-`reference_snapshots/` contains byte-identical extraction and audit programs actually used to recover these inputs. They are provenance snapshots, **not portable entry points**: several use the original account's detector paths, original checkpoints, original audit-tree layout, or frozen intermediate evaluation versions. Do not execute them as a reproduction shortcut. In particular `collect_results.py` historically writes into its configured paper tree. The recommended commands never call those programs. No original or historical incorrect code was changed.
+`standardize.py` renames native arrays, orients labels/scores, converts physical
+MeV to keV, and optionally joins original energy metadata by unique event IDs.
+It does not clip, filter, resample, fit a model, or calculate metrics.
 
-## Required semantics when exporting a new checkpoint
+```bash
+# A model export with clean/signal-oriented scores and energy_kev in keV.
+.venv-reproduce/bin/python -B code/input_preparation/standardize.py \
+  --input /path/to/native_predictions.npz --energy-key energy_kev \
+  --energy-unit keV --weight-key weight --group-key group \
+  --output outputs/predictions.npz
 
-- NEXT: positive = 0nubb, negative = Bi214; retain the native scalar logit. The conditioning energy is physical summed hit energy in MeV, explicitly converted to keV. Keep the exact campaign split and event IDs. The 115,499-event PointMamba run is a separate referenced population from the main 116,549-event NEXT run.
-- MJD: positive = clean, requiring all four reference PSD flags. Binary models/Transformers provide a clean-oriented logit. Classic GINE uses its archived four-PSD-output aggregation; do not replace it with one channel. Recover original float64 `energy_label` from the official Test shards in verified loader order. Cached clipped energies cannot support strict range exclusions. The extraction snapshots verify labels, cached energies, and physical shard/row/ID identities before attaching original energies.
-- EXO-200: stored class 0 (one charge cluster) is evaluation-positive, so standardized label is `1 - stored_label` and score is the negative native background-oriented logit. Conditioning energy is `Rotated_energy` in keV. Preserve run-based splits and original event IDs.
-- SuperNEMO: the trained task is 2nu vs Bi214; the separate illustration is 0nu vs Bi214 with score equal to physical calorimeter energy E1+E2. These tasks and inputs must never be interchanged.
+# EXO-200 native binary logits favor label 1 (multiple charge clusters).
+# The paper positive class is native label 0 (one charge cluster).
+.venv-reproduce/bin/python -B code/input_preparation/standardize.py \
+  --input /path/to/exo_native.npz --energy-key energy_keV --energy-unit keV \
+  --positive-label 0 --score-label 1 --output outputs/exo_predictions.npz
+```
 
-Do not add a sigmoid, clip physical energy, replace the checkpoint/test split, or reconstruct events from aggregate metrics. Where inference exports lack event IDs, the archived loader-order and raw-metadata checks must be repeated; matching array length alone is insufficient. Training/inference launchers and per-run configurations are documented in `../classic/README.md` and `../transformers/README.md`.
+Use actual field names with `--score-key`, `--label-key`, `--event-id-key`,
+`--energy-key`, `--weight-key` and `--group-key`. Omit optional weight/group
+arguments only when unit base weights and binary-label groups are appropriate.
+Apply label/score conversion once: a model exporter that already produces
+paper-oriented scores needs no EXO sign reversal.
+
+If physical energy is in a separate NPZ, pass `--energy-metadata FILE`. Both
+files must have physical event IDs; all prediction IDs must match the energy
+metadata. If both contain native labels, those labels must also agree. Equal
+array lengths alone do not establish event correspondence.
+
+| Dataset | Required semantics |
+| --- | --- |
+| NEXT | Positive 0nubb; negative Bi214; scalar signal logit; physical summed hit energy in MeV converted to keV; preserve the recorded split |
+| MJD | Positive means all four reference PSD flags pass; original float64 `energy_label` in keV; preserve raw shard and row identity |
+| EXO-200 | Positive is native class 0, one charge cluster; flip native binary labels and negate a background-oriented scalar logit; original rotated energy in keV |
+| SuperNEMO | Training is 2nu/Bi214; the separate 0nu/Bi214 energy-only illustration uses physical calorimeter energy as its score; keep the tasks separate |
+
+For MJD GINE, use the model exporter's stable scalar construction from four PSD
+logits: the logit of the product of the four sigmoid probabilities. Do not
+substitute one output channel or average the logits. Physical energy cannot be
+recovered by undoing a clip or by casting a float32 cache to float64; export
+it from the original dataset or join verified raw-energy metadata.
+
+The NPZ companion used by published-result replay is already standardized.
+Do not standardize it a second time, change its test population, or replace a
+missing checkpoint with another model.

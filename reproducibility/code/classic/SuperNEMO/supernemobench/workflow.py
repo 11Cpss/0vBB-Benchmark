@@ -26,7 +26,6 @@ from .config import (
     ENERGY_UNIT,
     PROJECT_ROOT,
     TASKS,
-    TRANSFORMER_ARCHITECTURE_IDS,
     DataConfig,
 )
 from .data import prepare_dataset
@@ -160,87 +159,22 @@ def _load_checkpoint(
         raise ValueError(
             f"checkpoint architecture {checkpoint_model!r} does not match {model_id!r}"
         )
-    strict_checkpoint = model_id in TRANSFORMER_ARCHITECTURE_IDS
-    if strict_checkpoint != (
-        getattr(model, "tokenization_config", None) is not None
-    ):
-        raise RuntimeError("Transformer registry and model tokenization metadata disagree")
-    if strict_checkpoint:
-        if checkpoint.get("kind") != "best" or int(checkpoint.get("schema_version", -1)) != 2:
-            raise ValueError("Transformer evaluation requires a schema-v2 best checkpoint")
-        if checkpoint.get("architecture_id") != model_id:
-            raise ValueError("checkpoint architecture must exactly match the Transformer ID")
-        if checkpoint.get("model_name") != getattr(model, "model_name", None):
-            raise ValueError("checkpoint model name does not match the registry")
-        if checkpoint.get("input_kind") != getattr(model, "input_kind", None):
-            raise ValueError("checkpoint input kind does not match the registry")
-        if checkpoint.get("model_config") != model_config:
-            raise ValueError("checkpoint model configuration does not match the registry")
-        source = inspect.getsourcefile(model.__class__)
-        if source is None:
-            raise ValueError("cannot identify current model source")
-        expected_source = {
-            "path": str(Path(source).resolve()),
-            "sha256": file_sha256(source),
-        }
-        if checkpoint.get("model_source") != expected_source:
-            raise ValueError("checkpoint model source fingerprint does not match")
-        training_source = inspect.getsourcefile(train_model)
-        if training_source is None:
-            raise ValueError("cannot identify current training source")
-        expected_training_source = {
-            "path": str(Path(training_source).resolve()),
-            "sha256": file_sha256(training_source),
-        }
-        if checkpoint.get("training_source") != expected_training_source:
-            raise ValueError("checkpoint training source fingerprint does not match")
-        if checkpoint.get("selection_split") != "validation":
-            raise ValueError("checkpoint selection split must be validation")
-        if checkpoint.get("selection_metric") != "energy_matched_auc":
-            raise ValueError("checkpoint selection metric must be energy_matched_auc")
-        epoch = checkpoint.get("epoch")
-        score = checkpoint.get("score")
-        if isinstance(epoch, bool) or not isinstance(epoch, int) or epoch < 1:
-            raise ValueError("checkpoint epoch must be a positive integer")
-        if (
-            isinstance(score, bool)
-            or not isinstance(score, (int, float))
-            or not math.isfinite(float(score))
-        ):
-            raise ValueError("checkpoint selection score must be finite")
-        history = checkpoint.get("history")
-        if not isinstance(history, list) or len(history) != epoch:
-            raise ValueError("checkpoint history must align exactly with its epoch")
-        recorded_training = dict(checkpoint.get("training_config", {}))
-        expected_training = dict(training_config)
-        # Device placement is an execution override, not a model-selection
-        # hyperparameter; allow evaluation on CPU or another CUDA device.
-        recorded_training.pop("device", None)
-        expected_training.pop("device", None)
-        if recorded_training != expected_training:
-            raise ValueError("checkpoint training configuration does not match the registry")
+    # Checkpoints written by runs already active when provenance support was
+    # added lack these fields. Preserve their usability while marking the
+    # inferred metadata; all new checkpoints are schema v2.
+    checkpoint = dict(checkpoint)
+    if "dataset_provenance" in checkpoint:
         assert_same_provenance(
-            checkpoint.get("dataset_provenance"),
-            provenance,
-            context="checkpoint",
+            checkpoint["dataset_provenance"], provenance, context="checkpoint"
         )
     else:
-        # Checkpoints written by runs already active when provenance support was
-        # added lack these fields. Preserve their usability while marking the
-        # inferred metadata; all new checkpoints are schema v2.
-        checkpoint = dict(checkpoint)
-        if "dataset_provenance" in checkpoint:
-            assert_same_provenance(
-                checkpoint["dataset_provenance"], provenance, context="checkpoint"
-            )
-        else:
-            checkpoint["dataset_provenance"] = provenance
-            checkpoint["checkpoint_provenance_status"] = "inferred_legacy"
-        checkpoint.setdefault("model_config", model_config)
-        checkpoint.setdefault("selection_split", "validation")
-        checkpoint.setdefault(
-            "selection_metric", "auc" if task == "classification" else "rmse_kev"
-        )
+        checkpoint["dataset_provenance"] = provenance
+        checkpoint["checkpoint_provenance_status"] = "inferred_legacy"
+    checkpoint.setdefault("model_config", model_config)
+    checkpoint.setdefault("selection_split", "validation")
+    checkpoint.setdefault(
+        "selection_metric", "auc" if task == "classification" else "rmse_kev"
+    )
     checkpoint["_checkpoint_file_sha256"] = hashlib.sha256(
         checkpoint_bytes
     ).hexdigest()

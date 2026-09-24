@@ -17,7 +17,7 @@ import yaml
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_DATA_ROOT = Path("/home/klz/Data/zeronu_benchmark/NEXT")
+DEFAULT_DATA_ROOT = Path("data/NEXT")
 INPUT_KINDS = {
     "projection2d",
     "multiscale2d",

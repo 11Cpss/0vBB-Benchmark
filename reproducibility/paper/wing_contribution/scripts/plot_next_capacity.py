@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the NEXT figure using the reviewed CSV and results stored in this repository."""
+"""Render the NEXT figure using the final CSV and results stored in this repository."""
 from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'evaluation'))

@@ -1,5 +1,12 @@
-# Transformer environments
+# Transformer environment
 
-Use a dedicated virtual environment. `requirements.txt` collects the dependencies needed for the copied classification code and notebook syntax tooling; its bounds are not an original lockfile. Select an appropriate PyTorch CPU/CUDA wheel for the target machine. `source_pyproject.toml`, `source_next_requirements.txt`, and `source_published_supernemo_requirements.txt` are unmodified original declarations.
+Use Python 3.11 and an isolated environment, created from the `reproducibility/` directory:
 
-`validation_environment.json` records the actual Python and installed-package versions used for syntax checks, isolated imports/model construction, and all twelve historical NEXT/SuperNEMO metric replays. Training and model inference were not executed while preparing this archive. No global environment was modified. Distinct historical packages both use the import name `energybench`; isolate them in separate processes as `code/transformers/replay_historical_transformers.py` does.
+```bash
+python3.11 -m venv .venv-transformers
+.venv-transformers/bin/python -m pip install -r environments/transformers/requirements.txt
+```
+
+Choose a PyTorch wheel compatible with the target CPU/GPU. These runtime bounds are not a reconstruction of every original training environment. Training uses the exact hyperparameters in `code/transformers/configs/`; hardware and nondeterministic operations can affect retraining results.
+
+Metric-only reproduction uses `environments/requirements-core.txt` and does not need PyTorch. See `code/transformers/README.md` for the training, inference and metric commands.

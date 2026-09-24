@@ -8,7 +8,7 @@ from typing import Optional, Tuple
 import torch
 from torch import Tensor
 
-# Source: /home/wenyu/summer/src/next_alt/models/point_sequence.py
+# Model origin: ../NEXT/src/next_alt/models/point_sequence.py
 # Source SHA256: 9d6e2b46ff93a99836836d2c9ff92e71354cc17cb6ae7e8569b23676da9b14db
 
 def _positive_int(name: str, value: int, *, maximum: Optional[int] = None) -> int:

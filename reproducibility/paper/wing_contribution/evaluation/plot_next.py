@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter,NullFormatter
 from scipy.stats import spearmanr,rankdata
-from legacy_v2.core.unified_metrics import load_config,fingerprint
+from result_profiles import profile,fingerprint
 from paper_style import apply_paper_style, PAPER_WIDTH_IN
 GROUPS={
  'Projection and voxel models':('#276A98','o'),
@@ -26,13 +26,13 @@ def main():
  with args.source.open(newline='') as f:rows=list(csv.DictReader(f))
  assert len(rows)==len({r['architecture_id'] for r in rows})==19
  assert not ({r['architecture_id'] for r in rows}&EXCLUDED)
- assert {r['protocol'] for r in rows}=={load_config()['protocol_version']}
+ assert {r['protocol'] for r in rows}=={profile("overflow601")['protocol_version']}
  assert {int(r['n_events']) for r in rows}=={116549}
  results=json.loads((args.data_dir/'unified_results.json').read_text())['records']
  original={r['architecture_id']:r for r in results if r['dataset']=='NEXT'}
  for row in rows:
   source=original[row['architecture_id']]
-  assert source['protocol_sha256']==fingerprint(load_config())
+  assert source['protocol_sha256']==fingerprint(profile("overflow601"))
   assert float(row['matched_auc'])==source['matched_auc']
   assert float(row['energy_independence_score'])==source['I']
   assert float(row['auc'])==source['inclusive_auc']
@@ -78,6 +78,6 @@ def main():
  params=np.array([int(r['trainable_parameters']) for r in rows]);correlations={}
  for key in ('auc','matched_auc','energy_independence_score'):
   values=np.array([float(r[key]) for r in rows]);rho=float(spearmanr(params,values).statistic);np.testing.assert_allclose(rho,np.corrcoef(rankdata(params),rankdata(values))[0,1],atol=1e-14);correlations[key]=rho
- evidence={'source_csv':str(args.source),'source_csv_sha256':sha(args.source),'full_precision_results':str(args.data_dir/'unified_results.json'),'protocol_version':load_config()['protocol_version'],'protocol_sha256':fingerprint(load_config()),'plotted_ids':[r['architecture_id'] for r in rows],'points_per_panel':19,'same_test_events':116549,'each_value_matches_recomputed_results':True,'no_point_jitter_or_score_adjustment':True,'square_panel_inches':panel_inches,'all_points_within_limits':True,'spearman_parameters':correlations,'palette':GROUPS,'output_sha256':hashes,'interpretation':'Single-run point estimates across heterogeneous models; no significance or scaling-law claim.'}
+ evidence={'source_csv':str(args.source),'source_csv_sha256':sha(args.source),'full_precision_results':str(args.data_dir/'unified_results.json'),'protocol_version':profile("overflow601")['protocol_version'],'protocol_sha256':fingerprint(profile("overflow601")),'plotted_ids':[r['architecture_id'] for r in rows],'points_per_panel':19,'same_test_events':116549,'each_value_matches_recomputed_results':True,'no_point_jitter_or_score_adjustment':True,'square_panel_inches':panel_inches,'all_points_within_limits':True,'spearman_parameters':correlations,'palette':GROUPS,'output_sha256':hashes,'interpretation':'Single-run point estimates across heterogeneous models; no significance or scaling-law claim.'}
  (out/'next_capacity_evidence.json').write_text(json.dumps(evidence,indent=2)+'\n');print(json.dumps(evidence,indent=2))
 if __name__=='__main__':main()

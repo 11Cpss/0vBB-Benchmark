@@ -58,11 +58,21 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--max-events", type=int)
     parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--checkpoint", type=Path, help="Exact trained checkpoint")
+    parser.add_argument("--config", type=Path, help="Effective saved run configuration")
+    parser.add_argument("--data-root", type=Path, help="Relocated raw MJD directory")
+    parser.add_argument("--device", default="cuda")
+    parser.add_argument("--amp-precision", choices=("auto", "float16", "bfloat16"), default="auto")
+    parser.add_argument("--no-amp", action="store_true")
     args = parser.parse_args()
 
     model_dir = PROJECT_ROOT / "outputs" / args.task / args.architecture
-    run_config = json.loads((model_dir / "run_config.json").read_text(encoding="utf-8"))
-    data_config = run_config["data"]
+    run_config = json.loads((args.config or (model_dir / "run_config.json")).read_text(encoding="utf-8"))
+    data_config = dict(run_config["data"])
+    if args.data_root is not None:
+        data_config["data_root"] = str(args.data_root)
+    if run_config.get("architecture", args.architecture) != args.architecture or run_config.get("task") != args.task:
+        raise ValueError("configuration architecture/task does not match request")
     source = MJDWaveformDataset(
         discover_files(Path(data_config["data_root"]), "test"),
         task=args.task,
@@ -84,9 +94,11 @@ def main() -> int:
     )
 
     module = importlib.import_module(f"architectures.{args.architecture}.model")
+    if "model" in run_config and run_config["model"] != module.MODEL_CONFIG:
+        raise ValueError("saved model settings differ from this architecture definition")
     model = module.build_model(args.task)
-    checkpoint = torch.load(model_dir / "best.pt", map_location="cpu", weights_only=False)
-    model.load_state_dict(checkpoint["model_state_dict"])
+    checkpoint = torch.load(args.checkpoint or (model_dir / "best.pt"), map_location="cpu", weights_only=False)
+    model.load_state_dict(checkpoint["model_state_dict"], strict=True)
     destination = args.output_dir or model_dir
     print(
         f"Restored epoch {checkpoint.get('epoch')} checkpoint; "
@@ -98,10 +110,10 @@ def main() -> int:
             model,
             _ProgressLoader(loader, event_count),
             task=args.task,
-            device="cuda",
+            device=args.device,
             output_dir=destination,
-            use_amp=True,
-            amp_precision="auto",
+            use_amp=not args.no_amp,
+            amp_precision=args.amp_precision,
         )
     finally:
         source.close()

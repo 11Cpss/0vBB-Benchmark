@@ -1,6 +1,6 @@
 """Local, source-faithful copy of Gnn001."""
 
-# Source: /home/wenyu/summer/src/next_alt/models/point_graph.py
+# Model origin: ../NEXT/src/next_alt/models/point_graph.py
 # Source SHA256: ade0c49038cc1170948085f23828f49b344875e8c25b20c77fce511ac8a2ae54
 
 from __future__ import annotations

@@ -1,6 +1,6 @@
 {
-  "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-  "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+  "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+  "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
   "energy_protocol": {
     "unit": "keV",
     "minimum": 0,
@@ -619,11 +619,8 @@
       "finite_only": true
     }
   },
-  "source": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo_0nu_illustration__energy_only.npz",
   "source_sha256": "8312e1b1532f0f74ceab165a4ec96641976c062a5edd5d0b40d6bcc6a8d037a9",
-  "metrics": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO_0nu_illustration__energy_only.json",
   "metrics_sha256": "982011cf140fcb4483cc364a5c39de8f21bd7427663b20ee7836279708e7402a",
-  "weights": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/illustration_weights.npz",
   "weights_sha256": "2fac0869eb8e67febdf01ef28dcf797ed83ed07548434fae484d59948a902de9",
   "display_bin_width_keV": 50,
   "display_range_keV": [
@@ -670,13 +667,5 @@
     "tpr": 0.9395701090494791,
     "fpr": 0.10220718383789062,
     "balanced_accuracy": 0.9186814626057942
-  },
-  "checks": [
-    "Every source histogram sums to unit class mass including all original event energies.",
-    "Full unsampled ROC points are monotone and reproduce saved AUC within 1e-10.",
-    "Inclusive ROC and threshold use every original event.",
-    "Formal matched-AUC availability and its plot qualification agree with the shared evaluator."
-  ],
-  "original_paper_figure": "wing_contribution/figures/supernemo_energy_matching_auc.pdf",
-  "original_paper_reference": "wing_contribution/sections/energybench_auc_figure.tex"
+  }
 }

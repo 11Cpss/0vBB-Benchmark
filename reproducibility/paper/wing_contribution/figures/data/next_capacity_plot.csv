@@ -1,20 +1,20 @@
 architecture_id,display_name,model_group,trainable_parameters,retained_architecture,protocol,n_events,auc,matched_auc,energy_independence_score,pairwise_ranking_error
-cnn_003_residual_spatial,Residual spatial CNN,Projection and voxel models,1228817,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9790299160552236,0.9789656586953632,0.969531340842108,0.021034341304636772
-cnn_004_multiview_late_fusion,Multi-view CNN,Projection and voxel models,807666,True,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9766362036920746,0.976586992490999,0.9709927307118373,0.023413007509000994
-cnn_005_multiscale_projection,Multi-scale CNN,Projection and voxel models,865939,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9792699285829884,0.9790456256810225,0.9731446354742137,0.02095437431897751
-cnn_006_dense_3d_resnet,Dense 3D ResNet,Projection and voxel models,688433,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9841150397094927,0.9839556554921735,0.9711013272176884,0.016044344507826547
-mixer_001_projection_mlp_mixer,Projection MLP mixer,Projection and voxel models,539073,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.950352199602975,0.9500859091888084,0.9725488141415404,0.04991409081119158
-sparse_001_submanifold_resnet,Submanifold ResNet,Projection and voxel models,298177,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9915740005543003,0.9914142310390719,0.9678235062942302,0.008585768960928108
-point_001_deepsets,DeepSets,Point-set models,75585,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9696601847079863,0.969458806383956,0.972602476429423,0.030541193616044016
-point_002_pointnetpp,PointNet++,Point-set models,164513,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9854592248308909,0.9853544011980122,0.9725464001755596,0.014645598801987791
-point_003_pointmlp,PointMLP,Point-set models,443521,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9940331238697511,0.9938138972232179,0.9676863432688253,0.00618610277678211
-point_004_rigid_kpconv,Rigid KPConv,Point-set models,390977,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9866535676618695,0.9863405771087804,0.969283112017587,0.013659422891219575
-gnn_001_static_gine,Static GINE,Graph models,479942,True,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.994800586533787,0.9946251760528465,0.9702654680064685,0.005374823947153495
-gnn_002_particlenet_edgeconv,ParticleNet-lite,Graph models,150497,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9921613421453862,0.9919712549011109,0.968043644674584,0.008028745098889067
-gnn_003_egnn,EGNN,Graph models,640518,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.8907421874045663,0.8898776405335207,0.9680642367144486,0.1101223594664793
-gnn_004_gravnet,GravNet,Graph models,293585,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9913164539346299,0.9910696322255007,0.9696373959499524,0.008930367774499293
-gnn_005_dimenet_lite,DimeNet-lite,Graph models,169553,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9929390231732774,0.9927160847578949,0.9680014849955834,0.007283915242105143
-seq_001_bigru,BiGRU,"Sequence, state-space, topology and hybrid models",733953,True,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9795628953838241,0.9793769367790737,0.9710513985489216,0.02062306322092633
-seq_002_dilated_tcn,Dilated TCN,"Sequence, state-space, topology and hybrid models",694529,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9734495207888638,0.973183451195338,0.9745325674042103,0.026816548804662
-topo_001_persistence_perslay,Persistence/PersLay,"Sequence, state-space, topology and hybrid models",63274,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.9182579829651358,0.9176574250841957,0.9685220220644996,0.08234257491580432
-hybrid_001_cnn_gnn,CNN--GNN,"Sequence, state-space, topology and hybrid models",341969,False,EnergyBench-unified-5keV-overflow-v2.0.0,116549,0.991416629845904,0.9912603169136525,0.9702760231708398,0.008739683086347538
+cnn_003_residual_spatial,Residual spatial CNN,Projection and voxel models,1228817,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9790299160552236,0.9789656586953632,0.969531340842108,0.021034341304636772
+cnn_004_multiview_late_fusion,Multi-view CNN,Projection and voxel models,807666,True,EnergyBench-paper-overflow601-1.0.0,116549,0.9766362036920746,0.976586992490999,0.9709927307118373,0.023413007509000994
+cnn_005_multiscale_projection,Multi-scale CNN,Projection and voxel models,865939,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9792699285829884,0.9790456256810225,0.9731446354742137,0.02095437431897751
+cnn_006_dense_3d_resnet,Dense 3D ResNet,Projection and voxel models,688433,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9841150397094927,0.9839556554921735,0.9711013272176884,0.016044344507826547
+mixer_001_projection_mlp_mixer,Projection MLP mixer,Projection and voxel models,539073,False,EnergyBench-paper-overflow601-1.0.0,116549,0.950352199602975,0.9500859091888084,0.9725488141415404,0.04991409081119158
+sparse_001_submanifold_resnet,Submanifold ResNet,Projection and voxel models,298177,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9915740005543003,0.9914142310390719,0.9678235062942302,0.008585768960928108
+point_001_deepsets,DeepSets,Point-set models,75585,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9696601847079863,0.969458806383956,0.972602476429423,0.030541193616044016
+point_002_pointnetpp,PointNet++,Point-set models,164513,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9854592248308909,0.9853544011980122,0.9725464001755596,0.014645598801987791
+point_003_pointmlp,PointMLP,Point-set models,443521,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9940331238697511,0.9938138972232179,0.9676863432688253,0.00618610277678211
+point_004_rigid_kpconv,Rigid KPConv,Point-set models,390977,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9866535676618695,0.9863405771087804,0.969283112017587,0.013659422891219575
+gnn_001_static_gine,Static GINE,Graph models,479942,True,EnergyBench-paper-overflow601-1.0.0,116549,0.994800586533787,0.9946251760528465,0.9702654680064685,0.005374823947153495
+gnn_002_particlenet_edgeconv,ParticleNet-lite,Graph models,150497,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9921613421453862,0.9919712549011109,0.968043644674584,0.008028745098889067
+gnn_003_egnn,EGNN,Graph models,640518,False,EnergyBench-paper-overflow601-1.0.0,116549,0.8907421874045663,0.8898776405335207,0.9680642367144486,0.1101223594664793
+gnn_004_gravnet,GravNet,Graph models,293585,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9913164539346299,0.9910696322255007,0.9696373959499524,0.008930367774499293
+gnn_005_dimenet_lite,DimeNet-lite,Graph models,169553,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9929390231732774,0.9927160847578949,0.9680014849955834,0.007283915242105143
+seq_001_bigru,BiGRU,"Sequence, state-space, topology and hybrid models",733953,True,EnergyBench-paper-overflow601-1.0.0,116549,0.9795628953838241,0.9793769367790737,0.9710513985489216,0.02062306322092633
+seq_002_dilated_tcn,Dilated TCN,"Sequence, state-space, topology and hybrid models",694529,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9734495207888638,0.973183451195338,0.9745325674042103,0.026816548804662
+topo_001_persistence_perslay,Persistence/PersLay,"Sequence, state-space, topology and hybrid models",63274,False,EnergyBench-paper-overflow601-1.0.0,116549,0.9182579829651358,0.9176574250841957,0.9685220220644996,0.08234257491580432
+hybrid_001_cnn_gnn,CNN--GNN,"Sequence, state-space, topology and hybrid models",341969,False,EnergyBench-paper-overflow601-1.0.0,116549,0.991416629845904,0.9912603169136525,0.9702760231708398,0.008739683086347538

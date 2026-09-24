@@ -1,7 +1,7 @@
 {
   "protocol": {
-    "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-    "reference": "User revised upper-range handling: keep >3000 keV in one additional overflow bin; preserve 600 regular bins and all statistical gates.",
+    "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+    "reference": "Recorded paper evaluation profile; see benchmark/README.md for the dataset/model scope.",
     "energy": {
       "unit": "keV",
       "minimum": 0,
@@ -639,7 +639,7 @@
       "group_weights": "finite-pair positive base mass with E>=0, including overflow, before sparse-bin exclusion",
       "JS": "natural log; weighted mean JS within group then sqrt(D/log(2)); I_g=1-sqrt; weighted mean I_g over estimable groups",
       "min_eligible_bins": 1,
-      "one_bin": "reported per historical reference but explicitly uninformative",
+      "one_bin": "I_g is defined but a single eligible energy bin is uninformative about energy dependence.",
       "missing_groups": "exclude from aggregate and disclose"
     },
     "matching": {
@@ -661,8 +661,7 @@
     },
     "weights": "finite nonnegative; effective event counts count strictly positive weight events; zero weights excluded",
     "missing": "nonfinite scores excluded from inclusive; nonfinite energy additionally excluded from energy metrics; invalid labels/categories or weights rejected",
-    "numerics": "float64; MeV input exactly equal to canonical_keV_edge/1000 is mapped to that exact keV edge; no tolerance snapping of other observations; deterministic, no resampling or bootstrap",
-    "user_scope": "Classic models, extended/exploratory NEXT and standalone SuperNEMO energy-only illustration. Transformers excluded by later user instruction and paper historical values preserved."
+    "numerics": "float64; MeV input exactly equal to canonical_keV_edge/1000 is mapped to that exact keV edge; no tolerance snapping of other observations; deterministic, no resampling or bootstrap"
   },
   "records": [
     {
@@ -671,16 +670,8 @@
       "architecture_id": "cnn_004_multiview_late_fusion",
       "main_table": true,
       "params": "807666.0",
-      "old_I": 0.817986575140959,
-      "old_matched_auc": 0.863853363725048,
-      "old_inclusive_auc": 0.8949408988858205,
-      "old_paper_I": "0.817986575140959",
-      "old_paper_matched_auc": "0.863853363725048",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/EXO200/outputs/classification/cnn_004_multiview_late_fusion/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/exo200__mvcnn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7521398472116881,
@@ -689,7 +680,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.8949408988858205,
       "n_events": 140383,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__mvcnn.json",
       "input_sha256": "8ba75f5ee3629639bebb6fddee792f4bbe68004483acff0919bebfc3e277cfc0",
       "valid_matching_bins": 426,
       "valid_I_bins": {
@@ -707,19 +697,7 @@
       "common_support_keV": [
         538.1772625732422,
         2662.5670739746092
-      ],
-      "delta_I": -0.06584672792927082,
-      "delta_matched_auc": -0.001040080607723759,
-      "previous_protocol_metrics": {
-        "I": 0.751932408440394,
-        "matched_auc": 0.8628137065619761,
-        "inclusive_auc": 0.8949408988858205,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/EXO_200__mvcnn.json"
-      },
-      "delta_from_v2_I": 0.0002074387712941439,
-      "delta_from_v2_matched_auc": -4.234446518980306e-07
+      ]
     },
     {
       "dataset": "EXO-200",
@@ -727,16 +705,8 @@
       "architecture_id": "gnn_001_static_gine",
       "main_table": true,
       "params": "479942.0",
-      "old_I": 0.8919500046963642,
-      "old_matched_auc": 0.9499974776866801,
-      "old_inclusive_auc": 0.9586838384565657,
-      "old_paper_I": "0.8919500046963642",
-      "old_paper_matched_auc": "0.9499974776866801",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/EXO200/outputs/classification/gnn_001_static_gine/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/exo200__gine.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.8013051347585681,
@@ -745,7 +715,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9586838384565658,
       "n_events": 140383,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__gine.json",
       "input_sha256": "75b73e87a69cc767d35b30b2e9155ef33a8a13db1071e4b9a35be57b20a30503",
       "valid_matching_bins": 426,
       "valid_I_bins": {
@@ -763,19 +732,7 @@
       "common_support_keV": [
         538.1772625732422,
         2662.5670739746092
-      ],
-      "delta_I": -0.09064486993779608,
-      "delta_matched_auc": -0.000572183938082671,
-      "previous_protocol_metrics": {
-        "I": 0.7994722547162283,
-        "matched_auc": 0.9494308529603729,
-        "inclusive_auc": 0.9586838384565658,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/EXO_200__gine.json"
-      },
-      "delta_from_v2_I": 0.001832880042339835,
-      "delta_from_v2_matched_auc": -5.55921177547436e-06
+      ]
     },
     {
       "dataset": "EXO-200",
@@ -783,16 +740,8 @@
       "architecture_id": "seq_001_bigru",
       "main_table": true,
       "params": "733953.0",
-      "old_I": 0.871303031647326,
-      "old_matched_auc": 0.930117535089384,
-      "old_inclusive_auc": 0.942461817819904,
-      "old_paper_I": "0.871303031647326",
-      "old_paper_matched_auc": "0.930117535089384",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/EXO200/outputs/classification/seq_001_bigru/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/exo200__bigru.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7892999785796896,
@@ -801,7 +750,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9424618178199041,
       "n_events": 140383,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__bigru.json",
       "input_sha256": "85c46dc6c661ad1f937501878145180191f52c7857a4b2ae07279650bdf10004",
       "valid_matching_bins": 426,
       "valid_I_bins": {
@@ -819,19 +767,7 @@
       "common_support_keV": [
         538.1772625732422,
         2662.5670739746092
-      ],
-      "delta_I": -0.08200305306763644,
-      "delta_matched_auc": -0.0006435639328421505,
-      "previous_protocol_metrics": {
-        "I": 0.7890956193386531,
-        "matched_auc": 0.9294782229176187,
-        "inclusive_auc": 0.9424618178199041,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/EXO_200__bigru.json"
-      },
-      "delta_from_v2_I": 0.00020435924103645586,
-      "delta_from_v2_matched_auc": -4.251761076878857e-06
+      ]
     },
     {
       "dataset": "EXO-200",
@@ -839,16 +775,8 @@
       "architecture_id": "ssm_001_pointmamba",
       "main_table": true,
       "params": "316993.0",
-      "old_I": 0.8657897050284777,
-      "old_matched_auc": 0.9346788435587846,
-      "old_inclusive_auc": 0.945252620198476,
-      "old_paper_I": "0.8657897050284777",
-      "old_paper_matched_auc": "0.9346788435587846",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/EXO200/outputs/classification/ssm_001_pointmamba/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/exo200__mamba.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7858816366992372,
@@ -857,7 +785,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9452526201984761,
       "n_events": 140383,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__mamba.json",
       "input_sha256": "7583dddcafe5973cef6a74dc1ad7457eb12e3ae9fdc4dad8335a66abcae2ae42",
       "valid_matching_bins": 426,
       "valid_I_bins": {
@@ -875,19 +802,7 @@
       "common_support_keV": [
         538.1772625732422,
         2662.5670739746092
-      ],
-      "delta_I": -0.07990806832924058,
-      "delta_matched_auc": -0.0006103073617286237,
-      "previous_protocol_metrics": {
-        "I": 0.7853693972062222,
-        "matched_auc": 0.9340798794954784,
-        "inclusive_auc": 0.9452526201984761,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/EXO_200__mamba.json"
-      },
-      "delta_from_v2_I": 0.0005122394930149321,
-      "delta_from_v2_matched_auc": -1.134329842245041e-05
+      ]
     },
     {
       "dataset": "SuperNEMO",
@@ -895,16 +810,8 @@
       "architecture_id": "cnn_004_multiview_late_fusion",
       "main_table": true,
       "params": "807666.0",
-      "old_I": 0.9503617978384238,
-      "old_matched_auc": 0.586360099755886,
-      "old_inclusive_auc": 0.601165527786361,
-      "old_paper_I": "0.9503617978384238",
-      "old_paper_matched_auc": "0.586360099755886",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/cnn_004_multiview_late_fusion/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__mvcnn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9101488192671978,
@@ -913,7 +820,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.601165527786361,
       "n_events": 589824,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO__mvcnn.json",
       "input_sha256": "2a81817feae0310c2684cdc0c5a8f1216cbd85850e38d2125948b41eac3c83be",
       "valid_matching_bins": 374,
       "valid_I_bins": {
@@ -931,9 +837,7 @@
       "common_support_keV": [
         350.20625,
         2218.25
-      ],
-      "delta_I": -0.040212978571225966,
-      "delta_matched_auc": -0.00041876846928345923
+      ]
     },
     {
       "dataset": "SuperNEMO",
@@ -941,16 +845,8 @@
       "architecture_id": "gnn_001_static_gine",
       "main_table": true,
       "params": "479942.0",
-      "old_I": 0.9551839784935066,
-      "old_matched_auc": 0.5905563469595958,
-      "old_inclusive_auc": 0.6031148161448072,
-      "old_paper_I": "0.9551839784935066",
-      "old_paper_matched_auc": "0.5905563469595958",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/gnn_001_static_gine/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__gine.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9125447285875118,
@@ -959,7 +855,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.6031148161448072,
       "n_events": 589824,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO__gine.json",
       "input_sha256": "4097ec8dceee0e58151e7876bbc4bd5e86ebb2c004a9ab352754d60493f3a217",
       "valid_matching_bins": 374,
       "valid_I_bins": {
@@ -977,9 +872,7 @@
       "common_support_keV": [
         350.20625,
         2218.25
-      ],
-      "delta_I": -0.04263924990599477,
-      "delta_matched_auc": -0.0003722528752776455
+      ]
     },
     {
       "dataset": "SuperNEMO",
@@ -987,16 +880,8 @@
       "architecture_id": "seq_001_bigru",
       "main_table": true,
       "params": "733953.0",
-      "old_I": 0.9743948039014528,
-      "old_matched_auc": 0.5796620408513216,
-      "old_inclusive_auc": 0.5796123383799567,
-      "old_paper_I": "0.9743948039014528",
-      "old_paper_matched_auc": "0.5796620408513216",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/seq_001_bigru/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__bigru.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9208863483649454,
@@ -1005,7 +890,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.5796123383799567,
       "n_events": 589824,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO__bigru.json",
       "input_sha256": "f7fec36d5bd4ac587d2460f2ec3c798ea6f786231fc94a80d81fac95056b93de",
       "valid_matching_bins": 374,
       "valid_I_bins": {
@@ -1023,9 +907,7 @@
       "common_support_keV": [
         350.20625,
         2218.25
-      ],
-      "delta_I": -0.053508455536507404,
-      "delta_matched_auc": -0.00017686670639260882
+      ]
     },
     {
       "dataset": "SuperNEMO",
@@ -1033,16 +915,8 @@
       "architecture_id": "ssm_001_pointmamba",
       "main_table": true,
       "params": "316993.0",
-      "old_I": 0.9753420391094735,
-      "old_matched_auc": 0.5796406859989749,
-      "old_inclusive_auc": 0.5788108057051432,
-      "old_paper_I": "0.9753420391094735",
-      "old_paper_matched_auc": "0.5796406859989749",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/ssm_001_pointmamba/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__mamba.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9215314943754063,
@@ -1051,7 +925,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.5788108057051431,
       "n_events": 589824,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO__mamba.json",
       "input_sha256": "dbc67565ee13c37254e7118f9e0785713516ed4ec9fdd4500d493d5bba9280e1",
       "valid_matching_bins": 374,
       "valid_I_bins": {
@@ -1069,9 +942,7 @@
       "common_support_keV": [
         350.20625,
         2218.25
-      ],
-      "delta_I": -0.05381054473406721,
-      "delta_matched_auc": -0.0001479413619396297
+      ]
     },
     {
       "dataset": "EXO-200",
@@ -1079,28 +950,16 @@
       "architecture_id": "classification__pulse_entities__coordinate_mlp",
       "main_table": true,
       "params": "111297",
-      "old_I": 0.8033360978610369,
-      "old_matched_auc": 0.9419427582819082,
-      "old_inclusive_auc": 0.9541163740277911,
-      "old_paper_I": "0.8033360979",
-      "old_paper_matched_auc": "0.9419427583",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__entity_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7371650799725772,
       "matched_auc": 0.9413216210053226,
       "inclusive_auc": 0.9541163740277911,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.0661710178884597,
-      "delta_matched_auc": -0.0006211372765856371,
       "comparison_eligible": true,
       "input_sha256": "a0ba1fbec9a4d6c0d0ef2f0b4c694b3e0fb10e9d471a297569c68b950c36a3c2",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__entity_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__entity_mlp.json",
       "min_group_I": 0.686804195266635,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1128,28 +987,16 @@
       "architecture_id": "classification__pulse_entities__fourier_coordinates",
       "main_table": true,
       "params": "115905",
-      "old_I": 0.7970264443776891,
-      "old_matched_auc": 0.9476028841394812,
-      "old_inclusive_auc": 0.9596201753154566,
-      "old_paper_I": "0.7970264444",
-      "old_paper_matched_auc": "0.9476028841",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__entity_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7291835373545541,
       "matched_auc": 0.9471205351711137,
       "inclusive_auc": 0.9596201753154566,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.067842907023135,
-      "delta_matched_auc": -0.0004823489683675186,
       "comparison_eligible": true,
       "input_sha256": "cce536fd2e2978f51089b4c02f71a4e3ea4be44bf0f9237b8929357b8ce1c754",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__entity_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__entity_fourier.json",
       "min_group_I": 0.6545032374852409,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1177,28 +1024,16 @@
       "architecture_id": "classification__raw_patches__coordinate_mlp",
       "main_table": true,
       "params": "120769",
-      "old_I": 0.8883553546640783,
-      "old_matched_auc": 0.969817658399436,
-      "old_inclusive_auc": 0.9741226186809501,
-      "old_paper_I": "0.8883553547",
-      "old_paper_matched_auc": "0.9698176584",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__region_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.8009381579076389,
       "matched_auc": 0.9695573209630712,
       "inclusive_auc": 0.9741226186809501,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.08741719675643944,
-      "delta_matched_auc": -0.000260337436364777,
       "comparison_eligible": true,
       "input_sha256": "0a29722490300b4fddd3696acf5fc388a22a04fc006b63c4adcb775b196742b0",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__region_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__region_mlp.json",
       "min_group_I": 0.7892944942503624,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1226,28 +1061,16 @@
       "architecture_id": "classification__raw_patches__fourier_coordinates",
       "main_table": true,
       "params": "125377",
-      "old_I": 0.8723790748358914,
-      "old_matched_auc": 0.9725859375314179,
-      "old_inclusive_auc": 0.9778039975454758,
-      "old_paper_I": "0.8723790748",
-      "old_paper_matched_auc": "0.9725859375",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__region_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7900516557727041,
       "matched_auc": 0.9722610766369408,
       "inclusive_auc": 0.9778039975454758,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.0823274190631873,
-      "delta_matched_auc": -0.00032486089447703037,
       "comparison_eligible": true,
       "input_sha256": "1d10de6769a4af3dcac0ac13b6289e2b3a689c6d85830d46ea7961ee80e1de0f",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__region_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__region_fourier.json",
       "min_group_I": 0.7645773472169122,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1275,28 +1098,16 @@
       "architecture_id": "classification__segment_summary__coordinate_mlp",
       "main_table": true,
       "params": "111425",
-      "old_I": 0.8591482049623994,
-      "old_matched_auc": 0.9475392273196022,
-      "old_inclusive_auc": 0.9594825701504568,
-      "old_paper_I": "0.859148205",
-      "old_paper_matched_auc": "0.9475392273",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__summary_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7761410115147421,
       "matched_auc": 0.9469545080993464,
       "inclusive_auc": 0.9594825701504568,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.08300719344765728,
-      "delta_matched_auc": -0.0005847192202557139,
       "comparison_eligible": true,
       "input_sha256": "9beb788bebd7cba22d31c8d25ebc047ba959e2d02cd9d330962a913dd7bea9cd",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__summary_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__summary_mlp.json",
       "min_group_I": 0.7296099426625058,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1324,28 +1135,16 @@
       "architecture_id": "classification__segment_summary__fourier_coordinates",
       "main_table": true,
       "params": "116033",
-      "old_I": 0.8890241851605616,
-      "old_matched_auc": 0.9604387635279117,
-      "old_inclusive_auc": 0.967886956938096,
-      "old_paper_I": "0.8890241852",
-      "old_paper_matched_auc": "0.9604387635",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__summary_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.8019020777424724,
       "matched_auc": 0.9600237431248531,
       "inclusive_auc": 0.9678869569380959,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.08712210741808923,
-      "delta_matched_auc": -0.0004150204030586302,
       "comparison_eligible": true,
       "input_sha256": "4255beb3bf9579d989ce0f911c56cd420474e69ddbbc7cb851a82b5819fdb070",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__summary_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__summary_fourier.json",
       "min_group_I": 0.7894301479310415,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1373,28 +1172,16 @@
       "architecture_id": "classification__raw_patches__rope",
       "main_table": true,
       "params": "116161",
-      "old_I": 0.8782880057059899,
-      "old_matched_auc": 0.9711907679111383,
-      "old_inclusive_auc": 0.9765985313654006,
-      "old_paper_I": "0.8782880057",
-      "old_paper_matched_auc": "0.9711907679",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__raw_patches__rope/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__region_rope.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7892311644895167,
       "matched_auc": 0.9709096841000631,
       "inclusive_auc": 0.9765985313654006,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.08905684121647317,
-      "delta_matched_auc": -0.0002810838110752778,
       "comparison_eligible": true,
       "input_sha256": "838e03e1cb0d631a335832ed7a76bf344578d398bf57bd25ca5a2d2a83cae8a2",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__region_rope.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__region_rope.json",
       "min_group_I": 0.7502407163482228,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1422,28 +1209,16 @@
       "architecture_id": "classification__segment_summary__rope",
       "main_table": true,
       "params": "106817",
-      "old_I": 0.8464677141513072,
-      "old_matched_auc": 0.955702690172295,
-      "old_inclusive_auc": 0.964939775897746,
-      "old_paper_I": "0.8464677142",
-      "old_paper_matched_auc": "0.9557026902",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__segment_summary__rope/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__summary_rope.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7727311876027604,
       "matched_auc": 0.9551706747468208,
       "inclusive_auc": 0.964939775897746,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.07373652654854679,
-      "delta_matched_auc": -0.0005320154254742082,
       "comparison_eligible": true,
       "input_sha256": "48dc47b479684351f8fb5ae003d48d19e29e052b28b74c221a4e0bf66a47c0a6",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__summary_rope.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__summary_rope.json",
       "min_group_I": 0.7712944848525404,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1471,28 +1246,16 @@
       "architecture_id": "classification__pulse_entities__rope",
       "main_table": true,
       "params": "106689",
-      "old_I": 0.7763494243660083,
-      "old_matched_auc": 0.9464707448314778,
-      "old_inclusive_auc": 0.9587199403792815,
-      "old_paper_I": "0.7763494244",
-      "old_paper_matched_auc": "0.9464707448",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/exo200_detector/results/transformer_official_v1/classification__pulse_entities__rope/energybench_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/standardized/EXO_200__entity_rope.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7153366170715236,
       "matched_auc": 0.9459249799253545,
       "inclusive_auc": 0.9587199403792815,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": -0.06101280729448466,
-      "delta_matched_auc": -0.0005457649061232361,
       "comparison_eligible": true,
       "input_sha256": "7a3ccfaf07eb2dc1c38598bbe83fbab3d059fb52874996847034523335df0d04",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/EXO-200__entity_rope.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/exo/strict600/detail/EXO_200__entity_rope.json",
       "min_group_I": 0.6582535199021793,
       "matching_status": "ok",
       "n_events": 140383,
@@ -1520,24 +1283,14 @@
       "architecture_id": "transformer_001_sampled_hits_coordinate_mlp",
       "main_table": true,
       "params": "111233.0",
-      "old_I": 0.975384791562389,
-      "old_matched_auc": 0.5912104133278413,
-      "old_inclusive_auc": 0.5929980916611385,
-      "old_paper_I": "0.975384791562389",
-      "old_paper_matched_auc": "0.5912104133278413",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_001_sampled_hits_coordinate_mlp/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__entity_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "SuperNEMO",
@@ -1545,24 +1298,14 @@
       "architecture_id": "transformer_002_voxel_coordinate_mlp",
       "main_table": true,
       "params": "111233.0",
-      "old_I": 0.9761247768221727,
-      "old_matched_auc": 0.5914158866798868,
-      "old_inclusive_auc": 0.5957710258022416,
-      "old_paper_I": "0.9761247768221727",
-      "old_paper_matched_auc": "0.5914158866798868",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_002_voxel_coordinate_mlp/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__region_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "SuperNEMO",
@@ -1570,24 +1313,14 @@
       "architecture_id": "transformer_003_voxel_fourier_xyz",
       "main_table": true,
       "params": "113537.0",
-      "old_I": 0.9765258664774298,
-      "old_matched_auc": 0.5896103162658949,
-      "old_inclusive_auc": 0.5938731862872373,
-      "old_paper_I": "0.9765258664774298",
-      "old_paper_matched_auc": "0.5896103162658949",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_003_voxel_fourier_xyz/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__region_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "SuperNEMO",
@@ -1595,24 +1328,14 @@
       "architecture_id": "transformer_004_sampled_hits_fourier_xyz",
       "main_table": true,
       "params": "113537.0",
-      "old_I": 0.9740046303484715,
-      "old_matched_auc": 0.5890906098410181,
-      "old_inclusive_auc": 0.5930427023791708,
-      "old_paper_I": "0.9740046303484715",
-      "old_paper_matched_auc": "0.5890906098410181",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_004_sampled_hits_fourier_xyz/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__entity_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "SuperNEMO",
@@ -1620,24 +1343,14 @@
       "architecture_id": "transformer_005_summary_features_coordinate_mlp",
       "main_table": true,
       "params": "111361.0",
-      "old_I": 0.9749901725375236,
-      "old_matched_auc": 0.590401975879365,
-      "old_inclusive_auc": 0.5930681214260404,
-      "old_paper_I": "0.9749901725375236",
-      "old_paper_matched_auc": "0.590401975879365",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_005_summary_features_coordinate_mlp/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__summary_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "SuperNEMO",
@@ -1645,24 +1358,14 @@
       "architecture_id": "transformer_006_summary_features_fourier_xyz",
       "main_table": true,
       "params": "113665.0",
-      "old_I": 0.9771130772722894,
-      "old_matched_auc": 0.5891324617733658,
-      "old_inclusive_auc": 0.5896996164170559,
-      "old_paper_I": "0.9771130772722894",
-      "old_paper_matched_auc": "0.5891324617733658",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/manifest.json",
-      "input_source": "/home/wenyu/SuperNEMO/outputs/classification/transformer_006_summary_features_fourier_xyz/test_evaluation/test_predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo__summary_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1670,16 +1373,8 @@
       "architecture_id": "cnn_004_multiview_late_fusion",
       "main_table": false,
       "params": null,
-      "old_I": 0.9782244957575121,
-      "old_matched_auc": 0.9558186691697308,
-      "old_inclusive_auc": 0.9559364938700803,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_004_multiview_late_fusion_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_004_multiview_late_fusion.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9714837088846677,
@@ -1688,7 +1383,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9559364938700804,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_cnn_004_multiview_late_fusion.json",
       "input_sha256": "3fb0ec23809ca688d3468376f1a38779a707023a11d8e90833afb0e82372e466",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1706,9 +1400,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.0067407868728444065,
-      "delta_matched_auc": -1.4854507873862666e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1716,16 +1408,8 @@
       "architecture_id": "cnn_005_multiscale_projection",
       "main_table": false,
       "params": null,
-      "old_I": 0.9804438821063235,
-      "old_matched_auc": 0.9477872617938576,
-      "old_inclusive_auc": 0.9482554978386181,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_005_multiscale_projection_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_005_multiscale_projection.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.975023175661521,
@@ -1734,7 +1418,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9482554978386182,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_cnn_005_multiscale_projection.json",
       "input_sha256": "ce3288ef2e75cbb0d9782163f6ba11a18e1618e1b1546be7006934dc4a3bfa7b",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1752,9 +1435,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.0054207064448025255,
-      "delta_matched_auc": -5.321688502535338e-06
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1762,16 +1443,8 @@
       "architecture_id": "cnn_006_dense_3d_resnet",
       "main_table": false,
       "params": null,
-      "old_I": 0.9773195421595386,
-      "old_matched_auc": 0.9282100185713417,
-      "old_inclusive_auc": 0.9280821972769591,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_cnn_006_dense_3d_resnet_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__cnn_006_dense_3d_resnet.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9739763917281392,
@@ -1780,7 +1453,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9280821972769591,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_cnn_006_dense_3d_resnet.json",
       "input_sha256": "faa57031de212f6b0fe0b22dedc2a7e3d49f12363e525ce9ef7268be44add58a",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1798,9 +1470,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.003343150431399433,
-      "delta_matched_auc": 6.297400792121266e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1808,16 +1478,8 @@
       "architecture_id": "gnn_001_static_gine",
       "main_table": false,
       "params": null,
-      "old_I": 0.9771105630292771,
-      "old_matched_auc": 0.9810351180751066,
-      "old_inclusive_auc": 0.9812236999343399,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_001_static_gine_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_001_static_gine.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9734915674659057,
@@ -1826,7 +1488,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9812236999343398,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_gnn_001_static_gine.json",
       "input_sha256": "c5cee79ba8895218ffd02786168e28ade3add7008fa4201cc9becdfe0660d9ae",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1844,9 +1505,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.003618995563371419,
-      "delta_matched_auc": -2.7594426453059206e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1854,16 +1513,8 @@
       "architecture_id": "gnn_002_particlenet_edgeconv",
       "main_table": false,
       "params": null,
-      "old_I": 0.9796999064401346,
-      "old_matched_auc": 0.9703625721059466,
-      "old_inclusive_auc": 0.9707540005763676,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_002_particlenet_edgeconv_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_002_particlenet_edgeconv.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9739213113375408,
@@ -1872,7 +1523,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9707540005763677,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_gnn_002_particlenet_edgeconv.json",
       "input_sha256": "cfadad208d739f7eb04f3476525ba54cd646d89b45da6301c269d89644827d1d",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1890,9 +1540,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.00577859510259382,
-      "delta_matched_auc": -5.856221400679651e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1900,16 +1548,8 @@
       "architecture_id": "gnn_003_egnn",
       "main_table": false,
       "params": null,
-      "old_I": 0.9774618356050869,
-      "old_matched_auc": 0.8865581910920768,
-      "old_inclusive_auc": 0.8870981727979217,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_003_egnn_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_003_egnn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9737070654643105,
@@ -1918,7 +1558,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.8870981727979216,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_gnn_003_egnn.json",
       "input_sha256": "ada4fd31acf0bc706ad6b437676a60e35492ba56ef864c80f406f15e86985b88",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1936,9 +1575,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.003754770140776409,
-      "delta_matched_auc": -0.0001390899714934779
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1946,16 +1583,8 @@
       "architecture_id": "gnn_004_gravnet",
       "main_table": false,
       "params": null,
-      "old_I": 0.9773514958249705,
-      "old_matched_auc": 0.9556797035977415,
-      "old_inclusive_auc": 0.9557331033623361,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_004_gravnet_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_004_gravnet.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9709966023681809,
@@ -1964,7 +1593,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9557331033623361,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_gnn_004_gravnet.json",
       "input_sha256": "b461924227e18772cfd0d8f7c89e25d80abd75332dcc08d4a0c8360f7fe48f56",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -1982,9 +1610,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.006354893456789634,
-      "delta_matched_auc": -8.881396309745604e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -1992,16 +1618,8 @@
       "architecture_id": "gnn_005_dimenet_lite",
       "main_table": false,
       "params": null,
-      "old_I": 0.9749254780601849,
-      "old_matched_auc": 0.9792265438170087,
-      "old_inclusive_auc": 0.9793507190032822,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_gnn_005_dimenet_lite_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__gnn_005_dimenet_lite.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9711915734528004,
@@ -2010,7 +1628,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9793507190032821,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_gnn_005_dimenet_lite.json",
       "input_sha256": "7a446c78f748199043abc16be6469d939dc178f25800faf57635ce29f7463ab7",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2028,9 +1645,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.0037339046073845417,
-      "delta_matched_auc": 1.1989485953045609e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -2038,16 +1653,8 @@
       "architecture_id": "seq_001_bigru",
       "main_table": false,
       "params": null,
-      "old_I": 0.9776005045579627,
-      "old_matched_auc": 0.9339346346383425,
-      "old_inclusive_auc": 0.9342514549961928,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_001_bigru_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__seq_001_bigru.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.97284724748975,
@@ -2056,7 +1663,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9342514549961928,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_seq_001_bigru.json",
       "input_sha256": "a8cbc2bcd834bf13cf5c1ba2c9bc39da587276fcde2a5956d771bc37aaecb557",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2074,9 +1680,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.004753257068212613,
-      "delta_matched_auc": -7.041126158602307e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -2084,16 +1688,8 @@
       "architecture_id": "seq_002_dilated_tcn",
       "main_table": false,
       "params": null,
-      "old_I": 0.9755246819221913,
-      "old_matched_auc": 0.9260431004736538,
-      "old_inclusive_auc": 0.9263529468960454,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_seq_002_dilated_tcn_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__seq_002_dilated_tcn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9695297370003912,
@@ -2102,7 +1698,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9263529468960454,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_seq_002_dilated_tcn.json",
       "input_sha256": "8e982dce301922f9da96306f4fa31ef02d88ec66fa34a225229ed00c07a0cd86",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2120,9 +1715,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.005994944921800083,
-      "delta_matched_auc": 4.167818267275525e-05
+      ]
     },
     {
       "dataset": "NEXT-exploratory",
@@ -2130,16 +1723,8 @@
       "architecture_id": "ssm_001_pointmamba",
       "main_table": false,
       "params": null,
-      "old_I": 0.9779342739423307,
-      "old_matched_auc": 0.9254195732422914,
-      "old_inclusive_auc": 0.9257424359863461,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/manifest.json",
-      "input_source": "/home/wenyu/summer/04_evaluations/NEXTALT_ssm_001_pointmamba_test/predictions_test.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/exploratory/NEXT-exploratory__ssm_001_pointmamba.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9713873425002296,
@@ -2148,7 +1733,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9257424359863461,
       "n_events": 115499,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT_exploratory__exploratory_ssm_001_pointmamba.json",
       "input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2166,9 +1750,7 @@
       "common_support_keV": [
         2434.8639635535073,
         2480.6069458871207
-      ],
-      "delta_I": -0.006546931442101056,
-      "delta_matched_auc": -3.3571206355609284e-05
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2176,16 +1758,8 @@
       "architecture_id": "classic_001_topology_xgboost",
       "main_table": false,
       "params": null,
-      "old_I": 0.9703955490576832,
-      "old_matched_auc": 0.9369382014455006,
-      "old_inclusive_auc": 0.937279483837524,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/classic_001_topology_xgboost/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__classic_001_topology_xgboost.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9703955490576832,
@@ -2194,7 +1768,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9372794838375239,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__classic_001_topology_xgboost.json",
       "input_sha256": "be825f453fbd2834c85bea37a4bfa3eca7097641934027de398a7cfa4b36eb65",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2212,9 +1785,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -4.113376306236205e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2222,16 +1793,8 @@
       "architecture_id": "cnn_001_two_conv_baseline",
       "main_table": false,
       "params": 1409,
-      "old_I": 0.9664724266127296,
-      "old_matched_auc": 0.9529920711507512,
-      "old_inclusive_auc": 0.9532803225517608,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_001_two_conv_baseline/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_001_two_conv_baseline.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9664724266127296,
@@ -2240,7 +1803,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9532803225517608,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__cnn_001_two_conv_baseline.json",
       "input_sha256": "5d938d8ec425bfab4d94dc6c4ea7cf3bbd7eba68e78b955824ab2bbb3c7f32f6",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2258,9 +1820,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.391553952767026e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2268,16 +1828,8 @@
       "architecture_id": "cnn_002_global_energy_skip",
       "main_table": false,
       "params": 1412,
-      "old_I": 0.9679524197096452,
-      "old_matched_auc": 0.9227348841581842,
-      "old_inclusive_auc": 0.9233943074683699,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_002_global_energy_skip/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_002_global_energy_skip.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9679524197096452,
@@ -2286,7 +1838,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9233943074683699,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__cnn_002_global_energy_skip.json",
       "input_sha256": "08485fbcd4e366f5f585e2f7b64e5b56c844544def36a406dbc6e60c5595940b",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2304,9 +1855,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.17061957086662e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2314,16 +1863,8 @@
       "architecture_id": "cnn_003_residual_spatial",
       "main_table": false,
       "params": 1228817,
-      "old_I": 0.969531340842108,
-      "old_matched_auc": 0.9789656586960422,
-      "old_inclusive_auc": 0.9790299160552237,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_003_residual_spatial/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_003_residual_spatial.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.969531340842108,
@@ -2332,7 +1873,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9790299160552236,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__cnn_003_residual_spatial.json",
       "input_sha256": "33153c574fa971aa1eb8a1deb693d490a0e7887012a7c1a742e0216c3189760a",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2350,9 +1890,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.790124018607457e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2360,16 +1898,8 @@
       "architecture_id": "cnn_004_multiview_late_fusion",
       "main_table": true,
       "params": "807666.0",
-      "old_I": 0.9709927307118373,
-      "old_matched_auc": 0.9765869924916795,
-      "old_inclusive_auc": 0.9766362036920746,
-      "old_paper_I": "0.9709927307118373",
-      "old_paper_matched_auc": "0.9765869924916795",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_004_multiview_late_fusion/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_004_multiview_late_fusion.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9709927307118373,
@@ -2378,7 +1908,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9766362036920746,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__mvcnn.json",
       "input_sha256": "500ceca39197646668ebbb37103129561d5e9ff653faac7145b102495a10205b",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2396,9 +1925,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.804556917927584e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2406,16 +1933,8 @@
       "architecture_id": "cnn_005_multiscale_projection",
       "main_table": false,
       "params": 865939,
-      "old_I": 0.9731446354742137,
-      "old_matched_auc": 0.979045625681704,
-      "old_inclusive_auc": 0.9792699285829884,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_005_multiscale_projection/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_005_multiscale_projection.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9731446354742137,
@@ -2424,7 +1943,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9792699285829884,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__cnn_005_multiscale_projection.json",
       "input_sha256": "07374a3532269dd7e92cbe28d439b0136f1d00fff74dc1390d263f0557d9aade",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2442,9 +1960,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.814548925149211e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2452,16 +1968,8 @@
       "architecture_id": "cnn_006_dense_3d_resnet",
       "main_table": false,
       "params": 688433,
-      "old_I": 0.9711013272176884,
-      "old_matched_auc": 0.9839556554928537,
-      "old_inclusive_auc": 0.9841150397094928,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/cnn_006_dense_3d_resnet/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__cnn_006_dense_3d_resnet.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9711013272176884,
@@ -2470,7 +1978,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9841150397094927,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__cnn_006_dense_3d_resnet.json",
       "input_sha256": "46d97949df50cd676ef04881068dc36131c306f12e94fa6ae5364f4bea56c55d",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2488,9 +1995,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.802336471878334e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2498,16 +2003,8 @@
       "architecture_id": "gnn_001_static_gine",
       "main_table": true,
       "params": "479942.0",
-      "old_I": 0.9702654680064685,
-      "old_matched_auc": 0.9946251760535402,
-      "old_inclusive_auc": 0.994800586533787,
-      "old_paper_I": "0.9702654680064685",
-      "old_paper_matched_auc": "0.9946251760535402",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_001_static_gine/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__gnn_001_static_gine.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9702654680064685,
@@ -2516,7 +2013,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.994800586533787,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__gine.json",
       "input_sha256": "6b40a46b5a4c1f41f50e239fe9163741c02006c222859792633922c85e9bd9d1",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2534,9 +2030,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.936673457857978e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2544,16 +2038,8 @@
       "architecture_id": "gnn_002_particlenet_edgeconv",
       "main_table": false,
       "params": 150497,
-      "old_I": 0.968043644674584,
-      "old_matched_auc": 0.9919712549017924,
-      "old_inclusive_auc": 0.9921613421453862,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_002_particlenet_edgeconv/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__gnn_002_particlenet_edgeconv.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.968043644674584,
@@ -2562,7 +2048,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9921613421453862,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__gnn_002_particlenet_edgeconv.json",
       "input_sha256": "3d74c353c45a242210fa2d6be5127300ed7c40bba531547ab0cddf8acf296973",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2580,9 +2065,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.814548925149211e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2590,16 +2073,8 @@
       "architecture_id": "gnn_003_egnn",
       "main_table": false,
       "params": 640518,
-      "old_I": 0.9680642367144486,
-      "old_matched_auc": 0.8898776405341122,
-      "old_inclusive_auc": 0.8907421874045665,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_003_egnn/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__gnn_003_egnn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9680642367144486,
@@ -2608,7 +2083,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.8907421874045663,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__gnn_003_egnn.json",
       "input_sha256": "e6fc49090b85c206a901b5786978105281fd4eaa6eabcb0e63c0d045a4df7be8",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2626,9 +2100,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -5.915268275202834e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2636,16 +2108,8 @@
       "architecture_id": "gnn_004_gravnet",
       "main_table": false,
       "params": 293585,
-      "old_I": 0.9696373959499524,
-      "old_matched_auc": 0.9910696322261799,
-      "old_inclusive_auc": 0.9913164539346299,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_004_gravnet/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__gnn_004_gravnet.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9696373959499524,
@@ -2654,7 +2118,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9913164539346299,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__gnn_004_gravnet.json",
       "input_sha256": "0fa8d94a87115435fea7dcc59191a9e159268114684a5e700e9da3a83bb1fe1b",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2672,9 +2135,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.792344464656708e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2682,16 +2143,8 @@
       "architecture_id": "gnn_005_dimenet_lite",
       "main_table": false,
       "params": 169553,
-      "old_I": 0.9680014849955834,
-      "old_matched_auc": 0.9927160847585704,
-      "old_inclusive_auc": 0.9929390231732774,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/gnn_005_dimenet_lite/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__gnn_005_dimenet_lite.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9680014849955834,
@@ -2700,7 +2153,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9929390231732774,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__gnn_005_dimenet_lite.json",
       "input_sha256": "e0fa7f5bb810935edc5b4eb1c640c9d7bd0cd20ad6a1b8d2200aacd800d9d789",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2718,9 +2170,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.755707104844078e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2728,16 +2178,8 @@
       "architecture_id": "hybrid_001_cnn_gnn",
       "main_table": false,
       "params": 341969,
-      "old_I": 0.9702760231708398,
-      "old_matched_auc": 0.9912603169143328,
-      "old_inclusive_auc": 0.991416629845904,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/hybrid_001_cnn_gnn/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__hybrid_001_cnn_gnn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9702760231708398,
@@ -2746,7 +2188,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.991416629845904,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__hybrid_001_cnn_gnn.json",
       "input_sha256": "7e6456c1b8060432f099d065a667527766bd5642ce92f458a14e65dd56a34397",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2764,9 +2205,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.803446694902959e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2774,16 +2213,8 @@
       "architecture_id": "mixer_001_projection_mlp_mixer",
       "main_table": false,
       "params": 539073,
-      "old_I": 0.9725488141415404,
-      "old_matched_auc": 0.9500859091894529,
-      "old_inclusive_auc": 0.9503521996029751,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/mixer_001_projection_mlp_mixer/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__mixer_001_projection_mlp_mixer.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9725488141415404,
@@ -2792,7 +2223,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.950352199602975,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__mixer_001_projection_mlp_mixer.json",
       "input_sha256": "1827f0b650cefb1d6d55b5f48076f8ea562a570938d8eb75888be3b78f5d7a77",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2810,9 +2240,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.444844657949034e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2820,16 +2248,8 @@
       "architecture_id": "point_001_deepsets",
       "main_table": false,
       "params": 75585,
-      "old_I": 0.972602476429423,
-      "old_matched_auc": 0.969458806384614,
-      "old_inclusive_auc": 0.9696601847079862,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_001_deepsets/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__point_001_deepsets.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.972602476429423,
@@ -2838,7 +2258,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9696601847079863,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__point_001_deepsets.json",
       "input_sha256": "ebff47f2b99d315c28e9700d7c7624826158e6f06c2f70d8facde5d261271cec",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2856,9 +2275,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.580291866953303e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2866,16 +2283,8 @@
       "architecture_id": "point_002_pointnetpp",
       "main_table": false,
       "params": 164513,
-      "old_I": 0.9725464001755596,
-      "old_matched_auc": 0.9853544011986908,
-      "old_inclusive_auc": 0.9854592248308909,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_002_pointnetpp/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__point_002_pointnetpp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9725464001755596,
@@ -2884,7 +2293,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9854592248308909,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__point_002_pointnetpp.json",
       "input_sha256": "a3dabbb4a0a7fb8b767fe465b6a6e0d7a263a6f6c10aa4d1cccf39abc0df24c6",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2902,9 +2310,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.785683126508957e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2912,16 +2318,8 @@
       "architecture_id": "point_003_pointmlp",
       "main_table": false,
       "params": 443521,
-      "old_I": 0.9676863432688253,
-      "old_matched_auc": 0.9938138972239091,
-      "old_inclusive_auc": 0.9940331238697511,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_003_pointmlp/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__point_003_pointmlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9676863432688253,
@@ -2930,7 +2328,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9940331238697511,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__point_003_pointmlp.json",
       "input_sha256": "9f2371008194bbbacd175852696ff93ca6dfe1b4596498bed56fec89904baf86",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2948,9 +2345,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.912248551316225e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -2958,16 +2353,8 @@
       "architecture_id": "point_004_rigid_kpconv",
       "main_table": false,
       "params": 390977,
-      "old_I": 0.969283112017587,
-      "old_matched_auc": 0.9863405771094635,
-      "old_inclusive_auc": 0.9866535676618695,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/point_004_rigid_kpconv/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__point_004_rigid_kpconv.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.969283112017587,
@@ -2976,7 +2363,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9866535676618695,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__point_004_rigid_kpconv.json",
       "input_sha256": "1dda48cafdda7320beabda8a02bc1c5142cd993d277e547176fc0888ad243f2c",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -2994,9 +2380,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.831202270518588e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -3004,16 +2388,8 @@
       "architecture_id": "seq_001_bigru",
       "main_table": true,
       "params": "733953.0",
-      "old_I": 0.9710513985489216,
-      "old_matched_auc": 0.9793769367797587,
-      "old_inclusive_auc": 0.979562895383824,
-      "old_paper_I": "0.9710513985489216",
-      "old_paper_matched_auc": "0.9793769367797587",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/seq_001_bigru/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__seq_001_bigru.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9710513985489216,
@@ -3022,7 +2398,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9795628953838241,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__bigru.json",
       "input_sha256": "b4be989124a5d9d87a78e1e4543b7ba7335478dd7b4cc0958c2ca14a2addb602",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -3040,9 +2415,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.850076061937216e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -3050,16 +2423,8 @@
       "architecture_id": "seq_002_dilated_tcn",
       "main_table": false,
       "params": 694529,
-      "old_I": 0.9745325674042103,
-      "old_matched_auc": 0.9731834511960042,
-      "old_inclusive_auc": 0.9734495207888637,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/seq_002_dilated_tcn/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__seq_002_dilated_tcn.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9745325674042103,
@@ -3068,7 +2433,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9734495207888638,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__seq_002_dilated_tcn.json",
       "input_sha256": "ef4414cdb03df3bbb442ecff67ad48fc9de35d6b00bd205572516c372d084551",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -3086,9 +2450,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.662448370775564e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -3096,16 +2458,8 @@
       "architecture_id": "sparse_001_submanifold_resnet",
       "main_table": false,
       "params": 298177,
-      "old_I": 0.9678235062942302,
-      "old_matched_auc": 0.9914142310397526,
-      "old_inclusive_auc": 0.9915740005543003,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/sparse_001_submanifold_resnet/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__sparse_001_submanifold_resnet.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9678235062942302,
@@ -3114,7 +2468,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9915740005543003,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__sparse_001_submanifold_resnet.json",
       "input_sha256": "efe504c0edee0c56f559fa214da6c8dcc6515f512300093adf21aab3a5f79768",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -3132,9 +2485,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.806777363976835e-13
+      ]
     },
     {
       "dataset": "NEXT",
@@ -3142,16 +2493,8 @@
       "architecture_id": "topo_001_persistence_perslay",
       "main_table": false,
       "params": 63274,
-      "old_I": 0.9685220220644996,
-      "old_matched_auc": 0.917657425084796,
-      "old_inclusive_auc": 0.9182579829651357,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/summer/03_training_runs/energybench_campaigns/20260808_energybench_rewrite_v2/reevaluation_20260818/topo_001_persistence_perslay/classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/NEXT__topo_001_persistence_perslay.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.9685220220644996,
@@ -3160,7 +2503,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9182579829651358,
       "n_events": 116549,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/NEXT__topo_001_persistence_perslay.json",
       "input_sha256": "32581a4c74ba9170ad9fad848df5364e768002ffd0aa82e64a0291b986d4b9f5",
       "valid_matching_bins": 11,
       "valid_I_bins": {
@@ -3178,9 +2520,7 @@
       "common_support_keV": [
         2434.839165949452,
         2480.35090446283
-      ],
-      "delta_I": 0.0,
-      "delta_matched_auc": -6.002975894148221e-13
+      ]
     },
     {
       "dataset": "MJD",
@@ -3188,16 +2528,8 @@
       "architecture_id": "cnn_004_multiview_late_fusion",
       "main_table": true,
       "params": "807666.0",
-      "old_I": 0.7595781735369986,
-      "old_matched_auc": 0.9698516381750937,
-      "old_inclusive_auc": 0.9712831074427645,
-      "old_paper_I": "0.7595781735369986",
-      "old_paper_matched_auc": "0.9698516381750937",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/MJD/outputs/classification/cnn_004_multiview_late_fusion/energybench_classification/clean/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/MJD__cnn_004_multiview_late_fusion.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7596373174585611,
@@ -3206,7 +2538,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9712831074427644,
       "n_events": 390000,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__mvcnn.json",
       "input_sha256": "ef72db204a2a10a556b8275147506ef65ab1826b6a616472e7626e683c528218",
       "valid_matching_bins": 493,
       "valid_I_bins": {
@@ -3224,19 +2555,7 @@
       "common_support_keV": [
         18.150531811779366,
         2613.79042737314
-      ],
-      "delta_I": 5.914392156247672e-05,
-      "delta_matched_auc": -7.167774721539288e-07,
-      "previous_protocol_metrics": {
-        "I": 0.7595780033237467,
-        "matched_auc": 0.9698515539237522,
-        "inclusive_auc": 0.9712831074427644,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/MJD__mvcnn.json"
-      },
-      "delta_from_v2_I": 5.931413481441439e-05,
-      "delta_from_v2_matched_auc": -6.32526130694977e-07
+      ]
     },
     {
       "dataset": "MJD",
@@ -3244,16 +2563,8 @@
       "architecture_id": "gnn_001_static_gine",
       "main_table": true,
       "params": "480425.0",
-      "old_I": 0.7965650550462013,
-      "old_matched_auc": 0.9691831191778975,
-      "old_inclusive_auc": 0.9708503339921176,
-      "old_paper_I": "0.7965650550462013",
-      "old_paper_matched_auc": "0.9691831191778975",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/MJD/outputs/classification/gnn_001_static_gine/energybench_classification/clean/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/MJD__gnn_001_static_gine.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.796689273195953,
@@ -3262,7 +2573,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9708503339921175,
       "n_events": 390000,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__gine.json",
       "input_sha256": "9361a49db498bafc753fc968351850e8dbf3f48e7ee5cb0596035e138d4546fc",
       "valid_matching_bins": 493,
       "valid_I_bins": {
@@ -3280,19 +2590,7 @@
       "common_support_keV": [
         18.150531811779366,
         2613.79042737314
-      ],
-      "delta_I": 0.00012421814975160927,
-      "delta_matched_auc": -3.887943078595413e-07,
-      "previous_protocol_metrics": {
-        "I": 0.7965705447318409,
-        "matched_auc": 0.9691831024267327,
-        "inclusive_auc": 0.9708503339921175,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/MJD__gine.json"
-      },
-      "delta_from_v2_I": 0.00011872846411209448,
-      "delta_from_v2_matched_auc": -3.7204314307093256e-07
+      ]
     },
     {
       "dataset": "MJD",
@@ -3300,16 +2598,8 @@
       "architecture_id": "seq_001_bigru",
       "main_table": true,
       "params": "733953.0",
-      "old_I": 0.775242017221427,
-      "old_matched_auc": 0.9754460257428346,
-      "old_inclusive_auc": 0.9768004822378061,
-      "old_paper_I": "0.775242017221427",
-      "old_paper_matched_auc": "0.9754460257428346",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/MJD/outputs/classification/seq_001_bigru/energybench_classification/clean/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/MJD__seq_001_bigru.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.775288815236636,
@@ -3318,7 +2608,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9768004822378061,
       "n_events": 390000,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__bigru.json",
       "input_sha256": "6e36bf2ea281e046068432f82ac5965b9d166a86e61b3a0eec86fa0dc78a4e9d",
       "valid_matching_bins": 493,
       "valid_I_bins": {
@@ -3336,19 +2625,7 @@
       "common_support_keV": [
         18.150531811779366,
         2613.79042737314
-      ],
-      "delta_I": 4.679801520890425e-05,
-      "delta_matched_auc": -7.759724331979356e-07,
-      "previous_protocol_metrics": {
-        "I": 0.7752460566782948,
-        "matched_auc": 0.9754459601561317,
-        "inclusive_auc": 0.9768004822378061,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/MJD__bigru.json"
-      },
-      "delta_from_v2_I": 4.2758558341127184e-05,
-      "delta_from_v2_matched_auc": -7.10385730351426e-07
+      ]
     },
     {
       "dataset": "MJD",
@@ -3356,16 +2633,8 @@
       "architecture_id": "ssm_001_pointmamba",
       "main_table": true,
       "params": "316993.0",
-      "old_I": 0.7732786168351015,
-      "old_matched_auc": 0.9598876059331981,
-      "old_inclusive_auc": 0.9615347914558796,
-      "old_paper_I": "0.773278",
-      "old_paper_matched_auc": "0.95988",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": "/home/wenyu/MJD/outputs/classification/ssm_001_pointmamba/energybench_classification/clean/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/MJD__ssm_001_pointmamba.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7733235506611658,
@@ -3374,7 +2643,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9615347914558797,
       "n_events": 390000,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__mamba.json",
       "input_sha256": "0f66454cce936e713374ba3aec1c5b3c0ba7a6a9451be650a16b5c0d0341aa2b",
       "valid_matching_bins": 493,
       "valid_I_bins": {
@@ -3392,19 +2660,7 @@
       "common_support_keV": [
         18.150531811779366,
         2613.79042737314
-      ],
-      "delta_I": 4.49338260642973e-05,
-      "delta_matched_auc": -1.0861014843044359e-06,
-      "previous_protocol_metrics": {
-        "I": 0.773278117459327,
-        "matched_auc": 0.9598875942760778,
-        "inclusive_auc": 0.9615347914558797,
-        "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-        "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
-        "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/MJD__mamba.json"
-      },
-      "delta_from_v2_I": 4.543320183880706e-05,
-      "delta_from_v2_matched_auc": -1.0744443640353651e-06
+      ]
     },
     {
       "dataset": "NEXT",
@@ -3412,24 +2668,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "316993.0",
-      "old_I": null,
-      "old_matched_auc": null,
-      "old_inclusive_auc": null,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "missing_event_inputs",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "Canonical rewrite campaign has no completed PointMamba classification run. Older NEXTALT PointMamba result uses a different retained run/test population and is not substituted.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "Canonical rewrite campaign has no completed PointMamba classification run. Older NEXTALT PointMamba result uses a different retained run/test population and is not substituted."
     },
     {
       "dataset": "NEXT",
@@ -3437,24 +2683,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "111105.0",
-      "old_I": "0.973246",
-      "old_matched_auc": "0.987718",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.973246",
-      "old_paper_matched_auc": "0.987718",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3462,24 +2698,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113409.0",
-      "old_I": "0.972763",
-      "old_matched_auc": "0.978698",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.972763",
-      "old_paper_matched_auc": "0.978698",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3487,24 +2713,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113409.0",
-      "old_I": null,
-      "old_matched_auc": "0.5124",
-      "old_inclusive_auc": null,
-      "old_paper_I": null,
-      "old_paper_matched_auc": "0.5124",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3512,24 +2728,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "111105.0",
-      "old_I": "0.97527",
-      "old_matched_auc": "0.975494",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.97527",
-      "old_paper_matched_auc": "0.975494",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3537,24 +2743,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113409.0",
-      "old_I": "0.974274",
-      "old_matched_auc": "0.96273",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.974274",
-      "old_paper_matched_auc": "0.96273",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3562,24 +2758,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113409.0",
-      "old_I": null,
-      "old_matched_auc": "0.4971",
-      "old_inclusive_auc": null,
-      "old_paper_I": null,
-      "old_paper_matched_auc": "0.4971",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3587,24 +2773,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "111233.0",
-      "old_I": "0.970741",
-      "old_matched_auc": "0.987424",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.970741",
-      "old_paper_matched_auc": "0.987424",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3612,24 +2788,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113537.0",
-      "old_I": "0.972612",
-      "old_matched_auc": "0.983448",
-      "old_inclusive_auc": null,
-      "old_paper_I": "0.972612",
-      "old_paper_matched_auc": "0.983448",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "NEXT",
@@ -3637,24 +2803,14 @@
       "architecture_id": null,
       "main_table": true,
       "params": "113537.0",
-      "old_I": null,
-      "old_matched_auc": "0.6023",
-      "old_inclusive_auc": null,
-      "old_paper_I": null,
-      "old_paper_matched_auc": "0.6023",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/next_mjd/manifest.json",
-      "input_source": null,
-      "standardized_file": null,
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "out_of_scope_transformer",
       "I": null,
       "matched_auc": null,
       "inclusive_auc": null,
-      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical.",
-      "delta_I": null,
-      "delta_matched_auc": null
+      "notes": "User excluded Transformers from reevaluation; preserve original paper numbers as explicitly historical."
     },
     {
       "dataset": "MJD",
@@ -3662,28 +2818,16 @@
       "architecture_id": "classification__pulse_entities__coordinate_mlp",
       "main_table": true,
       "params": "111105",
-      "old_I": 0.8115678531709327,
-      "old_matched_auc": 0.9293968032684995,
-      "old_inclusive_auc": 0.9334245029722467,
-      "old_paper_I": "0.811567853170932",
-      "old_paper_matched_auc": "0.929396803268499",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__coordinate_mlp/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_entity_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.8116150873441846,
       "matched_auc": 0.9293956978212661,
       "inclusive_auc": 0.9334245029722467,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 4.723417325191992e-05,
-      "delta_matched_auc": -1.1054472334182108e-06,
       "comparison_eligible": true,
       "input_sha256": "fde5dc2abd4b4d3e856e81cf8a4ecd026e62d14f4e64336bf22d9f5837c26491",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__entity_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_entity_mlp.json",
       "min_group_I": 0.7949660598604947,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3711,28 +2855,16 @@
       "architecture_id": "classification__pulse_entities__fourier_coordinates",
       "main_table": true,
       "params": "113409",
-      "old_I": 0.8020619302281552,
-      "old_matched_auc": 0.9413879799841893,
-      "old_inclusive_auc": 0.9444524476323212,
-      "old_paper_I": "0.802061930228155",
-      "old_paper_matched_auc": "0.941387979984189",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__pulse_entities__fourier_coordinates/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_entity_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.802097914589581,
       "matched_auc": 0.9413866002250502,
       "inclusive_auc": 0.9444524476323212,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 3.598436142582262e-05,
-      "delta_matched_auc": -1.379759139163994e-06,
       "comparison_eligible": true,
       "input_sha256": "3839256b67627253aa59d13db63db6eaba19eadf35e72b83fe9513b3bf02b1b9",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__entity_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_entity_fourier.json",
       "min_group_I": 0.7913446608849487,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3760,28 +2892,16 @@
       "architecture_id": "classification__raw_patches__coordinate_mlp",
       "main_table": true,
       "params": "112257",
-      "old_I": 0.7982816797970245,
-      "old_matched_auc": 0.9734509740214516,
-      "old_inclusive_auc": 0.974491362595523,
-      "old_paper_I": "0.798281679797024",
-      "old_paper_matched_auc": "0.973450974021451",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__coordinate_mlp/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_region_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7983154151144947,
       "matched_auc": 0.9734501967234624,
       "inclusive_auc": 0.9744913625955232,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 3.373531747019598e-05,
-      "delta_matched_auc": -7.77297989196235e-07,
       "comparison_eligible": true,
       "input_sha256": "0d433ca3a74c5544eac11af12c4e1b358b6a74e7a4a462039607f8a1f0e65cc1",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__region_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_region_mlp.json",
       "min_group_I": 0.7935179086670803,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3809,28 +2929,16 @@
       "architecture_id": "classification__raw_patches__fourier_coordinates",
       "main_table": true,
       "params": "114561",
-      "old_I": 0.7876113567824797,
-      "old_matched_auc": 0.9810468112425579,
-      "old_inclusive_auc": 0.9814954149227425,
-      "old_paper_I": "0.787611356782479",
-      "old_paper_matched_auc": "0.981046811242557",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__raw_patches__fourier_coordinates/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_region_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7876310269369133,
       "matched_auc": 0.9810463173072814,
       "inclusive_auc": 0.9814954149227426,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 1.9670154433604203e-05,
-      "delta_matched_auc": -4.93935276457691e-07,
       "comparison_eligible": true,
       "input_sha256": "f6b1430120e618f7c5129d7378f0d7f00f8ae95a23adf11b136361f3a1c5a93b",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__region_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_region_fourier.json",
       "min_group_I": 0.7868784008808406,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3858,28 +2966,16 @@
       "architecture_id": "classification__segment_summary__coordinate_mlp",
       "main_table": true,
       "params": "111105",
-      "old_I": 0.7989695461103333,
-      "old_matched_auc": 0.9653936537903378,
-      "old_inclusive_auc": 0.9670155303222863,
-      "old_paper_I": "0.798969546110333",
-      "old_paper_matched_auc": "0.965393653790337",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__coordinate_mlp/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_summary_mlp.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7990151806667429,
       "matched_auc": 0.9653926210283701,
       "inclusive_auc": 0.9670155303222862,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 4.563455640960168e-05,
-      "delta_matched_auc": -1.0327619677230615e-06,
       "comparison_eligible": true,
       "input_sha256": "11344e3759891fbf67480536015f8b9b56b8e92ffac67efa1903ef9ac6f5f761",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__summary_mlp.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_summary_mlp.json",
       "min_group_I": 0.7972642591733516,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3907,28 +3003,16 @@
       "architecture_id": "classification__segment_summary__fourier_coordinates",
       "main_table": true,
       "params": "113409",
-      "old_I": 0.7817758033321167,
-      "old_matched_auc": 0.9691376244116913,
-      "old_inclusive_auc": 0.9708923408197193,
-      "old_paper_I": "0.781775803332116",
-      "old_paper_matched_auc": "0.969137624411691",
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/manifest.json",
-      "input_source": "/home/klz/Data/zeronu_benchmark/Transformer_Approach/mjd_detector/results/transformer_official_v1/classification__segment_summary__fourier_coordinates/energybench_classification/predictions.npz",
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/standardized/MJD_summary_fourier.npz",
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
       "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
       "status": "recomputed",
       "I": 0.7818013873421643,
       "matched_auc": 0.9691365055544586,
       "inclusive_auc": 0.9708923408197192,
       "notes": "Recomputed from original event predictions under strict 600-bin v3; saved checkpoint, test population and score representation retained.",
-      "delta_I": 2.5584010047596806e-05,
-      "delta_matched_auc": -1.11885723264038e-06,
       "comparison_eligible": true,
       "input_sha256": "bca72d24025283bf2ed6b96fd21d79efb7f668a42e85dae8d65834bdb98569ca",
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/strict_600bin_20260917/results/detail/MJD__summary_fourier.json",
-      "source_detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/transformer_exo_mjd_20260917/mjd/strict600/details/MJD_summary_fourier.json",
       "min_group_I": 0.7758868162666858,
       "matching_status": "ok",
       "n_events": 390000,
@@ -3956,16 +3040,8 @@
       "architecture_id": null,
       "main_table": false,
       "params": null,
-      "old_I": 0.17427937978964686,
-      "old_matched_auc": 0.5000239466040346,
-      "old_inclusive_auc": 0.9706126082261715,
-      "old_paper_I": null,
-      "old_paper_matched_auc": null,
-      "source_manifest": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/illustration_manifest.json",
-      "input_source": null,
-      "standardized_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/sources/exo_sn/supernemo_0nu_illustration__energy_only.npz",
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "protocol_sha256": "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88",
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
       "evaluator_sha256": "bc8650ce6956dae0a36f49945f199ecde510cced3451f7ca9443d9e964c94bd5",
       "status": "recomputed",
       "I": 0.07920956513169773,
@@ -3974,7 +3050,6 @@
       "matching_status": "ok",
       "inclusive_auc": 0.9706126082261713,
       "n_events": 458752,
-      "detail_file": "/home/wenyu/iclr final paper/unified_5kev_evaluation/results/detail/SuperNEMO_0nu_illustration__energy_only.json",
       "input_sha256": "8312e1b1532f0f74ceab165a4ec96641976c062a5edd5d0b40d6bcc6a8d037a9",
       "valid_matching_bins": 283,
       "valid_I_bins": {
@@ -3992,14 +3067,11 @@
       "common_support_keV": [
         1169.39,
         2734.1949999999997
-      ],
-      "delta_I": -0.09506981465794913,
-      "delta_matched_auc": -4.118927421359331e-14
+      ]
     }
   ],
   "transformer_reevaluation": {
-    "campaign_id": "transformer-exo-mjd-20260917",
-    "scope": "EXO-200 nine Transformer configurations and MJD six MLP/Fourier Transformer configurations",
+    "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
     "selected_models": [
       {
         "dataset": "EXO-200",
@@ -4061,40 +3133,12 @@
         "dataset": "MJD",
         "model_key": "summary_fourier"
       }
-    ],
-    "excluded_by_user": [
-      {
-        "dataset": "MJD",
-        "model_key": "entity_rope",
-        "action": "Keep existing reported paper value; no reevaluation claimed."
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "region_rope",
-        "action": "Keep existing reported paper value; no reevaluation claimed."
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "summary_rope",
-        "action": "Keep existing reported paper value; no reevaluation claimed."
-      }
-    ],
-    "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-    "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
-    "protocol_file_sha256": "989fc7188680c4c9d6086e94405940854c4027f0631e64c9aa1846728a3e5fb8",
-    "evaluator_sha256": "a243160b0a529a26a38dc6be14baa6f17a09618fea57c5a80de21822369e06b0",
-    "scope_metadata": "Statistical protocol v3 replaces v2 overflow handling with the final strict 0--3000 keV range. Campaign scope remains separate from metric configuration.",
-    "source_root": "/home/klz/Data/zeronu_benchmark/Transformer_Approach",
-    "policy": {
-      "predictions": "Reuse original saved test predictions and checkpoint provenance; no training or checkpoint substitution.",
-      "inclusive_auc": "Original score/weight population; not filtered by energy.",
-      "energy": "Original physical keV, 600 fixed bins in 0--3000 inclusive; exclude values outside the range before support and histogram construction."
-    }
+    ]
   },
   "protocol_registry": {
-    "f862fc8eb3b03cb02640347098f9b19a71e3ea7b8ad1298b868b96de4154aa88": {
-      "protocol_version": "EnergyBench-unified-5keV-overflow-v2.0.0",
-      "reference": "User revised upper-range handling: keep >3000 keV in one additional overflow bin; preserve 600 regular bins and all statistical gates.",
+    "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e": {
+      "protocol_version": "EnergyBench-paper-overflow601-1.0.0",
+      "reference": "Recorded paper evaluation profile; see benchmark/README.md for the dataset/model scope.",
       "energy": {
         "unit": "keV",
         "minimum": 0,
@@ -4732,7 +3776,7 @@
         "group_weights": "finite-pair positive base mass with E>=0, including overflow, before sparse-bin exclusion",
         "JS": "natural log; weighted mean JS within group then sqrt(D/log(2)); I_g=1-sqrt; weighted mean I_g over estimable groups",
         "min_eligible_bins": 1,
-        "one_bin": "reported per historical reference but explicitly uninformative",
+        "one_bin": "I_g is defined but a single eligible energy bin is uninformative about energy dependence.",
         "missing_groups": "exclude from aggregate and disclose"
       },
       "matching": {
@@ -4754,12 +3798,11 @@
       },
       "weights": "finite nonnegative; effective event counts count strictly positive weight events; zero weights excluded",
       "missing": "nonfinite scores excluded from inclusive; nonfinite energy additionally excluded from energy metrics; invalid labels/categories or weights rejected",
-      "numerics": "float64; MeV input exactly equal to canonical_keV_edge/1000 is mapped to that exact keV edge; no tolerance snapping of other observations; deterministic, no resampling or bootstrap",
-      "user_scope": "Classic models, extended/exploratory NEXT and standalone SuperNEMO energy-only illustration. Transformers excluded by later user instruction and paper historical values preserved."
+      "numerics": "float64; MeV input exactly equal to canonical_keV_edge/1000 is mapped to that exact keV edge; no tolerance snapping of other observations; deterministic, no resampling or bootstrap"
     },
-    "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953": {
-      "protocol_version": "EnergyBench-unified-5keV-range-v3.0.0",
-      "reference": "Final user instruction 2026-09-17: exactly 600 bins over 0--3000 keV; exclude out-of-range physical energies without clipping.",
+    "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c": {
+      "protocol_version": "EnergyBench-paper-strict600-1.0.0",
+      "reference": "Recorded paper evaluation profile; see benchmark/README.md for the dataset/model scope.",
       "energy": {
         "unit": "keV",
         "minimum": 0,
@@ -5391,7 +4434,7 @@
         "group_weights": "finite-pair positive base mass with 0<=E<=3000 keV, before sparse-bin exclusion",
         "JS": "natural log; weighted mean JS within group then sqrt(D/log(2)); I_g=1-sqrt; weighted mean I_g over estimable groups",
         "min_eligible_bins": 1,
-        "one_bin": "reported per historical reference but explicitly uninformative",
+        "one_bin": "I_g is defined but a single eligible energy bin is uninformative about energy dependence.",
         "missing_groups": "exclude from aggregate and disclose"
       },
       "matching": {
@@ -5415,103 +4458,5 @@
       "missing": "nonfinite scores excluded from inclusive; nonfinite energy additionally excluded from energy metrics; invalid labels/categories or weights rejected",
       "numerics": "float64; MeV input exactly equal to canonical_keV_edge/1000 is mapped to that exact keV edge; no tolerance snapping of other observations; deterministic, no resampling or bootstrap"
     }
-  },
-  "active_reevaluation": {
-    "scope": "MJD and EXO-200 only; MJD RoPE excluded",
-    "protocol_sha256": "6d696d87f1307b3f6d27bb9ef7ec443e1d8d98b9d95e90713f553c70edb42953",
-    "selected_models": [
-      {
-        "dataset": "EXO-200",
-        "model_key": "bigru"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "entity_fourier"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "entity_mlp"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "entity_rope"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "gine"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "mamba"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "mvcnn"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "region_fourier"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "region_mlp"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "region_rope"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "summary_fourier"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "summary_mlp"
-      },
-      {
-        "dataset": "EXO-200",
-        "model_key": "summary_rope"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "bigru"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "entity_fourier"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "entity_mlp"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "gine"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "mamba"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "mvcnn"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "region_fourier"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "region_mlp"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "summary_fourier"
-      },
-      {
-        "dataset": "MJD",
-        "model_key": "summary_mlp"
-      }
-    ]
   }
 }

@@ -1,0 +1,328 @@
+{
+  "rows": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_002_voxel_coordinate_mlp/representation_config.json",
+      "checkpoint": {
+        "sha256": "5c33c8876e389860a81e6e7c5cc4cec0b5ce278b48a4a57e09d75f3ac6cf8f98",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_003_voxel_fourier_xyz/representation_config.json",
+      "checkpoint": {
+        "sha256": "fe30ac32efe4317da12b0b2578e3d428a854f088a7b076f435abbdaf8001cad2",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_001_sampled_hits_coordinate_mlp/representation_config.json",
+      "checkpoint": {
+        "sha256": "1edfa563fe81a23af2ae74282aefca965c418885d1fd7af5c5d77a3242b57eea",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "source_training_config": "code/transformers/configs/next/final_cached_v1/transformer_004_sampled_hits_fourier_xyz/representation_config.json",
+      "checkpoint": {
+        "sha256": "3a4536d0ec81c367dc6e81ae8b06d660fdbdeda91bd52c8fdbb5a5df123197e8",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "source_training_config": "code/transformers/configs/next/final/transformer_005_summary_features_coordinate_mlp/representation_config.json",
+      "checkpoint": {
+        "sha256": "8ea2a045afc3ef93f230ad684a5b4d14b99962799d7129f77dece21cda153485",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "source_training_config": "code/transformers/configs/next/final/transformer_006_summary_features_fourier_xyz/representation_config.json",
+      "checkpoint": {
+        "sha256": "bf1b6731b1d1e998fe648c34c7b032773daa1ddbc42c7ea29d900fbd450b0ea4",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "7e01ea1751382ef2ba212318a94cda33ea8bbb72172c0f150bfcb2420428246f",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "42db930535908b706e88a179d90d0bae8394802f1bd764ac09273543d559c7bc",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "ad011cd2959c25aaf5165329fde3a462f0f3198b3fdcf9f0854a8dddaa1e1330",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "dd0ac549e296571d1ff99a356eda1023c84d09758f2aed80f61f9452fdb1ee09",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "fc5d40c901fd221f364a5e65bcefe4d9722edfedab6cb9c33ef91c40e983cf98",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "source_training_config": "code/transformers/configs/mjd_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "db65f13f62d06a5bc3333a62f47ced5ad57a02d32893c84f16f62e29f3aedc63",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "da4df1c4a44d277f4457195687bc7f8008053d0f5f88f510322e89970f82457c",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "a4e3e539b346f38a6a6728a579dca6da1424e344d25a502bffb1ac3dbcd0d3ca",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "2776927e28cea939ab1a715e5140ff9736b73f2cfcc6edcae5e3c39a78024bb6",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "6038a220f78973df20d68f70c31ee1fa2fa0b8cbe0af8e67cad3768d59cc9bdd",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "10d1d70efdfe4e73f675944e88cdcc1c3e46eeef280e25d1f57efa89d370ec87",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__fourier_coordinates/run_config.json",
+      "checkpoint": {
+        "sha256": "188165ee17d8639f7340dfb551ce6f90908361ea71583d08a7d8094d8ab3ca44",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__raw_patches__rope/run_config.json",
+      "checkpoint": {
+        "sha256": "00b91dfc198fc9083dcb8d73dc836aaee2639bab14fb36b46e9d72c71c8a8954",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__segment_summary__rope/run_config.json",
+      "checkpoint": {
+        "sha256": "54dc9aa4bccb43674514ebcbb87f0644fd97023228711b872433061a1fcd28a2",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope",
+      "source_training_config": "code/transformers/configs/exo200_detector/classification__pulse_entities__rope/run_config.json",
+      "checkpoint": {
+        "sha256": "b7cccc780f32d104cb8f4e33d405618477228352be74e1f7bdda00d3f8f3f29c",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_mlp",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_001_sampled_hits_coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "189b0c581ef5902d007110870a4e83d2fda0654f97416544c0f5ab70115f3f93",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_mlp",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_002_voxel_coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "bb70843bd6bbe540d3d3e5741d0ba86118e2768873aec1d4ef3c3fbc20780ad3",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_fourier",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_003_voxel_fourier_xyz/run_config.json",
+      "checkpoint": {
+        "sha256": "d296320d826bf2ee316305a4a1de517d80110c18e0ebcdd235f02f15279d1e53",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_fourier",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_004_sampled_hits_fourier_xyz/run_config.json",
+      "checkpoint": {
+        "sha256": "e36e0f918058ba05896e6c732c5211d7321cdb6874a34d6318fed7497c14f657",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_mlp",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_005_summary_features_coordinate_mlp/run_config.json",
+      "checkpoint": {
+        "sha256": "d127aa3bdcb180cc88a328e0aed7a3abc1810980625b682cd025387ff8d7da85",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_fourier",
+      "source_training_config": "code/transformers/configs/published_supernemo/transformer_006_summary_features_fourier_xyz/run_config.json",
+      "checkpoint": {
+        "sha256": "edfd37925e991e452b9a5ab387f69ea9c9ae609bc1406d4549891aa20b35e37c",
+        "included": false
+      },
+      "source_available": true
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_rope",
+      "source_training_config": null,
+      "source_available": false
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_rope",
+      "source_training_config": null,
+      "source_available": false
+    }
+  ]
+}

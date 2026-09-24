@@ -51,7 +51,7 @@
   "finite_waveforms": true,
   "global_indices_sha256": "908216ab1210906c6cb9b76e941958b619978de12cbef71248049b772a4192af",
   "classification_preprocessing": {
-    "source": "/home/wenyu/MJD/mjdbench/data.py:314-326",
+    "source": "code/classic/MJD/mjdbench/data.py",
     "baseline_samples": 200,
     "arithmetic": "Read float32; first200 mean in float64 then castfloat32; subtract float32; divide maxabsolute per waveform where scale>0."
   },

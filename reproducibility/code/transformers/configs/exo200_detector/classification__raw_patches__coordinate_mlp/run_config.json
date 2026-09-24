@@ -3,7 +3,6 @@
   "dataset": "EXO-200 v1",
   "task": "classification",
   "data": {
-    "data_root": "/home/klz/Data/zeronu_benchmark/EXO-200",
     "validation_fraction": 0.1,
     "test_fraction": 0.2727272727272727,
     "baseline_samples": 200,

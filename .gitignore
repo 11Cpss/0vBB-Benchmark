@@ -1,68 +1,27 @@
-# Python
+# Local environments and caches
+.venv*/
+venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.coverage
-
-# Virtual environments and local configuration
-.venv/
-venv/
-.env
-
-# Jupyter and operating-system files
 .ipynb_checkpoints/
-*.executed.ipynb
-*_executed.ipynb
-next_detector/notebooks/next_energybench_train.*.py
-next_detector/notebooks/next_energybench_train.*.txt
+.cache/
 .DS_Store
+.env
+.env.*
 
-# Detector data are stored externally
-data/
+# Runtime outputs and separately supplied detector inputs
 outputs/
-tmp/
-*.h5
-*.hdf5
-*.npy
-*.npz
-*.root
-*.tar
-*.tar.gz
-*.zip
-
-# Generated experiments and model artifacts
-next_detector/results/
-next_detector/token_cache/
-mjd_detector/results/
-exo200_detector/results/
-exo200_detector/transformer_results.csv
-exo200_detector/energybench_transformer_results.csv
-exo200_detector/energybench_transformer_summary.json
-exo200_detector/energybench_transformer_plots/
-supernemo_detector/analysis/
-supernemo_detector/data/
-supernemo_detector/outputs/
-supernemo_detector/results/
-supernemo_detector/**/*.json
+event_data/
+checkpoints/
 *.pt
 *.pth
 *.ckpt
+*.h5
+*.hdf5
+*.root
+*.zip
 
-# Personal/non-project files
-resume_jaden_wu_ds_ml.tex
-
-# Editors
-.vscode/
-.idea/
-
-# Optional profiling output
-profiles/
-*.prof
-
-# Temporary remote comparison snapshots
-mjd_remote_snapshot/
-
-# Upstream exploratory notebook; not part of the reproducible EXO workflow
-exo200_detector/load_h5.ipynb
+# Keep the final paper JSON/CSV and small figure-input NPZ files tracked.

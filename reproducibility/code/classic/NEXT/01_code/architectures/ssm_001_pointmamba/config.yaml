@@ -1,19 +1,19 @@
 architecture_id: ssm_001_pointmamba
-
 data:
-  root: /home/klz/Data/zeronu_benchmark/NEXT
+  root: /path/data/NEXT
   max_files_per_class: 100
   split_seed: 42
-  split_fractions: [0.8, 0.1, 0.1]
+  split_fractions:
+  - 0.8
+  - 0.1
+  - 0.1
   num_workers: 0
   balance_training_classes: true
   event_shuffle_buffer_size: 512
-
 representation:
   point_bin_size: 15.0
   coordinate_scale: 1000.0
   max_points: 512
-
 model:
   feature_dim: 2
   model_dim: 128
@@ -25,8 +25,7 @@ model:
   hilbert_bits: 10
   scan_chunk_size: 32
   classifier_dim: 160
-  dropout: 0.10
-
+  dropout: 0.1
 training:
   batch_size: 4
   epochs: 50

@@ -1,9 +1,0 @@
-{
-  "source_collection_contains_no_checkpoints_predictions_data_or_bytecode": true,
-  "checkpoint_configuration_coverage": 45,
-  "run_provenance_coverage": 45,
-  "NEXT_distinct_architecture_ids": 23,
-  "source_only_snapshot_files": 331,
-  "final_metrics_route": "bundle reproduction/evaluate.py with manifest-assigned strict600 or overflow601 profile",
-  "new_files_only": true
-}

@@ -23,9 +23,8 @@ from .config import DEFAULT_SEED, TrainingConfig
 from .evaluation import (
     assert_same_provenance,
     classification_bundle,
-    evaluate_classification_bundle,
+    export_classification_bundle,
     file_sha256,
-    matched_validation_auc,
     save_validation_bundle,
 )
 
@@ -557,19 +556,6 @@ def _validate_config(config: TrainingConfig) -> TrainingConfig:
     return config
 
 
-def _evaluation_protocol_identity(provenance: Mapping[str, Any]) -> tuple[str, str]:
-    protocol = provenance.get("evaluation_protocol")
-    if not isinstance(protocol, Mapping):
-        raise ValueError("dataset provenance has no evaluation protocol identity")
-    manifest_digest = protocol.get("manifest_sha256")
-    evaluator_digest = protocol.get("evaluator_code_sha256")
-    if not isinstance(manifest_digest, str) or len(manifest_digest) != 64:
-        raise ValueError("dataset provenance has no valid evaluation manifest SHA256")
-    if not isinstance(evaluator_digest, str) or len(evaluator_digest) != 64:
-        raise ValueError("dataset provenance has no valid evaluator code SHA256")
-    return manifest_digest, evaluator_digest
-
-
 def _model_source_identity(model: nn.Module) -> dict[str, str]:
     source = inspect.getsourcefile(model.__class__)
     if source is None:
@@ -660,7 +646,7 @@ def _validate_checkpoint_identity(
             + ", ".join(changed)
         )
     expected_metric = (
-        "energy_matched_auc" if task == "classification" else "rmse_kev"
+        "auc" if task == "classification" else "rmse_kev"
     )
     if int(checkpoint.get("schema_version", -1)) != 2:
         raise ValueError(f"{context} must use checkpoint schema version 2")
@@ -728,7 +714,7 @@ def _checkpoint_payload(
         "best_score": float(best),
         "selection_split": "validation",
         "selection_metric": (
-            "energy_matched_auc" if task == "classification" else "rmse_kev"
+            "auc" if task == "classification" else "rmse_kev"
         ),
         "stale_epochs": int(stale_epochs),
         "history": list(history),
@@ -809,11 +795,7 @@ def train_model(
     best_model_state_dict: dict[str, torch.Tensor] | None = None
     model_source = _model_source_identity(model)
     training_source = _training_source_identity()
-    evaluation_protocol_identity = (
-        _evaluation_protocol_identity(provenance)
-        if selected_task == "classification"
-        else None
-    )
+
 
     if resume:
         if not last_checkpoint_path.is_file():
@@ -926,17 +908,11 @@ def train_model(
             collect_energy=selected_task == "classification",
         )
         if selected_task == "classification":
-            score = matched_validation_auc(
-                val_target,
-                val_prediction,
-                val_energy,
-                seed=selected.seed,
-                expected_manifest_sha256=evaluation_protocol_identity[0],
-                expected_evaluator_sha256=evaluation_protocol_identity[1],
-            )
-            val_metrics["energy_matched_auc"] = score
+            # The four paper classic checkpoints were selected by inclusive
+            # validation AUC; do not replace this with Transformer matching.
+            score = float(val_metrics["auc"])
             improved = score > best + selected.early_stopping_min_delta
-            metric_name = "energy_matched_auc"
+            metric_name = "auc"
         else:
             score = float(val_metrics["rmse_kev"])
             improved = score < best - selected.early_stopping_min_delta
@@ -1164,7 +1140,7 @@ def evaluate_model(
             metadata=metadata,
         )
         if split == "test":
-            return evaluate_classification_bundle(
+            return export_classification_bundle(
                 bundle,
                 architecture_id=str(getattr(model, "architecture_id", "unknown")),
                 provenance=provenance,
@@ -1172,14 +1148,6 @@ def evaluate_model(
             )
         if split != "validation":
             raise ValueError("classification evaluation supports validation or test")
-        metrics["energy_matched_auc"] = matched_validation_auc(
-            target,
-            prediction,
-            energy,
-            seed=selected.seed,
-            expected_manifest_sha256=_evaluation_protocol_identity(provenance)[0],
-            expected_evaluator_sha256=_evaluation_protocol_identity(provenance)[1],
-        )
         validation_path = output / "validation_evaluation"
         legacy_paths = (
             output / "validation_metrics.json",

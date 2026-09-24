@@ -18,7 +18,7 @@ except ImportError:  # The pure NumPy/HDF helpers remain independently usable.
     _IterableDatasetBase = object
 
 
-DEFAULT_DATA_ROOT = Path("/home/klz/Data/zeronu_benchmark/NEXT")
+DEFAULT_DATA_ROOT = Path("data/NEXT")
 SPLIT_NAMES = ("train", "validation", "test")
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild reviewed paper artifacts; see ../evaluation/README.md for event evaluation."""
+"""Rebuild final paper artifacts; see ../evaluation/README.md for event evaluation."""
 from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'evaluation'))

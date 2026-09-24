@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Replay the three active SuperNEMO appendix figures at their paper widths.
-
-Run with --extent-cdf /path/to/supernemo_cohort_ecdf_LOCAL_ONLY.csv.gz to
-include the tracker-extent panel. Its exact CDF remains a local-only input;
-the public data folder contains only histogram and median aggregates.
+"""Render the three active SuperNEMO appendix figures.
+Pass --extent-cdf code/figure_sources/data/supernemo_cohort_ecdf.csv.gz
+from the reproduction root to include the complete tracker-extent CDF.
 """
 import argparse
 import hashlib

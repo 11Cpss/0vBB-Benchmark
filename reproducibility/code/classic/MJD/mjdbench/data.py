@@ -191,7 +191,7 @@ class MJDWaveformDataset(Dataset):
                             ]
                         ).astype(np.float32, copy=False)
                         energies = np.asarray(
-                            handle[fields["energy"]][:], dtype=np.float32
+                            handle[fields["energy"]][:], dtype=np.float64
                         ).reshape(-1)
                         clean = np.all(labels == 1, axis=1)
                         if task == "regression":
@@ -264,10 +264,12 @@ class MJDWaveformDataset(Dataset):
         info: _FileInfo,
         row: int,
         waveform: np.ndarray,
-    ) -> dict[str, torch.Tensor]:
-        output: dict[str, torch.Tensor] = {
+    ) -> dict[str, Any]:
+        output: dict[str, Any] = {
             "inputs": torch.from_numpy(waveform.copy()).unsqueeze(0),
             "row": torch.tensor(row, dtype=torch.int64),
+            "event_id": f"{info.path.name}:{row}",
+            "source_file": info.path.name,
         }
         for name, values in info.metadata.items():
             output[name] = torch.tensor(int(values[row]), dtype=torch.int64)
@@ -277,15 +279,16 @@ class MJDWaveformDataset(Dataset):
                 raise RuntimeError("labeled MJD cache is unavailable")
             output["labels"] = torch.from_numpy(info.labels[row].copy())
             output["clean"] = torch.tensor(bool(info.clean[row]))
+            output["energy_keV"] = torch.tensor(float(info.energies[row]), dtype=torch.float64)
             output["energy"] = torch.tensor(
                 float(info.energies[row]), dtype=torch.float32
             )
         return output
 
-    def __getitem__(self, index: int) -> dict[str, torch.Tensor]:
+    def __getitem__(self, index: int) -> dict[str, Any]:
         return self.__getitems__([index])[0]
 
-    def __getitems__(self, indices: Sequence[int]) -> list[dict[str, torch.Tensor]]:
+    def __getitems__(self, indices: Sequence[int]) -> list[dict[str, Any]]:
         normalized = np.asarray(
             [self._normalize_index(int(index)) for index in indices], dtype=np.int64
         )
@@ -294,7 +297,7 @@ class MJDWaveformDataset(Dataset):
         file_indices = np.searchsorted(
             self._offsets, normalized, side="right"
         ) - 1
-        outputs: list[dict[str, torch.Tensor] | None] = [None] * normalized.size
+        outputs: list[dict[str, Any] | None] = [None] * normalized.size
 
         for file_index in np.unique(file_indices):
             positions = np.flatnonzero(file_indices == file_index)
@@ -345,10 +348,10 @@ class _IndexedDataset(Dataset):
     def __len__(self) -> int:
         return int(self.indices.size)
 
-    def __getitem__(self, index: int) -> dict[str, torch.Tensor]:
+    def __getitem__(self, index: int) -> dict[str, Any]:
         return self.source[int(self.indices[index])]
 
-    def __getitems__(self, indices: Sequence[int]) -> list[dict[str, torch.Tensor]]:
+    def __getitems__(self, indices: Sequence[int]) -> list[dict[str, Any]]:
         mapped = self.indices[np.asarray(indices, dtype=np.int64)]
         return self.source.__getitems__(mapped.tolist())
 

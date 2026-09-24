@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Use original NEXT APIs with an explicit archived configuration and output path.
+"""Train or export NEXT predictions with the selected paper configuration.
 
-This new convenience wrapper has only been syntax/constructor checked, not trained.
+Native MeV predictions are evaluated through the public NEXT paper profile.
 """
 from pathlib import Path
 import argparse,dataclasses,hashlib,json,sys
@@ -12,22 +12,23 @@ def main():
     p.add_argument('--model-key',required=True);p.add_argument('--mode',choices=['train','test'],default='test')
     p.add_argument('--data-root',type=Path);p.add_argument('--split-manifest',type=Path);p.add_argument('--token-cache',type=Path)
     p.add_argument('--output-dir',type=Path);p.add_argument('--checkpoint',type=Path);p.add_argument('--describe',action='store_true');a=p.parse_args()
-    records=json.loads((ROOT/'provenance/transformer_model_mapping.json').read_text())['rows']
+    records=json.loads((ROOT/'results/transformer_models.json').read_text())['rows']
     found=[r for r in records if r['dataset']=='NEXT' and r['model_key']==a.model_key]
-    if not found or not found[0]['source_training_config']:p.error('No source-backed configuration for this entry')
+    if not found or not found[0].get('source_training_config'):p.error('No source-backed configuration for this entry')
     r=found[0];cfg=json.loads((ROOT/r['source_training_config']).read_text())
     if a.describe:print(json.dumps(cfg,indent=2));return
     if any(x is None for x in [a.data_root,a.split_manifest,a.output_dir]):p.error('Require --data-root, --split-manifest and --output-dir')
     if a.mode=='test' and a.checkpoint is None:p.error('--mode test requires the explicit original --checkpoint')
     if a.output_dir.exists() and any(a.output_dir.iterdir()):p.error('Output must be new or empty')
-    sys.path[:0]=[str(HERE/'original/evalutaions_workflow'),str(HERE/'original/next_detector')]
+    sys.path.insert(0,str(HERE/'detectors/next'))
     import torch
-    from energybench import TrainingConfig,EvaluationConfig,prepare_dataset,set_seed,train_model,evaluate_classification
+    from next_training import TrainingConfig,prepare_dataset,set_seed,train_model
+    from next_training.inference import _run_inference,_resolve_device
+    import numpy as np
     from next_transformer import TokenizationConfig,NEXTTokenBuilder,NEXTTransformerClassifier,prepare_cached_dataset,validate_token_cache
     tok=TokenizationConfig(**{k:v for k,v in cfg.items() if k in TokenizationConfig.__dataclass_fields__})
     tc=TrainingConfig(**cfg.get('training_config',{'num_workers':8}))
-    ec=EvaluationConfig(**cfg.get('evaluation_config',{}))
-    if 'cache_manifest_path' in cfg:
+    if cfg['uses_token_cache']:
         if a.token_cache is None:p.error('This recorded run used a token cache; supply its validated --token-cache directory')
         validate_token_cache(a.token_cache,a.data_root,a.split_manifest,tok)
         data=prepare_cached_dataset(a.token_cache,batch_size=tc.batch_size,num_workers=tc.num_workers,seed=tc.seed,
@@ -47,5 +48,8 @@ def main():
     else:
         assert hashlib.sha256(a.checkpoint.read_bytes()).hexdigest()==r['checkpoint']['sha256'],'Checkpoint is not the archived original for this row'
         model.load_state_dict(torch.load(a.checkpoint,map_location='cpu',weights_only=False)['model_state_dict'],strict=True)
-    evaluate_classification(model,data.test_loader,device=tc.device,output_dir=a.output_dir/'evaluation',config=ec,overwrite=False)
+    native=_run_inference(model,data.test_loader,_resolve_device(tc.device),require_labels=True)
+    native['score']=native.pop('prediction')
+    np.savez_compressed(a.output_dir/'test_predictions.npz',**native)
+    print('Native MeV predictions written; evaluate with the NEXT paper profile in benchmark/.')
 if __name__=='__main__':main()

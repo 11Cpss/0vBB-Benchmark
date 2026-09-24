@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
-"""Compare isolated rerendered active PDFs with the frozen paper assets."""
+"""Compare the six generated active figure PDFs with the supplied paper assets."""
 from pathlib import Path
-import hashlib,json
-B=Path(__file__).resolve().parents[2]
-sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-paths={'mjd_motivation_main_v2_generated.pdf':'mjd_motivation_main_v2_generated.pdf','mjd_low_high_waveforms.pdf':'mjd/mjd_low_high_waveforms.pdf','next_capacity_scores.pdf':'next/next_capacity_scores.pdf','energy_bias_spectrum.pdf':'appendix/energy_bias_spectrum.pdf','energy_threshold_tradeoff.pdf':'appendix/energy_threshold_tradeoff.pdf','supernemo_extent_energy_population.pdf':'appendix/supernemo_extent_energy_population.pdf'}
-records=[]
-for name,rel in paths.items():
- p=B/'paper/wing_contribution/figures'/name;q=B/'validation/figures'/rel
- records.append({'paper_asset':str(p.relative_to(B)),'isolated_output':str(q.relative_to(B)),'source_sha256':sha(p),'generated_sha256':sha(q),'byte_identical':sha(p)==sha(q)})
-r={'all_pass':all(x['byte_identical'] for x in records),'active_figures_regenerated':6,'archived_dataset_panels_not_regenerated':8,'records':records,'note':'Byte identity is demonstrated in the recorded local environment. Different Matplotlib/font versions may change PDF serialization while preserving data; the asset-only panels do not have a recovered generator.'}
-(B/'validation/figures/render_validation.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2));raise SystemExit(0 if r['all_pass'] else 1)
+import argparse
+import hashlib
+import json
+ROOT = Path(__file__).resolve().parents[2]
+NAMES = ('mjd_motivation_main_v2_generated.pdf', 'mjd_low_high_waveforms.pdf',
+         'next_capacity_scores.pdf', 'energy_bias_spectrum.pdf',
+         'energy_threshold_tradeoff.pdf', 'supernemo_extent_energy_population.pdf')
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', type=Path, default=ROOT / 'outputs/render/figures')
+    args = parser.parse_args()
+    records = []
+    for name in NAMES:
+        reference = ROOT / 'paper/wing_contribution/figures' / name
+        generated = args.output_dir / name
+        records.append({'figure': name, 'reference_sha256': digest(reference),
+                        'generated_sha256': digest(generated),
+                        'byte_identical': digest(reference) == digest(generated)})
+    result = {'all_pass': all(row['byte_identical'] for row in records), 'records': records}
+    print(json.dumps(result, indent=2))
+    raise SystemExit(0 if result['all_pass'] else 1)
+if __name__ == '__main__':
+    main()

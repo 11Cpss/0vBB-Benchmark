@@ -1,6 +1,6 @@
 """Local, source-faithful copy of Cnn004."""
 
-# Source: /home/wenyu/summer/src/next_alt/models/cnn.py
+# Model origin: ../NEXT/src/next_alt/models/cnn.py
 # Source SHA256: 5fd7286ad4b0643e306217316588d8b3e64b9a0ece4552d7ea2191033fd8c436
 
 from __future__ import annotations

@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
-"""Run one model-zoo architecture with the standalone EnergyBench workflow.
+"""Train a NEXT paper architecture and export aligned test predictions.
 
-This module is the bridge between the repository's heterogeneous model zoo and
-``evalutaions_workflow``.  It deliberately keeps the standalone workflow's
-event-count split, training defaults, evaluation metrics, and artifact layout
-while allowing a custom ``inputs`` mapping for point, graph, sequence, 3-D,
-topology, sparse, and hybrid models.
+Final EnergyBench metrics are computed by the central benchmark evaluator.
+The optimizer, validation selection, data split and model constructors are unchanged.
 """
 
 from __future__ import annotations
@@ -30,17 +27,14 @@ from torch import nn
 
 ARCHITECTURES_ROOT = Path(__file__).resolve().parent
 PROJECT_ROOT = ARCHITECTURES_ROOT.parents[1]
-WORKFLOW_ROOT = PROJECT_ROOT / "evalutaions_workflow"
-for candidate in (WORKFLOW_ROOT, PROJECT_ROOT / "src", ARCHITECTURES_ROOT):
+for candidate in (PROJECT_ROOT / "src", ARCHITECTURES_ROOT):
     value = str(candidate)
     if value not in sys.path:
         sys.path.insert(0, value)
 
-from simple_energybench import (  # noqa: E402
-    EvaluationConfig,
+from next_training import (  # noqa: E402
     TrainingConfig,
-    evaluate_classification,
-    evaluate_regression,
+    export_classification,
     prepare_dataset,
     set_seed,
     train_model,
@@ -61,8 +55,8 @@ from workflow_models import (  # noqa: E402
 )
 
 
-DEFAULT_DATA_ROOT = Path("/home/klz/Data/zeronu_benchmark/NEXT")
-TASKS = ("classification", "regression")
+DEFAULT_DATA_ROOT = Path("data/NEXT")
+TASKS = ("classification",)
 
 
 def utc_now() -> str:
@@ -272,7 +266,6 @@ def _run_classic(
     test_loader: Any,
     training_dir: Path,
     evaluation_dir: Path,
-    evaluation_config: EvaluationConfig,
     estimator_rounds: int | None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     model_config = dict(architecture_config.get("model", {}))
@@ -354,12 +347,11 @@ def _run_classic(
     _classic_training_plot(classifier.history_, artifacts["history_plot"])
 
     inference_model = ClassicInferenceModule(classifier, extractor)
-    metrics = evaluate_classification(
+    metrics = export_classification(
         inference_model,
         test_loader,
         device="cpu",
         output_dir=evaluation_dir,
-        config=evaluation_config,
     )
     return history_result, metrics
 
@@ -413,7 +405,6 @@ def run_architecture(
         device=device,
         num_workers=num_workers,
     )
-    evaluation_config = EvaluationConfig()
     set_seed(training_config.seed, training_config.deterministic)
     split_path = (
         Path(manifest_path).expanduser().resolve()
@@ -449,7 +440,6 @@ def run_architecture(
             test_loader=test_loader,
             training_dir=training_dir,
             evaluation_dir=evaluation_dir,
-            evaluation_config=evaluation_config,
             estimator_rounds=(
                 training_config.epochs
                 if estimator_rounds is None
@@ -481,20 +471,11 @@ def run_architecture(
             output_dir=training_dir,
         )
         if task == "classification":
-            metrics = evaluate_classification(
+            metrics = export_classification(
                 model,
                 test_loader,
                 device=training_config.device,
                 output_dir=evaluation_dir,
-                config=evaluation_config,
-            )
-        else:
-            metrics = evaluate_regression(
-                model,
-                test_loader,
-                device=training_config.device,
-                output_dir=evaluation_dir,
-                config=evaluation_config,
             )
 
     completed_at = utc_now()
@@ -513,7 +494,7 @@ def run_architecture(
         "max_files_per_class": max_files_per_class,
         "data_counts": prepared.counts,
         "training_config": asdict(training_config),
-        "evaluation_config": evaluation_config.to_dict(),
+        "prediction_export": {"energy_unit": "keV", "final_metrics": "benchmark/evaluate.py"},
         "representation_config": architecture_config.get("representation", {}),
         "model_config": model_config,
         "parameter_count": parameter_count,
@@ -526,10 +507,6 @@ def run_architecture(
                 "task",
                 "n_events",
                 "auc",
-                "matched_auc",
-                "matched_auc_status",
-                "energy_independence_score",
-                "ers",
                 "mae",
                 "rmse",
                 "status",
@@ -570,7 +547,7 @@ def main_for_architecture(
     """CLI used by every small per-architecture entry point."""
 
     parser = argparse.ArgumentParser(
-        description=f"Train and evaluate {architecture_id} with Simple EnergyBench."
+        description=f"Train {architecture_id} and export its test predictions."
     )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--data", type=Path)
