@@ -1,0 +1,103 @@
+host:  gpu-n66.crc.pitt.edu
+job:   3867253_0 on l40s
+cell:  raw_patches x rope
+out:   /ihome/pvenkata/vis224/0vBB-Benchmark/mjd_rope_classifier/results/mjd_rope_classification_v1
+NVIDIA L40S, 46068 MiB, 595.91.07
+Project root: /ihome/pvenkata/vis224/0vBB-Benchmark
+MJD data:     /vast/pvenkata/vis224/MJD
+Cache dir:    /vast/pvenkata/vis224/mjd_rope_cache
+Run id:       classification__raw_patches__rope
+Run dir:      /ihome/pvenkata/vis224/0vBB-Benchmark/mjd_rope_classifier/results/mjd_rope_classification_v1/classification__raw_patches__rope
+Tokenization: raw_patches (190 tokens)
+rope_base:    2.0 (time_axis_only=False)
+Sizes:        train=50000 val=5000 test=50000 seed=42
+Cache:        /vast/pvenkata/vis224/mjd_rope_cache/mjd_classification_50000_5000_50000_seed42_f6ed6dd6cebd03fa.pt (140.0s)
+Counts: {'train': 50000, 'validation': 5000, 'test': 50000}
+Tokens: 190 x feature_dim 20; parameters: 107,841
+Epoch 001/050 | train loss 0.665157 | validation loss 0.658331 | validation macro_auc 0.60663
+Epoch 002/050 | train loss 0.657316 | validation loss 0.616885 | validation macro_auc 0.700101
+Epoch 003/050 | train loss 0.531791 | validation loss 0.507429 | validation macro_auc 0.809897
+Epoch 004/050 | train loss 0.500257 | validation loss 0.51269 | validation macro_auc 0.817448
+Epoch 005/050 | train loss 0.490548 | validation loss 0.550731 | validation macro_auc 0.81681
+Epoch 006/050 | train loss 0.481829 | validation loss 0.498926 | validation macro_auc 0.822168
+Epoch 007/050 | train loss 0.473587 | validation loss 0.465969 | validation macro_auc 0.8474
+Epoch 008/050 | train loss 0.468317 | validation loss 0.482434 | validation macro_auc 0.843524
+Epoch 009/050 | train loss 0.458469 | validation loss 0.439543 | validation macro_auc 0.859452
+Epoch 010/050 | train loss 0.443485 | validation loss 0.454489 | validation macro_auc 0.85164
+Epoch 011/050 | train loss 0.437633 | validation loss 0.438761 | validation macro_auc 0.856566
+Epoch 012/050 | train loss 0.429573 | validation loss 0.426557 | validation macro_auc 0.863925
+Epoch 013/050 | train loss 0.42878 | validation loss 0.417348 | validation macro_auc 0.871123
+Epoch 014/050 | train loss 0.425252 | validation loss 0.429095 | validation macro_auc 0.859078
+Epoch 015/050 | train loss 0.418555 | validation loss 0.425935 | validation macro_auc 0.868552
+Epoch 016/050 | train loss 0.414813 | validation loss 0.43176 | validation macro_auc 0.860177
+Epoch 017/050 | train loss 0.409937 | validation loss 0.428782 | validation macro_auc 0.863936
+Epoch 018/050 | train loss 0.408536 | validation loss 0.404407 | validation macro_auc 0.879212
+Epoch 019/050 | train loss 0.406867 | validation loss 0.407078 | validation macro_auc 0.873909
+Epoch 020/050 | train loss 0.402763 | validation loss 0.414157 | validation macro_auc 0.877494
+Epoch 021/050 | train loss 0.398719 | validation loss 0.416175 | validation macro_auc 0.872541
+Epoch 022/050 | train loss 0.394775 | validation loss 0.398271 | validation macro_auc 0.880564
+Epoch 023/050 | train loss 0.388058 | validation loss 0.392461 | validation macro_auc 0.886129
+Epoch 024/050 | train loss 0.382957 | validation loss 0.399218 | validation macro_auc 0.883948
+Epoch 025/050 | train loss 0.379646 | validation loss 0.401321 | validation macro_auc 0.881501
+Epoch 026/050 | train loss 0.377569 | validation loss 0.390917 | validation macro_auc 0.883164
+Epoch 027/050 | train loss 0.375879 | validation loss 0.38872 | validation macro_auc 0.885463
+Epoch 028/050 | train loss 0.371699 | validation loss 0.388771 | validation macro_auc 0.890011
+Epoch 029/050 | train loss 0.369397 | validation loss 0.371404 | validation macro_auc 0.896546
+Epoch 030/050 | train loss 0.365658 | validation loss 0.372908 | validation macro_auc 0.895805
+Epoch 031/050 | train loss 0.362772 | validation loss 0.363721 | validation macro_auc 0.899723
+Epoch 032/050 | train loss 0.359296 | validation loss 0.373624 | validation macro_auc 0.897185
+Epoch 033/050 | train loss 0.359026 | validation loss 0.36443 | validation macro_auc 0.898892
+Epoch 034/050 | train loss 0.354576 | validation loss 0.371536 | validation macro_auc 0.894393
+Epoch 035/050 | train loss 0.354076 | validation loss 0.362625 | validation macro_auc 0.900191
+Epoch 036/050 | train loss 0.349809 | validation loss 0.366734 | validation macro_auc 0.898638
+Epoch 037/050 | train loss 0.348128 | validation loss 0.359241 | validation macro_auc 0.902669
+Epoch 038/050 | train loss 0.346204 | validation loss 0.357261 | validation macro_auc 0.904728
+Epoch 039/050 | train loss 0.345296 | validation loss 0.352225 | validation macro_auc 0.906083
+Epoch 040/050 | train loss 0.342859 | validation loss 0.359564 | validation macro_auc 0.904519
+Epoch 041/050 | train loss 0.339974 | validation loss 0.358148 | validation macro_auc 0.904383
+Epoch 042/050 | train loss 0.338034 | validation loss 0.355564 | validation macro_auc 0.905867
+Epoch 043/050 | train loss 0.337581 | validation loss 0.353443 | validation macro_auc 0.90636
+Epoch 044/050 | train loss 0.336426 | validation loss 0.354111 | validation macro_auc 0.90543
+Epoch 045/050 | train loss 0.334923 | validation loss 0.352196 | validation macro_auc 0.906568
+Epoch 046/050 | train loss 0.334802 | validation loss 0.3534 | validation macro_auc 0.906481
+Epoch 047/050 | train loss 0.333428 | validation loss 0.353447 | validation macro_auc 0.906966
+Epoch 048/050 | train loss 0.33318 | validation loss 0.351705 | validation macro_auc 0.907628
+Epoch 049/050 | train loss 0.332096 | validation loss 0.352196 | validation macro_auc 0.907506
+Epoch 050/050 | train loss 0.332037 | validation loss 0.351673 | validation macro_auc 0.907591
+
+=== result ===
+  run_id: classification__raw_patches__rope
+  task: classification
+  tokenization: raw_patches
+  position_encoding: rope
+  rope_base: 2.0
+  rope_time_axis_only: False
+  seed: 42
+  num_tokens: 190
+  feature_dim: 20
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dim_feedforward: 256
+  dropout: 0.1
+  parameter_count: 107841
+  n_train: 50000
+  n_val: 5000
+  n_test: 50000
+  epochs_completed: 50
+  best_epoch: 48
+  best_val_macro_auc: 0.9076281176899006
+  cache_seconds: 139.994
+  training_seconds: 288.034
+  minutes_per_epoch: 0.096
+  evaluation_seconds: 2.029
+  test_auc: 0.915734422899814
+  test_accuracy: 0.8405
+  test_clean_fraction: 0.38012
+  test_events: 50000
+  test_loss: 0.3351038393690763
+  slurm_job_id: 3867253
+  slurm_array_task_id: 0
+  hostname: gpu-n66.crc.pitt.edu
+  torch_version: 2.5.1.post303
+  gpu_name: NVIDIA L40S

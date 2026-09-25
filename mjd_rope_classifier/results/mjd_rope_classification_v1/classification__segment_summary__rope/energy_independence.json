@@ -1,0 +1,32 @@
+{
+  "config": {
+    "distance_correlation_max_samples": 1200,
+    "energy_bin_width_kev": 5.0,
+    "energy_unit": "keV",
+    "min_per_bin": 20,
+    "score_bins": 20,
+    "seed": 42
+  },
+  "definition": "1 - sqrt(mean_energy_bin_JSD(score_distribution, pooled) / ln(2)); higher is more class-conditionally energy-independent",
+  "dropped_fraction": 8e-05,
+  "groups": {
+    "background": {
+      "energy_independence_score": 0.7679041250469263,
+      "n_retained": 27349,
+      "n_valid": 30990,
+      "status": "ok"
+    },
+    "signal": {
+      "energy_independence_score": 0.7912046635477531,
+      "n_retained": 15512,
+      "n_valid": 19006,
+      "status": "ok"
+    }
+  },
+  "n_dropped_out_of_canonical_range": 4,
+  "n_test_events": 50000,
+  "overall_energy_independence_score": 0.7767618343586054,
+  "run_id": "classification__segment_summary__rope",
+  "status": "ok",
+  "worst_group_energy_independence_score": 0.7679041250469263
+}
