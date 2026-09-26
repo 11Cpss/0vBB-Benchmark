@@ -1,0 +1,10 @@
+# Generated run trees: checkpoints, predictions, plots, and EnergyBench's
+# verbose metrics.json. Regenerable from the code + the sbatch array.
+results/
+results_*/
+!results_summary/
+scripts/logs/*
+!scripts/logs/.gitkeep
+
+# results_summary/ is deliberately NOT ignored -- it holds the small, curated,
+# reviewable snapshot of each completed matrix (CSV + ranking).
