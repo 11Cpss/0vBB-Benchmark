@@ -1,0 +1,363 @@
+\section{Full Metric Definitions and Evaluation Protocols}
+\label{app:metric-details}
+
+The 0--3000 keV protocol below applies to the reevaluated MJD and EXO-200
+classic models, nine EXO-200 Transformer variants, and six MJD Transformer
+variants with MLP or Fourier position encoding. The NEXT and SuperNEMO
+classic results and the separate SuperNEMO energy-only illustration retain
+their preceding evaluation profile, specified below. The three MJD RoPE
+variants and the NEXT and SuperNEMO Transformer entries retain their
+historical reported values outside this reevaluation.
+
+\subsection{Energy-matched AUC}
+\label{sec:matched-auc}
+For event $x_i$, let $y_i\in\{0,1\}$ denote its evaluation label, $E_i$ its
+conditioning energy, $s_i$ its scalar classifier score, and $a_i\geq0$ its
+base event weight. Scores are oriented so that larger values favor $y_i=1$;
+this convention need not coincide with the stored training label
+(Table~\ref{tab:metric-protocols}). The selected evaluations use unit base
+weights. We first describe the weighted form implemented by the evaluators.
+Only finite scores with positive base weight contribute to inclusive AUC;
+energy-dependent metrics additionally require finite physical energy satisfying
+$0\leq E_i\leq3000$ keV. This range restriction precedes support estimation.
+
+The common support $C=[L,U]$ is the intersection of the two classes'
+central energy ranges:
+\begin{equation}
+ L=\max_{c\in\{0,1\}} Q_c(\alpha),\qquad
+ U=\min_{c\in\{0,1\}} Q_c(1-\alpha),\qquad \alpha=0.005,
+ \label{eq:common-support}
+\end{equation}
+where $Q_c$ is the base-weighted empirical energy quantile of finite-score,
+finite-energy, positive-weight events in class $c$ within 0--3000 keV.
+No additional matching region of interest is specified in these runs.
+For energy bins $B_k$, define the count $n_{ck}$ and base mass $m_{ck}$ of
+class-$c$ events in $C\cap B_k$, and let
+$p_{ck}=m_{ck}/\sum_\ell m_{c\ell}$. A bin is retained only if it contains
+at least 20 positive-weight events from each class. Writing $\mathcal V$ for
+these bins, the implemented overlap target and event weights are
+\begin{align}
+ q_k&=\frac{\mathrm{1}\{k\in\mathcal V\}\min(p_{0k},p_{1k})}
+ {\sum_{\ell\in\mathcal V}\min(p_{0\ell},p_{1\ell})},
+ \label{eq:overlap-target}\\
+ w_i&=a_i\frac{q_k}{m_{y_i k}}
+ \quad\text{if }E_i\in C\cap B_k,\ k\in\mathcal V;
+ \qquad w_i=0\text{ otherwise}.
+ \label{eq:matching-weights}
+\end{align}
+Thus each class has unit total matched weight and assigns mass $q_k$ to
+bin $k$. The target favors energy regions represented in both classes and is
+defined by the minimum of their class-normalized bin masses.
+
+All retained events are pooled into one weighted ROC curve. Equivalently,
+with $H(u)=\mathrm{1}\{u>0\}+\tfrac12\mathrm{1}\{u=0\}$,
+\begin{equation}
+ \operatorname{AUC}_{\mathrm{match}}=
+ \frac{\displaystyle\sum_{i:y_i=1}\sum_{j:y_j=0}
+ w_iw_j H(s_i-s_j)}
+ {\displaystyle\left(\sum_{i:y_i=1}w_i\right)
+ \left(\sum_{j:y_j=0}w_j\right)}.
+ \label{eq:matched-auc}
+\end{equation}
+This is the weighted pairwise ranking interpretation of AUC
+\citep{hanley1982meaning}; equal scores receive half credit. The code implements the equivalent weighted pairwise calculation by
+sorting scores and processing ties together. It does not average within-bin AUCs: pairs from different
+energy bins also contribute to Equation~\ref{eq:matched-auc}.
+Inclusive AUC uses the same ranking calculation with base weights and without
+energy restriction.
+
+Matching is a deterministic evaluation operation on the supplied split;
+it does not resample events or alter the fitted classifier. For the reported
+test results, support and weights are estimated on the test events themselves.
+The formal matched AUC is withheld if either class retains less than 50\% of
+its original finite-score/finite-energy class base mass, or fewer than two
+bins survive. Exactly constant common energy exempts only the two-bin
+requirement; the per-class event-count and coverage gates still apply.
+Empty, single-class, and insufficient-count bins receive zero matched weight.
+
+Both energy metrics in the MJD and EXO-200 reevaluation use the same global
+grid after conversion to keV:
+\begin{align}
+ B_k&=[5k,5(k+1))\ \mathrm{keV},\quad k=0,\ldots,598,\\
+ B_{599}&=[2995,3000]\ \mathrm{keV}.
+ \label{eq:fixed-bins}
+\end{align}
+There are exactly 600 energy bins. Exactly 3000 keV belongs to the last bin;
+energies below zero or above 3000 keV are excluded and reported separately.
+Energies are never clipped. Matching additionally requires
+$L\leq E_i\leq U$, so support boundaries may cut through an energy bin.
+
+Matching equalizes bin masses, not continuous energy distributions within
+bins. Finite width, finite statistics, trimming, and sparse-bin exclusion
+limit the interpretation to the retained support and resolution. A score
+that is solely a function of the matched bin index has AUC $1/2$, because
+its two weighted class distributions are identical; a score depending on
+within-bin energy need not. This is a property of the weighting construction,
+not an empirical claim about the trained models.
+
+\subsection{Energy independence score}
+\label{sec:energy-independence}
+Energy matching measures discrimination after balancing class spectra.
+The complementary independence score asks whether the \emph{distribution
+of classifier scores} changes with energy within a true class. Conditioning
+on class avoids interpreting class separation itself as unwanted dependence.
+The evaluator groups by supplied physical category, falling back to the binary
+label when category metadata are absent. Here each reported task has two
+such groups. This calculation uses the original base weights, without
+matching or common-support trimming.
+
+For group $g$, let $P_{gk}$ be the normalized score histogram in an eligible
+energy bin, $P_g$ the group's pooled score histogram, and $\pi_{gk}$ the
+fraction of retained base weight in that energy bin. Score bins are shared
+within a group and obtained from up to 20 weighted score-quantile bins.
+Using natural logarithms, define
+\begin{align}
+ \operatorname{JS}(P,Q)
+ &=\tfrac12\sum_r P_r\log\frac{P_r}{M_r}
+   +\tfrac12\sum_r Q_r\log\frac{Q_r}{M_r},
+ \qquad M_r=\tfrac12(P_r+Q_r),
+ \label{eq:jsd}\\
+ D_g&=\sum_k\pi_{gk}\operatorname{JS}(P_{gk},P_g),\qquad
+ I_g=\operatorname{clip}_{[0,1]}
+       \left(1-\sqrt{D_g/\log 2}\right),
+ \label{eq:independence-group}\\
+ I&=\frac{\sum_{g\in\mathcal G_*} A_g I_g}
+           {\sum_{g\in\mathcal G_*} A_g}.
+ \label{eq:independence-total}
+\end{align}
+Here $r$ indexes score-histogram bins, zero-probability terms contribute
+zero, $\mathcal G_*$ contains estimable groups, and $A_g$ is their base
+weight after finite-pair and 0--3000 keV range filtering, but before
+sparse-bin exclusion. These MJD and EXO-200 evaluations
+use the retained-event pooling and eligibility rules specified below.
+The Jensen--Shannon divergence is bounded by $\log 2$
+\citep{lin1991divergence}, giving $I_g,I\in[0,1]$ whenever estimable.
+Larger values indicate less detected dependence at the chosen binning
+resolution. The report also retains $\min_g I_g$ to expose a poorly behaving
+group that the weighted mean could obscure.
+
+This is a histogram-based dependence proxy, not Pearson correlation,
+distance correlation, mutual information, or a test certifying statistical
+independence. Its ideal value is one when all compared histograms coincide.
+Constant predictions also attain one while providing AUC $1/2$; a single
+populated energy bin makes the score uninformative about energy dependence.
+Finite samples can produce nonzero histogram divergences even under population
+independence, and coarse bins can hide dependence. The score depends on energy
+coverage, score discretization, and group composition, so it should be compared
+under a common protocol. No threshold or operating-point diagnostic enters
+Equations~\ref{eq:jsd}--\ref{eq:independence-total}.
+
+\paragraph{Joint interpretation.}
+High matched AUC indicates ranking ability after the specified spectral
+balancing; high $I$ indicates stable within-class score distributions across
+the inspected energy bins. Neither implies the other. Inclusive AUC supplies
+the complementary performance under the original sampled spectra. Its change
+after matching is descriptive, rather than a causal decomposition of energy
+use: both the support and the event weights can change. We report the three
+quantities together.
+
+\subsection{Implementation Details}\label{app:detail}
+\input{wing_contribution/tables/metric_protocols}
+
+\paragraph{label selection} The stored NEXT labels assign 1 to $0\nu\beta\beta$ and 0 to
+$^{214}\mathrm{Bi}$, while SuperNEMO assigns 1 to $2\nu\beta\beta$ and 0 to
+$^{214}\mathrm{Bi}$. EXO-200 stores label 1 for events with more than one
+charge cluster and label 0 for single-cluster events; during evaluation, we
+reverse the label and score orientation so that single-cluster events form
+the positive class, following Table~\ref{tab:metric-protocols}. MJD assigns
+label 1 only when all four reference pulse-shape-discrimination criteria
+pass. The evaluation-positive class therefore has a dataset-specific
+physical interpretation. NEXT uses an approximately $80/10/10$
+training/validation/test partition based on class-wise event counts, and
+different portions of a source file may enter different splits. SuperNEMO
+uses the same approximate proportions while assigning blocks of complete
+events within each source category. EXO-200 keeps acquisition runs disjoint
+across splits. MJD preserves its official test files and divides the provided
+training data $90/10$ into training and validation subsets. Each model for a
+given dataset reuses the same recorded partition.
+
+\paragraph{Evaluation inputs and orientation.}
+The MJD and EXO-200 reevaluation reuses saved test predictions without
+training or checkpoint substitution. The unchanged NEXT classic results
+retain stored scalar classifier scores and convert summed deposited-hit
+energy from MeV to keV. MJD uses calibrated physical
+energy recovered in official test-shard/row order. Event identities and the
+saved labels and energies are verified against the original metadata. The
+classic adapter's clipping is removed; Transformer energy caches are restored
+from float32 to the original float64 values. The three classic binary
+classifiers and all six reevaluated Transformers retain their single
+clean-oriented scores, while classic GINE retains the recorded aggregation of four PSD outputs
+(Appendix~\ref{app:wing-models}). EXO-200's stored label 0 is positive
+($n_{\mathrm{CCL}}=1$): we set $y=1-y_{\rm stored}$ and negate the stored
+background-oriented logit for both metrics, including all nine reevaluated
+Transformers. The unchanged SuperNEMO classic logits favor
+$2\nu\beta\beta$ and use reconstructed calorimeter $E_1+E_2$ in keV.
+The separate $0\nu\beta\beta$ illustration uses $s=E_1+E_2$ directly.
+All selected files have unit base weights. No sigmoid is added to scalar
+logits: reproducing $I$ requires retaining the score representation as well
+as the ranking direction.
+
+\paragraph{Exact weighted quantiles.}
+The evaluator sorts finite observations $z_{(j)}$ with positive weights
+$b_{(j)}$ and assigns cumulative center positions
+\begin{equation}
+ t_j=\frac{\sum_{h\leq j}b_{(h)}-b_{(j)}/2}{\sum_h b_{(h)}}.
+\end{equation}
+The empirical quantile $Q(u)$ is linearly interpolated between
+$(t_j,z_{(j)})$, with endpoint values used outside $[t_1,t_n]$.
+Stable sorting preserves input order for tied observations. These are the
+quantiles in Equation~\ref{eq:common-support} and in the histogram
+construction below. Setting the trim fraction to zero would use each class's
+minimum and maximum; the reported configurations instead use 0.005.
+
+\paragraph{Units, boundaries, and population.}
+Physical energy is converted to float64 keV before bin assignment. To avoid
+a unit-dependent one-step floating-point shift at a theoretical edge,
+an input MeV value exactly equal to a canonical keV edge divided by 1000
+maps to that exact edge. Other nearby observations are not snapped by a
+tolerance. Internal boundaries enter the bin starting at that boundary,
+with the explicit 3000 keV exception in Equation~\ref{eq:fixed-bins}.
+Original energies are retained in the audit, including MJD's 67 events above
+3000 keV (66 nonclean and one clean), excluded from the two energy metrics
+rather than clipped into the 2995--3000 keV bin. Inclusive AUC always uses the original finite-score,
+positive-weight population, regardless of energy.
+
+\paragraph{Matching calculation and diagnostics.}
+Reproduction first retains finite score/energy pairs with
+$0\leq E_i\leq3000$ keV and positive base weight, then estimates $C$ and
+assigns the shared 600 bins. Event counts and base masses are computed within
+$C\cap B_k$. The remaining steps reject bins with fewer than 20 events of
+either class, compute
+Equations~\ref{eq:overlap-target}--\ref{eq:matching-weights}, and evaluate
+one pooled weighted ROC. The class fractions $p_{ck}$ are normalized over
+all common-support bins \emph{before} invalid bins are removed. Sparse bins
+are not merged. The formal result is unavailable if support is disjoint,
+statistics are inadequate, or a reporting gate fails. Coverage for class $c$
+is
+\begin{equation}
+ \gamma_c=\frac{\sum_{i:y_i=c,\ w_i>0}a_i}
+ {\sum_{i:y_i=c,\ s_i,E_i\ \mathrm{finite},\ a_i>0}a_i}.
+\end{equation}
+This is retained \emph{base} mass, not the matched mass, which is normalized
+to one in each class. Its denominator precedes both lower and upper energy
+range exclusions; range filtering cannot inflate the reported coverage.
+Range loss, subsequent support loss and sparse-bin loss are recorded
+separately. Both $\gamma_c\geq0.5$ and at least two valid bins are
+required. Exactly constant common energy exempts only the two-bin requirement;
+the coverage and per-class event-count gates still apply. A diagnostic weighted
+AUC may be saved even when the formal reporting gate fails; it is not
+substituted for a missing formal result in our table.
+The effective sample size for any weights $v_i$ is
+$(\sum_i v_i)^2/\sum_i v_i^2$.
+Table~\ref{tab:matching-diagnostics} reports support and coverage for the
+reference CNN prediction sets.
+
+\input{wing_contribution/tables/matching_diagnostics}
+
+\input{wing_contribution/tables/evaluation_losses}
+
+No resampling, new model fitting, bootstrap interval, or multiple-seed average
+is introduced. Support restriction and matching weights can both alter the
+AUC relative to the inclusive population; their difference is descriptive,
+not a causal attribution to energy.
+
+\paragraph{Fixed-grid independence score.}
+The reevaluated MJD and EXO-200 records group events by physical category when supplied, otherwise by
+binary label. Within each group the evaluator removes nonfinite
+score/energy pairs, energies outside 0--3000 keV, and zero-weight events, retains only
+energy bins with at
+least 20 events, and computes weighted score quantiles using the retained
+events. Duplicate score edges are removed. For nonconstant scores the extreme
+edges are moved outward by one floating-point step; constant scores receive
+one interval centered at that value with half-width
+$\max(|s|10^{-9},10^{-12})$. Score histograms use left-closed/right-open bins
+with the last right edge included. They are normalized probability masses,
+not densities. No pseudocount is added.
+
+Let $R_g$ be the retained events, $R_{gk}$ those in bin $k$, and $S_{gr}$
+score-histogram interval $r$. Then
+\begin{align}
+ P_{gk,r}&=\frac{\sum_{i\in R_{gk}}a_i\mathrm{1}\{s_i\in S_{gr}\}}
+ {\sum_{i\in R_{gk}}a_i},\qquad
+ P_{g,r}=\frac{\sum_{i\in R_g}a_i\mathrm{1}\{s_i\in S_{gr}\}}
+ {\sum_{i\in R_g}a_i},\label{eq:score-histograms}\\
+ \pi_{gk}&=\frac{\sum_{i\in R_{gk}}a_i}{\sum_{i\in R_g}a_i}.
+\end{align}
+Equations~\ref{eq:jsd}--\ref{eq:independence-group} operate on these
+histograms. The final group weight $A_g$ includes all finite-pair, positive-weight
+events in that group within 0--3000 keV, including events from rejected sparse bins. Thus
+the overall score is not an unweighted class mean and not a mean weighted
+only by retained events. A group with fewer than 20 finite events or no
+eligible energy bin is excluded; if no group is estimable, the score is
+missing. One eligible bin is sufficient for this implementation, unlike
+the usual two-bin reporting gate for matched AUC.
+
+\input{wing_contribution/tables/independence_diagnostics}
+
+\input{wing_contribution/tables/transformer_diagnostics}
+
+\paragraph{Changes from historical implementations.}
+The historical EXO-200 evaluations, including the nine Transformer variants,
+used six class-balanced
+pooled energy-quantile bins for matching, and a separate eight per-category
+energy-quantile construction for $I$. Both energy constructions are replaced
+by Equation~\ref{eq:fixed-bins}; the up-to-20 score-quantile bins remain.
+Their old $I$ implementation could compare a local energy bin containing
+only two events and pooled all finite events. The common reference instead
+requires 20 events per group/bin and computes score edges and the pooled
+histogram only on retained events. Bin weights use retained group mass;
+final group weights use eligible population mass before sparse exclusion.
+These choices follow the former NEXT/MJD fixed-grid estimator and preserve
+the JS-then-square-root and final group-aggregation definitions.
+The six MJD Transformer caches used 836 fixed 5 keV bins extending to
+4180 keV, without clipping. They now use Equation~\ref{eq:fixed-bins} and
+the same range exclusions as the other reevaluated models. Their original
+float64 physical energies are restored before binning. These changes can
+alter both score-histogram populations and support quantiles, even though
+the historical MJD Transformer bin width was already 5 keV.
+
+\paragraph{Retained NEXT and SuperNEMO profile.}
+The previously reported NEXT and SuperNEMO classic results, including NEXT's
+separate exploratory batches, and the SuperNEMO energy-only illustration
+retain \texttt{EnergyBench-unified-}\allowbreak\texttt{5keV-overflow-v2.0.0}.
+This profile uses the 600 regular bins in Equation~\ref{eq:fixed-bins} plus
+$B_{600}=(3000,\infty)$ keV. Negative energies are excluded, while all
+finite nonnegative energies enter the support-quantile calculation and the
+pre-sparse group masses $A_g$. The overflow bin is subject to the same
+event-count rules as a regular bin. The score-quantile histograms, overlap
+target, weighted AUC and original finite-pair coverage denominators use
+the same definitions as above. These retained results and their figures
+are not recomputed under the MJD/EXO-200 range restriction.
+
+\paragraph{Reproduction and validation.}
+The MJD/EXO-200 configuration is \texttt{EnergyBench-unified-}\allowbreak\texttt{5keV-range-v3.0.0}.
+The preceding v2 configuration remains available for the retained NEXT and
+SuperNEMO results; each result records its applicable profile and SHA256
+fingerprint. The reproducibility bundle contains the corresponding frozen
+evaluators, event-input manifests and hashes, full-precision
+metrics, class-level bin counts and losses, and a table generator that reads
+these results. Numerical checks cover unit equivalence at all 601 finite
+edges, adjacent floating-point values, exclusion outside 0--3000 keV, constants, ties,
+missing and sparse inputs, weighted pair enumeration, and replay of the
+historical fixed-grid estimator on identical supported inputs. Independent
+recalculation checks the metrics, coverage gates, and original event sources.
+
+\paragraph{Degeneracies and scope.}
+The unified classification entry point rejects labels outside $\{0,1\}$
+on the entire input array. It also rejects negative or nonfinite weights and
+misaligned arrays; entirely zero weight yields unestimable metrics. Nonfinite scores are excluded
+from ROC, and missing energy is additionally excluded from energy-dependent
+statistics. An absent ROC class makes AUC unavailable; $I$ can still be
+computed for estimable groups. If no category array is supplied, binary labels
+define the groups; missing entries in a supplied category array are rejected.
+The dependence routine filters nonfinite pairs; no correlation coefficient
+enters $I$. Constant scores produce identical histograms
+and $I=1$. Constant conditioning energy likewise supplies no meaningful
+test of energy dependence.
+
+The score in Equation~\ref{eq:independence-group} averages pairwise
+Jensen--Shannon divergences \emph{before} taking a square root; it is not an
+average of Jensen--Shannon distances and not the multi-distribution
+Jensen--Shannon divergence. We use a descriptive benchmark name for this
+implemented transformation without claiming that it is a standard test or
+an original statistical construction.

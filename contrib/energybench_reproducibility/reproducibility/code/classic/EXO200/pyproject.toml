@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exobench"
+version = "0.1.0"
+description = "EXO-200 binary waveform classification using the MJD model workflows"
+requires-python = ">=3.10"
+dependencies = ["h5py>=3.8", "numpy>=1.23", "torch>=2.0"]
+
+[tool.setuptools]
+packages = ["exobench"]

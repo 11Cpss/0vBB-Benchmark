@@ -1,0 +1,17 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Disjoint matching losses and the separate independence sparse-bin loss, reported as positive/negative event counts. $N_1/N_0$ is the original test population. Range loss precedes support estimation, then matching sparse-bin exclusion. For MJD and EXO-200, range loss includes energies below 0 or above 3000 keV; the $E>3000$ column is a subset of that loss. For retained NEXT and SuperNEMO results, only negative energies are excluded and $E>3000$ counts are retained overflow diagnostics. The separate $I$ sparse loss is measured after the applicable range filtering. Counts are shared by reevaluated classic models within each displayed test population.}
+\label{tab:evaluation-losses}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Dataset & $N_1/N_0$ & Range loss & $E>3000$ & $I$ sparse loss & Support loss & Matching sparse loss \\
+\midrule
+NEXT & 64879/51670 & 0/0 & 0/0 & 0/0 & 767/1550 & 0/0 \\
+MJD & 148251/241749 & 1/66 & 1/66 & 137/214 & 1746/7378 & 121/1481 \\
+EXO-200 & 66062/74321 & 3/1423 & 3/1423 & 152/257 & 3587/2932 & 0/0 \\
+SuperNEMO & 327680/262144 & 0/0 & 0/40 & 333/271 & 3275/26530 & 0/0 \\
+\bottomrule
+\end{tabular}}
+\end{table}

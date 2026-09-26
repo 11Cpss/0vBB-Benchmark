@@ -1,0 +1,15 @@
+[project]
+name = "supernemobench"
+version = "0.1.0"
+description = "SuperNEMO topology classification and energy reconstruction workflow"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "h5py",
+    "numpy",
+    "torch",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["supernemobench*", "architectures*"]

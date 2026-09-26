@@ -1,0 +1,103 @@
+{
+  "architecture_id": "transformer_004_sampled_hits_fourier_xyz",
+  "classification_label_mapping": {
+    "2nu": 1,
+    "Bi214": 0
+  },
+  "counts": {
+    "test": {
+      "by_category": {
+        "2nu": 327680,
+        "Bi214": 262144
+      },
+      "total": 589824
+    },
+    "train": {
+      "by_category": {
+        "2nu": 2629632,
+        "Bi214": 2105618
+      },
+      "total": 4735250
+    },
+    "validation": {
+      "by_category": {
+        "2nu": 326804,
+        "Bi214": 266240
+      },
+      "total": 593044
+    }
+  },
+  "data": {
+    "coordinate_scale_mm": 1000.0,
+    "max_points": 512,
+    "num_classes": 2,
+    "point_bin_size_mm": 15.0,
+    "projection_bin_size_mm": 44.0,
+    "projection_grid_size": 128,
+    "projection_input_scale": 1.0,
+    "projection_origin_mm": [
+      -2816.0,
+      -2816.0,
+      -2816.0
+    ],
+    "scan_chunk_rows": 262144,
+    "seed": 42,
+    "split_block_events": 4096,
+    "split_fractions": [
+      0.8,
+      0.1,
+      0.1
+    ],
+    "train_event_order": "proportional_without_replacement"
+  },
+  "dataset": "SuperNEMO",
+  "energy_target": null,
+  "input_kind": "sequence",
+  "input_representation": "tracker_tokens",
+  "model": {
+    "d_model": 64,
+    "dim_feedforward": 256,
+    "dropout": 0.1,
+    "feature_dim": 4,
+    "nhead": 4,
+    "num_frequencies": 6,
+    "num_layers": 2,
+    "pooling": "masked_mean",
+    "position_encoding": "fourier_xyz"
+  },
+  "model_name": "TrackerHitTransformer",
+  "supported_tasks": [
+    "classification"
+  ],
+  "task": "classification",
+  "tokenization": {
+    "center_coordinates": true,
+    "coordinate_scale_mm": 1000.0,
+    "max_tokens": 128,
+    "sampling_key": "local_event_number",
+    "seed": 42,
+    "summary_morton_bits": 10,
+    "tokenization": "sampled_hits",
+    "tracker_radius_scale_mm": 24.0,
+    "voxel_size_mm": 60.0
+  },
+  "training": {
+    "amp_precision": "auto",
+    "batch_size": 64,
+    "classification_loss": "bce_with_logits",
+    "deterministic": false,
+    "device": "cuda",
+    "early_stopping_min_delta": 0.0,
+    "early_stopping_patience": 12,
+    "energy_loss": "mse",
+    "epochs": 50,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0005,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "seed": 42,
+    "use_amp": true,
+    "weight_decay": 0.0001
+  }
+}

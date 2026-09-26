@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "dataset": "NEXT-exploratory",
+  "model_key": "exploratory_ssm_001_pointmamba",
+  "architecture_id": "ssm_001_pointmamba",
+  "metric_source": "unified_results.json",
+  "prediction_input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
+  "n_events": 115499,
+  "parameter_count": 316993,
+  "parameter_source_sha256": "303979b17ba39c634d0a0a0b87a4060465c2b5ba3f01222d999bda13e2203529",
+  "parameter_source_field": "parameter_count",
+  "scope": "PointMamba-lite uses the recorded 115499-event test population; the other NEXT main-table configurations use 116549 events."
+}

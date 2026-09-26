@@ -1,0 +1,38 @@
+architecture_id: sparse_001_submanifold_resnet
+
+data:
+  root: /home/klz/Data/zeronu_benchmark/NEXT
+  max_files_per_class: 100
+  split_seed: 42
+  split_fractions: [0.8, 0.1, 0.1]
+  num_workers: 0
+  balance_training_classes: true
+  event_shuffle_buffer_size: 512
+
+representation:
+  point_bin_size: 15.0
+  coordinate_scale: 1000.0
+  max_points: null
+
+model:
+  feature_dim: 2
+  stage_channels: [24, 40, 64]
+  stage_blocks: [1, 1, 1]
+  classifier_dim: 96
+  dropout: 0.10
+
+training:
+  batch_size: 8
+  epochs: 50
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping_patience: 12
+  early_stopping_min_delta: 0.0
+  seed: 42
+  deterministic: false
+  use_amp: true
+  amp_precision: auto
+
+output:
+  allow_overwrite: false

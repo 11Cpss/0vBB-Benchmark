@@ -1,0 +1,71 @@
+{
+  "architecture_id": "seq_002_dilated_tcn",
+  "model_name": "HilbertTCNClassifier",
+  "task": "classification",
+  "training_config": {
+    "amp_precision": "auto",
+    "batch_size": 64,
+    "classification_loss": "bce_with_logits",
+    "deterministic": false,
+    "device": "auto",
+    "early_stopping_min_delta": 0.0,
+    "early_stopping_patience": 5,
+    "epochs": 50,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0005,
+    "num_workers": 0,
+    "optimizer": "adamw",
+    "regression_loss": "mse",
+    "scheduler": "cosine",
+    "seed": 42,
+    "use_amp": true,
+    "weight_decay": 0.0001
+  },
+  "representation_config": {
+    "coordinate_scale": 1000.0,
+    "max_points": 512,
+    "point_bin_size": 15.0
+  },
+  "model_config": {
+    "classifier_dim": 192,
+    "dilation_base": 2,
+    "dropout": 0.1,
+    "feature_dim": 2,
+    "hidden_dim": 128,
+    "hilbert_bits": 10,
+    "kernel_size": 3,
+    "num_blocks": 6
+  },
+  "parameter_count": 694529,
+  "data_counts": {
+    "boundary_files": [
+      "0nubb_part_4/ATPC_0nubb_5bar_Efilt_5.0percent_smear_3983.h5",
+      "0nubb_part_5/ATPC_0nubb_5bar_Efilt_5.0percent_smear_5204.h5",
+      "Bi_part_6/ATPC_Bi_ion_5bar_Efilt_5.0percent_smear_3505.h5",
+      "Bi_part_7/ATPC_Bi_ion_5bar_Efilt_5.0percent_smear_3894.h5"
+    ],
+    "by_class": {
+      "0nubb": {
+        "test": 64879,
+        "total": 648793,
+        "train": 519034,
+        "validation": 64880
+      },
+      "Bi214": {
+        "test": 51670,
+        "total": 516696,
+        "train": 413357,
+        "validation": 51669
+      }
+    },
+    "fractions": {
+      "test": 0.10000008580089559,
+      "train": 0.7999998283982088,
+      "validation": 0.10000008580089559
+    },
+    "test": 116549,
+    "total": 1165489,
+    "train": 932391,
+    "validation": 116549
+  }
+}

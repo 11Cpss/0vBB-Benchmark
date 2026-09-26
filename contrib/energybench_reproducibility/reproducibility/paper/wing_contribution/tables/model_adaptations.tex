@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Input adaptations for the four non-Transformer architectures. GINE, BiGRU, and PointMamba-lite share each dataset's point representation. Model dimensions and representation details are given in Appendix~\ref{app:wing-models}.}
+\label{tab:wing-adaptations}
+\begin{tabular}{p{0.14\textwidth}p{0.35\textwidth}p{0.43\textwidth}}
+\toprule
+Dataset & MV-CNN input & Graph and sequence input \\
+\midrule
+NEXT & Three normalized spatial energy projections & Centered 15\,mm voxels; energy fraction and log hit count \\
+SuperNEMO & Three binary tracker projections & Centered 15\,mm tracker cells; occupancy fraction and log hit count \\
+MJD & Three-resolution waveform STFT & 512 pooled waveform segments with mean and RMS features \\
+EXO-200 & STFT of serialized $226\!\times\!300$ waveform & Same waveform construction after channel-major serialization \\
+\bottomrule
+\end{tabular}
+\end{table}

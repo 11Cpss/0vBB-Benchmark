@@ -1,0 +1,688 @@
+{
+  "records": [
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "relative_input": "historical_transformers/NEXT__region_mlp.npz",
+      "sha256": "89b712b37d211246663a78054d38019677191ac4afb4aae93f7ecb26e82c66fa",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9732458912544566,
+        "matched_auc": 0.9877184038572273,
+        "inclusive_auc": 0.9879433296670025
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "relative_input": "historical_transformers/NEXT__region_fourier.npz",
+      "sha256": "a9ad6ba466fe57dbe049b70ed0b4c9a30a424afa6b5f0649d43910137fabdcbf",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9727633134531835,
+        "matched_auc": 0.9786975242362346,
+        "inclusive_auc": 0.9789711921577329
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "relative_input": "historical_transformers/NEXT__entity_mlp.npz",
+      "sha256": "740ecefab6f3028edde36328f8bc12a070b202c2752036b520e0c933bc941990",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9752702548781785,
+        "matched_auc": 0.975494450021349,
+        "inclusive_auc": 0.9755668276775151
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "relative_input": "historical_transformers/NEXT__entity_fourier.npz",
+      "sha256": "580c3877f48b499820d34c3f46af6de69f11c3e959294fb35f5b9e4523a878cf",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9742742018107595,
+        "matched_auc": 0.9627299318274409,
+        "inclusive_auc": 0.9626838102960615
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "relative_input": "historical_transformers/NEXT__summary_mlp.npz",
+      "sha256": "5441b97fe45b1b703baa2884c4f4dc548b1d6ef775487f7c7bc07eb9617fff55",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9707408062305775,
+        "matched_auc": 0.987424357216143,
+        "inclusive_auc": 0.9876072147024234
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "relative_input": "historical_transformers/NEXT__summary_fourier.npz",
+      "sha256": "3c30c9394fb42721c5c54f69a1f7954d244908fb0a12a7d099d4842de04c2860",
+      "evaluation_config": {
+        "distance_correlation_max_samples": 1200,
+        "energy_bin_width_kev": 5.0,
+        "energy_bin_width_mev": 0.005,
+        "energy_grid_bin_count": 600,
+        "energy_grid_max_kev": 3000.0,
+        "energy_grid_min_kev": 0.0,
+        "energy_roi": null,
+        "energy_unit": "MeV",
+        "fractional_energy_floor": null,
+        "matching_target": "overlap",
+        "min_coverage": 0.5,
+        "min_per_bin": 20,
+        "min_per_class": 20,
+        "min_valid_bins": 2,
+        "performance_bins": 10,
+        "score_bins": 20,
+        "seed": 42,
+        "support_trim_quantile": 0.005,
+        "target_tpr": 0.9,
+        "selected_energy_bin_count": 11
+      },
+      "expected_metrics": {
+        "I": 0.9726117883363878,
+        "matched_auc": 0.9834475590665179,
+        "inclusive_auc": 0.9837072182602816
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_mlp",
+      "relative_input": "historical_transformers/SuperNEMO__entity_mlp.npz",
+      "sha256": "6ca1510ea091ce313a8a02476b90ca5a6b4fa37135db630fc161fb095ca792c5",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_001_sampled_hits_coordinate_mlp@189b0c581ef5",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.975384791562389,
+        "matched_auc": 0.5912104133278413,
+        "inclusive_auc": 0.5929980916611385
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_mlp",
+      "relative_input": "historical_transformers/SuperNEMO__region_mlp.npz",
+      "sha256": "a7e8d0b42cad6c977e8fe3c47d2a257edb4fcba5e3f0de21d61f63828db69ae1",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_002_voxel_coordinate_mlp@bb70843bd6bb",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.9761247768221727,
+        "matched_auc": 0.5914158866798868,
+        "inclusive_auc": 0.5957710258022416
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_fourier",
+      "relative_input": "historical_transformers/SuperNEMO__region_fourier.npz",
+      "sha256": "86a445172fbd7262ed78e298b828c580cac098cdb357fad5cfc991f5a7492725",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_003_voxel_fourier_xyz@d296320d826b",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.9765258664774298,
+        "matched_auc": 0.5896103162658949,
+        "inclusive_auc": 0.5938731862872373
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_fourier",
+      "relative_input": "historical_transformers/SuperNEMO__entity_fourier.npz",
+      "sha256": "ae08602bfa1aaa032657a513e1cc6770bb957dfbbd034825d3238e2208b24637",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_004_sampled_hits_fourier_xyz@e36e0f918058",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.9740046303484715,
+        "matched_auc": 0.5890906098410181,
+        "inclusive_auc": 0.5930427023791708
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_mlp",
+      "relative_input": "historical_transformers/SuperNEMO__summary_mlp.npz",
+      "sha256": "db9dc222034db08e6d8bc574155d212a835ad99d9757b1ed33ac25b76e3c5e4e",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_005_summary_features_coordinate_mlp@d127aa3bdcb1",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.9749901725375236,
+        "matched_auc": 0.590401975879365,
+        "inclusive_auc": 0.5930681214260404
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_fourier",
+      "relative_input": "historical_transformers/SuperNEMO__summary_fourier.npz",
+      "sha256": "9b38d795cfc5af3833e4144499e608208c793c224141549b1046224cc663dad7",
+      "evaluation_config": {
+        "classification": {
+          "background_categories": [
+            "Bi214"
+          ],
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": true,
+          "energy_bins": 6,
+          "energy_roi": null,
+          "matching_target": "overlap",
+          "min_coverage": 0.5,
+          "min_per_class": 20,
+          "min_valid_bins": 2,
+          "pair_mode": "pooled",
+          "positive_label": "1",
+          "score_direction": "higher",
+          "score_space": "logit",
+          "signal_categories": [
+            "2nu"
+          ],
+          "support_trim_quantile": 0.005,
+          "target_tpr": 0.9
+        },
+        "columns": {
+          "category": "category",
+          "energy_condition": "energy_condition",
+          "energy_pred": null,
+          "energy_true": null,
+          "event_id": "event_id",
+          "group_id": "group_id",
+          "label": "label",
+          "sample_weight": "sample_weight",
+          "score": "score",
+          "split": "split"
+        },
+        "dataset": {
+          "dataset_id": "zeronu-benchmark-supernemo",
+          "dataset_version": "8b9296519c322256c947ceb0d842de02688ac7e02c31c6d72d423db0abd5d68a",
+          "energy_condition_kind": "reconstructed_calorimeter_E1_plus_E2",
+          "energy_target_kind": "not_applicable",
+          "energy_unit": "keV",
+          "experiment": "SuperNEMO",
+          "selection_split": "validation",
+          "split": "test"
+        },
+        "dependence": {
+          "distance_correlation_max_samples": 1200,
+          "enabled": true,
+          "energy_bins": 8,
+          "min_per_bin": 20,
+          "score_bins": 20
+        },
+        "model_id": "transformer_006_summary_features_fourier_xyz@edfd37925e99",
+        "regression": {
+          "bootstrap": 0,
+          "confidence": 0.95,
+          "enabled": false,
+          "energy_floor": null,
+          "histogram_bins": 50,
+          "histogram_edges": null,
+          "performance_bins": 10
+        },
+        "runtime": {
+          "make_plots": true,
+          "seed": 42
+        },
+        "schema_version": 1,
+        "task_id": "supernemo-2nu-vs-bi214"
+      },
+      "expected_metrics": {
+        "I": 0.9771130772722894,
+        "matched_auc": 0.5891324617733658,
+        "inclusive_auc": 0.5896996164170559
+      }
+    }
+  ]
+}

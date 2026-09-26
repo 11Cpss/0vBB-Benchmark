@@ -1,0 +1,23 @@
+{
+  "energy_threshold_scan.csv": {
+    "sha256": "4140aa05c67d1a2062a85f72ca0badb86d94135b300450da14eba5b5d3ef069d"
+  },
+  "energy_shortcut_histograms.csv": {
+    "sha256": "43859daf5cc65ad5f3a9786de25c9f0c58d43b66ba7f0f33037b47bff8ee4873"
+  },
+  "supernemo_conditional_extent_histogram.csv": {
+    "sha256": "0158a190d2ddfe99edad83d408c590073b4c97701b0071e59c951145daadbb29"
+  },
+  "extent_summary.json": {
+    "derivation": "Preserved plot-relevant summaries; omitted local filesystem provenance and unrelated descriptor metadata.",
+    "sha256": "c7960dee959d51281d08f6b084b4e21741c5f780c89bb871eb1e5bc771bb5d84"
+  },
+  "extent_energy_medians.csv": {
+    "derivation": "Exact median raw radius in the unchanged 100 keV energy bins; bins with <20 events left blank, matching the original renderer.",
+    "sha256": "719da54d5e3e1b8df6d0f1f16d1782d3a51973d2fa135311397deabcba47ff78"
+  },
+  "external_extent_cdf": {
+    "sha256": "fc8a00df56c0072d792eebe8c2ea24e5c57038d4d90ac48cc416cf03269b1462",
+    "usage": "Read only via --extent-cdf; exact event-derived CDF retained locally, never copied into the repository."
+  }
+}

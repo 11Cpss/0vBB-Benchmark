@@ -1,0 +1,75 @@
+    \section{Non-Transformer Architectures and Run Protocols}
+\label{app:wing-models}
+
+\subsection{Evidence Supporting the Four-Model Comparison}
+\label{app:selection-rationale}
+
+Unified reevaluation of earlier NEXT checkpoints provides retrospective
+context for the representative architectures. In the alternative-model batch, the multi-view CNN
+has matched AUC 0.955804, compared with 0.947782 for the multiscale CNN and
+0.928273 for the dense 3D CNN; Static GINE leads the graph candidates in that
+batch at 0.981008. In the subsequent candidate batch, BiGRU exceeds the
+tested dilated TCN (0.933864 versus 0.926085). PointMamba-lite, the only recorded
+state-space candidate, has matched AUC 0.925386 and $I=0.971387$; its inclusion broadens the
+architectural comparison rather than following an overall accuracy ranking.
+
+These are held-out test comparisons on 115,499 events from earlier
+exploratory batches. They are distinct from the 116,549-event reevaluation
+used for the available NEXT classic results in Table~\ref{tab:benchmark-main}.
+PointMamba-lite is included in
+Table~\ref{tab:next-classification}. The original exploratory batches used different evaluator-code fingerprints;
+the numbers above now use the same regular-plus-overflow protocol as the
+current classic results while retaining the earlier checkpoints and test set.
+Their distinct test population is not pooled with the retained campaign. The four search groups are recorded in the model-family
+presentation and are reproduced in Table~\ref{tab:next-classification}.
+They organize the candidate inventory; the surviving records do not
+document a prospective validation-based rule selecting one winner from
+each group. The retained architectures span three of the four groups,
+including two distinct mechanisms from the sequence/state-space group.
+The structural rationale and early test comparisons therefore support the
+comparison set without establishing a recovered formal selection rule.
+
+\input{wing_contribution/tables/model_adaptations}
+
+\paragraph{Parameter-count provenance.}
+Parameter counts in Table~\ref{tab:next-classification} are the saved
+counts of trainable neural parameters, checked against the corresponding
+run summaries and reevaluated metrics. Neural parameter count is
+inapplicable to XGBoost. The earlier NEXT PointMamba-lite run summary records
+316,993 trainable parameters, consistent with \texttt{Benchmarking table.xlsx};
+this is displayed as 0.3170\,M in Table~\ref{tab:next-classification} and
+317\,K in Table~\ref{tab:benchmark-main}. Its retained-campaign predictions
+remain unavailable. Figure~\ref{fig:next-capacity} includes only the
+retained-campaign configurations with available predictions.
+
+\paragraph{Spatial representations.}
+NEXT MV-CNN uses three $128\times128$ projections with 30\,mm bins. For point-based models, hits are centered by the complete-event energy centroid and merged into 15\,mm cells. Voxel centers are recentered and divided by 1,000\,mm; the two features are the voxel's fraction of complete-event energy and $\log(1+n)$, where $n$ is its hit count. Events exceeding 512 occupied cells retain the highest-energy cells with deterministic tie breaking, without renormalizing the retained energy fractions. SuperNEMO instead uses tracker coordinates: its CNN projects binary occupancy on $128\times128$ grids with 44\,mm bins. Its point adapter centers the tracker hits geometrically and merges 15\,mm cells, replacing the unavailable hit-energy fractions with occupancy fractions. It raises an error above 512 cells instead of truncating. The non-Transformer SuperNEMO inputs exclude $E_1$, $E_2$, and tracker drift radii. These input choices restrict direct energy access but do not establish independence from energy.
+
+\paragraph{Waveform representations.}
+MJD subtracts the mean of the first 200 waveform samples and divides by the maximum absolute event amplitude when nonzero. EXO-200 subtracts a baseline separately for each channel using its first 200 time samples, divides by the event-wide maximum absolute amplitude, and serializes the $226\times300$ array in channel-major order. For these datasets, MV-CNN uses Hann-window STFTs with FFT sizes $(64,128,256)$ and hops $(16,32,64)$, followed by a $\log(1+|\mathrm{STFT}|)$ transform and resizing to $128\times128$. The point adapter uses adaptive pooling to form 512 segment means and root-mean-square amplitudes. Its three coordinates are normalized time, amplitude-normalized segment mean, and the first difference of that normalized mean; its two features are the segment mean and RMS. These are pulse-shape coordinates, not calibrated detector positions.
+
+\paragraph{Backbone details.}
+MV-CNN has four residual stages with two blocks each, base width 16, and a 256-dimensional fusion layer. GINE uses hidden width 128, five message-passing layers, $k=12$ neighbors, and a 160-dimensional classifier. BiGRU uses a 96-dimensional input embedding, two bidirectional layers with hidden size 128, and a 256-dimensional classifier. The two Hilbert orders quantize each event's point bounding box to 10 bits per axis; the second swaps the first two axes before applying the same ordering. PointMamba-lite uses three blocks with model width 128, inner width 192, state dimension 16, and 32-position scan chunks. Its guarded PyTorch scan is not the official fused Mamba implementation. The backbones use dropout 0.1. MJD GINE has four output logits $z_{ij}$, one per reference label, and uses
+\begin{equation}
+ q_i=\prod_{j=1}^{4}\sigma(z_{ij}),\qquad
+ s_i=\log q_i-\log(1-q_i),
+\end{equation}
+where $\sigma$ is the logistic sigmoid and $s_i$ is its evaluated clean-event score. This product is the implemented score construction; it is not a demonstrated factorization of the labels' joint conditional distribution. The computation uses summed log-sigmoids and clamps the log probability below zero for numerical stability. EXO-200 uses the same GINE backbone with one output.
+
+\input{wing_contribution/tables/training_protocol}
+
+\paragraph{Run completion and randomness.}
+The audited non-Transformer classification loaders retain the sampled class proportions;
+their binary losses do not use class weights, and these paths contain no
+synthetic data augmentation. NEXT shuffles training slices and buffered
+events, waveform loaders shuffle training events, and SuperNEMO records
+proportional sampling without replacement. Input normalization and ordering
+are dataset-specific preprocessing rather than energy matching of training
+events.
+
+In the NEXT campaign reported here, MV-CNN, GINE, and BiGRU finish after 19, 36, and 26 epochs, selecting epochs 14, 31, and 21, respectively, by validation inclusive AUC. The loader batch size is 64; the wrapper evaluates these backbones in chunks of 16, concatenates their logits, and applies one batch loss and optimizer step. The corresponding run summaries record Python 3.11.15, PyTorch 2.11.0+cu128, an NVIDIA GeForce RTX 5090, and bfloat16 mixed precision. This environment evidence applies to those runs rather than automatically to every dataset. The audited non-Transformer training paths add neither class-weighted losses nor data augmentation; the current SuperNEMO stream retains the source class proportions without replacement.
+
+For SuperNEMO, the workbook records 21, 50, 22, and 9 training epochs for MV-CNN, GINE, BiGRU, and PointMamba-lite, with selected epochs 16, 43, 17, and 4, respectively. It records 47 epochs and selected epoch 43 for MJD PointMamba-lite. Earlier logs were incomplete; the current results and epoch counts follow the workbook, whose evaluation status does not establish training completion. The audited non-Transformer configurations set seed 42 and disable enforced deterministic algorithms. Mixed precision is enabled in these configurations except for MJD BiGRU. Seeds therefore do not imply bitwise reproducibility.
+
+\paragraph{Screening scope.}
+The current NEXT registry contains three legacy CNNs and twenty alternative classifiers, including point, graph, sequence, state-space, sparse-convolution, hybrid, mixer, persistence, and boosted-tree approaches. A classification entry need not correspond to a completed retained-campaign run: PointMamba-lite has an earlier exploratory result but remains unavailable in that campaign. The search taxonomy groups the three legacy projection CNNs together with projection, patch-mixer, dense-voxel, and sparse-voxel alternatives. Point-set and graph methods form separate groups; ordered sequence methods, the state-space model, topological classifiers, and the CNN--GNN hybrid form the fourth. This representation-based organization differs from the finer model-family labels in the run registry. Checkpoint selection is documented within completed runs, while a prospective rule for choosing the cross-dataset architectures is not. The boosted-tree classifier in the extended NEXT inventory uses up to 500 estimators, learning rate 0.04, maximum depth 4, subsampling 0.85, column subsampling 0.9, early-stopping rounds 12, and random seed 42. Its estimator settings, rather than the neural epoch, optimizer, and clipping fields in the generic run configuration, determine its training procedure.

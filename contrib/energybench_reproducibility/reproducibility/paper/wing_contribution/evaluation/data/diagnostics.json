@@ -1,0 +1,5436 @@
+{
+  "description": "Reviewed aggregate display data; per-record frozen protocol fingerprints distinguish the MJD/EXO-200 v3 reevaluation from unchanged v2 records. Never used as event input.",
+  "records": [
+    {
+      "dataset": "EXO-200",
+      "model_key": "mvcnn",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "8ba75f5ee3629639bebb6fddee792f4bbe68004483acff0919bebfc3e277cfc0",
+      "source_detail_sha256": "f3d3d84271167d17e03463cb5fd1698532faf35049049961dd45069d163f1b43",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.8949408988858205,
+      "matched_auc": 0.8628132831173242,
+      "I": 0.7521398472116881,
+      "independence": {
+        "min_group_I": 0.7314846282355841,
+        "groups": {
+          "background": {
+            "I_g": 0.7708572758152501,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7314846282355841,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.8628132831173242
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "gine",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "75b73e87a69cc767d35b30b2e9155ef33a8a13db1071e4b9a35be57b20a30503",
+      "source_detail_sha256": "3c2404d4722b04f18de0d71c91f2a9ef9260b399ca42c1ef73487a7f1ad06551",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9586838384565658,
+      "matched_auc": 0.9494252937485974,
+      "I": 0.8013051347585681,
+      "independence": {
+        "min_group_I": 0.7924560653249316,
+        "groups": {
+          "background": {
+            "I_g": 0.8093240197446663,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7924560653249316,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9494252937485974
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "bigru",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "85c46dc6c661ad1f937501878145180191f52c7857a4b2ae07279650bdf10004",
+      "source_detail_sha256": "117a880e324f716c21ae173e358bef9d26f8603f23124db0df0afefe9b665f91",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9424618178199041,
+      "matched_auc": 0.9294739711565418,
+      "I": 0.7892999785796896,
+      "independence": {
+        "min_group_I": 0.7738924451734733,
+        "groups": {
+          "background": {
+            "I_g": 0.8032620385714758,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7738924451734733,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9294739711565418
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "mamba",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "7583dddcafe5973cef6a74dc1ad7457eb12e3ae9fdc4dad8335a66abcae2ae42",
+      "source_detail_sha256": "eddb93e2265aaf01670cd433f2f6771a9745e03bb91e843f9020e277a1e0f6f7",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9452526201984761,
+      "matched_auc": 0.934068536197056,
+      "I": 0.7858816366992372,
+      "independence": {
+        "min_group_I": 0.7853834714015522,
+        "groups": {
+          "background": {
+            "I_g": 0.7863330661129352,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7853834714015522,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.934068536197056
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "mvcnn",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "2a81817feae0310c2684cdc0c5a8f1216cbd85850e38d2125948b41eac3c83be",
+      "source_detail_sha256": "c16668e7a1c28b90c825f1c2817432d02122d061cfeaff5c183ad4af67e9f131",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "2nu"
+      },
+      "independence": {
+        "min_group_I": 0.8962186495457541,
+        "groups": {
+          "2nu": {
+            "I_g": 0.9212929550443528,
+            "valid_bin_count": 417,
+            "retained_fraction_original_finite": 0.9989837646484375,
+            "sparse_excluded": {
+              "n": 333,
+              "base_mass": 333.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.8962186495457541,
+            "valid_bin_count": 514,
+            "retained_fraction_original_finite": 0.9989662170410156,
+            "sparse_excluded": {
+              "n": 271,
+              "base_mass": 271.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "valid_bin_count": 374,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "inclusive": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "original_finite": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "energy_population": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "common_support": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "matched": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 40,
+              "base_mass": 40.0
+            },
+            "support_excluded_after_range": {
+              "n": 26530,
+              "base_mass": 26530.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_energy_population": 0.8987960815429688,
+            "matched_ess": 207112.72892987615,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "inclusive": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "original_finite": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "energy_population": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "common_support": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "matched": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 3275,
+              "base_mass": 3275.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_energy_population": 0.9900054931640625,
+            "matched_ess": 312505.87703473656,
+            "matched_weight_sum": 1.0000000000000002
+          }
+        }
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "gine",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "4097ec8dceee0e58151e7876bbc4bd5e86ebb2c004a9ab352754d60493f3a217",
+      "source_detail_sha256": "73fcd1cbd86e14474dbbe5f744318658e8a9915d4ea69015b122d0d726452a8d",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "2nu"
+      },
+      "independence": {
+        "min_group_I": 0.8981471187794863,
+        "groups": {
+          "2nu": {
+            "I_g": 0.9240628164339321,
+            "valid_bin_count": 417,
+            "retained_fraction_original_finite": 0.9989837646484375,
+            "sparse_excluded": {
+              "n": 333,
+              "base_mass": 333.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.8981471187794863,
+            "valid_bin_count": 514,
+            "retained_fraction_original_finite": 0.9989662170410156,
+            "sparse_excluded": {
+              "n": 271,
+              "base_mass": 271.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "valid_bin_count": 374,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "inclusive": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "original_finite": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "energy_population": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "common_support": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "matched": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 40,
+              "base_mass": 40.0
+            },
+            "support_excluded_after_range": {
+              "n": 26530,
+              "base_mass": 26530.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_energy_population": 0.8987960815429688,
+            "matched_ess": 207112.72892987615,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "inclusive": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "original_finite": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "energy_population": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "common_support": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "matched": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 3275,
+              "base_mass": 3275.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_energy_population": 0.9900054931640625,
+            "matched_ess": 312505.87703473656,
+            "matched_weight_sum": 1.0000000000000002
+          }
+        }
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "bigru",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "f7fec36d5bd4ac587d2460f2ec3c798ea6f786231fc94a80d81fac95056b93de",
+      "source_detail_sha256": "8da8d6b8adaeff37661f2750994ab9167e84f5b4f37f3524247516d048d2b559",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "2nu"
+      },
+      "independence": {
+        "min_group_I": 0.910535429420165,
+        "groups": {
+          "2nu": {
+            "I_g": 0.9291670835207696,
+            "valid_bin_count": 417,
+            "retained_fraction_original_finite": 0.9989837646484375,
+            "sparse_excluded": {
+              "n": 333,
+              "base_mass": 333.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.910535429420165,
+            "valid_bin_count": 514,
+            "retained_fraction_original_finite": 0.9989662170410156,
+            "sparse_excluded": {
+              "n": 271,
+              "base_mass": 271.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "valid_bin_count": 374,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "inclusive": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "original_finite": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "energy_population": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "common_support": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "matched": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 40,
+              "base_mass": 40.0
+            },
+            "support_excluded_after_range": {
+              "n": 26530,
+              "base_mass": 26530.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_energy_population": 0.8987960815429688,
+            "matched_ess": 207112.72892987615,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "inclusive": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "original_finite": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "energy_population": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "common_support": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "matched": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 3275,
+              "base_mass": 3275.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_energy_population": 0.9900054931640625,
+            "matched_ess": 312505.87703473656,
+            "matched_weight_sum": 1.0000000000000002
+          }
+        }
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "mamba",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "dbc67565ee13c37254e7118f9e0785713516ed4ec9fdd4500d493d5bba9280e1",
+      "source_detail_sha256": "f9d1d622e8fd428fccca605a645538421b2256e90877eae051fd73e268a17f07",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "2nu"
+      },
+      "independence": {
+        "min_group_I": 0.911915640941332,
+        "groups": {
+          "2nu": {
+            "I_g": 0.9292241771226657,
+            "valid_bin_count": 417,
+            "retained_fraction_original_finite": 0.9989837646484375,
+            "sparse_excluded": {
+              "n": 333,
+              "base_mass": 333.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.911915640941332,
+            "valid_bin_count": 514,
+            "retained_fraction_original_finite": 0.9989662170410156,
+            "sparse_excluded": {
+              "n": 271,
+              "base_mass": 271.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          350.20625,
+          2218.25
+        ],
+        "valid_bin_count": 374,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "inclusive": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "original_finite": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "energy_population": {
+              "n": 262144,
+              "base_mass": 262144.0
+            },
+            "common_support": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "matched": {
+              "n": 235614,
+              "base_mass": 235614.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 40,
+              "base_mass": 40.0
+            },
+            "support_excluded_after_range": {
+              "n": 26530,
+              "base_mass": 26530.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_original_finite": 0.8987960815429688,
+            "matched_fraction_energy_population": 0.8987960815429688,
+            "matched_ess": 207112.72892987615,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "inclusive": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "original_finite": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "energy_population": {
+              "n": 327680,
+              "base_mass": 327680.0
+            },
+            "common_support": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "matched": {
+              "n": 324405,
+              "base_mass": 324405.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 3275,
+              "base_mass": 3275.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_original_finite": 0.9900054931640625,
+            "matched_fraction_energy_population": 0.9900054931640625,
+            "matched_ess": 312505.87703473656,
+            "matched_weight_sum": 1.0000000000000002
+          }
+        }
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "mvcnn",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "500ceca39197646668ebbb37103129561d5e9ff653faac7145b102495a10205b",
+      "source_detail_sha256": "0ecf0598a3f95e5943cb63da515c13d7de02ed4b0effb2e8506a3c777c9a462c",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "0nubb"
+      },
+      "independence": {
+        "min_group_I": 0.9643089031447909,
+        "groups": {
+          "0nubb": {
+            "I_g": 0.9763157685266818,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.9643089031447909,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          2434.839165949452,
+          2480.35090446283
+        ],
+        "valid_bin_count": 11,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "inclusive": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "original_finite": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "energy_population": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "common_support": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "matched": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 1550,
+              "base_mass": 1550.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_energy_population": 0.9700019353590091,
+            "matched_ess": 42260.44245582296,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "inclusive": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "original_finite": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "energy_population": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "common_support": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "matched": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 767,
+              "base_mass": 767.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_energy_population": 0.9881779928790517,
+            "matched_ess": 55194.58974874381,
+            "matched_weight_sum": 1.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "gine",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "6b40a46b5a4c1f41f50e239fe9163741c02006c222859792633922c85e9bd9d1",
+      "source_detail_sha256": "2ec8e2d8fec97a5fe2314db0ee3b6f941a47c1e821424bdad432be5719773375",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "0nubb"
+      },
+      "independence": {
+        "min_group_I": 0.9608618778369853,
+        "groups": {
+          "0nubb": {
+            "I_g": 0.9777545400337377,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.9608618778369853,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          2434.839165949452,
+          2480.35090446283
+        ],
+        "valid_bin_count": 11,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "inclusive": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "original_finite": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "energy_population": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "common_support": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "matched": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 1550,
+              "base_mass": 1550.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_energy_population": 0.9700019353590091,
+            "matched_ess": 42260.44245582296,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "inclusive": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "original_finite": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "energy_population": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "common_support": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "matched": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 767,
+              "base_mass": 767.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_energy_population": 0.9881779928790517,
+            "matched_ess": 55194.58974874381,
+            "matched_weight_sum": 1.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "bigru",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "b4be989124a5d9d87a78e1e4543b7ba7335478dd7b4cc0958c2ca14a2addb602",
+      "source_detail_sha256": "f7c4eec58dc366129035fd7c6c2a64300987732c86dd2171f983861e4bffff63",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "0nubb"
+      },
+      "independence": {
+        "min_group_I": 0.9656701521363432,
+        "groups": {
+          "0nubb": {
+            "I_g": 0.9753370534162581,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.9656701521363432,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          2434.839165949452,
+          2480.35090446283
+        ],
+        "valid_bin_count": 11,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "inclusive": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "original_finite": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "energy_population": {
+              "n": 51670,
+              "base_mass": 51670.0
+            },
+            "common_support": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "matched": {
+              "n": 50120,
+              "base_mass": 50120.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 1550,
+              "base_mass": 1550.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_original_finite": 0.9700019353590091,
+            "matched_fraction_energy_population": 0.9700019353590091,
+            "matched_ess": 42260.44245582296,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "inclusive": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "original_finite": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "energy_population": {
+              "n": 64879,
+              "base_mass": 64879.0
+            },
+            "common_support": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "matched": {
+              "n": 64112,
+              "base_mass": 64112.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 767,
+              "base_mass": 767.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_original_finite": 0.9881779928790517,
+            "matched_fraction_energy_population": 0.9881779928790517,
+            "matched_ess": 55194.58974874381,
+            "matched_weight_sum": 1.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "mvcnn",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "ef72db204a2a10a556b8275147506ef65ab1826b6a616472e7626e683c528218",
+      "source_detail_sha256": "f9d4d2ca89e96a2ba8f880b9c1849a0d8d59d4184e240517ab72f11864a90f43",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9712831074427644,
+      "matched_auc": 0.9698509213976215,
+      "I": 0.7596373174585611,
+      "independence": {
+        "min_group_I": 0.7324694660348018,
+        "groups": {
+          "background": {
+            "I_g": 0.7763022627529025,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7324694660348018,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9698509213976215
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "gine",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "9361a49db498bafc753fc968351850e8dbf3f48e7ee5cb0596035e138d4546fc",
+      "source_detail_sha256": "4007982c24a213d6cd481abe4a43ffb8c6f9d92abf5f0c42ecdc1a3fb8acb445",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9708503339921175,
+      "matched_auc": 0.9691827303835896,
+      "I": 0.796689273195953,
+      "independence": {
+        "min_group_I": 0.7911462666183967,
+        "groups": {
+          "background": {
+            "I_g": 0.7911462666183967,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.8057257012477809,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9691827303835896
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "bigru",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "6e36bf2ea281e046068432f82ac5965b9d166a86e61b3a0eec86fa0dc78a4e9d",
+      "source_detail_sha256": "424fef59a3bd6fbdc064ec5f9022fb62665fd7016b5697185a6daef11f1f3e43",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9768004822378061,
+      "matched_auc": 0.9754452497704014,
+      "I": 0.775288815236636,
+      "independence": {
+        "min_group_I": 0.7729593564148224,
+        "groups": {
+          "background": {
+            "I_g": 0.7729593564148224,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7790863909292658,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9754452497704014
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "mamba",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "0f66454cce936e713374ba3aec1c5b3c0ba7a6a9451be650a16b5c0d0341aa2b",
+      "source_detail_sha256": "9f84ed3b5cfb2a60189e07994788e3037d7d73ae2e958de7df28e6419c63cc6a",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9615347914558797,
+      "matched_auc": 0.9598865198317138,
+      "I": 0.7733235506611658,
+      "independence": {
+        "min_group_I": 0.7518769940363427,
+        "groups": {
+          "background": {
+            "I_g": 0.7864790147179261,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7518769940363427,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9598865198317138
+      }
+    },
+    {
+      "dataset": "NEXT-exploratory",
+      "model_key": "exploratory_ssm_001_pointmamba",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "source_input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
+      "source_detail_sha256": "c99abbccb6565671f72cdedad1ab6e25341295c54103416eac5750d8ce128367",
+      "group_for_label": {
+        "0": "Bi214",
+        "1": "0nubb"
+      },
+      "independence": {
+        "min_group_I": 0.9631884157701296,
+        "groups": {
+          "0nubb": {
+            "I_g": 0.9776472644952009,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "Bi214": {
+            "I_g": 0.9631884157701296,
+            "valid_bin_count": 11,
+            "retained_fraction_original_finite": 1.0,
+            "sparse_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "common_support_keV": [
+          2434.8639635535073,
+          2480.6069458871207
+        ],
+        "valid_bin_count": 11,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 50005,
+              "base_mass": 50005.0
+            },
+            "inclusive": {
+              "n": 50005,
+              "base_mass": 50005.0
+            },
+            "original_finite": {
+              "n": 50005,
+              "base_mass": 50005.0
+            },
+            "energy_population": {
+              "n": 50005,
+              "base_mass": 50005.0
+            },
+            "common_support": {
+              "n": 48364,
+              "base_mass": 48364.0
+            },
+            "matched": {
+              "n": 48364,
+              "base_mass": 48364.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 1641,
+              "base_mass": 1641.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9671832816718328,
+            "matched_fraction_original_finite": 0.9671832816718328,
+            "matched_fraction_energy_population": 0.9671832816718328,
+            "matched_ess": 40909.69737962828,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 65494,
+              "base_mass": 65494.0
+            },
+            "inclusive": {
+              "n": 65494,
+              "base_mass": 65494.0
+            },
+            "original_finite": {
+              "n": 65494,
+              "base_mass": 65494.0
+            },
+            "energy_population": {
+              "n": 65494,
+              "base_mass": 65494.0
+            },
+            "common_support": {
+              "n": 64768,
+              "base_mass": 64768.0
+            },
+            "matched": {
+              "n": 64768,
+              "base_mass": 64768.0
+            },
+            "range_excluded": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "negative_energy": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "overflow": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "support_excluded_after_range": {
+              "n": 726,
+              "base_mass": 726.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 1.0,
+            "common_support_fraction_original_finite": 0.9889150151158885,
+            "matched_fraction_original_finite": 0.9889150151158885,
+            "matched_fraction_energy_population": 0.9889150151158885,
+            "matched_ess": 55956.35692583506,
+            "matched_weight_sum": 1.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "a0ba1fbec9a4d6c0d0ef2f0b4c694b3e0fb10e9d471a297569c68b950c36a3c2",
+      "source_detail_sha256": "f8b6899654b5c11837cdd0ec344e69fe7042c6c8fd83e0fb1547d384e90c3823",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9541163740277911,
+      "matched_auc": 0.9413216210053226,
+      "I": 0.7371650799725772,
+      "independence": {
+        "min_group_I": 0.686804195266635,
+        "groups": {
+          "background": {
+            "I_g": 0.7828013070678314,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.686804195266635,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9413216210053226
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "cce536fd2e2978f51089b4c02f71a4e3ea4be44bf0f9237b8929357b8ce1c754",
+      "source_detail_sha256": "2ba7dd13fc9835a88f49b9694751955de2959de8cce4c06da06cc51958cd413a",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9596201753154566,
+      "matched_auc": 0.9471205351711137,
+      "I": 0.7291835373545541,
+      "independence": {
+        "min_group_I": 0.6545032374852409,
+        "groups": {
+          "background": {
+            "I_g": 0.7968576289492064,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.6545032374852409,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9471205351711137
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "0a29722490300b4fddd3696acf5fc388a22a04fc006b63c4adcb775b196742b0",
+      "source_detail_sha256": "8ebc2470ec348b7cf8a5e326305f49d1da5cc36ef9d29a78a2a66b9181ce7472",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9741226186809501,
+      "matched_auc": 0.9695573209630712,
+      "I": 0.8009381579076389,
+      "independence": {
+        "min_group_I": 0.7892944942503624,
+        "groups": {
+          "background": {
+            "I_g": 0.8114894594184627,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7892944942503624,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9695573209630712
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "1d10de6769a4af3dcac0ac13b6289e2b3a689c6d85830d46ea7961ee80e1de0f",
+      "source_detail_sha256": "bee32a7f684f5e96d38f278426fa3dbfb60f6fca1851189ae4e9fa7141ea8c12",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9778039975454758,
+      "matched_auc": 0.9722610766369408,
+      "I": 0.7900516557727041,
+      "independence": {
+        "min_group_I": 0.7645773472169122,
+        "groups": {
+          "background": {
+            "I_g": 0.8131360661665017,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7645773472169122,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9722610766369408
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "9beb788bebd7cba22d31c8d25ebc047ba959e2d02cd9d330962a913dd7bea9cd",
+      "source_detail_sha256": "25fc0af954a84a8059f52b9c70c413a75e11e542fc0e692110be9793f8845abf",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9594825701504568,
+      "matched_auc": 0.9469545080993464,
+      "I": 0.7761410115147421,
+      "independence": {
+        "min_group_I": 0.7296099426625058,
+        "groups": {
+          "background": {
+            "I_g": 0.8183067208251469,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7296099426625058,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9469545080993464
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "4255beb3bf9579d989ce0f911c56cd420474e69ddbbc7cb851a82b5819fdb070",
+      "source_detail_sha256": "bc4e9d0b1136b7c81d7b3fb786035bd92949c9663a090dcd76c26dd349761c1a",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9678869569380959,
+      "matched_auc": 0.9600237431248531,
+      "I": 0.8019020777424724,
+      "independence": {
+        "min_group_I": 0.7894301479310415,
+        "groups": {
+          "background": {
+            "I_g": 0.8132039407759342,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7894301479310415,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9600237431248531
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "838e03e1cb0d631a335832ed7a76bf344578d398bf57bd25ca5a2d2a83cae8a2",
+      "source_detail_sha256": "90646b6348349e982c4c7d2c6932cb228bcf47ffea7fddc24caee65344be7843",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9765985313654006,
+      "matched_auc": 0.9709096841000631,
+      "I": 0.7892311644895167,
+      "independence": {
+        "min_group_I": 0.7502407163482228,
+        "groups": {
+          "background": {
+            "I_g": 0.8245636840890357,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7502407163482228,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9709096841000631
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "48dc47b479684351f8fb5ae003d48d19e29e052b28b74c221a4e0bf66a47c0a6",
+      "source_detail_sha256": "d91498057baac360a9e0d2f368ae43fb90ddbf9a87ee88f3f06b26ae2fe064c2",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.964939775897746,
+      "matched_auc": 0.9551706747468208,
+      "I": 0.7727311876027604,
+      "independence": {
+        "min_group_I": 0.7712944848525404,
+        "groups": {
+          "background": {
+            "I_g": 0.7740331046234852,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.7712944848525404,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9551706747468208
+      }
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "7a3ccfaf07eb2dc1c38598bbe83fbab3d059fb52874996847034523335df0d04",
+      "source_detail_sha256": "9298ff77fc313061c8c7ade9b30dec6c004a80d497455611e1f5120e0f38417d",
+      "group_for_label": {
+        "0": "background",
+        "1": "signal"
+      },
+      "n_events": 140383,
+      "inclusive_auc": 0.9587199403792815,
+      "matched_auc": 0.9459249799253545,
+      "I": 0.7153366170715236,
+      "independence": {
+        "min_group_I": 0.6582535199021793,
+        "groups": {
+          "background": {
+            "I_g": 0.767064405432106,
+            "valid_bin_count": 484,
+            "retained_fraction_original_finite": 0.9773953525921342,
+            "retained": {
+              "n": 72641,
+              "base_mass": 72641.0
+            },
+            "sparse_excluded": {
+              "n": 257,
+              "base_mass": 257.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "signal": {
+            "I_g": 0.6582535199021793,
+            "valid_bin_count": 438,
+            "retained_fraction_original_finite": 0.9976537192334474,
+            "retained": {
+              "n": 65907,
+              "base_mass": 65907.0
+            },
+            "sparse_excluded": {
+              "n": 152,
+              "base_mass": 152.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          538.1772625732422,
+          2662.5670739746092
+        ],
+        "valid_bin_count": 426,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "inclusive": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "original_finite": {
+              "n": 74321,
+              "base_mass": 74321.0
+            },
+            "energy_population": {
+              "n": 72898,
+              "base_mass": 72898.0
+            },
+            "common_support": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "matched": {
+              "n": 69966,
+              "base_mass": 69966.0
+            },
+            "range_excluded": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1423,
+              "base_mass": 1423.0
+            },
+            "support_excluded_after_range": {
+              "n": 2932,
+              "base_mass": 2932.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.980853325439647,
+            "common_support_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_original_finite": 0.9414028336540143,
+            "matched_fraction_energy_population": 0.9597794178166753,
+            "matched_ess": 61626.880359525014,
+            "matched_weight_sum": 1.0
+          },
+          "1": {
+            "input": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "inclusive": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "original_finite": {
+              "n": 66062,
+              "base_mass": 66062.0
+            },
+            "energy_population": {
+              "n": 66059,
+              "base_mass": 66059.0
+            },
+            "common_support": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "matched": {
+              "n": 62472,
+              "base_mass": 62472.0
+            },
+            "range_excluded": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 3,
+              "base_mass": 3.0
+            },
+            "support_excluded_after_range": {
+              "n": 3587,
+              "base_mass": 3587.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "energy_population_fraction_original_finite": 0.9999545881141958,
+            "common_support_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_original_finite": 0.9456571099875875,
+            "matched_fraction_energy_population": 0.9457000560105361,
+            "matched_ess": 51923.64134977649,
+            "matched_weight_sum": 1.0
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9459249799253545
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "fde5dc2abd4b4d3e856e81cf8a4ecd026e62d14f4e64336bf22d9f5837c26491",
+      "source_detail_sha256": "efa955d006df604a49373c7989619dcd7b010a1db4e239add697f5beaca2a21d",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9334245029722467,
+      "matched_auc": 0.9293956978212661,
+      "I": 0.8116150873441846,
+      "independence": {
+        "min_group_I": 0.7949660598604947,
+        "groups": {
+          "clean": {
+            "I_g": 0.838756988924897,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.7949660598604947,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9293956978212661
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "3839256b67627253aa59d13db63db6eaba19eadf35e72b83fe9513b3bf02b1b9",
+      "source_detail_sha256": "be70808dc5cf7ae9765b974ab93dff6514c24160f01945bbd6cacbf2ff10278f",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9444524476323212,
+      "matched_auc": 0.9413866002250502,
+      "I": 0.802097914589581,
+      "independence": {
+        "min_group_I": 0.7913446608849487,
+        "groups": {
+          "clean": {
+            "I_g": 0.8196282931062533,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.7913446608849487,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9413866002250502
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "0d433ca3a74c5544eac11af12c4e1b358b6a74e7a4a462039607f8a1f0e65cc1",
+      "source_detail_sha256": "93b7606e0a52de9523d9fc79aac8b899b0e8cd064565262f42b3ba3f793d1080",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9744913625955232,
+      "matched_auc": 0.9734501967234624,
+      "I": 0.7983154151144947,
+      "independence": {
+        "min_group_I": 0.7935179086670803,
+        "groups": {
+          "clean": {
+            "I_g": 0.7935179086670803,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.8012582382788429,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9734501967234624
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "f6b1430120e618f7c5129d7378f0d7f00f8ae95a23adf11b136361f3a1c5a93b",
+      "source_detail_sha256": "dcf248b6741cf8570638b46efa5785225c8811f243a2303401ab6599761cfb4a",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9814954149227426,
+      "matched_auc": 0.9810463173072814,
+      "I": 0.7876310269369133,
+      "independence": {
+        "min_group_I": 0.7868784008808406,
+        "groups": {
+          "clean": {
+            "I_g": 0.7868784008808406,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.7880926928911294,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9810463173072814
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "11344e3759891fbf67480536015f8b9b56b8e92ffac67efa1903ef9ac6f5f761",
+      "source_detail_sha256": "dbe0e31a4fc21f10c81498a935cedc1d87832a11d26a880d50565bab0c2c09c6",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9670155303222862,
+      "matched_auc": 0.9653926210283701,
+      "I": 0.7990151806667429,
+      "independence": {
+        "min_group_I": 0.7972642591733516,
+        "groups": {
+          "clean": {
+            "I_g": 0.8018696019772811,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.7972642591733516,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9653926210283701
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "source_input_sha256": "bca72d24025283bf2ed6b96fd21d79efb7f668a42e85dae8d65834bdb98569ca",
+      "source_detail_sha256": "090b4a3ab201dd18305dd8137d1d13b9e302a57da4c6c2549d726b947bb3f369",
+      "group_for_label": {
+        "0": "nonclean",
+        "1": "clean"
+      },
+      "n_events": 390000,
+      "inclusive_auc": 0.9708923408197192,
+      "matched_auc": 0.9691365055544586,
+      "I": 0.7818013873421643,
+      "independence": {
+        "min_group_I": 0.7758868162666858,
+        "groups": {
+          "clean": {
+            "I_g": 0.7914435545005782,
+            "valid_bin_count": 496,
+            "retained_fraction_original_finite": 0.9990691462452193,
+            "retained": {
+              "n": 148113,
+              "base_mass": 148113.0
+            },
+            "sparse_excluded": {
+              "n": 137,
+              "base_mass": 137.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          },
+          "nonclean": {
+            "I_g": 0.7758868162666858,
+            "valid_bin_count": 524,
+            "retained_fraction_original_finite": 0.9988417739059934,
+            "retained": {
+              "n": 241469,
+              "base_mass": 241469.0
+            },
+            "sparse_excluded": {
+              "n": 214,
+              "base_mass": 214.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            }
+          }
+        }
+      },
+      "matching": {
+        "status": "ok",
+        "common_support_keV": [
+          18.150531811779366,
+          2613.79042737314
+        ],
+        "valid_bin_count": 493,
+        "classes": {
+          "0": {
+            "input": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "inclusive": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "original_finite": {
+              "n": 241749,
+              "base_mass": 241749.0
+            },
+            "energy_population": {
+              "n": 241683,
+              "base_mass": 241683.0
+            },
+            "common_support": {
+              "n": 234305,
+              "base_mass": 234305.0
+            },
+            "matched": {
+              "n": 232824,
+              "base_mass": 232824.0
+            },
+            "range_excluded": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 66,
+              "base_mass": 66.0
+            },
+            "support_excluded_after_range": {
+              "n": 7378,
+              "base_mass": 7378.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 1481,
+              "base_mass": 1481.0
+            },
+            "energy_population_fraction_original_finite": 0.9997269895635555,
+            "common_support_fraction_original_finite": 0.9692077319864818,
+            "matched_fraction_original_finite": 0.9630815432535398,
+            "matched_fraction_energy_population": 0.9633445463685902,
+            "matched_ess": 213946.76408550647,
+            "matched_weight_sum": 0.9999999999999998
+          },
+          "1": {
+            "input": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "inclusive": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "original_finite": {
+              "n": 148251,
+              "base_mass": 148251.0
+            },
+            "energy_population": {
+              "n": 148250,
+              "base_mass": 148250.0
+            },
+            "common_support": {
+              "n": 146504,
+              "base_mass": 146504.0
+            },
+            "matched": {
+              "n": 146383,
+              "base_mass": 146383.0
+            },
+            "range_excluded": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "below_range": {
+              "n": 0,
+              "base_mass": 0.0
+            },
+            "above_range": {
+              "n": 1,
+              "base_mass": 1.0
+            },
+            "support_excluded_after_range": {
+              "n": 1746,
+              "base_mass": 1746.0
+            },
+            "sparse_excluded_after_support": {
+              "n": 121,
+              "base_mass": 121.0
+            },
+            "energy_population_fraction_original_finite": 0.9999932546829363,
+            "common_support_fraction_original_finite": 0.9882159310898408,
+            "matched_fraction_original_finite": 0.9873997477251418,
+            "matched_fraction_energy_population": 0.987406408094435,
+            "matched_ess": 141205.0994128583,
+            "matched_weight_sum": 0.9999999999999998
+          }
+        },
+        "diagnostic_auc_not_for_reporting": 0.9691365055544586
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "selection_split": "validation",
+  "selection_metric": "auc",
+  "positive_label": 1,
+  "positive_category": "2nu",
+  "negative_category": "Bi214",
+  "score_space": "logit"
+}

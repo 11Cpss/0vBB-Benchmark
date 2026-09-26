@@ -1,0 +1,17 @@
+\subsection{Native Representation Approach}
+\label{sec:wing-models}
+At the beginning of the model-design stage, we defined four model groups relevant to the data modalities encountered in NLDBD datasets. Projection and voxel model group operate on regular spatial grids using 2D or 3D convolutions, sparse convolutions, or projection-patch mixing. Point-cloud model group operate directly on unordered hits using shared point features and local geometric neighborhoods. Graph model group represent events through explicit neighborhood connectivity and message passing over fixed or learned graphs. Finally, sequence, state-space, topology, and hybrid model group capture ordered context, topological summaries, or combinations of multiple representations. We developed 23 classification models across these four groups and benchmarked them on the NEXT dataset, selecting the best-performing model from each group for the subsequent cross-dataset study. Details of this model-selection study are provided in Appendix~\ref{app}. The four selected models are:
+
+
+\begin{itemize}
+\item \textbf{Multi-view CNN.} A shared convolutional encoder processes three complementary views, whose embeddings are combined through late fusion. This architecture captures local patterns while preserving view-specific information, and the same backbone can operate on either spatial projections or waveform spectrograms.
+
+\item \textbf{Static GINE.} Static GINE performs edge-aware message passing over a fixed nearest-neighbor graph~\citep{wing_xu2019gin}. For spatial data, the graph preserves local neighborhood relationships that may be obscured by projection; for time series data, it is constructed in pulse-shape coordinates.
+
+\item \textbf{BiGRU.} BiGRU processes two complementary Hilbert orderings using bidirectional recurrence~\citep{wing_cho2014gru}, providing a sequential baseline for aggregating information across ordered event points.
+
+\item \textbf{PointMamba-lite.} PointMamba-lite applies input-dependent state-space updates along ordered event points, providing an alternative mechanism for long-range context aggregation~\citep{wing_gu2023mamba,wing_liang2024pointmamba}. It is our reduced local implementation and is not intended as a reproduction of the official PointMamba architecture.
+
+\end{itemize}
+Each of these four architectures is subsequently benchmarked on every NLDBD dataset. To accommodate different modalities while preserving the architecture itself, each model uses a detector-specific input adapter together with an architecture-appropriate optimization configuration. Additional details are provided in
+Appendix~\ref{app:selection-rationale}.
