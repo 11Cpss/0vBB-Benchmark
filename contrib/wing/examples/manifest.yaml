@@ -1,0 +1,59 @@
+schema_version: 1
+task_id: synthetic-demo
+model_id: example-model
+
+dataset:
+  experiment: synthetic
+  dataset_id: energybench-demo
+  dataset_version: "1"
+  split: test
+  selection_split: validation
+  energy_condition_kind: simulated_deposited
+  energy_target_kind: simulated_deposited
+  energy_unit: MeV
+
+columns:
+  event_id: event_id
+  label: label
+  score: score
+  energy_condition: energy_condition
+  energy_true: energy_target
+  energy_pred: energy_pred
+  category: category
+  sample_weight: sample_weight
+  split: split
+
+classification:
+  enabled: true
+  positive_label: "1"
+  signal_categories: [signal]
+  background_categories: [background_A, background_B]
+  pair_mode: both
+  score_direction: higher
+  score_space: logit
+  energy_bins: 6
+  matching_target: overlap
+  min_per_class: 20
+  min_valid_bins: 2
+  support_trim_quantile: 0.005
+  min_coverage: 0.5
+  target_tpr: 0.90
+  bootstrap: 200
+  confidence: 0.95
+
+regression:
+  enabled: true
+  histogram_bins: 50
+  performance_bins: 10
+  bootstrap: 200
+  confidence: 0.95
+
+dependence:
+  enabled: true
+  energy_bins: 8
+  score_bins: 20
+  min_per_bin: 20
+
+runtime:
+  seed: 42
+  make_plots: true

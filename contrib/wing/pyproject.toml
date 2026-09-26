@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energybench"
+version = "0.1.0"
+description = "Model-agnostic energy-matched ROC and energy-regression evaluation"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = {text = "MIT"}
+authors = [{name = "Wing evaluation project"}]
+dependencies = [
+  "numpy>=1.21",
+  "matplotlib>=3.5",
+  "PyYAML>=5.3",
+  "h5py>=3.6",
+  "pandas>=1.4",
+  "pyarrow>=8",
+  "tqdm>=4.64",
+]
+
+# PyTorch is installed separately because the local RTX 5090 requires the
+# CUDA wheel index recorded in requirements/next-cnn-cu128.txt.
+
+[project.scripts]
+energybench = "energybench.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
