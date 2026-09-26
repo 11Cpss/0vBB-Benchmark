@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Specified common protocol versus recorded training settings for the audited non-Transformer models. Every listed configuration has an upper limit of 50 epochs, weight decay $10^{-4}$, gradient-norm limit 1, and seed 42. NEXT settings refer to the three available retained-campaign runs. ``Other datasets'' means EXO-200, MJD, and SuperNEMO.}
+\label{tab:wing-training}
+\begin{tabular}{llrrr}
+\toprule
+Scope & Architecture & Batch & Initial learning rate & Patience \\
+\midrule
+Specified protocol & Neural models & 64 & $5\times10^{-4}$ & 5 \\
+NEXT recorded & MV-CNN, GINE, BiGRU & 64 & $5\times10^{-4}$ & 5 \\
+Other datasets & MV-CNN & 16 & $10^{-3}$ & 12 \\
+Other datasets & GINE, BiGRU & 16 & $5\times10^{-4}$ & 12 \\
+Other datasets & PointMamba-lite & 4 & $3\times10^{-4}$ & 12 \\
+\bottomrule
+\end{tabular}
+\end{table}

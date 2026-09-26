@@ -1,0 +1,53 @@
+\subsection{Unified Transformer Approach}
+\label{sec:transformer-models}
+The central idea of this approach is to use a common Transformer backbone across all detector modalities. To enable this, each event must first be converted into a suitable sequence of tokens, together with positional or structural information added through positional encoding. Our main benchmarking question is therefore how different combinations of tokenization strategy and positional encoding affect different detector modalities. For detector $d$ and tokenization strategy $r$, the tokenizer maps an event $x$ to
+\[
+\mathcal{T}_{d,r}(x)=(\mF,\mP,\vm),
+\]
+where $\mF$ contains the token features, $\mP$ contains the positional or structural descriptors supplied to the positional encoder, and $\vm$ indicates valid tokens. A learned projection maps the token features into the Transformer embedding space. Separate models are trained for each dataset and representation, while the core Transformer architecture is held fixed across all experiments.
+
+We compare three tokenization strategies that represent detector data at different levels of granularity. \emph{Entity tokens} preserve individual detector measurements: NEXT and SuperNEMO use detector or tracker hits, MJD uses selected waveform samples, and EXO-200 uses sensor--time points balanced across its six sensor blocks. \emph{Region tokens} aggregate nearby measurements while retaining local structure: NEXT and SuperNEMO use occupied three-dimensional regions, MJD uses non-overlapping waveform patches, and EXO-200 uses regions defined jointly over sensor blocks, channel groups, and time intervals. \emph{Summary tokens} apply stronger compression by replacing groups of measurements with descriptive statistics: NEXT and SuperNEMO use balanced Morton-ordered spatial groups, MJD summarizes temporal waveform segments, and EXO-200 summarizes sensor--time regions. Together, these tokenization tests the trade-off between preserving individual measurements, retaining local structure, and compressing detector information into higher-level summaries. Detailed implementations and token budgets are provided in Appendix~\ref{app:transformer-representations}.
+
+
+We additionally compare three positional encoding~(PE) mechanisms: learned coordinate-MLP encoding, multiscale Fourier features, and rotary positional encoding (RoPE). Learned coordinate-MLP encoding maps the positional or structural descriptors $\mP$ through a small MLP into the embedding space, while multiscale Fourier features encode $\mP$ using sinusoidal functions at multiple frequencies to capture structure across different spatial or temporal scales. In both cases, the resulting positional representation is added directly to the projected token features, $\operatorname{Proj}(\mF)$. RoPE instead uses $\mP$ to apply descriptor-dependent rotations to the query and key vectors within self-attention.
+
+Across all tokenization and PE combinations, we use the same Transformer backbone: 64-dimensional embeddings, two Transformer encoder layers, four attention heads, a feed-forward dimension of 256, and masked mean pooling followed by a binary classification head. Although input projections and positional encodings can change the total parameter count, and representation-dependent sequence lengths affect computational cost, the core Transformer architecture remains fixed. This design isolates the effects of tokenization and positional encoding while maintaining a consistent backbone across detector modalities
+
+% We map each detector event to a common Transformer interface. For detector
+% $d$ and tokenization strategy $r$, the tokenizer maps event $x$ to
+% \[
+%     \mathcal{T}_{d,r}(x) = (\mF, \mP, \vm),
+% \]
+% where $\mF$ contains token content, $\mP$ contains positional or structural
+% descriptors supplied to the positional encoder, and $\vm$ identifies valid
+% tokens. A learned projection maps token content into the Transformer
+% embedding space. Separate models are trained for each dataset and
+% representation while the core Transformer dimensions are held fixed.
+
+% We compare three tokenization methodologies representing detector data at
+% different levels of granularity. Entity tokens preserve individual
+% measurements: NEXT and SuperNEMO use detector or tracker hits, MJD uses
+% selected waveform samples, and EXO-200 uses sensor--time points balanced
+% across its six sensor blocks. Region tokens retain bounded local structure:
+% NEXT and SuperNEMO aggregate occupied three-dimensional regions, MJD uses
+% non-overlapping waveform patches, and EXO-200 uses regions defined jointly
+% over sensor blocks, channel groups, and time intervals. Summary tokens apply
+% stronger compression by replacing groups of measurements with descriptive
+% statistics: NEXT and SuperNEMO form balanced Morton-ordered spatial groups,
+% MJD summarizes temporal waveform segments, and EXO-200 summarizes
+% sensor--time regions. These alternatives test whether classification
+% benefits most from preserving individual measurements, retaining local
+% neighborhood structure, or applying statistical compression. Detailed
+% implementations and token budgets appear in
+% Appendix~\ref{app:transformer-representations}.
+
+% We evaluate learned coordinate-MLP encoding, multiscale Fourier features,
+% and rotary positional encoding (RoPE). The additive MLP and Fourier methods
+% map each token's positional or structural descriptors into the embedding
+% space, whereas RoPE injects descriptor-dependent rotations into the query
+% and key vectors used by self-attention. The shared backbone uses
+% 64-dimensional embeddings, two Transformer encoder layers, four attention
+% heads, feed-forward width 256, and masked mean pooling followed by a binary
+% classification head. Input projections and positional mechanisms change the
+% parameter count, and representation-dependent sequence lengths change the
+% computational cost even though the core backbone dimensions remain fixed.

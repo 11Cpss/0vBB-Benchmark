@@ -1,0 +1,5 @@
+{
+  "source": "https://mirrors.mit.edu/CTAN/fonts/amsfonts/pfb/cmmi6.pfb",
+  "sha256": "c31dbaffb861162eadf3a7210bdf271b0dda577841aed4c0572069b0d52662b6",
+  "purpose": "Missing font required by cached Tectonic PDF renderer; no system installation"
+}

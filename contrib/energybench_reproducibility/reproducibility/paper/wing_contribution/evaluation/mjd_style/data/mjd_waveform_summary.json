@@ -1,0 +1,64 @@
+{
+  "selection": "Most populous (detector,run) among clean test events. Ties resolve by smaller detector, then smaller run. Bottom and top energy quartiles selected without waveform inspection. Example nearest each cohort median energy; ties by event ID then row.",
+  "detector": 133,
+  "run_number": 50928,
+  "events": 410,
+  "energy_quartiles_keV": [
+    226.87149259424768,
+    471.2475122679025
+  ],
+  "low_events": 103,
+  "high_events": 103,
+  "example_events": [
+    {
+      "cohort": "Low energy",
+      "shard": 0,
+      "row": 12109,
+      "id": 2407207,
+      "detector": 133,
+      "run_number": 50928,
+      "tp0": 935,
+      "energy_keV": 157.9752444466576,
+      "baseline_adc": 56.076873779296875,
+      "max_abs_amplitude_adc": 396.9231262207031,
+      "baseline_rms_adc": 2.858947782292725,
+      "normalized_baseline_rms": 0.007202774553797644
+    },
+    {
+      "cohort": "High energy",
+      "shard": 2,
+      "row": 60410,
+      "id": 2585508,
+      "detector": 133,
+      "run_number": 50928,
+      "tp0": 973,
+      "energy_keV": 1131.5149268396199,
+      "baseline_adc": 42.048126220703125,
+      "max_abs_amplitude_adc": 2822.951904296875,
+      "baseline_rms_adc": 1.9101262842745477,
+      "normalized_baseline_rms": 0.0006766414542928493
+    }
+  ],
+  "spearman_energy_max_amplitude": 0.992656766287114,
+  "spearman_energy_absolute_baseline_rms": -0.011595345234073538,
+  "spearman_energy_normalized_baseline_rms": -0.8262744993912559,
+  "low_median_relative_baseline_rms": 0.006720140203966297,
+  "high_median_relative_baseline_rms": 0.0008887829036763671,
+  "low_median_absolute_baseline_rms_adc": 2.232705757595734,
+  "high_median_absolute_baseline_rms_adc": 2.166194820417318,
+  "low_high_relative_noise_ratio": 7.561059259993715,
+  "zero_amplitude_events": 0,
+  "finite_waveforms": true,
+  "global_indices_sha256": "908216ab1210906c6cb9b76e941958b619978de12cbef71248049b772a4192af",
+  "classification_preprocessing": {
+    "source": "code/classic/MJD/mjdbench/data.py",
+    "baseline_samples": 200,
+    "arithmetic": "Read float32; first200 mean in float64 then castfloat32; subtract float32; divide maxabsolute per waveform where scale>0."
+  },
+  "units": {
+    "energy": "keV; current README and official release",
+    "waveform": "ADC counts; official release",
+    "time": "sample index; no sampling interval assumed"
+  },
+  "interpretation": "Illustrates energy information surviving per-event amplitude normalization as relative baseline noise in a controlled cohort. Does not establish trained model dependence, causality, a universal detector effect, or expected AUC improvement. Formal classification is clean versus non-clean, not low versus high energy."
+}

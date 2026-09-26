@@ -1,0 +1,53 @@
+Within each dataset, all benchmarked models use the same classification target, train/validation/test partition, and held-out test events. The NEXT and SuperNEMO datasets do not provide predefined train/validation/test splits, so we partition them approximately $80/10/10$. EXO-200 and MJD provide separate test sets; we therefore split their provided training data into training and validation subsets using a $90/10$ ratio.
+
+The definitions of signal-like and background-like events are dataset-specific. For MJD, the provided binary labels directly identify signal-like and background-like waveforms. For EXO-200, the \texttt{n\_charge\_cluster} variable records the number of reconstructed charge clusters (i.e., ``bumps''); we define events with \texttt{n\_charge\_cluster == 1} as signal-like and those with \texttt{n\_charge\_cluster > 1} as background-like. For NEXT, simulated NLDBD events are treated as signal-like and simulated $^{214}\mathrm{Bi}$\footnote{$^{214}\mathrm{Bi}$ is a radioactive decay physics event that commonly occur in neutrino detectors.} events as background-like. For SuperNEMO, simulated two-neutrino double-beta decay (2NDBD) events are treated as signal-like and simulated $^{214}\mathrm{Bi}$ events as background-like.
+
+All unified Transformer models use the same optimization procedure and backbone configuration across tokenization and positional-encoding variants. Models are trained with binary cross-entropy using AdamW, a cosine learning-rate schedule, batch size 64, an initial learning rate of $5\times10^{-4}$, weight decay $10^{-4}$, gradient-norm clipping at 1, and early stopping with patience 5, for at most 50 epochs. Checkpoints are selected using validation inclusive AUC. Native-representation models retain their architecture-specific training configurations, but are evaluated on the same test dataset and with the same metrics. Additional implementation details can be found in Appendix~\ref{app:detail}.
+
+% To ensure comparable results, all architectures within each dataset use the
+% same classification target, recorded data partition, and held-out evaluation
+% protocol. We additionally fix the optimization procedure and Transformer
+% backbone across all tokenization and positional-encoding variants, allowing
+% their effects to be studied without changing the underlying architecture.
+% The specialized baselines retain their recorded architecture-specific
+% training configurations, but are evaluated on the same test events and with
+% the same metrics as the Transformers. The benchmark therefore provides a
+% controlled comparison of representations and model families, while not
+% claiming an identical computational budget across architectures.
+
+
+% The stored NEXT labels assign 1 to $0\nu\beta\beta$ and 0 to
+% $^{214}\mathrm{Bi}$, while SuperNEMO assigns 1 to $2\nu\beta\beta$ and 0 to
+% $^{214}\mathrm{Bi}$. EXO-200 stores label 1 for events with more than one
+% charge cluster and label 0 for single-cluster events; during evaluation, we
+% reverse the label and score orientation so that single-cluster events form
+% the positive class, following Table~\ref{tab:metric-protocols}. MJD assigns
+% label 1 only when all four reference pulse-shape-discrimination criteria
+% pass. The evaluation-positive class therefore has a dataset-specific
+% physical interpretation. NEXT uses an approximately $80/10/10$
+% training/validation/test partition based on class-wise event counts, and
+% different portions of a source file may enter different splits. SuperNEMO
+% uses the same approximate proportions while assigning blocks of complete
+% events within each source category. EXO-200 keeps acquisition runs disjoint
+% across splits. MJD preserves its official test files and divides the provided
+% training data $90/10$ into training and validation subsets. Each model for a
+% given dataset reuses the same recorded partition.
+
+
+% All Transformer baselines use batch size 64, at most 50 epochs, initial
+% learning rate $5\times10^{-4}$, weight decay $10^{-4}$, gradient-norm
+% clipping at 1, early-stopping patience 5, and random seed 42. We optimize
+% binary cross-entropy on logits with AdamW and a cosine learning-rate schedule,
+% and select checkpoints by validation inclusive AUC. The audited neural
+% specialized baselines use the same general loss and optimization family, but
+% the saved runs retain architecture-specific batch sizes, learning rates, and
+% early-stopping settings, summarized in
+% Table~\ref{tab:wing-training}. The boosted-tree baseline instead uses its
+% recorded estimator configuration
+% (Appendix~\ref{app:wing-models}). We therefore report the specialized models
+% as recorded rather than claiming an identical training budget across all
+% architectures. Finally, the saved SuperNEMO non-Transformer checkpoints
+% record selection by validation inclusive AUC, although the current training
+% implementation selects energy-matched AUC; throughout this work, we treat
+% the saved checkpoint metadata as the authoritative description of the
+% reported runs.

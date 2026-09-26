@@ -1,0 +1,137 @@
+\section{Transformer Representation Details}
+\label{app:transformer-representations}
+
+Table~\ref{tab:transformer-tokenization-configs} records the concrete
+dataset-specific implementations of the three tokenization families used in
+Section~\ref{sec:transformer-models}. Here, $d_f$ is the token content
+width and $d_p$ is the coordinate width. A token count preceded by
+$\leq$ denotes a maximum sequence length; shorter events are masked and
+padded only for batching.
+
+\begin{table}[!htbp]
+\centering
+\caption{Dataset-specific Transformer tokenization configurations. Internal
+feature padding, such as the channel padding used by EXO-200 raw patches,
+does not introduce additional Transformer tokens.}
+\label{tab:transformer-tokenization-configs}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}llccX@{}}
+\toprule
+Dataset
+& Family
+& Tokens
+& $d_f/d_p$
+& Construction \\
+\midrule
+
+NEXT
+& Entity
+& $\leq512$
+& $2/3$
+& Individual detector hits selected under a fixed token cap. Token content
+describes the local hit measurement, while centered three-dimensional
+coordinates provide position. \\
+
+NEXT
+& Region
+& $\leq512$
+& $2/3$
+& Hits are aggregated within occupied three-dimensional voxels of width
+$15$ detector-coordinate units. If necessary, the most occupied voxels are
+retained under the token cap. \\
+
+NEXT
+& Summary
+& $\leq512$
+& $4/3$
+& Hits are ordered using a three-dimensional Morton ordering and partitioned
+into balanced spatial groups. Each token summarizes the measurements within
+one group. \\
+
+\midrule
+
+MJD
+& Entity
+& $500$
+& $2/3$
+& The length-$3800$ waveform is represented by a deterministic mixture
+of uniformly spaced and high-importance samples. Local context spans nine
+waveform samples. \\
+
+MJD
+& Region
+& $500$
+& $20/3$
+& The waveform is divided into $512$ non-overlapping patches containing
+$20$ raw amplitudes each. \\
+
+MJD
+& Summary
+& $500$
+& $2/3$
+& The same $512$ temporal regions are represented by their segment mean and
+root-mean-square amplitude. \\
+
+\midrule
+
+EXO-200
+& Entity
+& $504$
+& $2/6$
+& Entities are selected independently within each of six sensor blocks using
+equal proportions of uniform and waveform-salient samples. Each token stores
+amplitude and nine-sample local RMS. \\
+
+EXO-200
+& Region
+& $504$
+& $150/6$
+& Six sensor blocks are divided into seven channel regions and twelve time
+regions. Each token retains up to $6\times25$ raw waveform values; smaller
+channel regions are padded only within the token feature. \\
+
+EXO-200
+& Summary
+& $504$
+& $4/6$
+& The same sensor--temporal regions are described by mean, RMS, maximum
+absolute amplitude, and the difference between the second- and first-half
+means. \\
+
+\midrule
+
+SuperNEMO
+& Entity
+& $\leq512$
+& $4/3$
+& Individual tracker hits form tokens under a deterministic event-level cap,
+with centered three-dimensional detector coordinates. \\
+
+SuperNEMO
+& Region
+& $\leq512$
+& $8/3$
+& Hits are aggregated into occupied cubic spatial regions with width
+$88\,\mathrm{mm}$. Occupancy-based selection is used if an event exceeds the
+token cap. \\
+
+SuperNEMO
+& Summary
+& $\leq16$
+& $8/3$
+& Hits are Morton ordered and divided into at most sixteen balanced spatial
+groups, each represented by aggregated event statistics. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+NEXT and SuperNEMO use three-dimensional detector position coordinates. MJD
+uses normalized time together with normalized waveform level and local
+temporal change. EXO-200 uses normalized time, within-block channel position,
+detector side, and indicators for the U-wire, V-wire, and APD sensor
+families.
+
+\FloatBarrier

@@ -1,0 +1,15 @@
+# Local TeX build products; the reviewed manuscript PDF is retained.
+.runtime/
+.venv-energybench/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+__pycache__/
+*.pyc
+wing_contribution/figures/*_preview.png
+wing_contribution/figures/data/*_visual_review.json

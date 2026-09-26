@@ -1,0 +1,560 @@
+{
+  "description": "Final published main-table values. Evaluation and display-only precision are recorded per entry. No superseded metric values are included.",
+  "records": [
+    {
+      "dataset": "EXO-200",
+      "model_key": "mvcnn",
+      "params": "807666.0",
+      "matched_auc": "0.8628132831173242",
+      "independence": "0.7521398472116881",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "gine",
+      "params": "479942.0",
+      "matched_auc": "0.9494252937485974",
+      "independence": "0.8013051347585681",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "bigru",
+      "params": "733953.0",
+      "matched_auc": "0.9294739711565418",
+      "independence": "0.7892999785796896",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "mamba",
+      "params": "316993.0",
+      "matched_auc": "0.934068536197056",
+      "independence": "0.7858816366992372",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "mvcnn",
+      "params": "807666.0",
+      "matched_auc": "0.5859413312866025",
+      "independence": "0.9101488192671978",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "gine",
+      "params": "479942.0",
+      "matched_auc": "0.5901840940843182",
+      "independence": "0.9125447285875118",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "bigru",
+      "params": "733953.0",
+      "matched_auc": "0.579485174144929",
+      "independence": "0.9208863483649454",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "mamba",
+      "params": "316993.0",
+      "matched_auc": "0.5794927446370353",
+      "independence": "0.9215314943754063",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "mvcnn",
+      "params": "807666.0",
+      "matched_auc": "0.976586992490999",
+      "independence": "0.9709927307118373",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "gine",
+      "params": "479942.0",
+      "matched_auc": "0.9946251760528465",
+      "independence": "0.9702654680064685",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "bigru",
+      "params": "733953.0",
+      "matched_auc": "0.9793769367790737",
+      "independence": "0.9710513985489216",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "mvcnn",
+      "params": "807666.0",
+      "matched_auc": "0.9698509213976215",
+      "independence": "0.7596373174585611",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "gine",
+      "params": "480425.0",
+      "matched_auc": "0.9691827303835896",
+      "independence": "0.796689273195953",
+      "comparison_eligible": false,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "bigru",
+      "params": "733953.0",
+      "matched_auc": "0.9754452497704014",
+      "independence": "0.775288815236636",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "mamba",
+      "params": "316993.0",
+      "matched_auc": "0.9598865198317138",
+      "independence": "0.7733235506611658",
+      "comparison_eligible": true,
+      "status": "recomputed",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "mamba",
+      "params": "316993",
+      "matched_auc": "0.9253860020359358",
+      "independence": "0.9713873425002296",
+      "comparison_eligible": false,
+      "status": "evaluated_result",
+      "protocol_sha256": "64f285c8a8900d647eeabd95e599d842be2e5389a55f8d08814c644a77446b4e",
+      "input_sha256": "d472fe8f9fdab8d08881629c0bf00a46f82d58b3ff9ed2e94059121a74cff9dd",
+      "n_events": 115499
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_mlp",
+      "params": "111105.0",
+      "matched_auc": "0.987718",
+      "independence": "0.973246",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_fourier",
+      "params": "113409.0",
+      "matched_auc": "0.978698",
+      "independence": "0.972763",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "region_rope",
+      "params": "113409.0",
+      "matched_auc": "0.5124",
+      "independence": "0.483",
+      "comparison_eligible": true,
+      "status": "reported_result",
+      "precision_by_field": {
+        "independence": "reported_3dp"
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_mlp",
+      "params": "111105.0",
+      "matched_auc": "0.975494",
+      "independence": "0.97527",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_fourier",
+      "params": "113409.0",
+      "matched_auc": "0.96273",
+      "independence": "0.974274",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "entity_rope",
+      "params": "113409.0",
+      "matched_auc": "0.4971",
+      "independence": "0.512",
+      "comparison_eligible": true,
+      "status": "reported_result",
+      "precision_by_field": {
+        "independence": "reported_3dp"
+      }
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_mlp",
+      "params": "111233.0",
+      "matched_auc": "0.987424",
+      "independence": "0.970741",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_fourier",
+      "params": "113537.0",
+      "matched_auc": "0.983448",
+      "independence": "0.972612",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "NEXT",
+      "model_key": "summary_rope",
+      "params": "113537.0",
+      "matched_auc": "0.6023",
+      "independence": "0.532",
+      "comparison_eligible": true,
+      "status": "reported_result",
+      "precision_by_field": {
+        "independence": "reported_3dp"
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_mlp",
+      "params": "111105",
+      "matched_auc": "0.9293956978212661",
+      "independence": "0.8116150873441846",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "fde5dc2abd4b4d3e856e81cf8a4ecd026e62d14f4e64336bf22d9f5837c26491",
+      "n_events": 390000
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_fourier",
+      "params": "113409",
+      "matched_auc": "0.9413866002250502",
+      "independence": "0.802097914589581",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "3839256b67627253aa59d13db63db6eaba19eadf35e72b83fe9513b3bf02b1b9",
+      "n_events": 390000
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_mlp",
+      "params": "112257",
+      "matched_auc": "0.9734501967234624",
+      "independence": "0.7983154151144947",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "0d433ca3a74c5544eac11af12c4e1b358b6a74e7a4a462039607f8a1f0e65cc1",
+      "n_events": 390000
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_fourier",
+      "params": "114561",
+      "matched_auc": "0.9810463173072814",
+      "independence": "0.7876310269369133",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "f6b1430120e618f7c5129d7378f0d7f00f8ae95a23adf11b136361f3a1c5a93b",
+      "n_events": 390000
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_mlp",
+      "params": "111105",
+      "matched_auc": "0.9653926210283701",
+      "independence": "0.7990151806667429",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "11344e3759891fbf67480536015f8b9b56b8e92ffac67efa1903ef9ac6f5f761",
+      "n_events": 390000
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_fourier",
+      "params": "113409",
+      "matched_auc": "0.9691365055544586",
+      "independence": "0.7818013873421643",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "bca72d24025283bf2ed6b96fd21d79efb7f668a42e85dae8d65834bdb98569ca",
+      "n_events": 390000
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_mlp",
+      "params": "111297",
+      "matched_auc": "0.9413216210053226",
+      "independence": "0.7371650799725772",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "a0ba1fbec9a4d6c0d0ef2f0b4c694b3e0fb10e9d471a297569c68b950c36a3c2",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_fourier",
+      "params": "115905",
+      "matched_auc": "0.9471205351711137",
+      "independence": "0.7291835373545541",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "cce536fd2e2978f51089b4c02f71a4e3ea4be44bf0f9237b8929357b8ce1c754",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_mlp",
+      "params": "120769",
+      "matched_auc": "0.9695573209630712",
+      "independence": "0.8009381579076389",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "0a29722490300b4fddd3696acf5fc388a22a04fc006b63c4adcb775b196742b0",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_fourier",
+      "params": "125377",
+      "matched_auc": "0.9722610766369408",
+      "independence": "0.7900516557727041",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "1d10de6769a4af3dcac0ac13b6289e2b3a689c6d85830d46ea7961ee80e1de0f",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_mlp",
+      "params": "111425",
+      "matched_auc": "0.9469545080993464",
+      "independence": "0.7761410115147421",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "9beb788bebd7cba22d31c8d25ebc047ba959e2d02cd9d330962a913dd7bea9cd",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_fourier",
+      "params": "116033",
+      "matched_auc": "0.9600237431248531",
+      "independence": "0.8019020777424724",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "4255beb3bf9579d989ce0f911c56cd420474e69ddbbc7cb851a82b5819fdb070",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "region_rope",
+      "params": "116161",
+      "matched_auc": "0.9709096841000631",
+      "independence": "0.7892311644895167",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "838e03e1cb0d631a335832ed7a76bf344578d398bf57bd25ca5a2d2a83cae8a2",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "summary_rope",
+      "params": "106817",
+      "matched_auc": "0.9551706747468208",
+      "independence": "0.7727311876027604",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "48dc47b479684351f8fb5ae003d48d19e29e052b28b74c221a4e0bf66a47c0a6",
+      "n_events": 140383
+    },
+    {
+      "dataset": "EXO-200",
+      "model_key": "entity_rope",
+      "params": "106689",
+      "matched_auc": "0.9459249799253545",
+      "independence": "0.7153366170715236",
+      "comparison_eligible": true,
+      "status": "evaluated_result",
+      "protocol_sha256": "a46d4226b355c497ba410ec1258dfa3e13fbace114d18986a12dc027e5a7ee7c",
+      "input_sha256": "7a3ccfaf07eb2dc1c38598bbe83fbab3d059fb52874996847034523335df0d04",
+      "n_events": 140383
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_mlp",
+      "params": "111233.0",
+      "matched_auc": "0.5912104133278413",
+      "independence": "0.975384791562389",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_mlp",
+      "params": "111233.0",
+      "matched_auc": "0.5914158866798868",
+      "independence": "0.9761247768221727",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_fourier",
+      "params": "113537.0",
+      "matched_auc": "0.5896103162658949",
+      "independence": "0.9765258664774298",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_fourier",
+      "params": "113537.0",
+      "matched_auc": "0.5890906098410181",
+      "independence": "0.9740046303484715",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_mlp",
+      "params": "111361.0",
+      "matched_auc": "0.590401975879365",
+      "independence": "0.9749901725375236",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_fourier",
+      "params": "113665.0",
+      "matched_auc": "0.5891324617733658",
+      "independence": "0.9771130772722894",
+      "status": "reported_result"
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "entity_rope",
+      "params": null,
+      "params_display_thousands": "106",
+      "matched_auc": "0.793",
+      "independence": "0.749",
+      "comparison_eligible": false,
+      "status": "reported_display_values",
+      "precision": {
+        "metrics": "Three decimal places as reported; underlying unrounded values unavailable.",
+        "parameters": "Rounded thousands as reported; exact parameter count unavailable."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "region_rope",
+      "params": null,
+      "params_display_thousands": "107",
+      "matched_auc": "0.916",
+      "independence": "0.768",
+      "comparison_eligible": false,
+      "status": "reported_display_values",
+      "precision": {
+        "metrics": "Three decimal places as reported; underlying unrounded values unavailable.",
+        "parameters": "Rounded thousands as reported; exact parameter count unavailable."
+      }
+    },
+    {
+      "dataset": "MJD",
+      "model_key": "summary_rope",
+      "params": null,
+      "params_display_thousands": "106",
+      "matched_auc": "0.878",
+      "independence": "0.777",
+      "comparison_eligible": false,
+      "status": "reported_display_values",
+      "precision": {
+        "metrics": "Three decimal places as reported; underlying unrounded values unavailable.",
+        "parameters": "Rounded thousands as reported; exact parameter count unavailable."
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "entity_rope",
+      "params": null,
+      "matched_auc": "0.551",
+      "independence": "0.865",
+      "comparison_eligible": true,
+      "status": "reported_display_values",
+      "precision_by_field": {
+        "matched_auc": "reported_3dp",
+        "independence": "reported_3dp"
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "region_rope",
+      "params": null,
+      "matched_auc": "0.602",
+      "independence": "0.953",
+      "comparison_eligible": true,
+      "status": "reported_display_values",
+      "precision_by_field": {
+        "matched_auc": "reported_3dp",
+        "independence": "reported_3dp"
+      }
+    },
+    {
+      "dataset": "SuperNEMO",
+      "model_key": "summary_rope",
+      "params": null,
+      "matched_auc": "0.582",
+      "independence": "0.956",
+      "comparison_eligible": true,
+      "status": "reported_display_values",
+      "precision_by_field": {
+        "matched_auc": "reported_3dp",
+        "independence": "reported_3dp"
+      }
+    }
+  ]
+}

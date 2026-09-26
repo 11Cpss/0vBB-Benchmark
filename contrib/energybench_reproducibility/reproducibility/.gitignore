@@ -1,0 +1,18 @@
+# Local environments, caches, newly generated outputs and optional bulk inputs.
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+/outputs/
+/event_data/
+/deliverables/
+.env
+.env.*
+*.pt
+*.pth
+*.ckpt
+
+# Frozen figure inputs and validation evidence already tracked in this
+# publication snapshot are intentionally retained.

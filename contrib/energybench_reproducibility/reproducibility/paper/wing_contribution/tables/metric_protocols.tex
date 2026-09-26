@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Conditioning variables for classic models and the reevaluated EXO-200 and MJD Transformers. The MJD and EXO-200 reevaluation uses 600 fixed 5 keV bins on 0--3000 keV and excludes energies outside this range (v3). NEXT and SuperNEMO classic results retain 600 regular bins plus one overflow bin (v2). The two metrics retain distinct statistical definitions.}
+\label{tab:metric-protocols}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{.14\linewidth}p{.31\linewidth}p{.45\linewidth}}
+\toprule
+Dataset & Evaluation-positive class & Physical conditioning energy \\
+\midrule
+NEXT & $0\nu\beta\beta$ & Summed deposited-hit energy; MeV converted to keV \\
+MJD & Clean pulse & Original calibrated float64 energy (keV), recovered from test-event metadata \\
+EXO-200 & Stored label 0 ($n_{\mathrm{CCL}}=1$) & Reconstructed rotated energy (keV); negate background-oriented logit \\
+SuperNEMO & $2\nu\beta\beta$ & Reconstructed calorimeter $E_1+E_2$ (keV) \\
+\bottomrule
+\end{tabular}
+\end{table}
